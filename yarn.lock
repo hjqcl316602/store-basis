@@ -6407,16 +6407,6 @@ static-extend@^0.1.1:
   resolved "https://registry.npm.taobao.org/statuses/download/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
 
-store-es@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.npm.taobao.org/store-es/download/store-es-1.0.4.tgz#c0499b80193714d1929d7adcf8b8fb57753080cc"
-  integrity sha1-wEmbgBk3FNGSnXrc+Lj7V3UwgMw=
-
-store-vue-directive@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.npm.taobao.org/store-vue-directive/download/store-vue-directive-1.0.5.tgz#6e983e6867331b7fbda3e39a03aa202e201cf1ca"
-  integrity sha1-bpg+aGczG3+9o+OaA6ogLiAc8co=
-
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.npm.taobao.org/stream-browserify/download/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
