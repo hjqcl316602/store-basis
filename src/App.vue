@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <div
-      style="height:400px;background:#fff"
-      class="jq-flex jq-justify-content--center jq-align-items--center"
-    >
+    <div style="height:400px;background:#fff" class="jq-center">
       <div
         style="height:50px;width:100px;"
         class="jq-align-items--center jq-border-top jq-border--thiner jq-border--lighter"
