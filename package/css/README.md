@@ -4,25 +4,28 @@
 
 npm install store-css-basis
 
-不需要自定义主题
+### 不需要自定义主题
 
 ```js
+// 单独引入模块
 import 'store-css-basis/basis/index.css';
 import 'store-css-basis/main/index.css';
-
 // or
 // 全部引入
 import 'store-css-basis';
 ```
 
-需要自定义主题，则需要创建一个 less 文件，覆盖原有的主题
+### 需要自定义主题
 
-```css
-@import 'store-css-basis/basis/index.less';
+需要自定义主题，则需要创建一个 theme 文件夹，在创建一个 index.less 文件 ,
+在 less 文件中覆盖原有的主题，如果编辑器能自动编译 less，则生成 index.css 之后，在 main.js 中引入即可
+
+```less
+@import '../../node_modules/store-css-basis/basis/index.less';
 @color-bg: #dedede;
 @root-font-size: 16px;
 
-@import 'store-css-basis/main/index.less';
+@import '../../node_modules/store-css-basis/main/index.less';
 @prefix: jq;
 
 @background-color-body: #f1f1f1;
