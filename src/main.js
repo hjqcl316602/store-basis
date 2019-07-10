@@ -6,7 +6,8 @@ import router from './router';
 Vue.config.productionTip = false;
 
 import '../package/css/basis/index.less';
-import '../package/css/main/index.less';
+//import '../package/css/main/index.less';
+import './theme/index.css'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

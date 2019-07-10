@@ -3,19 +3,19 @@
 /**
 * 边框
 */
-.jq-border-top,
-.jq-border-bottom,
-.jq-border-left,
-.jq-border-right,
-.jq-border {
+.@{prefix}-border-top,
+.@{prefix}-border-bottom,
+.@{prefix}-border-left,
+.@{prefix}-border-right,
+.@{prefix}-border {
   position: relative
 }
 
-.jq-border-top:after,
-.jq-border-bottom:after,
-.jq-border-left:after,
-.jq-border-right:after,
-.jq-border:after {
+.@{prefix}-border-top:after,
+.@{prefix}-border-bottom:after,
+.@{prefix}-border-left:after,
+.@{prefix}-border-right:after,
+.@{prefix}-border:after {
   content: '';
   position: absolute;
   top: 0;
@@ -35,42 +35,42 @@
 * 边框 四周
 */
 
-.jq-border:after {
+.@{prefix}-border:after {
   border-width: 1px
 }
 
-.jq-border-top:after {
+.@{prefix}-border-top:after {
   border-top-width: 1px
 }
 
-.jq-border-bottom:after {
+.@{prefix}-border-bottom:after {
   border-bottom-width: 1px
 }
 
-.jq-border-left:after {
+.@{prefix}-border-left:after {
   border-left-width: 1px
 }
 
-.jq-border-right:after {
+.@{prefix}-border-right:after {
   border-right-width: 1px
 }
 
 /**
 * border的粗细
 */
-.jq-border--thiner:after {
+.@{prefix}-border--thiner:after {
   width: 400%;
   height: 400%;
   transform: scale(1/4);
 }
 
-.jq-border--thin:after {
+.@{prefix}-border--thin:after {
   width: 300%;
   height: 300%;
   transform: scale(1/3);
 }
 
-.jq-border--half:after {
+.@{prefix}-border--half:after {
   width: 200%;
   height: 200%;
   transform: scale(.5);
@@ -79,25 +79,25 @@
 /**
 * border的样式
 */
-.jq-border--dashed:after {
+.@{prefix}-border--dashed:after {
   border-style: dashed
 }
 
 /**
 * border的颜色
 */
-.jq-border--lighter:after {
+.@{prefix}-border--lighter:after {
   border-color: @border-color-lighter
 }
 
-.jq-border--light:after {
+.@{prefix}-border--light:after {
   border-color: @border-color-light
 }
 
-.jq-border--dark:after {
+.@{prefix}-border--dark:after {
   border-color: @border-color-dark
 }
 
-.jq-border--darker:after {
+.@{prefix}-border--darker:after {
   border-color: @border-color-darker
 }

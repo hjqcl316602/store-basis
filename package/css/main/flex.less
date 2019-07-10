@@ -1,8 +1,9 @@
+@import './theme.less';
 /*
 *flex布局
 */
 
-.jq-flex {
+.@{prefix}-flex {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
@@ -13,23 +14,23 @@
 *flex布局 水平排列方式
 */
 
-.jq-justify-content--flex-start {
+.@{prefix}-justify-content--flex-start {
   justify-content: flex-start
 }
 
-.jq-justify-content--center {
+.@{prefix}-justify-content--center {
   justify-content: center
 }
 
-.jq-justify-content--flex-end {
+.@{prefix}-justify-content--flex-end {
   justify-content: flex-end
 }
 
-.jq-justify-content--space-between {
+.@{prefix}-justify-content--space-between {
   justify-content: space-between
 }
 
-.jq-justify-content--space-around {
+.@{prefix}-justify-content--space-around {
   justify-content: space-around
 }
 
@@ -37,23 +38,23 @@
 /*
 *flex布局 垂直方向排列方式
 */
-.jq-align-items--flex-start {
+.@{prefix}-align-items--flex-start {
   align-items: flex-start
 }
 
-.jq-align-items--flex-end {
+.@{prefix}-align-items--flex-end {
   align-items: flex-end
 }
 
-.jq-align-items--center {
+.@{prefix}-align-items--center {
   align-items: center
 }
 
-.jq-align-items--baseline {
+.@{prefix}-align-items--baseline {
   align-items: baseline
 }
 
-.jq-align-items--stretch {
+.@{prefix}-align-items--stretch {
   align-items: stretch
 }
 
@@ -61,46 +62,46 @@
 *flex布局 多根轴线的对齐方式
 */
 
-.jq-align-content--center {
+.@{prefix}-align-content--center {
   align-content: center
 }
 
-.jq-align-content--flex-start {
+.@{prefix}-align-content--flex-start {
   align-content: flex-start
 }
 
-.jq-align-content--flex-end {
+.@{prefix}-align-content--flex-end {
   align-content: flex-end
 }
 
-.jq-align-content--space-around {
+.@{prefix}-align-content--space-around {
   align-content: space-around
 }
 
-.jq-align-content--space-between {
+.@{prefix}-align-content--space-between {
   align-content: space-between
 }
 
-.jq-align-content--stretch {
+.@{prefix}-align-content--stretch {
   align-content: stretch
 }
 
 /*
 *flex布局 决定主轴的方向
 */
-.jq-flex-direction--row {
+.@{prefix}-flex-direction--row {
   flex-direction: row
 }
 
-.jq-flex-direction--row-reverse {
+.@{prefix}-flex-direction--row-reverse {
   flex-direction: row-reverse
 }
 
-.jq-flex-direction--column {
+.@{prefix}-flex-direction--column {
   flex-direction: column
 }
 
-.jq-flex-direction--column-reverse {
+.@{prefix}-flex-direction--column-reverse {
   flex-direction: column-reverse
 }
 
@@ -108,15 +109,15 @@
 *flex布局 项目都排在一条线,如果一条轴线排不下，如何换行
 */
 
-.jq-flex-wrap--nowrap {
+.@{prefix}-flex-wrap--nowrap {
   flex-wrap: nowrap
 }
 
-.jq-flex-wrap--wrap {
+.@{prefix}-flex-wrap--wrap {
   flex-wrap: wrap
 }
 
-.jq-flex-wrap--wrap-reverse {
+.@{prefix}-flex-wrap--wrap-reverse {
   flex-wrap: wrap-reverse
 }
 
@@ -125,7 +126,7 @@
 *flex布局 子元素
 */
 
-.jq-flex-item {
+.@{prefix}-flex-item {
   box-sizing: border-box
 }
 
@@ -133,26 +134,26 @@
 * flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选
 */
 
-.jq-flex--0 {
+.@{prefix}-flex--0 {
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: 0%
 }
 
-.jq-flex--1 {
+.@{prefix}-flex--1 {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 0%
 }
 
-.jq-flex--none {
+.@{prefix}-flex--none {
   //flex: none;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto
 }
 
-.jq-flex--auto {
+.@{prefix}-flex--auto {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto
@@ -162,11 +163,11 @@
 *flex布局 排序
 */
 
-.jq-order--0 {
+.@{prefix}-order--0 {
   order: 0
 }
 
-.jq-order--1 {
+.@{prefix}-order--1 {
   order: 1
 }
 
@@ -174,22 +175,22 @@
 *flex布局 放大比例
 */
 
-.jq-flex-grow--0 {
+.@{prefix}-flex-grow--0 {
   flex-grow: 0
 }
 
-.jq-flex-grow--1 {
+.@{prefix}-flex-grow--1 {
   flex-grow: 1
 }
 
 /*
 *flex布局 缩小比例
 */
-.jq-flex-shrink--0 {
+.@{prefix}-flex-shrink--0 {
   flex-shrink: 0
 }
 
-.jq-flex-shrink--1 {
+.@{prefix}-flex-shrink--1 {
   flex-shrink: 1
 }
 
@@ -198,26 +199,26 @@
 * 允许单个项目不同于其项目的对齐方式
 */
 
-.jq-aglin-self--auto {
+.@{prefix}-aglin-self--auto {
   align-self: auto
 }
 
-.jq-aglin-self--flex-start {
+.@{prefix}-aglin-self--flex-start {
   align-self: flex-start
 }
 
-.jq-aglin-self--flex-end {
+.@{prefix}-aglin-self--flex-end {
   align-self: flex-end
 }
 
-.jq-aglin-self--center {
+.@{prefix}-aglin-self--center {
   align-self: center
 }
 
-.jq-aglin-self--baseline {
+.@{prefix}-aglin-self--baseline {
   align-self: baseline
 }
 
-.jq-aglin-self--stretch {
+.@{prefix}-aglin-self--stretch {
   align-self: stretch
 }

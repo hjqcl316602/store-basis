@@ -1,11 +1,13 @@
 @import './theme.less';
+@span: ~"[class*=@{prefix}-span]";
+@row: ~"[class*=@{prefix}-row]";
+
 
 /**
 * 布局
 */
 
-
-.jq-row {
+.@{prefix}-row {
   margin-left: 0;
   margin-right: 0;
   height: auto;
@@ -14,13 +16,13 @@
   box-sizing: border-box
 }
 
-.jq-row:before {
+.@{prefix}-row:before {
   content: "";
   display: table;
   clear: both;
 }
 
-.jq-row:after {
+.@{prefix}-row:after {
   content: "";
   display: table;
   clear: both;
@@ -28,14 +30,14 @@
   height: 0;
 }
 
-.jq-row [class*=jq-span] {
+.@{prefix}-row @{span} {
   display: block;
   position: relative;
   float: left;
   box-sizing: border-box
 }
 
-.jq-row--right [class*=jq-span] {
+.@{prefix}-row--right @{span} {
   display: block;
   position: relative;
   float: right;
@@ -45,68 +47,67 @@
 /**
 * flex布局 
 */
-.jq-row--flex {
+.@{prefix}-row--flex {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
   flex-direction: row;
 }
 
-.jq-row--flex [class*=jq-span] {
+.@{prefix}-row--flex @{span} {
   flex: none;
   box-sizing: border-box
 }
 
-
 /**
 * 布局 间距 4 8 12 16 20 
 */
-[class*=jq-row].jq-row-gutter--smaller {
+@{row}.@{prefix}-row-gutter--smaller {
   margin-left: -@gutter-smaller/2;
   margin-right: -@gutter-smaller/2;
 }
 
-[class*=jq-row].jq-row-gutter--smaller>[class*=jq-span] {
+@{row}.@{prefix}-row-gutter--smaller>@{span} {
   padding-left: @gutter-smaller/2;
   padding-right: @gutter-smaller/2;
 }
 
-[class*=jq-row].jq-row-gutter--small {
+@{row}.@{prefix}-row-gutter--small {
   margin-left: -@gutter-small/2;
   margin-right: -@gutter-small/2;
 }
 
-[class*=jq-row].jq-row-gutter--small>[class*=jq-span] {
+@{row}.@{prefix}-row-gutter--small>@{span} {
   padding-left: @gutter-small/2;
   padding-right: @gutter-small/2;
 }
 
-[class*=jq-row].jq-row-gutter {
+@{row}.@{prefix}-row-gutter {
   margin-left: -@gutter-medium/2;
   margin-right: -@gutter-medium/2;
 }
 
-[class*=jq-row].jq-row-gutter>[class*=jq-span] {
+@{row}.@{prefix}-row-gutter>@{span} {
   padding-left: @gutter-medium/2;
   padding-right: @gutter-medium/2;
 }
 
-[class*=jq-row].jq-row-gutter--large {
+@{row}.@{prefix}-row-gutter--large {
   margin-left: -@gutter-large/2;
   margin-right: -@gutter-large/2;
 }
 
-[class*=jq-row].jq-row-gutter--large>[class*=jq-span] {
+@{row}.@{prefix}-row-gutter--large>@{span} {
   padding-left: @gutter-large/2;
   padding-right: @gutter-large/2;
 }
 
-[class*=jq-row].jq-row-gutter--larger {
+@{row}.@{prefix}-row-gutter--larger {
   margin-left: -@gutter-larger/2;
   margin-right: -@gutter-larger/2;
 }
 
-[class*=jq-row].jq-row-gutter--larger>[class*=jq-span] {
+@{row}.@{prefix}-row-gutter--larger>@{span} {
   padding-left: @gutter-larger/2;
   padding-right: @gutter-larger/2;
 }
@@ -115,99 +116,99 @@
 * 布局 宽度
 */
 
-.jq-span--1 {
+.@{prefix}-span--1 {
   width: 1/24 * 100%
 }
 
-.jq-span--2 {
+.@{prefix}-span--2 {
   width: 2/24 * 100%
 }
 
-.jq-span--3 {
+.@{prefix}-span--3 {
   width: 3/24 * 100%
 }
 
-.jq-span--4 {
+.@{prefix}-span--4 {
   width: 4/24 * 100%
 }
 
-.jq-span--5 {
+.@{prefix}-span--5 {
   width: 5/24 * 100%;
 }
 
-.jq-span--6 {
+.@{prefix}-span--6 {
   width: 6/24 * 100%
 }
 
-.jq-span--7 {
+.@{prefix}-span--7 {
   width: 7/24 * 100%
 }
 
-.jq-span--8 {
+.@{prefix}-span--8 {
   width: 8/24 * 100%
 }
 
-.jq-span--9 {
+.@{prefix}-span--9 {
   width: 9/24 * 100%
 }
 
-.jq-span--10 {
+.@{prefix}-span--10 {
   width: 10/24 * 100%;
 }
 
-.jq-span--11 {
+.@{prefix}-span--11 {
   width: 11/24 * 100%
 }
 
-.jq-span--12 {
+.@{prefix}-span--12 {
   width: 12/24 * 100%
 }
 
-.jq-span--13 {
+.@{prefix}-span--13 {
   width: 13/24 * 100%
 }
 
-.jq-span--14 {
+.@{prefix}-span--14 {
   width: 14/24 * 100%
 }
 
-.jq-span--15 {
+.@{prefix}-span--15 {
   width: 15/24 * 100%;
 }
 
-.jq-span--16 {
+.@{prefix}-span--16 {
   width: 16/24 * 100%
 }
 
-.jq-span--17 {
+.@{prefix}-span--17 {
   width: 17/24 * 100%
 }
 
-.jq-span--18 {
+.@{prefix}-span--18 {
   width: 18/24 * 100%
 }
 
-.jq-span--19 {
+.@{prefix}-span--19 {
   width: 19/24 * 100%
 }
 
-.jq-span--20 {
+.@{prefix}-span--20 {
   width: 20/24 * 100%;
 }
 
-.jq-span--21 {
+.@{prefix}-span--21 {
   width: 21/24 * 100%
 }
 
-.jq-span--22 {
+.@{prefix}-span--22 {
   width: 22/24 * 100%
 }
 
-.jq-span--23 {
+.@{prefix}-span--23 {
   width: 23/24 * 100%
 }
 
-.jq-span--24 {
+.@{prefix}-span--24 {
   width: 24/24 * 100%
 }
 
@@ -216,99 +217,99 @@
 * 布局 左偏移量
 */
 
-.jq-push--1 {
+.@{prefix}-push--1 {
   margin-left: 1/24 * 100%
 }
 
-.jq-push--2 {
+.@{prefix}-push--2 {
   margin-left: 2/24 * 100%
 }
 
-.jq-push--3 {
+.@{prefix}-push--3 {
   margin-left: 3/24 * 100%
 }
 
-.jq-push--4 {
+.@{prefix}-push--4 {
   margin-left: 4/24 * 100%
 }
 
-.jq-push--5 {
+.@{prefix}-push--5 {
   margin-left: 5/24 * 100%;
 }
 
-.jq-push--6 {
+.@{prefix}-push--6 {
   margin-left: 6/24 * 100%
 }
 
-.jq-push--7 {
+.@{prefix}-push--7 {
   margin-left: 7/24 * 100%
 }
 
-.jq-push--8 {
+.@{prefix}-push--8 {
   margin-left: 8/24 * 100%
 }
 
-.jq-push--9 {
+.@{prefix}-push--9 {
   margin-left: 9/24 * 100%
 }
 
-.jq-push--10 {
+.@{prefix}-push--10 {
   margin-left: 10/24 * 100%;
 }
 
-.jq-push--11 {
+.@{prefix}-push--11 {
   margin-left: 11/24 * 100%
 }
 
-.jq-push--12 {
+.@{prefix}-push--12 {
   margin-left: 12/24 * 100%
 }
 
-.jq-push--13 {
+.@{prefix}-push--13 {
   margin-left: 13/24 * 100%
 }
 
-.jq-push--14 {
+.@{prefix}-push--14 {
   margin-left: 14/24 * 100%
 }
 
-.jq-push--15 {
+.@{prefix}-push--15 {
   margin-left: 15/24 * 100%;
 }
 
-.jq-push--16 {
+.@{prefix}-push--16 {
   margin-left: 16/24 * 100%
 }
 
-.jq-push--17 {
+.@{prefix}-push--17 {
   margin-left: 17/24 * 100%
 }
 
-.jq-push--18 {
+.@{prefix}-push--18 {
   margin-left: 18/24 * 100%
 }
 
-.jq-push--19 {
+.@{prefix}-push--19 {
   margin-left: 19/24 * 100%
 }
 
-.jq-push--20 {
+.@{prefix}-push--20 {
   margin-left: 20/24 * 100%;
 }
 
-.jq-push--21 {
+.@{prefix}-push--21 {
   margin-left: 21/24 * 100%
 }
 
-.jq-push--22 {
+.@{prefix}-push--22 {
   margin-left: 22/24 * 100%
 }
 
-.jq-push--23 {
+.@{prefix}-push--23 {
   margin-left: 23/24 * 100%
 }
 
-.jq-push--24 {
+.@{prefix}-push--24 {
   margin-left: 24/24 * 100%
 }
 
@@ -317,98 +318,98 @@
 * 布局 右偏移量
 */
 
-.jq-pull--1 {
+.@{prefix}-pull--1 {
   margin-right: 1/24 * 100%
 }
 
-.jq-pull--2 {
+.@{prefix}-pull--2 {
   margin-right: 2/24 * 100%
 }
 
-.jq-pull--3 {
+.@{prefix}-pull--3 {
   margin-right: 3/24 * 100%
 }
 
-.jq-pull--4 {
+.@{prefix}-pull--4 {
   margin-right: 4/24 * 100%
 }
 
-.jq-pull--5 {
+.@{prefix}-pull--5 {
   margin-right: 5/24 * 100%;
 }
 
-.jq-pull--6 {
+.@{prefix}-pull--6 {
   margin-right: 6/24 * 100%
 }
 
-.jq-pull--7 {
+.@{prefix}-pull--7 {
   margin-right: 7/24 * 100%
 }
 
-.jq-pull--8 {
+.@{prefix}-pull--8 {
   margin-right: 8/24 * 100%
 }
 
-.jq-pull--9 {
+.@{prefix}-pull--9 {
   margin-right: 9/24 * 100%
 }
 
-.jq-pull--10 {
+.@{prefix}-pull--10 {
   margin-right: 10/24 * 100%;
 }
 
-.jq-pull--11 {
+.@{prefix}-pull--11 {
   margin-right: 11/24 * 100%
 }
 
-.jq-pull--12 {
+.@{prefix}-pull--12 {
   margin-right: 12/24 * 100%
 }
 
-.jq-pull--13 {
+.@{prefix}-pull--13 {
   margin-right: 13/24 * 100%
 }
 
-.jq-pull--14 {
+.@{prefix}-pull--14 {
   margin-right: 14/24 * 100%
 }
 
-.jq-pull--15 {
+.@{prefix}-pull--15 {
   margin-right: 15/24 * 100%;
 }
 
-.jq-pull--16 {
+.@{prefix}-pull--16 {
   margin-right: 16/24 * 100%
 }
 
-.jq-pull--17 {
+.@{prefix}-pull--17 {
   margin-right: 17/24 * 100%
 }
 
-.jq-pull--18 {
+.@{prefix}-pull--18 {
   margin-right: 18/24 * 100%
 }
 
-.jq-pull--19 {
+.@{prefix}-pull--19 {
   margin-right: 19/24 * 100%
 }
 
-.jq-pull--20 {
+.@{prefix}-pull--20 {
   margin-right: 20/24 * 100%;
 }
 
-.jq-pull--21 {
+.@{prefix}-pull--21 {
   margin-right: 21/24 * 100%
 }
 
-.jq-pull--22 {
+.@{prefix}-pull--22 {
   margin-right: 22/24 * 100%
 }
 
-.jq-pull--23 {
+.@{prefix}-pull--23 {
   margin-right: 23/24 * 100%
 }
 
-.jq-pull--24 {
+.@{prefix}-pull--24 {
   margin-right: 24/24 * 100%
 }

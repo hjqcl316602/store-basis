@@ -1,4 +1,5 @@
- 
+@import './theme.less';
+
 /**
 * 文本 
 */
@@ -22,43 +23,43 @@
 /**
 * 文本的字体颜色
 */
-.jq-color--primary {
+.@{prefix}-color--primary {
   color: @color-primary;
 }
 
-.jq-color--warning {
+.@{prefix}-color--warning {
   color: @color-warning;
 }
 
-.jq-color--danger {
+.@{prefix}-color--danger {
   color: @color-danger
 }
 
-.jq-color--success {
+.@{prefix}-color--success {
   color: @color-success
 }
 
-.jq-color--dark {
+.@{prefix}-color--dark {
   color: @color-dark
 }
 
-.jq-color--light {
+.@{prefix}-color--light {
   color: @color-light
 }
 
-.jq-color--gray {
+.@{prefix}-color--gray {
   color: @color-gray
 }
 
-.jq-color--black {
+.@{prefix}-color--black {
   color: @color-black
 }
 
-.jq-color--white {
+.@{prefix}-color--white {
   color: @color-white;
 }
 
-.jq-color--inherit {
+.@{prefix}-color--inherit {
   color: inherit;
 
 }
@@ -66,7 +67,7 @@
 /**
 * 文本的字体大小
 */
-.jq-font-size--none {
+.@{prefix}-font-size--none {
   font-size: 0;
 }
 
@@ -74,112 +75,112 @@
   font-size: @text-size-smaller;
 }
 
-.jq-font-size--small {
+.@{prefix}-font-size--small {
   font-size: @text-size-small;
 }
 
-.jq-font-size--medium {
+.@{prefix}-font-size--medium {
   font-size: @text-size-medium;
 }
 
-.jq-font-size--large {
+.@{prefix}-font-size--large {
   font-size: @text-size-large;
 }
 
-.jq-font-size--larger {
+.@{prefix}-font-size--larger {
   font-size: @text-size-larger;
 }
 
-.jq-font-size--inherit {
+.@{prefix}-font-size--inherit {
   font-size: inherit;
 }
 
 /**
 * 文本的样式
 */
-.jq-font-style--italic {
+.@{prefix}-font-style--italic {
   font-style: italic
 }
 
-.jq-font-style--oblique {
+.@{prefix}-font-style--oblique {
   font-style: oblique
 }
 
-.jq-font-style--inherit {
+.@{prefix}-font-style--inherit {
   font-style: inherit
 }
 
 /**
 * 文本的字体粗细
 */
-.jq-font-weight---100 {
+.@{prefix}-font-weight--100 {
   font-weight: 100
 }
 
-.jq-font-weight---200 {
+.@{prefix}-font-weight--200 {
   font-weight: 200
 }
 
-.jq-font-weight---300 {
+.@{prefix}-font-weight--300 {
   font-weight: 300
 }
 
-.jq-font-weight---400 {
+.@{prefix}-font-weight--400 {
   font-weight: 400
 }
 
-.jq-font-weight---500 {
+.@{prefix}-font-weight--500 {
   font-weight: 500
 }
 
-.jq-font-weight---600 {
+.@{prefix}-font-weight--600 {
   font-weight: 600
 }
 
-.jq-font-weight---700 {
+.@{prefix}-font-weight--700 {
   font-weight: 700
 }
 
-.jq-font-weight---800 {
+.@{prefix}-font-weight--800 {
   font-weight: 800
 }
 
-.jq-font-weight---900 {
+.@{prefix}-font-weight--900 {
   font-weight: 900
 }
 
-.jq-font-weight---bold {
+.@{prefix}-font-weight--bold {
   font-weight: bold
 }
 
-.jq-font-weight---bolder {
+.@{prefix}-font-weight--bolder {
   font-weight: bolder
 }
 
-.jq-font-weight--lighter {
+.@{prefix}-font-weight--lighter {
   font-weight: lighter
 }
 
-.jq-font-weight--normal {
+.@{prefix}-font-weight--normal {
   font-weight: normal
 }
 
-.jq-font-weight--inherit {
+.@{prefix}-font-weight--inherit {
   font-weight: inherit
 }
 
 /**
 * 规定文本的方向 / 书写方向
 */
-.jq-direction--ltr {
+.@{prefix}-direction--ltr {
   direction: ltr
 }
 
-.jq-direction--rtl {
+.@{prefix}-direction--rtl {
   direction: rtl
 }
 
-.jq-direction--inherit {
+.@{prefix}-direction--inherit {
   direction: inherit
 }
 
@@ -187,31 +188,31 @@
 /**
 * 文本字符间距
 */
-.jq-letter-spacing--smaller {
+.@{prefix}-letter-spacing--smaller {
   letter-spacing: @text-letter-spacing-smaller;
 }
 
-.jq-letter-spacing--small {
+.@{prefix}-letter-spacing--small {
   letter-spacing: @text-letter-spacing-small;
 }
 
-.jq-letter-spacing--medium {
+.@{prefix}-letter-spacing--medium {
   letter-spacing: @text-letter-spacing-medium;
 }
 
-.jq-letter-spacing--large {
+.@{prefix}-letter-spacing--large {
   letter-spacing: @text-letter-spacing-large;
 }
 
-.jq-letter-spacing--larger {
+.@{prefix}-letter-spacing--larger {
   letter-spacing: @text-letter-spacing-larger;
 }
 
-.jq-letter-spacing--inherit {
+.@{prefix}-letter-spacing--inherit {
   letter-spacing: inherit;
 }
 
-.jq-letter-spacing--normal {
+.@{prefix}-letter-spacing--normal {
   letter-spacing: normal
 }
 
@@ -222,31 +223,31 @@
 */
 
 
-.jq-line-height--smaller {
+.@{prefix}-line-height--smaller {
   line-height: @text-height-smaller
 }
 
-.jq-line-height--small {
+.@{prefix}-line-height--small {
   line-height: @text-height-small
 }
 
-.jq-line-height--medium {
+.@{prefix}-line-height--medium {
   line-height: @text-height-medium
 }
 
-.jq-line-height--large {
+.@{prefix}-line-height--large {
   line-height: @text-height-large
 }
 
-.jq-line-height--larger {
+.@{prefix}-line-height--larger {
   line-height: @text-height-larger
 }
 
-.jq-line-height--inherit {
+.@{prefix}-line-height--inherit {
   line-height: inherit
 }
 
-.jq-line-height--normal {
+.@{prefix}-line-height--normal {
   line-height: normal
 }
 
@@ -254,104 +255,104 @@
 /**
 * 文本的字体对齐方式
 */
-.jq-text-align--left {
+.@{prefix}-text-align--left {
   text-align: left
 }
 
-.jq-text-align--center {
+.@{prefix}-text-align--center {
   text-align: center
 }
 
-.jq-text-align--right {
+.@{prefix}-text-align--right {
   text-align: right
 }
 
-.jq-text-align--justify {
+.@{prefix}-text-align--justify {
   text-align: justify
 }
 
-.jq-text-align--inherit {
+.@{prefix}-text-align--inherit {
   text-align: inherit
 }
 
 /**
 * 文本decoration,规定添加到文本的装饰效果
 */
-.jq-text-decoration--none {
+.@{prefix}-text-decoration--none {
   text-decoration: none
 }
 
-.jq-text-decoration--underline {
+.@{prefix}-text-decoration--underline {
   text-decoration: underline
 }
 
-.jq-text-decoration--overline {
+.@{prefix}-text-decoration--overline {
   text-decoration: overline
 }
 
-.jq-text-decoration--line-through {
+.@{prefix}-text-decoration--line-through {
   text-decoration: line-through
 }
 
-.jq-text-decoration--blink {
+.@{prefix}-text-decoration--blink {
   text-decoration: blink
 }
 
-.jq-text-decoration--inherit {
+.@{prefix}-text-decoration--inherit {
   text-decoration: inherit
 }
 
 /**
 * 文本首行的缩进
 */
-.jq-text-indent--none {
+.@{prefix}-text-indent--none {
   text-indent: 0;
 }
 
-.jq-text-indent--smaller {
+.@{prefix}-text-indent--smaller {
   text-indent: @text-indent-smaller;
 }
 
-.jq-text-indent--small {
+.@{prefix}-text-indent--small {
   text-indent: @text-indent-small;
 }
 
-.jq-text-indent--medium {
+.@{prefix}-text-indent--medium {
   text-indent: @text-indent-medium;
 }
 
-.jq-text-indent--large {
+.@{prefix}-text-indent--large {
   text-indent: @text-indent-large;
 }
 
-.jq-text-indent--larger {
+.@{prefix}-text-indent--larger {
   text-indent: @text-indent-larger;
 }
 
-.jq-text-indent--inherit {
+.@{prefix}-text-indent--inherit {
   text-indent: inherit;
 }
 
 /**
 * 文本 大小写的转换
 */
-.jq-text-transform--none {
+.@{prefix}-text-transform--none {
   text-transform: none;
 }
 
-.jq-text-transform--capitalize {
+.@{prefix}-text-transform--capitalize {
   text-transform: capitalize;
 }
 
-.jq-text-transform--lowercase {
+.@{prefix}-text-transform--lowercase {
   text-transform: lowercase;
 }
 
-.jq-text-transform--uppercase {
+.@{prefix}-text-transform--uppercase {
   text-transform: uppercase;
 }
 
-.jq-text-transform--inherit {
+.@{prefix}-text-transform--inherit {
   text-transform: inherit;
 }
 
@@ -360,31 +361,31 @@
 /**
 * 文本单词之间的间距
 */
-.jq-word-spacing--normal {
+.@{prefix}-word-spacing--normal {
   word-spacing: normal;
 }
 
-.jq-word-spacing--smaller {
+.@{prefix}-word-spacing--smaller {
   word-spacing: @text-word-spacing-smaller;
 }
 
-.jq-word-spacing--small {
+.@{prefix}-word-spacing--small {
   word-spacing: @text-word-spacing-small;
 }
 
-.jq-word-spacing--medium {
+.@{prefix}-word-spacing--medium {
   word-spacing: @text-word-spacing-medium;
 }
 
-.jq-word-spacing--large {
+.@{prefix}-word-spacing--large {
   word-spacing: @text-word-spacing-large;
 }
 
-.jq-word-spacing--larger {
+.@{prefix}-word-spacing--larger {
   word-spacing: @text-word-spacing-larger;
 }
 
-.jq-word-spacing--inherit {
+.@{prefix}-word-spacing--inherit {
   word-spacing: inherit;
 }
 
@@ -394,26 +395,26 @@
 /**
 * 文本 恰当的断字点进行换行
 */
-.jq-word-break--normal {
+.@{prefix}-word-break--normal {
   word-break: normal
 }
 
-.jq-word-break--break-all {
+.@{prefix}-word-break--break-all {
   word-break: break-all
 }
 
-.jq-word-break--keep-all {
+.@{prefix}-word-break--keep-all {
   word-break: keep-all
 }
 
 /**
 * 文本 允许长单词换行到下一行
 */
-.jq-word-wrap--normal {
+.@{prefix}-word-wrap--normal {
   word-wrap: normal
 }
 
-.jq-word-wrap--break {
+.@{prefix}-word-wrap--break {
   word-wrap: break-word
 }
 
@@ -422,13 +423,13 @@
 * 文本的截取
 */
 
-.jq-text--ellipsis {
+.@{prefix}-text--ellipsis {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.jq-text--clamp {
+.@{prefix}-text--clamp {
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;

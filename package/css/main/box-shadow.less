@@ -1,43 +1,40 @@
+@import './theme.less';
 /**
 * 阴影
 */
 
-.jq-shadow {
-  box-shadow: 0 0 2px fade(#000, 20);
+.@{prefix}-shadow--bottom {
+  box-shadow: @shadow-bottom;
 }
 
-.jq-shadow-inset {
-  box-shadow: 0 0 2px fade(#000, 20) inset;
+.@{prefix}-shadow--top {
+  box-shadow: @shadow-top;
 }
 
-.jq-shadow_top {
-  box-shadow: 0 -2px 2px fade(#000, 20);
+.@{prefix}-shadow--left {
+  box-shadow: @shadow-left;
 }
 
-.jq-shadow_top-inset {
-  box-shadow: 0 -2px 2px fade(#000, 20) inset;
+.@{prefix}-shadow--right {
+  box-shadow: @shadow-right;
 }
 
-.jq-shadow_bottom {
-  box-shadow: 0 2px 2px fade(#000, 20);
+.@{prefix}-shadow {
+  box-shadow: @shadow;
 }
 
-.jq-shadow_bottom-inset {
-  box-shadow: 0 2px 2px fade(#000, 20) inset;
-}
+// .@{prefix}-shadow--top {
+//   //box-shadow: 0 2px 2px rgba(0, 0, 0, 1);
+//   position: relative
+// }
 
-.jq-shadow_left {
-  box-shadow: -2px 0 2px fade(#000, 20);
-}
-
-.jq-shadow_left-inset {
-  box-shadow: -2px 0 2px fade(#000, 20) inset;
-}
-
-.jq-shadow_right {
-  box-shadow: 2px 0 2px fade(#000, 20);
-}
-
-.jq-shadow_right-inset {
-  box-shadow: 2px 0 2px fade(#000, 20) inset;
-}
+// .@{prefix}-shadow--top::after {
+//   content: '';
+//   display: block;
+//   position: absolute;
+//   bottom: -4px;
+//   left: 0;
+//   width: 100%;
+//   height: 4px;
+//   background: linear-gradient(to bottom, rgba(0, 0, 0, .4), transparent)
+// }

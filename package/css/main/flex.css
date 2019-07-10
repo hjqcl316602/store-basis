@@ -1,0 +1,170 @@
+/*
+*flex布局
+*/
+.vc-flex {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  flex-direction: row;
+}
+/*
+*flex布局 水平排列方式
+*/
+.vc-justify-content--flex-start {
+  justify-content: flex-start;
+}
+.vc-justify-content--center {
+  justify-content: center;
+}
+.vc-justify-content--flex-end {
+  justify-content: flex-end;
+}
+.vc-justify-content--space-between {
+  justify-content: space-between;
+}
+.vc-justify-content--space-around {
+  justify-content: space-around;
+}
+/*
+*flex布局 垂直方向排列方式
+*/
+.vc-align-items--flex-start {
+  align-items: flex-start;
+}
+.vc-align-items--flex-end {
+  align-items: flex-end;
+}
+.vc-align-items--center {
+  align-items: center;
+}
+.vc-align-items--baseline {
+  align-items: baseline;
+}
+.vc-align-items--stretch {
+  align-items: stretch;
+}
+/*
+*flex布局 多根轴线的对齐方式
+*/
+.vc-align-content--center {
+  align-content: center;
+}
+.vc-align-content--flex-start {
+  align-content: flex-start;
+}
+.vc-align-content--flex-end {
+  align-content: flex-end;
+}
+.vc-align-content--space-around {
+  align-content: space-around;
+}
+.vc-align-content--space-between {
+  align-content: space-between;
+}
+.vc-align-content--stretch {
+  align-content: stretch;
+}
+/*
+*flex布局 决定主轴的方向
+*/
+.vc-flex-direction--row {
+  flex-direction: row;
+}
+.vc-flex-direction--row-reverse {
+  flex-direction: row-reverse;
+}
+.vc-flex-direction--column {
+  flex-direction: column;
+}
+.vc-flex-direction--column-reverse {
+  flex-direction: column-reverse;
+}
+/*
+*flex布局 项目都排在一条线,如果一条轴线排不下，如何换行
+*/
+.vc-flex-wrap--nowrap {
+  flex-wrap: nowrap;
+}
+.vc-flex-wrap--wrap {
+  flex-wrap: wrap;
+}
+.vc-flex-wrap--wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+/*
+*flex布局 子元素
+*/
+.vc-flex-item {
+  box-sizing: border-box;
+}
+/*
+* flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选
+*/
+.vc-flex--0 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+.vc-flex--1 {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+.vc-flex--none {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+.vc-flex--auto {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+/*
+*flex布局 排序
+*/
+.vc-order--0 {
+  order: 0;
+}
+.vc-order--1 {
+  order: 1;
+}
+/*
+*flex布局 放大比例
+*/
+.vc-flex-grow--0 {
+  flex-grow: 0;
+}
+.vc-flex-grow--1 {
+  flex-grow: 1;
+}
+/*
+*flex布局 缩小比例
+*/
+.vc-flex-shrink--0 {
+  flex-shrink: 0;
+}
+.vc-flex-shrink--1 {
+  flex-shrink: 1;
+}
+/*
+* 允许单个项目不同于其项目的对齐方式
+*/
+.vc-aglin-self--auto {
+  align-self: auto;
+}
+.vc-aglin-self--flex-start {
+  align-self: flex-start;
+}
+.vc-aglin-self--flex-end {
+  align-self: flex-end;
+}
+.vc-aglin-self--center {
+  align-self: center;
+}
+.vc-aglin-self--baseline {
+  align-self: baseline;
+}
+.vc-aglin-self--stretch {
+  align-self: stretch;
+}
