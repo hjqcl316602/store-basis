@@ -7,7 +7,7 @@ Vue.config.productionTip = false;
 import * as store from '../package/es';
 import './theme/index.css';
 /* eslint-disable no-new */
-console.log(store.string.connect('01230', '-', 4, 'start'));
+
 new Vue({
   el: '#app',
   router,
