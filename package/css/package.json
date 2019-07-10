@@ -1,0 +1,8 @@
+{
+  "name": "store-css",
+  "version": "2.0.0",
+  "description": "store css ",
+  "author": "hjqcl316602 <415877608@qq.com>",
+  "private": false,
+  "main": "index.js"
+}

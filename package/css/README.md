@@ -1,3 +1,17 @@
+# store-css
+
+## 使用
+
+npm install store-css
+
+需要自定义主题，则需要创建一个 less 文件，覆盖原有的主题
+
+```css
+@import 'store-css/basis/index.less';
+@color-bg: #dedede;
+@root-font-size: 16px;
+
+@import 'store-css/main/index.less';
 @prefix: jq;
 
 @background-color-body: #f1f1f1;
@@ -24,7 +38,6 @@
 @border-radius-large: 16px;
 @border-radius-larger: 32px;
 
-
 @text-size-smaller: 12px;
 @text-size-small : 14px;
 @text-size-medium: 16px;
@@ -49,20 +62,17 @@
 @text-indent-large: 40px;
 @text-indent-larger: 48px;
 
-
 @text-height-smaller: 1;
 @text-height-small: 1.25;
 @text-height-medium: 1.5;
 @text-height-large: 1.75;
 @text-height-larger: 2;
 
-
 @gutter-smaller: 4px;
 @gutter-small: 8px;
 @gutter-medium: 12px;
 @gutter-large: 16px;
 @gutter-larger: 20px;
-
 
 @padding-smaller: 2px;
 @padding-small : 4px;
@@ -90,3 +100,4 @@
 @btn-size-medium: 32px;
 @btn-size-large: 40px;
 @btn-size-larger: 48px;
+```
