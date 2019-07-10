@@ -4,6 +4,13 @@
 
 npm install store-css
 
+不需要自定义主题
+
+```css
+@import 'store-css/basis/index.css';
+@import 'store-css/main/index.css';
+```
+
 需要自定义主题，则需要创建一个 less 文件，覆盖原有的主题
 
 ```css
