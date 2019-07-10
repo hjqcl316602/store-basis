@@ -1,7 +1,7 @@
 {
-  "name": "store-css",
+  "name": "store-css-basis",
   "version": "2.0.0",
-  "description": "store css ",
+  "description": "store css basis",
   "author": "hjqcl316602 <415877608@qq.com>",
   "private": false,
   "main": "index.js"
