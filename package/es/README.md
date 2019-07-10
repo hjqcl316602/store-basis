@@ -604,24 +604,22 @@ console.log(arr);
 
 #### connect
 
-- @name 每隔几位添加指定的连接符
-- @param { string } [ string ]
-- @param { connect = '-' } [ string ] 连接符
-- @param { len = 4 } [ number ] 每隔多少位
-- @param { start = true } [ boolean ] 是否是从开头计算
-- @return [ string ]
-- @example connect("13980464237"," ",4) => 139 8046 4237
-- @msg exp1(?=exp2) 查找 exp2 前面的 exp1 || (?<=exp2)exp1 查找 exp2 后面的 exp1 || exp1(?!exp2) 查找后面不是 exp2 的 exp1 || (?<!=exp2)exp1 查找前面不是 exp2 的 exp1
+ * @name 每隔几位添加指定的连接符-从末尾计数
+ * @param { string } [ string ]
+ * @param { connect = '-' } [ string ] 连接符
+ * @param { len = 4 } [ number ]  每隔多少位
+ * @param { type = start } [ string ]  计数位置
+ * @return [ string ]
+ * @example connect("13980464237"," ",4) => 139 8046 4237
+ * @msg  exp1(?=exp2) 查找exp2前面的exp1 || (?<=exp2)exp1 查找exp2后面的exp1 || exp1(?!exp2) 查找后面不是exp2的exp1 ||  (?<!=exp2)exp1 查找前面不是exp2的exp1
+ * @notice
+ * new RegExp(`(?<=^([\\S\\s]{${len}})+)([\\s\\S])`, 'g') 在火狐下不能识别
+ * new RegExp(`([\\s\\S])(?=([\\S\\s]{${len}})+$)`, 'g')
 
 #### connect.start
 
-- @name 每隔几位添加指定的连接符-从开始计数
-- @param { string } [ string ]
-- @param { connect = '-' } [ string ] 连接符
-- @param { len = 4 } [ number ] 每隔多少位
-- @return [ string ]
-- @example connect("13980464237"," ",4) => 1398 0464 237
-
+#### connect.end
+ 
 #### contains
 
 - @name 获取一个字符串包含指定的字符串的所有角标

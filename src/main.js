@@ -4,11 +4,10 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 Vue.config.productionTip = false;
-
-//import '../package/css/basis/index.less';
-//import '../package/css/main/index.less';
+import * as store from '../package/es';
 import './theme/index.css';
 /* eslint-disable no-new */
+console.log(store.string.connect('01230', '-', 4, 'start'));
 new Vue({
   el: '#app',
   router,
