@@ -1,49 +1,21 @@
 <template>
   <div id="app">
-    <div style="height:400px;background:#fff" class="vi-center">
-      <div
-        style="height:100px;width:100px;background:transparent"
-        class="vi-border-bottom  vi-border--thiner"
-      >
-        <span class="vi-color--danger vi-margin-left--large">ashj</span>
-      </div>
+    <div class="vui-center" style="height:200px">
+      <vui-loading-cross></vui-loading-cross>
     </div>
-    <div class="vi-row--flex vi-row-gutter--larger">
-      <div class="vi-span--6">
-        <div class="name">
-          <div class="vi-row--flex vi-row-gutter--small">
-            <div class="vi-span--6">
-              <div class="blue"></div>
-            </div>
-            <div class="vi-span--6">
-              <div class="blue"></div>
-            </div>
-            <div class="vi-span--6">
-              <div class="blue"></div>
-            </div>
-            <div class="vi-span--6">
-              <div class="blue"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vi-span--6">
-        <div class="name"></div>
-      </div>
-      <div class="vi-span--6">
-        <div class="name"></div>
-      </div>
-      <div class="vi-span--6">
-        <div class="name"></div>
-      </div>
-    </div>
+
     <router-view />
   </div>
 </template>
 
-
 <script>
+import Vue from "vue";
+import "../package/ui/style/animate.css";
+import "../package/ui/style/loading.css";
+import { Loading } from "../package/ui/index.js";
+Vue.use(Loading.Cross);
 export default {
+  components: {},
   name: "App",
   mounted() {},
   methods: {
