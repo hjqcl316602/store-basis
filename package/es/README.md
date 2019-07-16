@@ -613,7 +613,7 @@ console.log(arr);
 - @example connect("13980464237"," ",4) => 139 8046 4237
 - @msg exp1(?=exp2) 查找 exp2 前面的 exp1 || (?<=exp2)exp1 查找 exp2 后面的 exp1 || exp1(?!exp2) 查找后面不是 exp2 的 exp1 || (?<!=exp2)exp1 查找前面不是 exp2 的 exp1
 - @notice
-- new RegExp(`(?<=^([\\S\\s]{${len}})+)([\\s\\S])`, 'g') 在火狐下不能识别
+- new RegExp(`(?<=^([\\S\\s]{${len}})+)([\\s\\S])`, 'g') 在火狐下不能识别，所以不使用正则的方式
 - new RegExp(`([\\s\\S])(?=([\\S\\s]{${len}})+$)`, 'g')
 
 #### connect.start
@@ -647,45 +647,32 @@ console.log(arr);
 
 #### convert
 
-- @name 字符串的转换-全部大写
+- @name 字符串的转换
 - @param {string} [ string ]
+- @param { type='upper' } [ string ]
+- upper | 全部大写
+- lower | 全部小写
+- upperStart | 首字母大写，其余全部小写
+- lowerStart | 首字母小写，其余全部大写
+- exchange | 大小写互转
 - @return [ string ]
-- @example convert("sSs") => 'SSS'
+- @example
+- convert("sSs",'upper') => 'SSS'
+- convert.upper('assaSAS');
+- convert.lower('assaSAS');
+- convert.upperStart('assaSAS');
+- convert.lowerStart('assaSAS');
+- convert.exchange('assaSAS');
 
 #### convert.upper
 
-- @name 字符串的转换-全部大写
-- @param {string} [ string ]
-- @return [ string ]
-- @example convert.upper("sSs") => 'SSS'
-
 #### convert.lower
-
-- @name 字符串的转换-全部小写
-- @param {string} [ string ]
-- @return [ string ]
-- @example convert.lower("sSs") => 'sss'
 
 #### convert.upperStart
 
-- @name 字符串的转换-首字母大写，其他的小写
-- @param {string} [ string ]
-- @return [ string ]
-- @example convert.upperStart("sSs") => 'Sss'
-
 #### convert.lowerStart
 
-- @name 字符串的转换-首字母小写，其他的大写
-- @param {string} [ string ]
-- @return [ string ]
-- @example convert.lowerStart("sSs") => 'sSS'
-
-#### convert.switch
-
-- @name 字符串的转换-大写转小写，小写转大写
-- @param {string} [ string ]
-- @return [ string ]
-- @example convert.switch("sSs") => 'SsS'
+#### convert.exchange
 
 #### hump
 
@@ -784,26 +771,27 @@ console.log(arr);
 
 - @name 字符串的空格去除-整体
 - @msg String.prototype.trim 只能删除字符串开头的空白
-- @param {string} [ string ] 字符串
+- @param { string } [ string ] 字符串
+- @param { type = 'whole'} [ string ] 类型
+- start | 首部
+- end | 尾部
+- both | 两侧
+- whole | 整体
 - @return [ string ]
-
-#### trim.start
-
-- @name 字符串的空格去除-开头
-- @param {string} [ string ] 字符串
-- @return [ string ]
-
-#### trim.end
-
-- @name 字符串的空格去除-尾部
-- @param {string} [ string ] 字符串
-- @return [ string ]
+- @example
+- trim(' dsdsds dsd ds dsds ds ' ,'whole');
+- trim.both(' dsdsds dsd ds dsds ds ');
+- trim.start(' dsdsds dsd ds dsds ds ');
+- trim.end(' dsdsds dsd ds dsds ds ');
+- trim.whole(' dsdsds dsd ds dsds ds ');
 
 #### trim.both
 
-- @name 字符串的空格去除-两侧
-- @param {string} [ string ] 字符串
-- @return [ string ]
+#### trim.start
+
+#### trim.end
+
+#### trim.whole
 
 ### type
 

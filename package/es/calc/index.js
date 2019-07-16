@@ -4,7 +4,7 @@
  * @Author: huangjunquan
  * @Date: 2019-06-11 18:07:02
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-07-16 10:46:33
+ * @LastEditTime: 2019-07-16 10:47:44
  * @msg
  * 小数与整数的积也不能得到期望值，1.2334567 * 1000 = 1233.4567000000002
  * 两数乘积可能会超安全数范围
@@ -72,7 +72,7 @@ Calc.prototype._format = function(string) {
   return string.length === 0 ? '0' : string;
 };
 /**
- * @name 是否是合法的可计算的我数字
+ * @name 是否是合法的可计算的数字
  * @param { string } [ string ]
  * @return [ boolean ]
  * @example isFreeNumber("0.0") => true
