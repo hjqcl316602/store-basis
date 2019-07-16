@@ -4,7 +4,7 @@
  * @Author: huangjunquan
  * @Date: 2019-06-11 18:07:02
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-07-16 10:39:03
+ * @LastEditTime: 2019-07-16 10:46:33
  * @msg
  * 小数与整数的积也不能得到期望值，1.2334567 * 1000 = 1233.4567000000002
  * 两数乘积可能会超安全数范围
@@ -73,8 +73,6 @@ Calc.prototype._format = function(string) {
 };
 /**
  * @name 是否是合法的可计算的我数字
- * @msg
- *
  * @param { string } [ string ]
  * @return [ boolean ]
  * @example isFreeNumber("0.0") => true
@@ -108,10 +106,8 @@ Calc.prototype._isFreeNumber = function(string) {
 Calc.prototype._toFreeNumber = function(value) {
   if (typeof value !== 'number' && typeof value !== 'string') throw new Error('The argument must be string or number.');
   if (typeof value === 'number') {
-    //console.log(value);
     let result = String(value);
     let index = result.indexOf('-');
-    //console.log(result.indexOf('-'));
     if (index === 0) {
       throw new Error('The argument must be not less than 0.');
     } else if (index > 0) {
@@ -128,7 +124,7 @@ Calc.prototype._toFreeNumber = function(value) {
  * @name 加法运算
  * @param { prev } [ number | string ]
  * @param { next } [ number | string ]
- * @return [string]
+ * @return [ string ]
  * @example console.log(calc.add("1.123", "0.877")); // => 2
  * @example console.log(calc.add("0.1", "0.2")); // 0.3
  * @example console.log(calc.add("0.1", "1.23")); // => 1.33
