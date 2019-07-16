@@ -3,24 +3,49 @@
  * @version: 0.0.1
  * @Author: huangjunquan
  * @Date: 2019-06-11 18:07:02
- * @LastEditors: huangjunquan
- * @LastEditTime: 2019-06-27 14:31:29
- * @msg: 安全性：
- */
-import template from "../array/template";
-import insert from "../string/insert";
-/**
- * @name 数字计算
- *
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-07-16 10:39:03
  * @msg
- * 解决js 中 0.1 + 0.2 != 0.3
- * 为何不支持数字？
- * 因为有些特殊的数字会自动转为科学计数，并且存在安全数范围。
- * 自动转为科学计数，当数值为整数时，后面有21个0时， 9000000000000000000000 => 9e+21 ； 当数值为浮点数时，一个不为0的数前面有7个0时，0.0000001 => 1e-7
- * @return [ object ]
+ * 小数与整数的积也不能得到期望值，1.2334567 * 1000 = 1233.4567000000002
+ * 两数乘积可能会超安全数范围
+ * 有些特殊的数字会自动转为科学计数，当数值为整数时，后面有21个0时， 9000000000000000000000 => 9e+21 ； 当数值为浮点数时，一个不为0的数前面有7个0时，0.0000001 => 1e-7
+ *
  */
 
 export default function Calc() {}
+/**
+ * @description 按指定的函数返回值填充指定长度的数组
+ * @param { len = 10 } [ number ] 指定长度
+ * @param { callback } [ function ] 指定函数返回值
+ * @param { context = this } [ any ] 函数执行上下文
+ * @return [ array ]
+ */
+//
+Calc.prototype._template = function(len = 10, callback = function() {}, context = this) {
+  return Array.apply(null, Array(len)).map(() => callback.call(context));
+};
+
+/**
+ * @name 向字符串指定的角标后面插入指定字符串
+ * @param { string } [ string ]  目标字符串
+ * @param { index } [ number ] 角标值
+ * @param { target } [ string ] 插入的字符串
+ * @return [ string ]
+ */
+
+Calc.prototype._insert = function(string, index = 0, target = '') {
+  if (typeof string !== 'string') {
+    throw new Error('The first argument must be string.');
+  }
+  if (!Number.isInteger(index) || index < 0 || index > string.length) {
+    throw new Error('The second argument must be int number,and it must not less than 0 and not greater than the first argument length.');
+  }
+  if (typeof target !== 'string') {
+    throw new Error('The third argument must be string.');
+  }
+  return string.slice(0, index) + target + string.slice(index);
+};
+
 /**
  * @name 数字格式化
  * @msg
@@ -32,25 +57,24 @@ export default function Calc() {}
  * @return string
  * @example console.log(calc.format("000.0001"));=> '0.0001'
  */
-Calc.prototype.format = function(string) {
-  if (typeof string !== "string") {
-    throw new Error("The first argument must be string.");
+Calc.prototype._format = function(string) {
+  if (typeof string !== 'string') {
+    throw new Error('The first argument must be string.');
   }
-  if (string.indexOf(".") > -1) {
-    string = string.replace(/(0+)$/, "");
+  if (string.indexOf('.') > -1) {
+    string = string.replace(/(0+)$/, '');
   }
-  string = string.replace(/^(0+)/, "");
-  if (string.startsWith(".")) {
-    string = "0" + string;
+  string = string.replace(/^(0+)/, '');
+  if (string.startsWith('.')) {
+    string = '0' + string;
   }
-  string = string.replace(/\.$/, "");
-  return string.length === 0 ? "0" : string;
+  string = string.replace(/\.$/, '');
+  return string.length === 0 ? '0' : string;
 };
 /**
  * @name 是否是合法的可计算的我数字
  * @msg
- * 1.以'0'开头，若后面没有有小数点，则'0'本身；若后面有小数点，则小数点后面有至少一位的数字
- * 2.不以'0'开头，后面跟任意位的数字，若有小数点，后面至少需要一位以上的数字
+ *
  * @param { string } [ string ]
  * @return [ boolean ]
  * @example isFreeNumber("0.0") => true
@@ -60,12 +84,45 @@ Calc.prototype.format = function(string) {
  * @example isFreeNumber("-1") => false
  * @example isFreeNumber("+1") => false
  */
-Calc.prototype.isFreeNumber = function(string) {
-  if (typeof string !== "string") {
-    throw new Error("The argument must be string.");
+Calc.prototype._isFreeNumber = function(string) {
+  if (typeof string !== 'string') {
+    throw new Error('The argument must be string.');
   }
   let regex = /(^[0](\.[0-9]+)?$)|(^[1-9]([0-9]+)?(\.[0-9]+)?$)/; ///(^0\.([0-9]*)?[1-9]+([0-9]*)?$)|(^[0]{1}$)|(^[1-9]([0-9]+)?(\.[0-9]+)?$)/;
   return regex.test(string);
+};
+
+/**
+ * @name 转可用的数字
+ * @msg
+ * number类型
+ * 数字必须大于等于0
+ * 将科学计数方式的数字转为可用的数字，小数点后面位数加整数部分的长度为16位，才能正确获取数字
+ * string类型
+ * 是合法的数字即可，整数部分和小数部分均是任意长度
+ * 以'0'开头，若后面没有有小数点，则'0'本身；若后面有小数点，则小数点后面有至少一位的数字
+ * 不以'0'开头，后面跟任意位的数字，若有小数点，后面至少需要一位以上的数字
+ * @param { value } [ number | string ]
+ * @return [string]
+ */
+Calc.prototype._toFreeNumber = function(value) {
+  if (typeof value !== 'number' && typeof value !== 'string') throw new Error('The argument must be string or number.');
+  if (typeof value === 'number') {
+    //console.log(value);
+    let result = String(value);
+    let index = result.indexOf('-');
+    //console.log(result.indexOf('-'));
+    if (index === 0) {
+      throw new Error('The argument must be not less than 0.');
+    } else if (index > 0) {
+      result = '0' + String(Number(result) + 1).substr(1);
+    }
+    return result;
+  } else {
+    let regex = /(^[0](\.[0-9]+)?$)|(^[1-9]([0-9]+)?(\.[0-9]+)?$)/;
+    if (!regex.test(value)) throw new Error('The argument must be a free number.');
+    return value;
+  }
 };
 /**
  * @name 加法运算
@@ -81,14 +138,10 @@ Calc.prototype.isFreeNumber = function(string) {
  */
 
 Calc.prototype.add = function(prev, next) {
-  if (typeof prev !== "string" || typeof next !== "string") {
-    throw new Error("The first and second argument must be string.");
-  }
-  if (!this.isFreeNumber(prev) || this.isFreeNumber(next)) {
-    throw new Error("The first and second argument must be free number.");
-  }
-  let prevSplit = prev.split("."),
-    nextSplit = next.split(".");
+  prev = this._toFreeNumber(prev);
+  next = this._toFreeNumber(next);
+  let prevSplit = prev.split('.'),
+    nextSplit = next.split('.');
   let prevIntLen = prevSplit[0].length,
     nextIntLen = nextSplit[0].length,
     minusIntLen = prevIntLen - nextIntLen,
@@ -98,23 +151,23 @@ Calc.prototype.add = function(prev, next) {
     minusFloatLen = prevFloatLen - nextFloatLen,
     maxFloatLen = Math.max(prevFloatLen, nextFloatLen);
   // 进行整数部分0的补位
-  let intZero = template.of(Math.abs(minusIntLen), () => "0").join("");
+  let intZero = this._template(Math.abs(minusIntLen), () => '0').join('');
   if (minusIntLen > 0) {
     next = intZero + next;
   } else if (minusIntLen < 0) {
     prev = intZero + prev;
   }
   // 进行浮点数部分0的补位
-  let floatZero = template.of(Math.abs(minusFloatLen), () => "0").join("");
+  let floatZero = this._template(Math.abs(minusFloatLen), () => '0').join('');
   if (minusFloatLen > 0) {
     next = next + floatZero;
   } else if (minusFloatLen < 0) {
     prev = prev + floatZero;
   }
-  next = next.replace(".", "");
-  prev = prev.replace(".", "");
-  prev = prev.split("").reverse();
-  next = next.split("").reverse();
+  next = next.replace('.', '');
+  prev = prev.replace('.', '');
+  prev = prev.split('').reverse();
+  next = next.split('').reverse();
   let resArr = [];
   for (let i = 0; i < prev.length; i++) {
     let addRes = Number(prev[i] || 0) + Number(next[i] || 0) + Number(resArr[i] || 0);
@@ -122,21 +175,14 @@ Calc.prototype.add = function(prev, next) {
     let res = (addRes - (addRes % 10)) / 10;
     res > 0 ? (resArr[i + 1] = res) : null;
   }
-  let res = resArr.reverse().join("");
-  let resSlot = insert(res, res.length - maxFloatLen, ".");
+  let res = resArr.reverse().join('');
+  let resSlot = this._insert(res, res.length - maxFloatLen, '.');
 
-  return this.format(resSlot);
+  return this._format(resSlot);
 };
 
 /**
  * @name 乘法运算
- * @msg
- * 小数与整数的积也不能得到期望值，1.2334567 * 1000 = 1233.4567000000002
- * @condition
- * 1.参数必须是字符串和数字类型形式
- * 2.通过Nmber()强制后，不能是NaN,即筛选出可以进行计算的数字，可以是 '3e+10'=> 300 '.2'=>0.2 ''
- * 3.替换掉字符串中的'.'后，再强制转换为数字后必须是在安全数之内，即在[ -Math.pow(2,53)-1,Math.pow(2,53)-1]之间的数字
- * 4.两数乘积也必须要安全数范围之内
  * @param { prev } [ number | string ]
  * @param { next } [ number | string ]
  * @return [ string ]
@@ -145,14 +191,10 @@ Calc.prototype.add = function(prev, next) {
  */
 
 Calc.prototype.mul = function(prev, next) {
-  if (typeof prev !== "string" || typeof next !== "string") {
-    throw new Error("The first and second argument must be string.");
-  }
-  if (!this.isFreeNumber(prev) || !this.isFreeNumber(next)) {
-    throw new Error("The first and second argument must be free number.");
-  }
-  let prevSplit = prev.split("."),
-    nextSplit = next.split(".");
+  prev = this._toFreeNumber(prev);
+  next = this._toFreeNumber(next);
+  let prevSplit = prev.split('.'),
+    nextSplit = next.split('.');
   let prevIntLen = prevSplit[0].length,
     nextIntLen = nextSplit[0].length,
     minusIntLen = prevIntLen - nextIntLen,
@@ -161,8 +203,8 @@ Calc.prototype.mul = function(prev, next) {
     nextFloatLen = nextSplit[1] ? nextSplit[1].length : 0,
     addFloatLen = prevFloatLen + nextFloatLen,
     maxFloatLen = Math.max(prevFloatLen, nextFloatLen);
-  prev = prev.replace(".", "");
-  next = next.replace(".", "");
+  prev = prev.replace('.', '');
+  next = next.replace('.', '');
   let res = [];
   for (let n = prev.length - 1; n >= 0; n--) {
     for (let k = next.length - 1; k >= 0; k--) {
@@ -174,12 +216,11 @@ Calc.prototype.mul = function(prev, next) {
       res[n + k] = value2 + Number(res[n + k] || 0);
     }
   }
-  let resJoin = res.join("");
-  let resInsert = insert(resJoin, resJoin.length - addFloatLen, ".");
-  let resFormat = this.format(resInsert);
+  let resJoin = res.join('');
+  let resInsert = this._insert(resJoin, resJoin.length - addFloatLen, '.');
+  let resFormat = this._format(resInsert);
   return resFormat;
 };
 
-// let calc = new Calc();
-// console.log(calc.isFreeNumber("0.123456"));
-// console.log(calc.mul("123456.7", "0.1"));
+//let calc = new Calc();
+//console.log(calc.mul(0.0000000000123455, 0.0000000000123455));

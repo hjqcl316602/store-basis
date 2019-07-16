@@ -73,8 +73,8 @@
 - @return { object }
 
 ```js
-let res = reverser.hour("2019-06-30 12:49:00", new Date(), 60 * 1000);
-console.table(res["storage"]);
+let res = reverser.hour('2019-06-30 12:49:00', new Date(), 60 * 1000);
+console.table(res['storage']);
 ```
 
 #### zer
@@ -216,8 +216,8 @@ console.table(res["storage"]);
 
 ```js
 // 使得某个元素滚动到底部
-let scrollHeight = this.$refs["outer"].scrollHeight;
-domer.scroller.top(this.$refs["outer"], scrollHeight);
+let scrollHeight = this.$refs['outer'].scrollHeight;
+domer.scroller.top(this.$refs['outer'], scrollHeight);
 ```
 
 ### funer
@@ -233,10 +233,10 @@ domer.scroller.top(this.$refs["outer"], scrollHeight);
 ```js
 let dod = beforer(
   function() {
-    console.log("do something.");
+    console.log('do something.');
   },
   function() {
-    console.log("before.");
+    console.log('before.');
   }
 );
 dod();
@@ -254,10 +254,10 @@ let bin = bind(
   function(age) {
     console.log(this, age);
   },
-  { name: "hjq" }
+  { name: 'hjq' }
 );
 
-bin("1111");
+bin('1111');
 ```
 
 #### curryer
@@ -312,8 +312,8 @@ let test = delayer(
     console.log(...args);
   },
   2000,
-  "hjq",
-  "hjsh"
+  'hjq',
+  'hjsh'
 );
 test();
 ```
@@ -348,7 +348,7 @@ methods: {
 
 ```js
 let split = uncurryer(String.prototype.split);
-console.log(split("a,b,c", ","));
+console.log(split('a,b,c', ','));
 let push = uncurry(Array.prototype.push);
 let arr = [1, 2, 3, 4];
 push(arr, 1, 2, 3, 4);
@@ -604,22 +604,22 @@ console.log(arr);
 
 #### connect
 
- * @name 每隔几位添加指定的连接符-从末尾计数
- * @param { string } [ string ]
- * @param { connect = '-' } [ string ] 连接符
- * @param { len = 4 } [ number ]  每隔多少位
- * @param { type = start } [ string ]  计数位置
- * @return [ string ]
- * @example connect("13980464237"," ",4) => 139 8046 4237
- * @msg  exp1(?=exp2) 查找exp2前面的exp1 || (?<=exp2)exp1 查找exp2后面的exp1 || exp1(?!exp2) 查找后面不是exp2的exp1 ||  (?<!=exp2)exp1 查找前面不是exp2的exp1
- * @notice
- * new RegExp(`(?<=^([\\S\\s]{${len}})+)([\\s\\S])`, 'g') 在火狐下不能识别
- * new RegExp(`([\\s\\S])(?=([\\S\\s]{${len}})+$)`, 'g')
+- @name 每隔几位添加指定的连接符-从末尾计数
+- @param { string } [ string ]
+- @param { connect = '-' } [ string ] 连接符
+- @param { len = 4 } [ number ] 每隔多少位
+- @param { type = start } [ string ] 计数位置
+- @return [ string ]
+- @example connect("13980464237"," ",4) => 139 8046 4237
+- @msg exp1(?=exp2) 查找 exp2 前面的 exp1 || (?<=exp2)exp1 查找 exp2 后面的 exp1 || exp1(?!exp2) 查找后面不是 exp2 的 exp1 || (?<!=exp2)exp1 查找前面不是 exp2 的 exp1
+- @notice
+- new RegExp(`(?<=^([\\S\\s]{${len}})+)([\\s\\S])`, 'g') 在火狐下不能识别
+- new RegExp(`([\\s\\S])(?=([\\S\\s]{${len}})+$)`, 'g')
 
 #### connect.start
 
 #### connect.end
- 
+
 #### contains
 
 - @name 获取一个字符串包含指定的字符串的所有角标
@@ -1032,9 +1032,9 @@ console.log(arr);
 - @return [ promise ]
 
 ```js
-transformer("http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26&gp=0.jpg", "blob").then(res => console.log(res)); //image/jpeg
-transformer.blob("http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26&gp=0.jpg").then(res => console.log(res)); //image/jpeg
-transformer.base64("http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26&gp=0.jpg").then(res => console.log(res)); //image/jpeg
+transformer('http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26&gp=0.jpg', 'blob').then(res => console.log(res)); //image/jpeg
+transformer.blob('http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26&gp=0.jpg').then(res => console.log(res)); //image/jpeg
+transformer.base64('http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26&gp=0.jpg').then(res => console.log(res)); //image/jpeg
 ```
 
 #### transformer.base64
@@ -1060,12 +1060,24 @@ transformer.base64("http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26
 
 ### Calc
 
+- @Descripttion: 数学计算
+- @version: 0.0.1
+- @Author: huangjunquan
+- @Date: 2019-06-11 18:07:02
+- @LastEditors: Please set LastEditors
+- @LastEditTime: 2019-07-16 10:39:03
 - @msg
-- 解决 js 中 0.1 + 0.2 != 0.3
-- 为何不支持数字？
-- 因为有些特殊的数字会自动转为科学计数，并且存在安全数范围。
-- 自动转为科学计数，当数值为整数时，后面有 21 个 0 时， 9000000000000000000000 => 9e+21 ； 当数值为浮点数时，一个不为 0 的数前面有 7 个 0 时，0.0000001 => 1e-7
-- @return [ object ]
+- 小数与整数的积也不能得到期望值，1.2334567 \* 1000 = 1233.4567000000002
+- 两数乘积可能会超安全数范围
+- 有些特殊的数字会自动转为科学计数，当数值为整数时，后面有 21 个 0 时， 9000000000000000000000 => 9e+21 ； 当数值为浮点数时，一个不为 0 的数前面有 7 个 0 时，0.0000001 => 1e-7
+
+* number 类型
+* 数字必须大于等于 0
+* 将科学计数方式的数字转为可用的数字，小数点后面位数加整数部分的长度为 16 位，才能正确获取数字
+* string 类型
+* 是合法的数字即可，整数部分和小数部分均是任意长度
+* 以'0'开头，若后面没有有小数点，则'0'本身；若后面有小数点，则小数点后面有至少一位的数字
+* 不以'0'开头，后面跟任意位的数字，若有小数点，后面至少需要一位以上的数字
 
 #### add
 
@@ -1083,45 +1095,11 @@ transformer.base64("http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26
 #### mul
 
 - @name 乘法运算
-- @msg
-- 小数与整数的积也不能得到期望值，1.2334567 \* 1000 = 1233.4567000000002
-- @condition
-- 1.参数必须是字符串和数字类型形式
-- 2.通过 Nmber()强制后，不能是 NaN,即筛选出可以进行计算的数字，可以是 '3e+10'=> 300 '.2'=>0.2 ''
-- 3.替换掉字符串中的'.'后，再强制转换为数字后必须是在安全数之内，即在[ -Math.pow(2,53)-1,Math.pow(2,53)-1]之间的数字
-- 4.两数乘积也必须要安全数范围之内
 - @param { prev } [ number | string ]
 - @param { next } [ number | string ]
 - @return [ string ]
 - @example console.log(calc.mul("0.1", "0.7")); => '0.07'
 - @example console.log(calc.mul("123456", "0.123456")); => '15241.383936'
-
-#### format
-
-- @name 数字格式化
-- @msg
-- 1.是否存在'.'，若存在，去掉开头和结尾的 0，否则，只去掉开头的 0
-- 2.当以'.'开头，则前面补'0'
-- 3.当以'.'结尾，则去掉结尾的'.'
-- 4.若为空，则返回 0
-- @param { string } [ string]
-- @return string
-- @example console.log(calc.format("000.0001"));=> '0.0001'
-
-#### isFreeNumber
-
-- @name 是否是合法的可计算的我数字
-- @msg
-- 1.以'0'开头，若后面没有小数点，则'0'本身；若后面有小数点，则小数点后面有至少一位的数字
-- 2.不以'0'开头，后面跟任意位的数字，若有小数点，后面至少需要一位以上的数字
-- @param { string } [ string ]
-- @return [ boolean ]
-- @example isFreeNumber("0.0") => true
-- @example isFreeNumber("0.") => false
-- @example isFreeNumber("001") => false
-- @example isFreeNumber(".0") => false
-- @example isFreeNumber("-1") => false
-- @example isFreeNumber("+1") => false
 
 ### Storage([local=true])
 
@@ -1155,8 +1133,8 @@ transformer.base64("http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26
 ```js
 let storage = new Storage(true);
 
-storage.setItem("message", { name: "web-app" });
-storage.getItem("message").then(res => {
+storage.setItem('message', { name: 'web-app' });
+storage.getItem('message').then(res => {
   console.log(res);
 });
 storage.clear();
@@ -1248,13 +1226,13 @@ storage.clear();
 
 ```js
 let check = new Check()
-  .set("", true, "该数据是必填项")
-  .check("长度不少于4", function(value, regex) {
+  .set('', true, '该数据是必填项')
+  .check('长度不少于4', function(value, regex) {
     return value.length >= 4;
   })
-  .regex("格式错误", "chinese")
-  .set("1398046423")
-  .regex("格式错误", "mobile");
+  .regex('格式错误', 'chinese')
+  .set('1398046423')
+  .regex('格式错误', 'mobile');
 
 console.log(check);
 console.log(check.pass, check.message);
@@ -1307,13 +1285,13 @@ console.log(check.pass, check.message);
 
 ```js
 let hex = new Hex();
-console.log(hex.encode("!@#$%^&**())"));
+console.log(hex.encode('!@#$%^&**())'));
 console.log(hex.decode(hex.encode("ZAQXSWCDE<>?_+{}''[]【】，,+|")));
-console.log(hex.encodeURI("!@#$%^%^"));
+console.log(hex.encodeURI('!@#$%^%^'));
 
-console.log(hex.decodeURI(hex.encodeURI("hjqhj 很少见三 化建设局啊")));
+console.log(hex.decodeURI(hex.encodeURI('hjqhj 很少见三 化建设局啊')));
 let str =
-  "7B2262616E6B5265616C4E616D65223A22E9BB84E5869BE6B389222C22616C69706179223A223133393830343634323337222C22616C69706179436F646555726C223A22687474703A2F2F74726164652E627374636861696E2E636F6D2F75706C6F61642F38623364346337632D663735662D343636372D393161362D3430373330366436636563642E6A7067222C22666565223A2231303030222C226D6F62696C65223A223135393238343039323834222C22776563686174223A22222C2271725765436F646555726C223A22222C22616C697061795265616C4E616D65223A22E9BB84E5869BE6B389222C22616C6970617955726C223A2268747470733A2F2F71722E616C697061792E636F6D2F666B78303132393966686772617A62343970796C306462222C22636172644E6F223A2236323231383836353130303435373338363734222C2262616E6B223A22E4B8ADE59BBDE982AEE694BFE582A8E89384E993B6E8A18C222C227375624D656D4964223A223130222C2277656368617455726C223A22222C226D656D4964223A2233227D";
+  '7B2262616E6B5265616C4E616D65223A22E9BB84E5869BE6B389222C22616C69706179223A223133393830343634323337222C22616C69706179436F646555726C223A22687474703A2F2F74726164652E627374636861696E2E636F6D2F75706C6F61642F38623364346337632D663735662D343636372D393161362D3430373330366436636563642E6A7067222C22666565223A2231303030222C226D6F62696C65223A223135393238343039323834222C22776563686174223A22222C2271725765436F646555726C223A22222C22616C697061795265616C4E616D65223A22E9BB84E5869BE6B389222C22616C6970617955726C223A2268747470733A2F2F71722E616C697061792E636F6D2F666B78303132393966686772617A62343970796C306462222C22636172644E6F223A2236323231383836353130303435373338363734222C2262616E6B223A22E4B8ADE59BBDE982AEE694BFE582A8E89384E993B6E8A18C222C227375624D656D4964223A223130222C2277656368617455726C223A22222C226D656D4964223A2233227D';
 let decodeComponent = hex.decodeComponent(str);
 ```
 
@@ -1392,21 +1370,21 @@ let decodeComponent = hex.decodeComponent(str);
 ```js
 let evt = new EventEmeitter();
 evt
-  .addListener("click", function(...params) {
+  .addListener('click', function(...params) {
     console.log(params.length);
   })
-  .emit("click", ...[1, 2, 3, 4]);
-evt.addListener("click", function(...params) {
+  .emit('click', ...[1, 2, 3, 4]);
+evt.addListener('click', function(...params) {
   console.log(params[1]);
 });
 console.log(evt);
 evt
-  .addListener("click", function(...params) {
+  .addListener('click', function(...params) {
     console.log(params);
   })
-  .emit("click", "name");
+  .emit('click', 'name');
 
-evt.removeListener("click");
+evt.removeListener('click');
 console.log(evt);
 console.log(evt);
 ```
@@ -1418,101 +1396,101 @@ console.log(evt);
 ```js
 export default [
   {
-    type: "special",
-    rules: ["含特殊字符组成的非空字符串"],
-    text: "是否含特殊字符",
-    success: ["!@#$$%^&*())", "1!"],
-    error: ["123456", "qazxsw"],
+    type: 'special',
+    rules: ['含特殊字符组成的非空字符串'],
+    text: '是否含特殊字符',
+    success: ['!@#$$%^&*())', '1!'],
+    error: ['123456', 'qazxsw'],
     value: /[`~!@#$%^&*()_\-+=<>?:"{}|,.\\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、]/im
   },
   {
-    type: "chinese",
-    rules: ["只能由中文汉字组成的非空字符串"],
-    text: "是否是中文",
-    success: ["一二三"],
-    error: ["123456", "qazxsw"],
+    type: 'chinese',
+    rules: ['只能由中文汉字组成的非空字符串'],
+    text: '是否是中文',
+    success: ['一二三'],
+    error: ['123456', 'qazxsw'],
     value: /^[\u4E00-\u9FA5]+$/
   },
   {
-    type: "english",
+    type: 'english',
     rules: ["只能由'a-z'|'A-Z'组成的非空字符串"],
-    text: "是否是英文",
-    success: ["qazxsw", "QAZWSX", "qazWSX"],
-    error: ["123456", "123qaz"],
+    text: '是否是英文',
+    success: ['qazxsw', 'QAZWSX', 'qazWSX'],
+    error: ['123456', '123qaz'],
     value: /^[a-zA-Z]+$/
   },
   {
-    type: "english-upper",
+    type: 'english-upper',
     rules: ["只能由'A-Z'组成的非空字符串"],
-    text: "是否是大写英文",
-    success: ["QAZWSX"],
-    error: ["qazwsx"],
+    text: '是否是大写英文',
+    success: ['QAZWSX'],
+    error: ['qazwsx'],
     value: /^[A-Z]+$/
   },
   {
-    type: "english-lower",
+    type: 'english-lower',
     rules: ["只能由'a-z'组成的非空字符串"],
-    text: "是否是小写英文",
-    success: ["qazxsw"],
-    error: ["QAZWSX"],
+    text: '是否是小写英文',
+    success: ['qazxsw'],
+    error: ['QAZWSX'],
     value: /^[a-z]+$/
   },
 
   {
-    type: "number",
-    rules: ["只能由0-9组成的非空字符串"],
-    text: "是否是数字",
-    success: ["13231", "093920"],
-    error: ["dsdsdsdsds", "0.100102010201"],
+    type: 'number',
+    rules: ['只能由0-9组成的非空字符串'],
+    text: '是否是数字',
+    success: ['13231', '093920'],
+    error: ['dsdsdsdsds', '0.100102010201'],
     value: /^[0-9]+$/
   },
   {
-    type: "number-free",
-    rules: ["只能由'0-9'|'.'|'-'组成的非空字符串", "小数点至多有一个，并且第一位不能是小数点", "以0打头，后面没有小数点，则0本身，且前面不能带'-'，否则，后面跟任意位的非全0的数字", "非0打头，后面没有小数点，则数值本身，否则后面跟任意位的任意数字"],
-    text: "是否是合法的数字",
-    success: ["1", "0", "10", "-1", "0.1", "0.01"],
-    error: ["-0", "0.", "0.00", ".0", "01"],
+    type: 'number-free',
+    rules: ["只能由'0-9'|'.'|'-'组成的非空字符串", '小数点至多有一个，并且第一位不能是小数点', "以0打头，后面没有小数点，则0本身，且前面不能带'-'，否则，后面跟任意位的非全0的数字", '非0打头，后面没有小数点，则数值本身，否则后面跟任意位的任意数字'],
+    text: '是否是合法的数字',
+    success: ['1', '0', '10', '-1', '0.1', '0.01'],
+    error: ['-0', '0.', '0.00', '.0', '01'],
     value: /(^(-)?0\.([0-9]*)?[1-9]+([0-9]*)?$)|(^[0]{1}$)|(^(-)?[1-9]([0-9]+)?(\.[0-9]+)?$)/
   },
   {
-    type: "number-integer",
-    rules: ["只能由'0-9'|'-'组成的非空字符串", "以0打头，则0本身"],
-    text: "是否是整数",
-    success: ["1", "0", "10", "-1"],
-    error: ["-0", "0.1", "0.00", ".0", "0.001", "01"],
+    type: 'number-integer',
+    rules: ["只能由'0-9'|'-'组成的非空字符串", '以0打头，则0本身'],
+    text: '是否是整数',
+    success: ['1', '0', '10', '-1'],
+    error: ['-0', '0.1', '0.00', '.0', '0.001', '01'],
     value: /(^(-)?([1-9][0-9]*)$)|(^[0]{1}$)/
   },
   {
-    type: "number-money",
-    rules: ["只能由'0-9'|'.'组成的非空字符串", "小数点至多有一个，并且第一位不能是小数点", "以0打头，后面没有小数点，则0本身，否则后面跟不能全为0的至少一位数字", "非0打头，后面没有小数点，则数值本身，否则后面跟1-2位的任意数字"],
-    success: ["0.01", "0.10", "0.1", "0", "1"],
-    error: ["-0", "0.0", "0.00", ".0", "0.001", "-1", "01"],
-    text: "是否是金钱格式",
+    type: 'number-money',
+    rules: ["只能由'0-9'|'.'组成的非空字符串", '小数点至多有一个，并且第一位不能是小数点', '以0打头，后面没有小数点，则0本身，否则后面跟不能全为0的至少一位数字', '非0打头，后面没有小数点，则数值本身，否则后面跟1-2位的任意数字'],
+    success: ['0.01', '0.10', '0.1', '0', '1'],
+    error: ['-0', '0.0', '0.00', '.0', '0.001', '-1', '01'],
+    text: '是否是金钱格式',
     value: /(^[0]{1}$)|(^0\.[1-9]([0-9])?$)|(^0\.([0-9])?[1-9]$)|(^[1-9]([0-9]*)?(\.[0-9]{1,2})?$)/
   },
   {
-    type: "mobile",
-    rules: ["只能由0-9组成的11位非空字符串", "首位一定是1"],
-    text: "是否是手机号码",
-    success: ["13980464237"],
-    error: ["02334455555"],
+    type: 'mobile',
+    rules: ['只能由0-9组成的11位非空字符串', '首位一定是1'],
+    text: '是否是手机号码',
+    success: ['13980464237'],
+    error: ['02334455555'],
     value: /^1[0-9]{10}$/
   },
   {
-    type: "tel",
+    type: 'tel',
     rules: ["只能由'0-9'|'-'组成的[7,8,11]位非空字符串"],
-    text: "是否是座机号码",
-    success: ["028-12345678", "0832-5231402", "12345678", "5231402"],
-    error: ["02812345678"],
+    text: '是否是座机号码',
+    success: ['028-12345678', '0832-5231402', '12345678', '5231402'],
+    error: ['02812345678'],
     value: /(^[0-9]{3}\-[0-9]{8}$)|(^[0-9]{4}\-[0-9]{7}$)|(^[0-9]{7,8}$)/
   },
   {
-    type: "id-card",
-    memo: "该方法只是简单的验证，更复杂的需要判断生日，地区，校验等",
-    rules: ["长度只能是15位或18位", "若15位，则全部是数字", "若18位，则前17位全部是数字，最后一位可能是数字或字符x"],
-    text: "验证身份证号码",
-    success: ["5110251992071806019", "511025199207180601x", "51102519920718"],
-    error: ["511025199207180601o", "511025199"],
+    type: 'id-card',
+    memo: '该方法只是简单的验证，更复杂的需要判断生日，地区，校验等',
+    rules: ['长度只能是15位或18位', '若15位，则全部是数字', '若18位，则前17位全部是数字，最后一位可能是数字或字符x'],
+    text: '验证身份证号码',
+    success: ['5110251992071806019', '511025199207180601x', '51102519920718'],
+    error: ['511025199207180601o', '511025199'],
     value: /(^\d{15}$)|(^\d{17}(\d|X|x)$)/
   }
 ];

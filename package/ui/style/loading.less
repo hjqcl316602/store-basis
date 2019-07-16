@@ -8,7 +8,7 @@
   width: 20px;
   height: 20px;
 
-  .cross-item {
+  .vui-item {
     position: absolute;
     display: inline-block;
     width: 100%;
@@ -16,29 +16,205 @@
     border-radius: 50%;
     animation-fill-mode: both;
     animation-direction: normal;
-    animation-duration: 3s;
+    animation-duration: 2.5s;
     animation-play-state: running;
-    animation-iteration-count: infinite
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out
   }
 
-  .cross-item-1 {
-    left: -70%;
+  .vui-item-1 {
+    transform: translateX(-70.7%);
+    //left: -70.7%;
     background: fade(@color-primary, 90);
-    animation-name: slide-left;
+    animation-name: loading-slide-left;
   }
 
-  .cross-item-2 {
-    right: -70%;
-    background: fade(@color-primary, 75);
+  .vui-item-2 {
+    transform: translateX(70.7%);
+    //left: -70.7%;
+    background: fade(@color-primary, 70);
+    animation-name: loading-slide-right;
   }
 
-  .cross-item-3 {
-    bottom: -70%;
-    background: fade(@color-primary, 60);
+  .vui-item-3 {
+    transform: translateY(-70.7%);
+    background: fade(@color-primary, 50);
+    animation-name: loading-slide-top;
   }
 
-  .cross-item-4 {
-    top: -70%;
-    background: fade(@color-primary, 45);
+  .vui-item-4 {
+    transform: translateY(70.7%);
+    background: fade(@color-primary, 30);
+    animation-name: loading-slide-bottom;
   }
+}
+
+.vui-loading-circle {
+  position: relative;
+
+  .vui-list {
+    height: 20px;
+    width: 20px;
+    background: transparent;
+    display: inline-block;
+    position: absolute;
+
+    .vui-item {
+      display: inline-block;
+      position: absolute;
+      height: 20%;
+      width: 20%;
+      background: blue;
+      border-radius: 50%;
+      animation-fill-mode: both;
+      animation-direction: normal;
+      animation-duration: 1.2s;
+      animation-name: loading-rotate;
+      animation-play-state: running;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    .vui-item-1 {
+      top: 0;
+      left: 0;
+    }
+
+    .vui-item-2 {
+      top: 0;
+      right: 0;
+    }
+
+    .vui-item-3 {
+      bottom: 0;
+      right: 0;
+
+    }
+
+    .vui-item-4 {
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .vui-list-1 {
+    transform: rotate(0deg);
+
+    .vui-item-1 {
+      animation-delay: .1s
+    }
+
+    .vui-item-2 {
+      animation-delay: .4s
+    }
+
+    .vui-item-3 {
+      animation-delay: .7s
+    }
+
+    .vui-item-4 {
+      animation-delay: 1.0s
+    }
+  }
+
+  .vui-list-2 {
+    transform: rotate(30deg);
+
+    .vui-item-1 {
+      animation-delay: .2s
+    }
+
+    .vui-item-2 {
+      animation-delay: .5s
+    }
+
+    .vui-item-3 {
+      animation-delay: .8s
+    }
+
+    .vui-item-4 {
+      animation-delay: 1.1s
+    }
+  }
+
+  .vui-list-3 {
+    transform: rotate(60deg);
+
+    .vui-item-1 {
+      animation-delay: .3s
+    }
+
+    .vui-item-2 {
+      animation-delay: .6s
+    }
+
+    .vui-item-3 {
+      animation-delay: .9s
+    }
+
+    .vui-item-4 {
+      animation-delay: 1.2s
+    }
+  }
+}
+
+
+@keyframes loading-rotate {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0)
+  }
+
+  40% {
+    transform: scale(1)
+  }
+}
+
+@keyframes loading-slide-left {
+
+  0% {
+    transform: translateX(-70.7%);
+  }
+
+  50% {
+    transform: translateX(70.7%);
+  }
+}
+
+@keyframes loading-slide-right {
+
+  0% {
+    transform: translateX(70.7%);
+  }
+
+  50% {
+    transform: translateX(-70.7%);
+  }
+
+}
+
+@keyframes loading-slide-top {
+
+  0% {
+    transform: translateY(-70.7%);
+  }
+
+  50% {
+    transform: translateY(70.7%);
+  }
+
+}
+
+@keyframes loading-slide-bottom {
+
+  0% {
+    transform: translateY(70.7%);
+  }
+
+  50% {
+    transform: translateY(-70.7%);
+  }
+
 }
