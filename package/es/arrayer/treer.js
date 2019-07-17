@@ -7,7 +7,7 @@
  */
 
 // 对象引用的方式
-export default function tree(array, pid = "") {
+export default function treer(array, pid = "") {
   if (!Array.isArray(array)) {
     throw new Error("The first argument must be array.");
   }

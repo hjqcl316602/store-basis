@@ -6,7 +6,7 @@
  * @return: array<number>
  */
 
-export default function template(start = 0, len = 10, isUp = true) {
+export default function templater(start = 0, len = 10, isUp = true) {
   if (!Number.isInteger(start)) {
     throw new Error("The first argument must be integer number.");
   }
@@ -34,7 +34,7 @@ export default function template(start = 0, len = 10, isUp = true) {
  * @param { n } [ number<int> ] 指定长度
  * @return: string
  */
-template._random = function(n = 16) {
+templater._random = function(n = 16) {
   if (!Number.isInteger(n) || n <= 0) {
     throw new Error("The first argument must be integer number and it must be greater than 0,and this normal is 16.");
   }
@@ -53,7 +53,7 @@ template._random = function(n = 16) {
  * @param { charLen = 4 } [ number<int> ] 指定长度的字符串元素
  * @return: [ array<number>]
  */
-template.string = function(len = 10, charLen = 4) {
+templater.stringer = function(len = 10, charLen = 4) {
   if (!Number.isInteger(len) || len <= 0) {
     throw new Error("The first argument must be integer number and it must be greater than 0,and this normal is 10.");
   }
@@ -75,6 +75,6 @@ template.string = function(len = 10, charLen = 4) {
  * @return:[ array ]
  */
 
-template.of = function(len = 10, callback = function() {}, context = this) {
+templater.ofer = function(len = 10, callback = function() {}, context = this) {
   return Array.apply(null, Array(len)).map(() => callback.call(context));
 };

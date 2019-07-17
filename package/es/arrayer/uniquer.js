@@ -5,9 +5,9 @@
  * @return [ array]
  */
 
-export default function unique(array) {
+export default function uniquer(array) {
   if (!Array.isArray(array)) {
-    throw new Error("The argument must be array");
+    throw new Error('The argument must be array');
   }
   return [...new Set(array)];
 }

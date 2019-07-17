@@ -8,7 +8,7 @@
  * @msg : 首先会判断是否是必填项； 是，则先判断是否有值，再进行后续的验证判断；否，先判断是否有值，无，则跳过该数据的后续验证，有，则继续后续验证、
  * @msg : 支持的类型 regex | len | function
  */
-import regexs from "../regex";
+import regexs from "../regexer";
 
 export default function Check() {
   this.data = null;

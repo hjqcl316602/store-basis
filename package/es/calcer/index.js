@@ -4,7 +4,7 @@
  * @Author: huangjunquan
  * @Date: 2019-06-11 18:07:02
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-07-16 10:47:44
+ * @LastEditTime: 2019-07-17 15:29:48
  * @msg
  * 小数与整数的积也不能得到期望值，1.2334567 * 1000 = 1233.4567000000002
  * 两数乘积可能会超安全数范围
@@ -12,7 +12,7 @@
  *
  */
 
-export default function Calc() {}
+export default function Calcer() {}
 /**
  * @description 按指定的函数返回值填充指定长度的数组
  * @param { len = 10 } [ number ] 指定长度
@@ -21,7 +21,7 @@ export default function Calc() {}
  * @return [ array ]
  */
 //
-Calc.prototype._template = function(len = 10, callback = function() {}, context = this) {
+Calcer.prototype._template = function(len = 10, callback = function() {}, context = this) {
   return Array.apply(null, Array(len)).map(() => callback.call(context));
 };
 
@@ -33,7 +33,7 @@ Calc.prototype._template = function(len = 10, callback = function() {}, context 
  * @return [ string ]
  */
 
-Calc.prototype._insert = function(string, index = 0, target = '') {
+Calcer.prototype._insert = function(string, index = 0, target = '') {
   if (typeof string !== 'string') {
     throw new Error('The first argument must be string.');
   }
@@ -55,9 +55,9 @@ Calc.prototype._insert = function(string, index = 0, target = '') {
  * 4.若为空，则返回0
  * @param { string } [ string]
  * @return string
- * @example console.log(calc.format("000.0001"));=> '0.0001'
+ * @example console.log(calcer.format("000.0001"));=> '0.0001'
  */
-Calc.prototype._format = function(string) {
+Calcer.prototype._format = function(string) {
   if (typeof string !== 'string') {
     throw new Error('The first argument must be string.');
   }
@@ -82,7 +82,7 @@ Calc.prototype._format = function(string) {
  * @example isFreeNumber("-1") => false
  * @example isFreeNumber("+1") => false
  */
-Calc.prototype._isFreeNumber = function(string) {
+Calcer.prototype._isFreeNumber = function(string) {
   if (typeof string !== 'string') {
     throw new Error('The argument must be string.');
   }
@@ -103,7 +103,7 @@ Calc.prototype._isFreeNumber = function(string) {
  * @param { value } [ number | string ]
  * @return [string]
  */
-Calc.prototype._toFreeNumber = function(value) {
+Calcer.prototype._toFreeNumber = function(value) {
   if (typeof value !== 'number' && typeof value !== 'string') throw new Error('The argument must be string or number.');
   if (typeof value === 'number') {
     let result = String(value);
@@ -133,7 +133,7 @@ Calc.prototype._toFreeNumber = function(value) {
  * @example console.log(calc.add("99999999999999999", "1")); //=> 1000000000000000
  */
 
-Calc.prototype.add = function(prev, next) {
+Calcer.prototype.adder = function(prev, next) {
   prev = this._toFreeNumber(prev);
   next = this._toFreeNumber(next);
   let prevSplit = prev.split('.'),
@@ -186,7 +186,7 @@ Calc.prototype.add = function(prev, next) {
  * @example console.log(calc.mul("123456", "0.123456")); => '15241.383936'
  */
 
-Calc.prototype.mul = function(prev, next) {
+Calcer.prototype.muler = function(prev, next) {
   prev = this._toFreeNumber(prev);
   next = this._toFreeNumber(next);
   let prevSplit = prev.split('.'),
@@ -218,5 +218,5 @@ Calc.prototype.mul = function(prev, next) {
   return resFormat;
 };
 
-//let calc = new Calc();
-//console.log(calc.mul(0.0000000000123455, 0.0000000000123455));
+// let calcer = new Calcer();
+// console.log(calcer.adder(0.0000000000123455, 0.0000000000123455));

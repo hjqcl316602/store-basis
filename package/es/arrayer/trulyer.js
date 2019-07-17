@@ -5,7 +5,7 @@
  * @return: array
  */
 
-export default function truly(array) {
+export default function trulyer(array) {
   if (!Array.isArray(array)) {
     throw new Error("The argument must be a array.");
   }

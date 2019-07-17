@@ -5,7 +5,7 @@
  * @returns [array]
  */
 
-export default function flatten(array, deepth = 1) {
+export default function flattener(array, deepth = 1) {
   if (!Array.isArray(array)) {
     console.error("[array] is not array");
     return array;
@@ -16,7 +16,7 @@ export default function flatten(array, deepth = 1) {
       if (!Array.isArray(array[n])) {
         arr.push(array[n]);
       } else {
-        arr.push(...flatten(array[n], --deepth));
+        arr.push(...flattener(array[n], --deepth));
       }
     } else {
       arr.push(array[n]);

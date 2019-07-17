@@ -355,7 +355,7 @@ push(arr, 1, 2, 3, 4);
 console.log(arr);
 ```
 
-### object
+### objecter
 
 #### checker
 
@@ -394,7 +394,7 @@ console.log(arr);
 - checker.freer({}) => true
 - checker.freer(new Object()) => true
 
-### array
+### arrayer
 
 #### delayer
 
@@ -402,28 +402,28 @@ console.log(arr);
 - @param {array} [array]
 - @returns [array]
 
-#### flatten
+#### flattener
 
 - @name 扁平化数组
 - @param { array } [ array ] 需要偏平化的数组
 - @param { deepth } [ number ] 深度
 - @returns [array]
 
-#### shuffle
+#### shuffler
 
 - @name 数组乱序
 - @msg 使用 fisher-tayes 算法，目前最好的乱序方式，使得每个元素参与的概率一致
 - @param { array } [ array ] 数组
 - @return [ array ]
 
-#### shuffle.sort
+#### shuffler.sorter
 
 - @name 数组乱序
 - @msg 该方式乱序不完全，由于每个元素参与的次数不一致
 - @param { array }
 - @return:[ array ]
 
-#### sort
+#### sorter
 
 - @name 数组排序
 - @msg 不支持对象类型元素,会改变原数组的顺序
@@ -431,7 +431,7 @@ console.log(arr);
 - @param { isUp = true } [ boolean ] 是否是升序
 - @return [ array ]
 
-#### sort.quick
+#### sorter.quicker
 
 - @name 数组排序-快速
 - @msg 不支持对象元素
@@ -439,7 +439,7 @@ console.log(arr);
 - @param { isUp = true } [ boolean ] 是否是升序
 - @return: [ array ]
 
-#### sort.quick.with
+#### sorter.quicker.with
 
 - @name 数组排序-快速
 - @msg 支持对象元素的排序
@@ -448,7 +448,7 @@ console.log(arr);
 - @param { context } [ any ] 执行方法的执行上下文
 - @return:[ array ]
 
-#### sort.subbing
+#### sorter.subbinger
 
 - @name 数组排序(冒泡)
 - @msg 所有排序中速度最慢的
@@ -461,7 +461,7 @@ console.log(arr);
 - @param { isUp = true } [ boolean] 是否是升序
 - @return [array]
 
-#### template
+#### templater
 
 - @name: 生成一个数组模板
 - @param { start =0 } [ number<int>]开始值
@@ -469,14 +469,14 @@ console.log(arr);
 - @param { isUp = true } [ boolean ] 是否是向上递增，否则向下递减
 - @return: array<number>
 
-#### template.string
+#### templater.stringer
 
 - @name: 生成一个指定长度的数组，每个元素并由指定长度字符串组成
 - @param { len = 10 } [ number<int> ] 指定长度数组
 - @param { charLen = 4 } [ number<int> ] 指定长度的字符串元素
 - @return: [ array<number>]
 
-#### template.of
+#### templater.ofer
 
 - @name 填充相同值的元素的指定长度的数组
 - @param { len = 10 } [ len ] 数组的指定长度
@@ -484,33 +484,33 @@ console.log(arr);
 - @param { context = this } [ any ] 函数执行上下文
 - @return:[ array ]
 
-#### times
+#### timeser
 
 - @name 数组中元素出现的次数信息统计
 - @msg 不支持对象类型[ objecy,array ]统计，支持 NaN
 - @param { array = [] } [ array ]
 - @return: [ array<'object'> ]
 
-#### times.max
+#### timeser.maxer
 
 - @name 判断数组中出现最多次数的值
 - @param { array = [] } [ array ]
 - @return:[ array<'object'> ]
 
-#### times.min
+#### timeser.miner
 
 - @name 判断数组中出现最少次数的值
 - @param { array = [] } [ array ]
 - @return:[ array<'object'> ]
 
-#### transpose
+#### transposer
 
 - @name 数组置换
 - @param {array} [array] 需要置换的数组
 - @msg 目标数组必须是二维数组，并且每一个元素的长度一致
 - @return [array]
 
-#### tree
+#### treer
 
 - @name 一维数组转树形结构数据
 - @msg 利用 js 的引用对象实现，会修改原本的数组
@@ -518,14 +518,14 @@ console.log(arr);
 - @param { pid } [ string ] 根的 pid 值
 - @return [ array ]
 
-#### unique
+#### uniquer
 
 - @name 数组去重
 - @msg 只支持 object 类型
 - @param {array} [array]
 - @return [array]
 
-### string
+### stringer
 
 #### check
 
@@ -797,7 +797,7 @@ console.log(arr);
 
 #### trim.whole
 
-### type
+### typer
 
 #### browser
 
@@ -829,7 +829,7 @@ console.log(arr);
 - @return [ string ]
 - @example type('null') => string type(0) => number
 
-### lang
+### langer
 
 #### cloner
 
@@ -1064,7 +1064,7 @@ transformer.base64('http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26
 
 ## 类式（需要实例化）
 
-### Calc
+### Calcer
 
 - @Descripttion: 数学计算
 - @version: 0.0.1
@@ -1085,48 +1085,48 @@ transformer.base64('http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26
 * 以'0'开头，若后面没有有小数点，则'0'本身；若后面有小数点，则小数点后面有至少一位的数字
 * 不以'0'开头，后面跟任意位的数字，若有小数点，后面至少需要一位以上的数字
 
-#### add
+#### adder
 
 - @name 加法运算
 - @param { prev } [ number | string ]
 - @param { next } [ number | string ]
 - @return [string]
-- @example console.log(calc.add("1.123", "0.877")); // => 2
-- @example console.log(calc.add("0.1", "0.2")); // 0.3
-- @example console.log(calc.add("0.1", "1.23")); // => 1.33
-- @example console.log(calc.add("1000", "0.0001")); //=>1000.0001
-- @example console.log(calc.add("00001", "1")); // => 2
-- @example console.log(calc.add("99999999999999999", "1")); //=> 1000000000000000
+- @example console.log(calcer.adder("1.123", "0.877")); // => 2
+- @example console.log(calcer.adder("0.1", "0.2")); // 0.3
+- @example console.log(calcer.adder("0.1", "1.23")); // => 1.33
+- @example console.log(calcer.adder("1000", "0.0001")); //=>1000.0001
+- @example console.log(calcer.adder("00001", "1")); // => 2
+- @example console.log(calcer.adder("99999999999999999", "1")); //=> 1000000000000000
 
-#### mul
+#### muler
 
 - @name 乘法运算
 - @param { prev } [ number | string ]
 - @param { next } [ number | string ]
 - @return [ string ]
-- @example console.log(calc.mul("0.1", "0.7")); => '0.07'
-- @example console.log(calc.mul("123456", "0.123456")); => '15241.383936'
+- @example console.log(calcer.muler("0.1", "0.7")); => '0.07'
+- @example console.log(calcer.muler("123456", "0.123456")); => '15241.383936'
 
-### Storage([local=true])
+### Storager([local=true])
 
 - 参数[ local ]是否是本地永久存储信息
 - 只能存储 除 undefined function symbol 类型之外的数据
 - 异步方式
 
-#### setItem
+#### setter
 
 - @name 获取存储信息
 - @param { key } [ string ] 关键字
 - @return [ promise ]
 
-#### getItem
+#### getter
 
 - @name 存储信息
 - @param { key }
 - @param { value }
 - @return [ promise ]
 
-#### getItem
+#### remover
 
 - @name 移除指定关键字存储信息
 - @param { key } [ string ]
@@ -1137,16 +1137,16 @@ transformer.base64('http://img5.imgtn.bdimg.com/it/u=1128579105,2742690848&fm=26
 - @name 清除存储信息
 
 ```js
-let storage = new Storage(true);
+let storage = new Storager(true);
 
-storage.setItem('message', { name: 'web-app' });
-storage.getItem('message').then(res => {
+storage.setter('message', { name: 'web-app' });
+storage.getter('message').then(res => {
   console.log(res);
 });
 storage.clear();
 ```
 
-### Query
+### Queryer
 
 - 互转之后，数字和布尔均会变成字符串
 
@@ -1174,7 +1174,7 @@ storage.clear();
 - @param { query } [ string ]
 - @return [ object ]
 
-### Check
+### Checker
 
 - 链式调用，每个方法均返回当前实例
 - 一个数据验证失败则后续的数据不进行验证
@@ -1244,7 +1244,7 @@ console.log(check);
 console.log(check.pass, check.message);
 ```
 
-### Hex
+### Hexer
 
 #### escape
 
@@ -1301,7 +1301,7 @@ let str =
 let decodeComponent = hex.decodeComponent(str);
 ```
 
-### Url
+### Urler
 
 - @name 编码和解码
 - @msg 通过对三个函数的分析，我们可以知道：escape()除了 ASCII 字母、数字和特定的符号外，对传进来的字符串全部进行转义编码，因此如果想对 URL 编码，最好不要使用此方法。
@@ -1397,7 +1397,7 @@ console.log(evt);
 
 ## 其他
 
-### regex
+### regexer
 
 ```js
 export default [

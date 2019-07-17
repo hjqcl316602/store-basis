@@ -3,27 +3,27 @@
  * @version:
  * @Author: huangjunquan
  * @Date: 2019-06-12 11:17:47
- * @LastEditors: huangjunquan
- * @LastEditTime: 2019-06-25 16:25:22
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-07-17 15:35:19
  */
 
-export default function Hex() {}
+export default function Hexer() {}
 /**
  * @name 16进制编码
  * @msg 不支持中文编码，以及中文相关的标点符号等，适合单纯的数字和英文字母组成的字符串
  * @param { string } [ string ]
  * @return [ string ]
  */
-Hex.prototype.escape = function(string) {
-  if (typeof string !== "string") {
-    throw new Error("The argument must be string.");
+Hexer.prototype.escape = function(string) {
+  if (typeof string !== 'string') {
+    throw new Error('The argument must be string.');
   }
   var hexCharCode = [];
-  hexCharCode.push("0x");
+  hexCharCode.push('0x');
   for (var i = 0; i < string.length; i++) {
     hexCharCode.push(string.charCodeAt(i).toString(16));
   }
-  return hexCharCode.join("");
+  return hexCharCode.join('');
 };
 
 /**
@@ -33,16 +33,16 @@ Hex.prototype.escape = function(string) {
  * @return [ string ]
  */
 
-Hex.prototype.unescape = function(hexCharCodeStr) {
-  if (typeof hexCharCodeStr !== "string") {
-    throw new Error("The argument must be string.");
+Hexer.prototype.unescape = function(hexCharCodeStr) {
+  if (typeof hexCharCodeStr !== 'string') {
+    throw new Error('The argument must be string.');
   }
   var trimedStr = hexCharCodeStr.trim();
-  var rawStr = trimedStr.substr(0, 2).toLowerCase() === "0x" ? trimedStr.substr(2) : trimedStr;
+  var rawStr = trimedStr.substr(0, 2).toLowerCase() === '0x' ? trimedStr.substr(2) : trimedStr;
   var len = rawStr.length;
   if (len % 2 !== 0) {
-    alert("Illegal Format ASCII Code!");
-    return "";
+    alert('Illegal Format ASCII Code!');
+    return '';
   }
   var curCharCode;
   var resultStr = [];
@@ -50,7 +50,7 @@ Hex.prototype.unescape = function(hexCharCodeStr) {
     curCharCode = parseInt(rawStr.substr(i, 2), 16); // ASCII Code Value
     resultStr.push(String.fromCharCode(curCharCode));
   }
-  return resultStr.join("");
+  return resultStr.join('');
 };
 
 /**
@@ -61,16 +61,16 @@ Hex.prototype.unescape = function(hexCharCodeStr) {
  * @param { concat = ',' } [ string ]
  * @return [ string ]
  */
-Hex.prototype.encodeURI = function(string, concat = ",") {
-  if (typeof string !== "string") {
-    throw new Error("The first argument must be string.");
+Hexer.prototype.encodeURI = function(string, concat = ',') {
+  if (typeof string !== 'string') {
+    throw new Error('The first argument must be string.');
   }
-  if (typeof concat !== "string") {
-    throw new Error("The second argument must be string.");
+  if (typeof concat !== 'string') {
+    throw new Error('The second argument must be string.');
   }
-  var val = "";
+  var val = '';
   for (var i = 0; i < string.length; i++) {
-    if (val == "") val = string.charCodeAt(i).toString(16);
+    if (val == '') val = string.charCodeAt(i).toString(16);
     else val += concat + string.charCodeAt(i).toString(16);
   }
   return val;
@@ -84,14 +84,14 @@ Hex.prototype.encodeURI = function(string, concat = ",") {
  * @return [ string ]
  */
 
-Hex.prototype.decodeURI = function(string, concat = ",") {
-  if (typeof string !== "string") {
-    throw new Error("The first argument must be string.");
+Hexer.prototype.decodeURI = function(string, concat = ',') {
+  if (typeof string !== 'string') {
+    throw new Error('The first argument must be string.');
   }
-  if (typeof concat !== "string") {
-    throw new Error("The second argument must be string.");
+  if (typeof concat !== 'string') {
+    throw new Error('The second argument must be string.');
   }
-  var val = "";
+  var val = '';
   var arr = string.split(concat);
   for (var i = 0; i < arr.length; i++) {
     val += String.fromCharCode(parseInt(arr[i], 16));
@@ -104,9 +104,9 @@ Hex.prototype.decodeURI = function(string, concat = ",") {
  * @param { string }
  * @return [ string]
  */
-Hex.prototype.decodeComponent = function(string) {
-  if (typeof string !== "string") {
-    throw new Error("The first argument must be string.");
+Hexer.prototype.decodeComponent = function(string) {
+  if (typeof string !== 'string') {
+    throw new Error('The first argument must be string.');
   }
   var buf = [];
   for (var i = 0; i < string.length; i += 2) {
@@ -121,11 +121,11 @@ Hex.prototype.decodeComponent = function(string) {
  * @param { arr }
  * @return [ string ]
  */
-Hex.prototype.readUTF = function(arr) {
+Hexer.prototype.readUTF = function(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error("The argument must be array.");
+    throw new Error('The argument must be array.');
   }
-  var UTF = "",
+  var UTF = '',
     _arr = arr;
   for (var i = 0; i < _arr.length; i++) {
     var one = _arr[i].toString(2),
@@ -149,5 +149,3 @@ Hex.prototype.readUTF = function(arr) {
   }
   return UTF;
 };
-
-

@@ -4,9 +4,9 @@
  * @param  { array }  [ array ] 数组
  * @return [ array ]
  */
-export default function shuffle(array) {
+export default function shuffler(array) {
   if (!Array.isArray(array)) {
-    throw new Error("The argument must be array.");
+    throw new Error('The argument must be array.');
   }
   var m = array.length;
   while (m > 1) {
@@ -23,9 +23,9 @@ export default function shuffle(array) {
  * @return:[ array ]
  */
 
-shuffle.sort = function(array) {
+shuffler.sorter = function(array) {
   if (!Array.isArray(array)) {
-    throw new Error("The argument must be array.");
+    throw new Error('The argument must be array.');
   }
   return array.sort(function(a, b) {
     return Math.random() - 0.5;

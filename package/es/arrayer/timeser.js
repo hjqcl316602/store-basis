@@ -4,17 +4,17 @@
  * @param { array = [] } [ array ]
  * @return: [ array<object> ]
  */
-import sort from "./sort";
-export default function times(array = []) {
+import sorter from './sorter';
+export default function timeser(array = []) {
   if (!Array.isArray(array)) {
-    throw new Error("The first argument must be array.");
+    throw new Error('The first argument must be array.');
   }
   let ret = [];
   for (let n = 0; n < array.length; n++) {
     let element = array[n];
     let index = ret.findIndex(item => {
-      let nan = Number.isNaN(item["value"]) && Number.isNaN(element);
-      return item["value"] === element || nan;
+      let nan = Number.isNaN(item['value']) && Number.isNaN(element);
+      return item['value'] === element || nan;
     });
     if (index === -1) {
       ret.push({
@@ -23,8 +23,8 @@ export default function times(array = []) {
         indexs: [n]
       });
     } else {
-      ret[index]["times"] += 1;
-      ret[index]["indexs"].push(n);
+      ret[index]['times'] += 1;
+      ret[index]['indexs'].push(n);
     }
   }
   return ret;
@@ -35,16 +35,16 @@ export default function times(array = []) {
  * @param { array = [] } [ array ]
  * @return:[ array<object>]
  */
-times.max = function(array = []) {
+timeser.maxer = function(array = []) {
   if (!Array.isArray(array)) {
-    throw new Error("The argument must be array.");
+    throw new Error('The argument must be array.');
   }
   let ret = times(array);
-  let sortRet = sort.quick.with(ret, function(prev, next) {
+  let sortRet = sorter.quicker.with(ret, function(prev, next) {
     return prev.times > next.times;
   });
   return sortRet.filter(function(item, index, target) {
-    return item["times"] === target[0]["times"];
+    return item['times'] === target[0]['times'];
   });
 };
 
@@ -53,15 +53,15 @@ times.max = function(array = []) {
  * @param { array = [] } [ array ]
  * @return:[ array<object> ]
  */
-times.min = function(array = []) {
+timeser.miner = function(array = []) {
   if (!Array.isArray(array)) {
-    throw new Error("The argument must be array.");
+    throw new Error('The argument must be array.');
   }
   let ret = times(array);
-  let sortRet = sort.quick.with(ret, function(prev, next) {
+  let sortRet = sorter.quicker.with(ret, function(prev, next) {
     return prev.times < next.times;
   });
   return sortRet.filter(function(item, index, target) {
-    return item["times"] === target[0]["times"];
+    return item['times'] === target[0]['times'];
   });
 };

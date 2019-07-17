@@ -4,7 +4,7 @@
  * @param { array } [ array ]
  * @return [ boolean ]
  */
-export default function dimen(array) {
+export default function dimener(array) {
   if (!Array.isArray(array)) {
     throw new Error("The argument must be array.");
   }

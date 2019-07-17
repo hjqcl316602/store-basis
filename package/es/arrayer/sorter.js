@@ -6,12 +6,12 @@
  * @return  [ array ]
  */
 
-export default function sort(array = [], isUp = true) {
+export default function sorter(array = [], isUp = true) {
   if (!Array.isArray(array)) {
-    throw new Error("The first argument must be array.");
+    throw new Error('The first argument must be array.');
   }
-  if (typeof isUp !== "boolean") {
-    throw new Error("The second argument must be boolean.");
+  if (typeof isUp !== 'boolean') {
+    throw new Error('The second argument must be boolean.');
   }
   return array.sort((a, b) => {
     return isUp ? a - b : b - a;
@@ -26,12 +26,12 @@ export default function sort(array = [], isUp = true) {
  * @return: [ array ]
  */
 
-sort.quick = function(array = [], isUp = true) {
+sorter.quicker = function(array = [], isUp = true) {
   if (!Array.isArray(array)) {
-    throw new Error("The first argument must be array.");
+    throw new Error('The first argument must be array.');
   }
-  if (typeof isUp !== "boolean") {
-    throw new Error("The second argument must be boolean.");
+  if (typeof isUp !== 'boolean') {
+    throw new Error('The second argument must be boolean.');
   }
   if (array.length === 0) {
     return array;
@@ -43,7 +43,7 @@ sort.quick = function(array = [], isUp = true) {
     let element = array[n];
     element < mid ? left.push(element) : right.push(element);
   }
-  return sort.quick(left).concat([mid], sort.quick(right));
+  return sorter.quicker(left).concat([mid], sorter.quicker(right));
 };
 
 /**
@@ -55,16 +55,12 @@ sort.quick = function(array = [], isUp = true) {
  * @return:[ array ]
  */
 
-sort.quick.with = function(
-  array = [],
-  callback = function() {},
-  context = this
-) {
+sorter.quicker.with = function(array = [], callback = function() {}, context = this) {
   if (!Array.isArray(array)) {
-    throw new Error("The first argument must be array.");
+    throw new Error('The first argument must be array.');
   }
-  if (typeof callback !== "function") {
-    throw new Error("The second argument must be function.");
+  if (typeof callback !== 'function') {
+    throw new Error('The second argument must be function.');
   }
   if (array.length === 0) {
     return array;
@@ -77,9 +73,7 @@ sort.quick.with = function(
     let res = callback.call(context, element, mid, array);
     res ? left.push(element) : right.push(element);
   }
-  return sort.quick
-    .with(left, callback, context)
-    .concat([mid], sort.quick.with(right, callback, context));
+  return sorter.quicker.with(left, callback, context).concat([mid], sorter.quicker.with(right, callback, context));
 };
 
 /**
@@ -94,20 +88,17 @@ sort.quick.with = function(
  * @param { isUp = true } [ boolean] 是否是升序
  * @return [array]
  */
-sort.subbing = function(array = [], isUp = true) {
+sorter.subbinger = function(array = [], isUp = true) {
   if (!Array.isArray(array)) {
-    throw new Error("The first argument must be array.");
+    throw new Error('The first argument must be array.');
   }
-  if (typeof isUp !== "boolean") {
-    throw new Error("The second argument must be boolean.");
+  if (typeof isUp !== 'boolean') {
+    throw new Error('The second argument must be boolean.');
   }
   let len = array.length;
   for (let n = 0; n < len - 1; n++) {
     for (let k = 0; k < len - n - 1; k++) {
-      if (
-        (isUp && array[k] > array[k + 1]) ||
-        (!isUp && array[k] < array[k + 1])
-      ) {
+      if ((isUp && array[k] > array[k + 1]) || (!isUp && array[k] < array[k + 1])) {
         [array[k], array[k + 1]] = [array[k + 1], array[k]];
       }
     }

@@ -1,4 +1,4 @@
-import is from "../type/is";
+import is from "../typer/is";
 import daterFormater from "../dater/formater";
 import formater from "./formater";
 let isFile = is("file");

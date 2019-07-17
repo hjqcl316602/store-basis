@@ -8,6 +8,8 @@ import * as store from '../package/es';
 import './theme/index.css';
 /* eslint-disable no-new */
 
+console.log(store);
+
 new Vue({
   el: '#app',
   router,

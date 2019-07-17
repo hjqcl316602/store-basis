@@ -1,4 +1,4 @@
-import dimen from "./dimen";
+import dimener from './dimener';
 
 // 判断数组子元素的长度是否一致
 let equalLen = function(arr) {
@@ -15,16 +15,14 @@ let equalLen = function(arr) {
  * @return  [array]
  */
 
-export default function transpose(array) {
+export default function transposer(array) {
   // 判断是否是数组
   if (!Array.isArray(array)) {
-    throw new Error("The argument must be array.");
+    throw new Error('The argument must be array.');
   }
   // 判断是否是二维数组，以及子元素的长度是否一致
-  if (!dimen(array) || equalLen(array)) {
-    throw new Error(
-      "The argument must be dimen array,and it's item length must be equal."
-    );
+  if (!dimener(array) || equalLen(array)) {
+    throw new Error("The argument must be dimener array,and it's item length must be equal.");
   }
   let resArr = [];
   for (let k = 0; k < array[0].length; k++) {
