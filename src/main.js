@@ -4,11 +4,11 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 Vue.config.productionTip = false;
-import * as store from '../package/es';
-import './theme/index.css';
+import * as store from 'store-es';
+//import './theme/index.css';
+import '../package/css/basis/index.css';
+//import '../package/css/main/index.css';
 /* eslint-disable no-new */
-
-console.log(store.langer.cloner.nexter({ name: 'hjq' }, { age: 0 }));
 
 new Vue({
   el: '#app',

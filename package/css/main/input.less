@@ -1,0 +1,101 @@
+@import './theme.less';
+
+.@{prefix}-input {
+  position: relative;
+
+  input {
+    text-align: left;
+    display: inline-block;
+    font-size: inherit;
+    font-size: 14px;
+    outline: 0;
+    width: 100%;
+    padding: 0 10px;
+    color: @color-dark;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+  }
+
+  input::placeholder {
+    font-size: 12px;
+    color: @color-gray
+  }
+
+  .@{prefix}-input--label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100px;
+    height: 100%;
+  }
+
+  .@{prefix}-input--close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 36px;
+    height: 100%;
+  }
+
+  .@{prefix}-input--label~input {
+    padding-left: 100px
+  }
+
+  .@{prefix}-input--close~input {
+    padding-right: 36px
+  }
+}
+
+/**
+* input 高度
+*/
+
+.@{prefix}-input input,
+.@{prefix}-input.@{prefix}-input--medium input {
+  height: @input-size-medium;
+  line-height: @input-size-medium;
+}
+
+.@{prefix}-input.@{prefix}-input--smaller input {
+  height: @input-size-smaller;
+  line-height: @input-size-smaller;
+}
+
+.@{prefix}-input.@{prefix}-input--small input {
+  height: @input-size-small;
+  line-height: @input-size-small;
+}
+
+.@{prefix}-input.@{prefix}-input--large input {
+  height: @input-size-large;
+  line-height: @input-size-large;
+}
+
+.@{prefix}-input.@{prefix}-input--larger input {
+  height: @input-size-larger;
+  line-height: @input-size-larger;
+}
+
+/**
+* input 对齐方式
+*/
+.@{prefix}-input.@{prefix}-input--center input {
+  text-align: center
+}
+
+.@{prefix}-input.@{prefix}-input--right input {
+  text-align: right
+}
+
+/**
+// 使用方式
+<div class="vui-input vui-input--smaller">
+  <div class="vui-input--label">
+    名称
+  </div>
+  <div class="vui-input--close"></div>
+  <input type="text" placeholder="请输入文本... " />
+  <div class="vui-input--message"></div>
+</div>
+*/

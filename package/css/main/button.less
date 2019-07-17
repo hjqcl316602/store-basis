@@ -1,82 +1,58 @@
 @import './theme.less';
 
-/**
-* 按钮
-*/
-.jq-btn {
+.@{prefix}-btn {
 
-  outline                    : none;
-  border                     : none;
-  cursor                     : pointer; // 手机端可以取消该属性，否则会出现按键激活样式
-  font-size                  : 14px;
-  font-weight                : 800;
-  font-style                 : normal;
-  text-decoration            : none;
-  appearance                 : none;
-  box-sizing                 : border-box;
-  text-align                 : center;
-  position                   : relative;
-  //display                  : inline-block; 
-  //color                    : @color-dark;
-  background-color           : transparent;
+  outline: none;
+  border: none;
+  cursor: pointer; // 手机端可以取消该属性，否则会出现按键激活样式
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  appearance: none;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  color: @color-dark;
+  background-color: transparent;
   -webkit-tap-highlight-color: transparent;
-  overflow                   : hidden;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  white-space: nowrap;
+  margin: 0
 }
 
 /**
-* 按钮 触发触发动画
+* 按钮 触发动画
 */
-
-.jq-btn::before {
-  content         : " ";
-  position        : absolute;
-  top             : 50%;
-  left            : 50%;
-  opacity         : 0;
-  width           : 100%;
-  height          : 100%;
-  border          : inherit;
-  border-color    : #000;
+.@{prefix}-btn::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  border: inherit;
+  border-color: #000;
   background-color: #000;
-  border-radius   : inherit;
-  transform       : translate(-50%, -50%);
-  transition      : all .3s;
+  border-radius: inherit;
+  transform: translate(-50%, -50%);
+  transition: all .3s;
 }
 
-.jq-btn:active::before {
+.@{prefix}-btn:active::before {
   opacity: .1;
 }
 
-
 /**
-* 按钮 块级 or 行内
+* 按钮 禁用样式
 */
-.jq-btn {
-  display: inline-block
-}
-
-.jq-btn.jq-btn_long {
-  display: block
-}
-
-/**
-* 按钮 文本截取
-*/
-
-.jq-btn.jq-btn_ellipsis {
-  overflow     : hidden;
-  text-overflow: ellipsis;
-  word-break   : break-word;
-  white-space  : nowrap;
-  display      : block
-}
-
-/**
-* 按钮 文本截取
-*/
-.jq-btn.jq-btn_disabled {
+.@{prefix}-btn--disabled {
   opacity: .6;
-  cursor : not-allowed;
+  cursor: not-allowed;
 
   &::before {
     display: none;
@@ -84,209 +60,208 @@
 }
 
 /**
-* 按钮 按钮大小
+* 按钮 长状
 */
-
-.jq-btn.jq-btn_smaller {
-  line-height: @btn-size-smaller;
-  padding    : 0 4px;
-}
-
-.jq-btn.jq-btn_small {
-  line-height: @btn-size-small;
-  padding    : 0 4px;
-}
-
-.jq-btn,
-.jq-btn.jq-btn_medium {
-  line-height: @btn-size-medium;
-  padding    : 0 8px;
-}
-
-.jq-btn.jq-btn_large {
-  line-height: @btn-size-large;
-  padding    : 0 8px;
-}
-
-.jq-btn.jq-btn_larger {
-  line-height: @btn-size-larger;
-  padding    : 0 8px;
+.@{prefix}-btn--long {
+  display: block
 }
 
 /**
-* 按钮 圆角样式
+* 按钮 尺寸
 */
-
-
-.jq-btn.jq-btn_radius {
-  border-radius: 4px;
+.@{prefix}-btn--smaller {
+  line-height: @btn-size-smaller;
+  padding: 0 @btn-size-smaller/4;
+  height: @btn-size-smaller;
 }
 
-.jq-btn.jq-btn_smaller.jq-btn_circle {
-  border-radius: @btn-size-smaller;
+.@{prefix}-btn--small {
+  line-height: @btn-size-small;
+  padding: 0 @btn-size-small/4;
+  height: @btn-size-small;
 }
 
-.jq-btn.jq-btn_small.jq-btn_circle {
-  border-radius: @btn-size-small;
+.@{prefix}-btn,
+.@{prefix}-btn--medium {
+  line-height: @btn-size-medium;
+  padding: 0 @btn-size-medium/4;
+  height: @btn-size-medium;
 }
 
-.jq-btn.jq-btn_circle,
-.jq-btn.jq-btn_medium.jq-btn_circle {
-  border-radius: @btn-size-medium;
+.@{prefix}-btn--large {
+  line-height: @btn-size-large;
+  padding: 0 @btn-size-large/4;
+  height: @btn-size-large;
 }
 
-.jq-btn.jq-btn_large.jq-btn_circle {
-  border-radius: @btn-size-large;
+.@{prefix}-btn--larger {
+  line-height: @btn-size-larger;
+  padding: 0 @btn-size-larger/4;
+  height: @btn-size-larger;
 }
 
-.jq-btn.jq-btn_larger.jq-btn_circle {
-  border-radius: @btn-size-larger;
-}
 
 /**
 * 按钮 默认样式
 */
-
-.jq-btn,
-.jq-btn.jq-btn_dark {
-  color: @color-dark;
-}
-
-
-.jq-btn.jq-btn_light {
-  color: @color-light;
-}
-
-.jq-btn.jq-btn_gray {
-  color: @color-gray;
-}
-
-.jq-btn.jq-btn_black {
-  color: @color-black;
-}
-
-.jq-btn.jq-btn_white {
-  color: @color-white;
-}
-
-.jq-btn.jq-btn_primary {
-  color: @color-primary;
-}
-
-.jq-btn.jq-btn_danger {
-  color: @color-danger;
-}
-
-.jq-btn.jq-btn_warning {
+.@{prefix}-btn--warning {
   color: @color-warning;
 }
 
-.jq-btn.jq-btn_success {
+.@{prefix}-btn--danger {
+  color: @color-danger;
+}
+
+.@{prefix}-btn--primary {
+  color: @color-primary;
+}
+
+.@{prefix}-btn--success {
   color: @color-success;
 }
 
+.@{prefix}-btn--black {
+  color: @color-black;
+}
+
+.@{prefix}-btn--dark {
+  color: @color-dark;
+}
+
+.@{prefix}-btn--light {
+  color: @color-light;
+}
+
+.@{prefix}-btn--gray {
+  color: @color-gray;
+}
+
+.@{prefix}-btn--white {
+  color: @color-white;
+}
+
 /**
-* 按钮 填充样式
+* 按钮 块状样式
 */
-
-.jq-btn.jq-btn_pack{
-  box-shadow: 0 0 1px rgba(0,0,0,0.2)
+.@{prefix}-btn--pack {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2)
 }
 
-
-.jq-btn.jq-btn_pack,
-.jq-btn.jq-btn_pack.jq-btn_dark {
-  background-color: @color-dark;
-  color           : #fff;
+.@{prefix}-btn--pack.@{prefix}-btn--round {
+  border-radius: 10em
 }
 
-.jq-btn.jq-btn_pack.jq-btn_light {
-  background-color: @color-light;
-  color           : #fff;
+.@{prefix}-btn--pack.@{prefix}-btn--radius {
+  border-radius: 4px
 }
 
-.jq-btn.jq-btn_pack.jq-btn_gray {
-  background-color: @color-gray;
-  color           : #fff;
-}
-
-.jq-btn.jq-btn_pack.jq-btn_black {
-  background-color: @color-black;
-  color           : #fff;
-}
-
-.jq-btn.jq-btn_pack.jq-btn_white {
-  background-color: @color-white;
-  color           : @color-dark;
-}
-
-.jq-btn.jq-btn_pack.jq-btn_primary {
-  background-color: @color-primary;
-  color           : #fff;
-}
-
-.jq-btn.jq-btn_pack.jq-btn_danger {
-  background-color: @color-danger;
-  color           : #fff;
-}
-
-.jq-btn.jq-btn_pack.jq-btn_warning {
+/**
+* 按钮 块状样式 - 颜色
+*/
+.@{prefix}-btn--pack.@{prefix}-btn--warning {
+  color: #fff;
   background-color: @color-warning;
-  color           : #fff;
+
 }
 
-.jq-btn.jq-btn_pack.jq-btn_success {
+.@{prefix}-btn--pack.@{prefix}-btn--danger {
+  color: #fff;
+  background-color: @color-danger;
+}
+
+.@{prefix}-btn--pack.@{prefix}-btn--primary {
+  color: #fff;
+  background-color: @color-primary;
+}
+
+.@{prefix}-btn--pack.@{prefix}-btn--success {
+  color: #fff;
   background-color: @color-success;
-  color           : #fff;
+}
+
+.@{prefix}-btn--pack.@{prefix}-btn--black {
+  color: #fff;
+  background-color: @color-black;
+}
+
+.@{prefix}-btn--pack.@{prefix}-btn--dark {
+  color: #fff;
+  background-color: @color-dark;
+}
+
+.@{prefix}-btn--pack.@{prefix}-btn--light {
+  color: #fff;
+  background-color: @color-light;
+}
+
+.@{prefix}-btn--pack.@{prefix}-btn--gray {
+  color: #fff;
+  background-color: @color-gray;
+}
+
+.@{prefix}-btn--pack.@{prefix}-btn--white {
+  color: #fff;
+  background-color: @color-white;
 }
 
 /**
 * 按钮 镂空样式
 */
-
-.jq-btn.jq-btn_hollow,
-.jq-btn.jq-btn_hollow.jq-btn_dark {
-  color : @color-dark;
-  border: 1px solid @color-dark;
-
+.@{prefix}-btn--hollow {
+  position: relative;
 }
 
-.jq-btn.jq-btn_hollow.jq-btn_light {
-  color : @color-light;
-  border: 1px solid @color-light;
+/**
+* 按钮 镂空样式 - border
+*/
+
+.@{prefix}-btn--hollow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  border-style: solid;
+  border-width: 1px;
 }
 
-.jq-btn.jq-btn_hollow.jq-btn_gray {
-  color : @color-gray;
-  border: 1px solid @color-gray;
+/**
+* 按钮 镂空样式 - border - dashed
+*/
+.@{prefix}-btn--hollow.@{prefix}-btn--dashed::after {
+  border-style: dashed;
 }
 
-.jq-btn.jq-btn_hollow.jq-btn_black {
-  color : @color-black;
-  border: 1px solid @color-black;
+/**
+* 按钮 镂空样式 - border - 细
+*/
+.@{prefix}-btn--hollow.@{prefix}-btn--thin::after {
+  width: 200%;
+  height: 200%;
+  transform: scale(.5);
 }
 
-.jq-btn.jq-btn_hollow.jq-btn_white {
-  color : @color-white;
-  border: 1px solid @color-white;
+/**
+* 按钮 镂空样式 - border - 小圆角
+*/
+.@{prefix}-btn--hollow.@{prefix}-btn--radius,
+.@{prefix}-btn--hollow.@{prefix}-btn--radius::after {
+  border-radius: 4px
 }
 
-.jq-btn.jq-btn_hollow.jq-btn_primary {
-  color : @color-primary;
-  border: 1px solid @color-primary;
+/**
+* 按钮 镂空样式 - border - 大圆角
+*/
+.@{prefix}-btn--hollow.@{prefix}-btn--round,
+.@{prefix}-btn--hollow.@{prefix}-btn--round::after {
+  border-radius: 10em
 }
 
-.jq-btn.jq-btn_hollow.jq-btn_danger {
-  color : @color-danger;
-  border: 1px solid @color-danger;
-}
-
-.jq-btn.jq-btn_hollow.jq-btn_warning {
-  color : @color-warning;
-  border: 1px solid @color-warning;
-}
-
-.jq-btn.jq-btn_hollow.jq-btn_success {
-  color : @color-success;
-  border: 1px solid @color-success;
+.@{prefix}-btn--hollow.@{prefix}-btn--thin.@{prefix}-btn--radius::after {
+  border-radius: 8px
 }
