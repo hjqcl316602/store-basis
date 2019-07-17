@@ -8,7 +8,7 @@ import * as store from '../package/es';
 import './theme/index.css';
 /* eslint-disable no-new */
 
-console.log(store);
+console.log(store.langer.cloner.nexter({ name: 'hjq' }, { age: 0 }));
 
 new Vue({
   el: '#app',
