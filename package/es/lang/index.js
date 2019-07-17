@@ -1,9 +1,10 @@
-import clone from "./clone";
-import equal from "./equal";
-import extend from "./extend";
-
+import cloner from './cloner';
+import equaler from './equaler';
+import caser from './caser';
+import getter from './getter';
 export default {
-  clone,
-  equal,
-  extend
+  cloner,
+  equaler,
+  caser,
+  getter
 };

@@ -1,14 +1,14 @@
-import type from "../type/type";
-import is from "../type/is";
-import clone from "./clone";
+import type from '../type/type';
+import is from '../type/is';
+import clone from './cloner';
 
 // 支持的数据类型
-const supportType = ["number", "string", "boolean", "null", "undefined", "array", "object", "function", "symbol"];
+const supportType = ['number', 'string', 'boolean', 'null', 'undefined', 'array', 'object', 'function', 'symbol'];
 
 //原始数据类型,包含null
-const originType = ["number", "string", "boolean", "null", "undefined", "function", "symbol"];
+const originType = ['number', 'string', 'boolean', 'null', 'undefined', 'function', 'symbol'];
 // 引用数据类型
-const quoteType = ["object", "array"];
+const quoteType = ['object', 'array'];
 
 /**
  * @name 数据拷贝-向后
@@ -38,7 +38,7 @@ export default function extend(prev, next) {
   }
 
   if (!is(...supportType)(next)) {
-    throw new Error("The second argument type must be in [ number,string,boolean,null,undefined,function,symbol,array,object ],but the argument type is " + type(next) + ".");
+    throw new Error('The second argument type must be in [ number,string,boolean,null,undefined,function,symbol,array,object ],but the argument type is ' + type(next) + '.');
   }
   let prevType = type(prev);
   let nextType = type(next);
@@ -51,7 +51,7 @@ export default function extend(prev, next) {
   }
   if (is(...quoteType)(prev)) {
     if (prevType !== nextType) return clone(prev);
-    if (prevType === "array") {
+    if (prevType === 'array') {
       let len = Math.max(prev.length, next.length);
       let res = [];
       for (let n = 0; n < len; n++) {
@@ -59,7 +59,7 @@ export default function extend(prev, next) {
       }
       return res;
     }
-    if (prevType === "object") {
+    if (prevType === 'object') {
       let res = {};
       let keys = [...Object.keys(prev), ...Object.keys(next)].filter((item, index, array) => array.indexOf(item) === index);
       for (let n = 0; n < keys.length; n++) {
@@ -85,7 +85,7 @@ extend.replace = function(prev, next) {
   }
 
   if (!is(...supportType)(next)) {
-    throw new Error("The second argument type must be in [ number,string,boolean,null,undefined,function,symbol,array,object ],but the argument type is " + type(next) + ".");
+    throw new Error('The second argument type must be in [ number,string,boolean,null,undefined,function,symbol,array,object ],but the argument type is ' + type(next) + '.');
   }
   let prevType = type(prev);
   let nextType = type(next);
@@ -98,7 +98,7 @@ extend.replace = function(prev, next) {
   }
   if (is(...quoteType)(prev)) {
     if (prevType !== nextType) return clone(prev);
-    if (prevType === "array") {
+    if (prevType === 'array') {
       let len = prev.length;
       let res = [];
       for (let n = 0; n < len; n++) {
@@ -106,7 +106,7 @@ extend.replace = function(prev, next) {
       }
       return res;
     }
-    if (prevType === "object") {
+    if (prevType === 'object') {
       let res = {};
       let keys = Object.keys(prev);
       for (let n = 0; n < keys.length; n++) {
@@ -116,3 +116,7 @@ extend.replace = function(prev, next) {
     }
   }
 };
+
+// let a = Object("{ name: '' }");
+// console.log(a);
+// console.log({ name: null }, { name: undefined });

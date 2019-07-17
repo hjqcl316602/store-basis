@@ -30,8 +30,8 @@ trim.end = string => trim(string, 'end');
 trim.both = string => trim(string, 'both');
 trim.whole = string => trim(string, 'whole');
 
-console.log(trim(' dsdsds dsd ds dsds ds ', 'both'));
-console.log(trim.both(' dsdsds dsd ds dsds ds '));
-console.log(trim.start(' dsdsds dsd ds dsds ds '));
-console.log(trim.end(' dsdsds dsd ds dsds ds '));
-console.log(trim.whole(' dsdsds dsd ds dsds ds '));
+// console.log(trim(' dsdsds dsd ds dsds ds ', 'both'));
+// console.log(trim.both(' dsdsds dsd ds dsds ds '));
+// console.log(trim.start(' dsdsds dsd ds dsds ds '));
+// console.log(trim.end(' dsdsds dsd ds dsds ds '));
+// console.log(trim.whole(' dsdsds dsd ds dsds ds '));

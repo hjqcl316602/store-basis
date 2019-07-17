@@ -357,38 +357,42 @@ console.log(arr);
 
 ### object
 
-#### check
+#### checker
 
 - @name 验证一个数据是否是对象
 - @param { object } [ any ]
 - @return [ boolean ]
-- @example check({})=> true
+- @example checker({})=> true
 
-#### check.empty
+#### checker.emptyer
 
 - @name 验证一个对象地方是空对象
 - @msg 没有自身属性
 - @param { object } [ object ]
 - @return [ boolean ]
-- @example check.empty({}) => true
+- @example checker.emptyer({}) => true
 
-#### check.plain
+#### checker.plainer
 
 - @name 验证一个数据是否是纯对象
 - @msg 该对象是通过 {} 和 new Object()方式创建
 - @msg Object.getPrototypeOf 不能获取 [ undefined,null ]的原型，所以使用了 try catch
 - @param { object } [ any ]
 - @return [ boolean ]
-- @example check.plain({}) => true
-- @example check.plain(new Object()) => true
-- @example check.plain("") => false
+- @example checker.plainer({}) => true
+- @example checker.plainer(new Object()) => true
+- @example checker.plainer("") => false
 
-#### check.plain.simple
+#### checker.freer
 
-- @name 验证一个数据是否是纯对象
-- @msg 该对象是通过 {} 和 new Object()方式创建
+- @name 验证一个数据是否是纯对象或没有原型的对象，即常用的业务对象
+- @msg 该对象是通过 {} 、new Object()、Object.create(null)方式创建的
 - @param { object } [ any ]
 - @return [ boolean ]
+- @example
+- checker.freer(Object.create(null)) => true
+- checker.freer({}) => true
+- checker.freer(new Object()) => true
 
 ### array
 
@@ -827,56 +831,70 @@ console.log(arr);
 
 ### lang
 
-#### clone
+#### cloner
 
 - @name 数据的克隆
-- @msg 支持对[ object , array ]的深拷贝，即和源数据之间不存在引用关系
-- @param { target } [ any ] 目标数据
+- @msg
+- 只支持['string', 'number', 'boolean', 'array', 'null', 'undefined', 'object']类型的拷贝，并且当类型是对象时，必须是有{}、new Object()、Object.create(null)方式创建的
+- 支持对[ object , array ] 的深拷贝，即和源数据之间不存在引用关系
+- 暂不支持 function、symbol 、regex 等的拷贝
+- @param { target } [ 'string', 'number', 'boolean', 'array', 'null', 'undefined', 'object' ] 目标数据
 - @return [ any ]
-- @example clone({ name: ["", 2, 3, 5] }) => { name: ["", 2, 3, 5] }
+- @example
+- cloner({ name: ["", 2, 3, 5] }) => { name: ["", 2, 3, 5] }
 
-#### equal
+#### cloner.nexter
+
+- @name 数据深拷贝，向后
+- @msg
+- 只用于满足常用业务逻辑
+- 只支持['string', 'number', 'boolean', 'array', 'null', 'undefined', 'object']类型的拷贝，并且当类型是对象时，必须是有{}、new Object()、Object.create(null)方式创建的
+- 原始 + 原始 | 返回原始 next
+- 引用 + 原始 | 返回原始 next
+- 原始 + 引用 | 返回引用 next 的深拷贝
+- 引用 + 引用 | 若类型不一致，则返回 next 的深拷贝，若类型一直，则判断 next 中属性在 prev 中的存在性，若存在，则替换，若不存在，则追加
+- @param { prev } ['string', 'number', 'boolean', 'array', 'null', 'undefined', 'object']
+- @param { next } ['string', 'number', 'boolean', 'array', 'null', 'undefined', 'object']
+- @return [ any ]
+
+#### cloner.prever
+
+- @name 数据深拷贝，向前（替换）
+- @msg
+- 只用于满足常用业务逻辑
+- 只支持['string', 'number', 'boolean', 'array', 'null', 'undefined', 'object']类型的拷贝，并且当类型是对象时，必须是有{}、new Object()、Object.create(null)方式创建的
+- 原始 + 原始 | 返回原始 next
+- 引用 + 原始 | 返回原始 next
+- 原始 + 引用 | 返回引用 next 的深拷贝
+- 引用 + 引用 | 若类型不一致，则返回 next 的深拷贝，若类型一直，则判断 next 中属性在 prev 中的存在性，若存在，则替换，若不存在，则忽略
+- @param { prev } ['string', 'number', 'boolean', 'array', 'null', 'undefined', 'object']
+- @param { next } ['string', 'number', 'boolean', 'array', 'null', 'undefined', 'object']
+- @return [ any ]
+
+#### equaler
 
 - @name 判断两个数据的属性值是否相等
+- @msg
+- 只支持['string', 'number', 'boolean', 'array', 'null', 'undefined', 'object']类型的拷贝，并且当类型是对象时，必须是有{}、new Object()、Object.create(null)方式创建的
 - @param { prev } [ number,string,boolean,null,undefined,array,object ]
 - @param { next } [ number,string,boolean,null,undefined,array,object ]
-- @msg 只支持 number,string,boolean,null,undefined,array,object 类型的数据比较，如果需要比较 symbol、function，可以强制转为 string 之后再比较，作用不大，所以放弃了对他们的比较
-- @msg 支持多维度的 array 和 object 类型，但其子元素类型也必须要满足在这些类型中
 - @return: [ boolean ]
-- @example //console.log(equal(NaN, NaN)); => true
-- @example //console.log(equal([NaN, { name: true }], [NaN, { name: true }])); => true
+- @example
+- equal(NaN, NaN) => true
+- equaler([NaN, { name: true }], [NaN, { name: true }]) => true
 
-#### extend
+#### getter
 
-- @name 数据拷贝-向后
-- @msg 针对引用关系的数据，源数据中存在目标数据没有的属性，则添加该属性，若有该属性，则覆盖该属性值。
-  - 返回的新数据与目标数据和源数据均不存在引用关系
-  - 原始数据类型：number,string,boolean,null,undefined,function,symbol
-  - 引用数据类型：array,object
-- @rule
-  - 原始 1 + 原始 2 => 当原始 2 为 null 时，返回原始 1，否则原始 2 | extend(1, null) => 1 | extend(1, true ) => true
-  - 原始 + 引用 => 原始 | extend(1, [1,2,3]) => 1 | extend(1, { name : 1 } ) =>1
-  - 引用 + 原始 => 只对引用类型数据进行深复制即可
-    - array + 原始 | extend( [1,2,3] , 1 ) => [ 1,2,3]
-    - object + 原始 | extend( { name : 1 } , 1 ) => { name ： 1 }
-  - 引用 + 引用
-    - array1 + array2 => array 向前复制和追加 | extend( [ 1,2,3] ,[1,2,4,5,6] ) => [ 1,2,4,5,6]
-    - array + object => 只对 array 进行深复制即可 | extend( [ 1,2,3] ,{ name : 1 } ) => [1,2,3]
-    - object + array => 只对 object 进行深复制即可 | extend( { a:1,b:2} ,[1,2,4,5,6] ) => { a:1,b:2}
-    - object1 + object2 => object2 向前复制和追加 | extend( { a:1,b:2} , { b : 3 , c : 4 , e : null } ) => { a : 1 , b : 3 , c : 4 , e : undefined }
-- @param { prev } [ number,string,boolean,null,undefined,array,object ,function,symbol ]
-- @param { next } [ number,string,boolean,null,undefined,array,object ,function,symbol ]
-- @return [ number,string,boolean,null,undefined,array,object ,function,symbol ]
-
-#### extend.replace
-
-- @name 数据拷贝-向前
-- @msg 和 extend 同理，区别在于，后者和前者的属性名一致，则替换，否则不替换，也不追加
-- @param { prev }
-- @param { next }
+- @name 按指定的路径获取值
+- @msg
+- 若未取值则返回默认
+- 取到的值若对象类型，则与目标对象之间存在引用关系的
+- @param { object } [ any ] 取值对象
+- @param { path = []} [ array ] 路径
+- @param { defaults } [ any ] 默认值
 - @return [ any ]
-- @example extend.replace([1, 2, 3, 4], [true, false, 2, 3, 4, 5, 6]) => [ true,false,2,3]
-- @example extend.replace({ a: 1, b: 2, c: 3 }, { a: true, b: null, d: undefined, e: "'" }) => { a: true, b: 2, c: 3 }
+- @example
+- getter({ a: { b: { c: { d: { e: { f: { g: true } } } } } } }, ['a', 'b', 'c', 'd', 'e', 'f', 'g'], 0) => true
 
 ### imager
 
