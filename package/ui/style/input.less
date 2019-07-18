@@ -1,0 +1,129 @@
+@import './theme.less';
+
+.vui-input {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+.vui-input>input {
+  flex: 1;
+  text-align: left;
+  display: inline-block;
+  font-size: inherit;
+  font-size: @input-text-size;
+  outline: 0;
+  padding: 0 @input-padding-size;
+  color: @input-text-color;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+}
+
+.vui-input>input::placeholder {
+  color: @input-placeholder-color;
+  font-size: @input-placeholder-size;
+}
+
+.vui-input.vui-input--smaller>input,
+.vui-input.vui-input--smaller .vui-input--prepend,
+.vui-input.vui-input--smaller .vui-input--append {
+  height: @input-size-smaller;
+  line-height: @input-size-smaller
+}
+
+.vui-input.vui-input--small>input,
+.vui-input.vui-input--small .vui-input--prepend,
+.vui-input.vui-input--small .vui-input--append {
+  height: @input-size-small;
+  line-height: @input-size-small
+}
+
+.vui-input>input,
+.vui-input.vui-input--medium>input,
+.vui-input .vui-input--prepend,
+.vui-input .vui-input--append,
+.vui-input.vui-input--medium .vui-input--prepend,
+.vui-input.vui-input--medium .vui-input--append {
+  height: @input-size-medium;
+  line-height: @input-size-medium
+}
+
+.vui-input.vui-input--large>input,
+.vui-input.vui-input--large .vui-input--prepend,
+.vui-input.vui-input--large .vui-input--append {
+  height: @input-size-large;
+  line-height: @input-size-large
+}
+
+.vui-input.vui-input--larger>input,
+.vui-input.vui-input--larger .vui-input--prepend,
+.vui-input.vui-input--larger .vui-input--append {
+  height: @input-size-larger;
+  line-height: @input-size-larger
+}
+
+.vui-input .vui-input--prepend,
+.vui-input .vui-input--append {
+  flex: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/**
+* input  border-radius
+*/
+.vui-input.vui-input--radius.is-radius-normal {
+  border-radius: @input-radius-normal
+}
+
+.vui-input.vui-input--radius.is-radius-normal.vui-input--border::after {
+  border-radius: @input-radius-normal * 2
+}
+
+.vui-input.vui-input--radius.is-radius-round {
+  border-radius: 10em
+}
+
+.vui-input.vui-input--radius.is-radius-round.vui-input--border::after {
+  border-radius: 10em
+}
+
+/**
+* input  border
+*/
+.vui-input--border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  border-color: @input-border-color;
+  transition: border-color .5s ease-in-out;
+  border-style: solid;
+  border-width: 0
+}
+
+.vui-input--border.is-border-active::after {
+  border-color: @input-border-active-color;
+}
+
+.vui-input--border.is-border-thin::after {
+  width: 200%;
+  height: 200%;
+  transform: scale(.5);
+}
+
+.vui-input--border.is-border-bottom::after {
+  border-bottom-width: 1px
+}
+
+.vui-input--border.is-border-round::after {
+  border-width: 1px
+}

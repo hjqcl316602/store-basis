@@ -1,18 +1,18 @@
 /**
 * 边框
 */
-.vc-border-top,
-.vc-border-bottom,
-.vc-border-left,
-.vc-border-right,
-.vc-border {
+.vui-border-top,
+.vui-border-bottom,
+.vui-border-left,
+.vui-border-right,
+.vui-border {
   position: relative;
 }
-.vc-border-top:after,
-.vc-border-bottom:after,
-.vc-border-left:after,
-.vc-border-right:after,
-.vc-border:after {
+.vui-border-top:after,
+.vui-border-bottom:after,
+.vui-border-left:after,
+.vui-border-right:after,
+.vui-border:after {
   content: '';
   position: absolute;
   top: 0;
@@ -30,35 +30,35 @@
 /**
 * 边框 四周
 */
-.vc-border:after {
+.vui-border:after {
   border-width: 1px;
 }
-.vc-border-top:after {
+.vui-border-top:after {
   border-top-width: 1px;
 }
-.vc-border-bottom:after {
+.vui-border-bottom:after {
   border-bottom-width: 1px;
 }
-.vc-border-left:after {
+.vui-border-left:after {
   border-left-width: 1px;
 }
-.vc-border-right:after {
+.vui-border-right:after {
   border-right-width: 1px;
 }
 /**
 * border的粗细
 */
-.vc-border--thiner:after {
+.vui-border--thiner:after {
   width: 400%;
   height: 400%;
   transform: scale(0.25);
 }
-.vc-border--thin:after {
+.vui-border--thin:after {
   width: 300%;
   height: 300%;
   transform: scale(0.33333333);
 }
-.vc-border--half:after {
+.vui-border--half:after {
   width: 200%;
   height: 200%;
   transform: scale(0.5);
@@ -66,21 +66,21 @@
 /**
 * border的样式
 */
-.vc-border--dashed:after {
+.vui-border--dashed:after {
   border-style: dashed;
 }
 /**
 * border的颜色
 */
-.vc-border--lighter:after {
+.vui-border--lighter:after {
   border-color: #c0c0c0;
 }
-.vc-border--light:after {
+.vui-border--light:after {
   border-color: #aaa;
 }
-.vc-border--dark:after {
+.vui-border--dark:after {
   border-color: #666;
 }
-.vc-border--darker:after {
+.vui-border--darker:after {
   border-color: #333;
 }

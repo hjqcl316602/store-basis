@@ -22,28 +22,18 @@
     color: @color-gray
   }
 
-  .@{prefix}-input--label {
+  .@{prefix}-input--prepend {
     position: absolute;
     top: 0;
     left: 0;
-    min-width: 100px;
     height: 100%;
   }
 
-  .@{prefix}-input--close {
+  .@{prefix}-input--append {
     position: absolute;
     top: 0;
-    left: 0;
-    min-width: 36px;
+    right: 0;
     height: 100%;
-  }
-
-  .@{prefix}-input--label~input {
-    padding-left: 100px
-  }
-
-  .@{prefix}-input--close~input {
-    padding-right: 36px
   }
 }
 
@@ -57,14 +47,49 @@
   line-height: @input-size-medium;
 }
 
+.@{prefix}-input .@{prefix}-input--prepend,
+.@{prefix}-input.@{prefix}-input--medium .@{prefix}-input--prepend,
+.@{prefix}-input .@{prefix}-input--append,
+.@{prefix}-input.@{prefix}-input--medium .@{prefix}-input--append {
+  min-width: @input-size-medium;
+}
+
+.@{prefix}-input .@{prefix}-input--prepend~input,
+.@{prefix}-input.@{prefix}-input--medium .@{prefix}-input--prepend~input,
+.@{prefix}-input .@{prefix}-input--append~input,
+.@{prefix}-input.@{prefix}-input--medium .@{prefix}-input--append~input {
+  padding-left: @input-size-medium + 10px
+}
+
 .@{prefix}-input.@{prefix}-input--smaller input {
   height: @input-size-smaller;
   line-height: @input-size-smaller;
 }
 
+.@{prefix}-input.@{prefix}-input--smaller .@{prefix}-input--prepend,
+.@{prefix}-input.@{prefix}-input--smaller .@{prefix}-input--append {
+  min-width: @input-size-smaller;
+}
+
+.@{prefix}-input.@{prefix}-input--smaller .@{prefix}-input--prepend~input,
+.@{prefix}-input.@{prefix}-input--smaller .@{prefix}-input--append~input {
+  padding-left: @input-size-smaller + 10px
+}
+
+
 .@{prefix}-input.@{prefix}-input--small input {
   height: @input-size-small;
   line-height: @input-size-small;
+}
+
+.@{prefix}-input.@{prefix}-input--small .@{prefix}-input--prepend,
+.@{prefix}-input.@{prefix}-input--small .@{prefix}-input--append {
+  min-width: @input-size-small;
+}
+
+.@{prefix}-input.@{prefix}-input--small .@{prefix}-input--prepend~input,
+.@{prefix}-input.@{prefix}-input--smaller .@{prefix}-input--append~input {
+  padding-left: @input-size-small + 10px
 }
 
 .@{prefix}-input.@{prefix}-input--large input {
@@ -72,9 +97,29 @@
   line-height: @input-size-large;
 }
 
+.@{prefix}-input.@{prefix}-input--large .@{prefix}-input--prepend,
+.@{prefix}-input.@{prefix}-input--large .@{prefix}-input--append {
+  min-width: @input-size-large;
+}
+
+.@{prefix}-input.@{prefix}-input--large .@{prefix}-input--prepend~input,
+.@{prefix}-input.@{prefix}-input--large .@{prefix}-input--append~input {
+  padding-left: @input-size-large + 10px
+}
+
 .@{prefix}-input.@{prefix}-input--larger input {
   height: @input-size-larger;
   line-height: @input-size-larger;
+}
+
+.@{prefix}-input.@{prefix}-input--larger .@{prefix}-input--prepend,
+.@{prefix}-input.@{prefix}-input--larger .@{prefix}-input--append {
+  min-width: @input-size-larger;
+}
+
+.@{prefix}-input.@{prefix}-input--larger .@{prefix}-input--prepend~input,
+.@{prefix}-input.@{prefix}-input--larger .@{prefix}-input--append~input {
+  padding-left: @input-size-larger + 10px
 }
 
 /**
@@ -88,13 +133,15 @@
   text-align: right
 }
 
+ 
+ 
 /**
 // 使用方式
 <div class="vui-input vui-input--smaller">
-  <div class="vui-input--label">
+  <div class="vui-input--prepend">
     名称
   </div>
-  <div class="vui-input--close"></div>
+  <div class="vui-input--append"></div>
   <input type="text" placeholder="请输入文本... " />
   <div class="vui-input--message"></div>
 </div>

@@ -18,25 +18,17 @@
   font-size: 12px;
   color: #999;
 }
-.vui-input .vui-input--label {
+.vui-input .vui-input--prepend {
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 100px;
   height: 100%;
 }
-.vui-input .vui-input--close {
+.vui-input .vui-input--append {
   position: absolute;
   top: 0;
-  left: 0;
-  min-width: 36px;
+  right: 0;
   height: 100%;
-}
-.vui-input .vui-input--label ~ input {
-  padding-left: 100px;
-}
-.vui-input .vui-input--close ~ input {
-  padding-right: 36px;
 }
 /**
 * input 高度
@@ -46,21 +38,65 @@
   height: 36px;
   line-height: 36px;
 }
+.vui-input .vui-input--prepend,
+.vui-input.vui-input--medium .vui-input--prepend,
+.vui-input .vui-input--append,
+.vui-input.vui-input--medium .vui-input--append {
+  min-width: 36px;
+}
+.vui-input .vui-input--prepend ~ input,
+.vui-input.vui-input--medium .vui-input--prepend ~ input,
+.vui-input .vui-input--append ~ input,
+.vui-input.vui-input--medium .vui-input--append ~ input {
+  padding-left: 46px;
+}
 .vui-input.vui-input--smaller input {
   height: 28px;
   line-height: 28px;
+}
+.vui-input.vui-input--smaller .vui-input--prepend,
+.vui-input.vui-input--smaller .vui-input--append {
+  min-width: 28px;
+}
+.vui-input.vui-input--smaller .vui-input--prepend ~ input,
+.vui-input.vui-input--smaller .vui-input--append ~ input {
+  padding-left: 38px;
 }
 .vui-input.vui-input--small input {
   height: 32px;
   line-height: 32px;
 }
+.vui-input.vui-input--small .vui-input--prepend,
+.vui-input.vui-input--small .vui-input--append {
+  min-width: 32px;
+}
+.vui-input.vui-input--small .vui-input--prepend ~ input,
+.vui-input.vui-input--smaller .vui-input--append ~ input {
+  padding-left: 42px;
+}
 .vui-input.vui-input--large input {
   height: 40px;
   line-height: 40px;
 }
+.vui-input.vui-input--large .vui-input--prepend,
+.vui-input.vui-input--large .vui-input--append {
+  min-width: 40px;
+}
+.vui-input.vui-input--large .vui-input--prepend ~ input,
+.vui-input.vui-input--large .vui-input--append ~ input {
+  padding-left: 50px;
+}
 .vui-input.vui-input--larger input {
   height: 44px;
   line-height: 44px;
+}
+.vui-input.vui-input--larger .vui-input--prepend,
+.vui-input.vui-input--larger .vui-input--append {
+  min-width: 44px;
+}
+.vui-input.vui-input--larger .vui-input--prepend ~ input,
+.vui-input.vui-input--larger .vui-input--append ~ input {
+  padding-left: 54px;
 }
 /**
 * input 对齐方式
@@ -74,10 +110,10 @@
 /**
 // 使用方式
 <div class="vui-input vui-input--smaller">
-  <div class="vui-input--label">
+  <div class="vui-input--prepend">
     名称
   </div>
-  <div class="vui-input--close"></div>
+  <div class="vui-input--append"></div>
   <input type="text" placeholder="请输入文本... " />
   <div class="vui-input--message"></div>
 </div>

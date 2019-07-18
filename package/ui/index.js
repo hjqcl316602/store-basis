@@ -1,6 +1,3 @@
 import Loading from './loading/index.js';
-
-export { 
-  Loading
-
-};
+import Input from './input/index.js';
+export { Loading, Input };
