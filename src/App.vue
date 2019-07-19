@@ -1,17 +1,15 @@
 <template>
   <div id="app">
-    <div class="main"></div>
+    <div class="vui-center vui-padding--larger">
+      <vui-loading-wave></vui-loading-wave>
+    </div>
     <router-view />
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-import "../package/ui/style/input.css";
-import "../package/ui/style/loading-wave.css";
-import "../package/ui/style/loading-circle.css";
-import "../package/ui/style/loading-cross.css";
-import "../package/ui/style/image.css";
+
 import { Loading, Input, Image } from "../package/ui/index.js";
 Vue.use(Loading.Cross)
   .use(Loading.Circle)
