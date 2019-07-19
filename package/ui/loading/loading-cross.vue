@@ -31,10 +31,10 @@ export default {
 
 <template>
   <div class="vui-loading-cross" :style="style">
-    <div class="vui-item vui-item-1" :style="itemStyle"></div>
-    <div class="vui-item vui-item-2" :style="itemStyle"></div>
-    <div class="vui-item vui-item-3" :style="itemStyle"></div>
-    <div class="vui-item vui-item-4" :style="itemStyle"></div>
+    <div class="vui-loading-cross--item" :style="itemStyle"></div>
+    <div class="vui-loading-cross--item" :style="itemStyle"></div>
+    <div class="vui-loading-cross--item" :style="itemStyle"></div>
+    <div class="vui-loading-cross--item" :style="itemStyle"></div>
   </div>
 </template>
 

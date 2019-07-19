@@ -1,0 +1,83 @@
+@import './theme.less';
+
+.vui-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.vui-image.vui-image__fill--width {
+  background-size: 100% auto;
+}
+
+.vui-image.vui-image__fill--height {
+  background-size: auto 100%;
+}
+
+.vui-image.vui-image__fill--min {
+  background-size: cover;
+}
+
+.vui-image.vui-image__fill--max {
+  background-size: contain
+}
+
+.vui-image.vui-image__fill--cover {
+  background-size: 100% 100%
+}
+
+/*center top bottom left right top-left top-right bottom-left bottom-right*/
+
+.vui-image.vui-image__align--center {
+  background-position: center center
+}
+
+.vui-image.vui-image__align--top {
+  background-position: center top
+}
+
+.vui-image.vui-image__align--bottom {
+  background-position: center bottom
+}
+
+.vui-image.vui-image__align--left {
+  background-position: left center
+}
+
+.vui-image.vui-image__align--right {
+  background-position: right center
+}
+
+.vui-image.vui-image__align--top-left {
+  background-position: left top
+}
+
+.vui-image.vui-image__align--top-right {
+  background-position: right top
+}
+
+.vui-image.vui-image__align--bottom-left {
+  background-position: left bottom
+}
+
+.vui-image.vui-image__align--bottom-right {
+  background-position: right bottom
+}
+
+.vui-image--loading,
+.vui-image--error {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  z-index: 0
+}
+
+.vui-image--inner {
+  position: relative;
+}

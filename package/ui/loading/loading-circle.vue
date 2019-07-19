@@ -10,17 +10,25 @@ export default {
     size: {
       type: Number,
       default: loading.cricle.size
+    },
+    diameter: {
+      type: Number,
+      default: loading.cricle.diameter
     }
   },
   computed: {
-    style() {
+    listStyle() {
       return {
-        height: this.size * 5 + "px",
-        width: this.size * 5 + "px"
+        height: this.diameter * 1.414 + "px",
+        width: this.diameter * 1.414 + "px"
       };
     },
     itemStyle() {
-      return { backgroundColor: this.color };
+      let style = {};
+      style["backgroundColor"] = this.color;
+      style["width"] = this.size + "px";
+      style["height"] = this.size + "px";
+      return style;
     }
   },
   data() {
@@ -30,24 +38,24 @@ export default {
 </script>
 
 <template>
-  <div class="vui-loading-circle" :style="style">
-    <div class="vui-list vui-list-1">
-      <div class="vui-item vui-item-1" :style="itemStyle"></div>
-      <div class="vui-item vui-item-2" :style="itemStyle"></div>
-      <div class="vui-item vui-item-3" :style="itemStyle"></div>
-      <div class="vui-item vui-item-4" :style="itemStyle"></div>
+  <div class="vui-loading-circle" :style="listStyle">
+    <div class="vui-loading-circle--list">
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
     </div>
-    <div class="vui-list vui-list-2">
-      <div class="vui-item vui-item-1" :style="itemStyle"></div>
-      <div class="vui-item vui-item-2" :style="itemStyle"></div>
-      <div class="vui-item vui-item-3" :style="itemStyle"></div>
-      <div class="vui-item vui-item-4" :style="itemStyle"></div>
+    <div class="vui-loading-circle--list">
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
     </div>
-    <div class="vui-list vui-list-3">
-      <div class="vui-item vui-item-1" :style="itemStyle"></div>
-      <div class="vui-item vui-item-2" :style="itemStyle"></div>
-      <div class="vui-item vui-item-3" :style="itemStyle"></div>
-      <div class="vui-item vui-item-4" :style="itemStyle"></div>
+    <div class="vui-loading-circle--list">
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
+      <div class="vui-loading-circle--item" :style="itemStyle"></div>
     </div>
   </div>
 </template>

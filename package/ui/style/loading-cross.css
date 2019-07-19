@@ -1,11 +1,8 @@
-/**
- * input
- */
 .vui-loading-cross {
   position: relative;
   display: inline-block;
 }
-.vui-loading-cross .vui-item {
+.vui-loading-cross .vui-loading-cross--item {
   position: absolute;
   display: inline-block;
   width: 100%;
@@ -18,22 +15,22 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
-.vui-loading-cross .vui-item-1 {
+.vui-loading-cross .vui-loading-cross--item:nth-child(1) {
   transform: translateX(-70.7%);
   opacity: 0.9;
   animation-name: loading-slide-left;
 }
-.vui-loading-cross .vui-item-2 {
+.vui-loading-cross .vui-loading-cross--item:nth-child(2) {
   transform: translateX(70.7%);
   opacity: 0.7;
   animation-name: loading-slide-right;
 }
-.vui-loading-cross .vui-item-3 {
+.vui-loading-cross .vui-loading-cross--item:nth-child(3) {
   transform: translateY(-70.7%);
   opacity: 0.5;
   animation-name: loading-slide-top;
 }
-.vui-loading-cross .vui-item-4 {
+.vui-loading-cross .vui-loading-cross--item:nth-child(4) {
   transform: translateY(70.7%);
   opacity: 0.3;
   animation-name: loading-slide-bottom;

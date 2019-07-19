@@ -1,24 +1,13 @@
 <template>
   <div id="app">
-    <div
-      class="vui-padding--large"
-      style="height:200px;background-color:#fff;padding:10px;padding-top:50px"
-    >
-      <!-- <vui-loading-cross></vui-loading-cross>
-      <vui-loading-circle></vui-loading-circle> -->
-      <!-- <vui-input
-        prepend
-        prepend-text="姓名"
-        prepend-width="60px"
-        placeholder="请输入您的真实姓名..."
-        border
-        size="larger"
-        borderType="bottom"
-        type="text"
-        @click="change"
-      >
-      </vui-input> -->
-      <div class="test"></div>
+    <div class="main">
+      <!-- <vui-loading-wave
+        align-type="center"
+        direction-type="horizontal"
+        color="black"
+      ></vui-loading-wave> -->
+      <vui-loading-circle color="black"></vui-loading-circle>
+      <vui-loading-cross></vui-loading-cross>
     </div>
     <router-view />
   </div>
@@ -27,11 +16,16 @@
 <script>
 import Vue from "vue";
 import "../package/ui/style/input.css";
-import "../package/ui/style/loading.css";
-import { Loading, Input } from "../package/ui/index.js";
+import "../package/ui/style/loading-wave.css";
+import "../package/ui/style/loading-circle.css";
+import "../package/ui/style/loading-cross.css";
+import "../package/ui/style/image.css";
+import { Loading, Input, Image } from "../package/ui/index.js";
 Vue.use(Loading.Cross)
   .use(Loading.Circle)
-  .use(Input);
+  .use(Loading.Wave)
+  .use(Input)
+  .use(Image);
 export default {
   data() {
     return {
@@ -40,7 +34,16 @@ export default {
   },
   components: {},
   name: "App",
-  mounted() {},
+  mounted() {
+    // let mi = 1000000000;
+    // setInterval(function() {
+    //   for (let n = 0; n < 10000000; n++) {
+    //     console.log(n);
+    //   }
+    //   mi -= 1000;
+    //   console.log(mi);
+    // }, 1000);
+  },
   methods: {
     change(e) {
       console.log(e);
@@ -55,29 +58,18 @@ export default {
 </script>
 
 <style>
-.test {
+.main {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sub {
+  width: 100px;
   height: 100px;
-  width: 150px;
-  background-image: url("./image/zly.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: auto;
-  /* 全部覆盖
-    background-image: url("./image/zly.jpg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    以最小边占完，并水平垂直居中
-    background-image: url("./image/zly.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    以最小边占完，并水平垂直居中
-    background-image: url("./image/zly.jpg");
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: center center; 
-  */
+  background-color: red;
+  transform: scaleX(0.5);
+  transform-origin: 100% 0;
 }
 </style>
 

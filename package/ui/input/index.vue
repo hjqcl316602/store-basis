@@ -1,6 +1,5 @@
 <script>
 import { input } from "../config/index";
-console.log(input);
 export default {
   name: "vui-input",
   props: {
