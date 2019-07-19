@@ -6417,6 +6417,11 @@ store-es@^2.0.3:
   resolved "https://registry.yarnpkg.com/store-es/-/store-es-2.0.3.tgz#9c42a950d3556e22a87c64b49ae5f614170e68f4"
   integrity sha512-4THmDU79guYapJ5Ce4h8SqWv/+KEsiC8WNMr/UvrNyuJwIAvK/sZpcNUgWeRrymYTztKomJeZIbOq9oHBPG+uQ==
 
+store-vue-ui@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/store-vue-ui/-/store-vue-ui-1.0.0.tgz#748c405c2f1447884f14443378155531373b8400"
+  integrity sha512-5ZkN+M4pua4pPrClRYZCW8zZckKvQfHi6cHBK/Z6mzdFqtJJ9vz5cBw8nVa16rs93V7i6mkG6emep+TCkRiurg==
+
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.npm.taobao.org/stream-browserify/download/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"

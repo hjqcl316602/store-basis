@@ -4,12 +4,9 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 Vue.config.productionTip = false;
+import * as ui from 'store-vue-ui';
 import * as store from 'store-es';
-//import './theme/index.css';
 import '../package/css/basis/index.css';
-//import '../package/css/main/index.css';
-/* eslint-disable no-new */
-
 new Vue({
   el: '#app',
   router,

@@ -1,14 +1,6 @@
 <template>
   <div id="app">
-    <div class="main">
-      <!-- <vui-loading-wave
-        align-type="center"
-        direction-type="horizontal"
-        color="black"
-      ></vui-loading-wave> -->
-      <vui-loading-circle color="black"></vui-loading-circle>
-      <vui-loading-cross></vui-loading-cross>
-    </div>
+    <div class="main"></div>
     <router-view />
   </div>
 </template>

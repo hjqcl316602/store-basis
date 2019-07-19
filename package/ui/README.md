@@ -47,7 +47,16 @@ let loading = {
   },
   cricle: {
     color: '#fff', // 每个圆的颜色
-    size: 10 // 每个圆的大小尺寸
+    size: 6, // 每个圆的大小尺寸
+    diameter: 24 // 直径
+  },
+  wave: {
+    color: '#fff', // 每个方块的颜色
+    size: 4, // 每个方块的大小尺寸 - 宽
+    scale: 8, // 比例
+    spacing: 2, // 间距
+    alignType: 'start', // 对齐方式 top center bottom
+    directionType: 'horizontal' // 排列方式  horizontal vertical
   }
 };
 ```
@@ -55,13 +64,19 @@ let loading = {
 ### Loading.Cross
 
 ```html
-<vui-loading-cross :size="20px" color="red"></vui-loading-cross>
+<vui-loading-cross :size="20" color="red"></vui-loading-cross>
 ```
 
 ### Loading.Circle
 
 ```html
-<vui-loading-circle :size="20px" color="red"></vui-loading-circle>
+<vui-loading-circle color="#fff" :diameter="24" :size="6"></vui-loading-circle>
+```
+
+### Loading.Wave
+
+```html
+<vui-loading-wave align-type="start" direction-type="horizontal" color="#fff" :size="4" :scale="8" :spacing="2"></vui-loading-wave>
 ```
 
 ## Input
