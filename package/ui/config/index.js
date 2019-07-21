@@ -45,3 +45,7 @@ export let image = {
   width: '', // 图片宽
   height: '' // 图片高
 };
+
+export let wrap = {
+  multiple: 1 // 缩放倍数
+};

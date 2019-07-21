@@ -97,10 +97,10 @@ export default {
     imageClassName() {
       let className = [];
       if (this.fillType) {
-        className.push("vui-image__fill--" + this.fillType);
+        className.push("vui-image--" + this.fillType);
       }
       if (this.alignType) {
-        className.push("vui-image__align--" + this.alignType);
+        className.push("vui-image--" + this.alignType);
       }
       return className;
     }

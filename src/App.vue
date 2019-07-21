@@ -1,7 +1,13 @@
 <template>
   <div id="app">
-    <div class="vui-center vui-padding--larger">
-      <vui-loading-wave></vui-loading-wave>
+    <div class="  vui-padding--larger">
+      <div class="main-box">
+        <vui-wrap :multiple="4">
+          <div class="inner"></div>
+        </vui-wrap>
+      </div>
+
+      <div class="inner"></div>
     </div>
     <router-view />
   </div>
@@ -10,12 +16,13 @@
 <script>
 import Vue from "vue";
 
-import { Loading, Input, Image } from "../package/ui/index.js";
+import { Loading, Input, Image, Wrap } from "../package/ui/index.js";
 Vue.use(Loading.Cross)
   .use(Loading.Circle)
   .use(Loading.Wave)
   .use(Input)
-  .use(Image);
+  .use(Image)
+  .use(Wrap);
 export default {
   data() {
     return {
@@ -24,16 +31,7 @@ export default {
   },
   components: {},
   name: "App",
-  mounted() {
-    // let mi = 1000000000;
-    // setInterval(function() {
-    //   for (let n = 0; n < 10000000; n++) {
-    //     console.log(n);
-    //   }
-    //   mi -= 1000;
-    //   console.log(mi);
-    // }, 1000);
-  },
+  mounted() {},
   methods: {
     change(e) {
       console.log(e);
@@ -48,11 +46,25 @@ export default {
 </script>
 
 <style>
+.main-box {
+  position: relative;
+  height: 50px;
+  display: inline-block;
+  width: 50px;
+}
 .main {
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  height: 400%;
+  width: 400%;
+  border: 1px solid red;
+  transform: scale(0.25);
+  transform-origin: 0 0;
+}
+.inner {
+  height: 100px;
+  width: 100px;
+  border-radius: 1000em;
+  border: 1px solid blue;
 }
 .sub {
   width: 100px;

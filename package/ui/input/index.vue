@@ -31,22 +31,6 @@ export default {
       type: Boolean,
       default: input.border
     },
-    borderType: {
-      type: String,
-      default: input.borderType
-    },
-    borderThin: {
-      type: Boolean,
-      default: input.borderThin
-    },
-    radiusType: {
-      type: String,
-      default: input.radiusType
-    },
-    size: {
-      type: String,
-      default: input.size
-    },
     placeholder: {
       type: String
     },
@@ -96,24 +80,11 @@ export default {
   computed: {
     inputClassName() {
       let className = [];
-      if (this.size) {
-        className.push("vui-input--" + this.size);
-      }
-      if (this.border) {
-        className.push("vui-input--border");
-        className.push("is-border-" + this.borderType);
-        this.borderThin && className.push("is-border-thin");
-        this.isActive && className.push("is-border-active");
-      }
-      if (this.radiusType) {
-        className.push("vui-input--radius");
-        className.push("is-radius-" + this.radiusType);
-      }
+
       return className;
     },
     inputStyle() {
       let style = {};
-      style["borderRadius"] = this.borderRadius;
 
       return style;
     }

@@ -2,7 +2,7 @@
  * @Description: 波浪型 - loading
  * @Author: your name
  * @Date: 2019-07-19 15:19:55
- * @LastEditTime: 2019-07-19 17:24:18
+ * @LastEditTime: 2019-07-19 22:47:07
  * @LastEditors: Please set LastEditors
  -->
  <script>
@@ -54,10 +54,10 @@ export default {
     loadingClassName() {
       let className = [];
       if (this.directionType) {
-        className.push("vui-loading-wave__direction--" + this.directionType);
+        className.push("vui-loading-wave--" + this.directionType);
       }
       if (this.alignType) {
-        className.push("vui-loading-wave__align--" + this.alignType);
+        className.push("vui-loading-wave--" + this.alignType);
       }
       return className;
     },
