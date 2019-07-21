@@ -3,10 +3,9 @@
 .vui-input {
   position: relative;
   display: flex;
-  overflow: hidden;
 }
 
-.vui-input>input {
+.vui-input .vui-input__inner {
   flex: 1;
   text-align: left;
   display: inline-block;
@@ -17,83 +16,46 @@
   color: @input-text-color;
   background-color: transparent;
   border: 0;
-  margin: 0; 
+  margin: 0;
 }
 
-.vui-input>input::placeholder {
+.vui-input .vui-input__inner::placeholder {
   color: @input-placeholder-color;
   font-size: @input-placeholder-size;
 }
 
-.vui-input.vui-input--smaller>input,
-.vui-input.vui-input--smaller .vui-input--prepend,
-.vui-input.vui-input--smaller .vui-input--append {
+.vui-input.vui-input--smaller .vui-input__inner {
   height: @input-size-smaller;
   line-height: @input-size-smaller
 }
 
-.vui-input.vui-input--small>input,
-.vui-input.vui-input--small .vui-input--prepend,
-.vui-input.vui-input--small .vui-input--append {
+.vui-input.vui-input--small .vui-input__inner {
   height: @input-size-small;
   line-height: @input-size-small
 }
 
-.vui-input>input,
-.vui-input.vui-input--medium>input,
-.vui-input .vui-input--prepend,
-.vui-input .vui-input--append,
-.vui-input.vui-input--medium .vui-input--prepend,
-.vui-input.vui-input--medium .vui-input--append {
+.vui-input .vui-input__inner,
+.vui-input.vui-input--medium .vui-input__inner {
   height: @input-size-medium;
   line-height: @input-size-medium
 }
 
-.vui-input.vui-input--large>input,
-.vui-input.vui-input--large .vui-input--prepend,
-.vui-input.vui-input--large .vui-input--append {
+.vui-input.vui-input--large .vui-input__inner {
   height: @input-size-large;
   line-height: @input-size-large
 }
 
-.vui-input.vui-input--larger>input,
-.vui-input.vui-input--larger .vui-input--prepend,
-.vui-input.vui-input--larger .vui-input--append {
+.vui-input.vui-input--larger .vui-input__inner {
   height: @input-size-larger;
   line-height: @input-size-larger
 }
 
-.vui-input .vui-input--prepend,
-.vui-input .vui-input--append {
-  flex: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/**
-* input  border-radius
-*/
-.vui-input.vui-input--radius.is-radius-normal {
-  border-radius: @input-radius-normal
-}
-
-.vui-input.vui-input--radius.is-radius-normal.vui-input--border::after {
-  border-radius: @input-radius-normal * 2
-}
-
-.vui-input.vui-input--radius.is-radius-round {
-  border-radius: 10em
-}
-
-.vui-input.vui-input--radius.is-radius-round.vui-input--border::after {
-  border-radius: 10em
-}
 
 /**
 * input  border
 */
-.vui-input--border::after {
+
+.vui-input.vui-input__border::before {
   content: '';
   position: absolute;
   top: 0;
@@ -110,20 +72,72 @@
   border-width: 0
 }
 
-.vui-input--border.is-border-active::after {
-  border-color: @input-border-active-color;
+.vui-input.vui-input__border.vui-input__border--round::before {
+  border-width: 1px;
 }
 
-.vui-input--border.is-border-thin::after {
+.vui-input.vui-input__border.vui-input__border--top::before {
+  border-top-width: 1px;
+}
+
+.vui-input.vui-input__border.vui-input__border--bottom::before {
+  border-bottom-width: 1px;
+}
+
+.vui-input.vui-input__border.vui-input__border--half::before {
   width: 200%;
   height: 200%;
   transform: scale(.5);
 }
 
-.vui-input--border.is-border-bottom::after {
-  border-bottom-width: 1px
+.vui-input.vui-input__border.vui-input__border--thin::before {
+  width: 300%;
+  height: 300%;
+  transform: scale(1/3);
 }
 
-.vui-input--border.is-border-round::after {
-  border-width: 1px
+.vui-input.vui-input__border.vui-input__border--thiner::before {
+  width: 400%;
+  height: 400%;
+  transform: scale(1/4);
+}
+
+.vui-input.vui-input__border.vui-input__border--dashed::before {
+  border-style: dashed
+}
+
+.vui-input.vui-input__border.vui-input__border--solid::before {
+  border-style: solid
+}
+
+.vui-input.vui-input__border.vui-input__border--active::before {
+  border-color: @input-border-active-color
+}
+
+/**
+* input  border-radius
+*/
+
+.vui-input.vui-input__radius--normal {
+  border-radius: @input-radius
+}
+
+.vui-input.vui-input__radius--normal.vui-input__border--half::before {
+  border-radius: @input-radius * 2
+}
+
+.vui-input.vui-input__radius--normal.vui-input__border--thin::before {
+  border-radius: @input-radius * 3
+}
+
+.vui-input.vui-input__radius--normal.vui-input__border--thiner::before {
+  border-radius: @input-radius * 4
+}
+
+.vui-input.vui-input__radius--round {
+  border-radius: 10em;
+}
+
+.vui-input.vui-input__radius--round.vui-input__border::before {
+  border-radius: 10em
 }

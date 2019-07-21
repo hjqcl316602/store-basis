@@ -3,33 +3,29 @@ import { input } from "../config/index";
 export default {
   name: "vui-input",
   props: {
-    prepend: {
-      type: Boolean,
-      default: input.prepend
-    },
-    prependWidth: {
-      type: String,
-      default: input.prependWidth
-    },
-    prependText: {
-      type: String,
-      default: input.prependText
-    },
-    prependTextAlign: {
-      type: String,
-      default: input.prependTextAlign
-    },
-    append: {
-      type: Boolean,
-      default: input.append
-    },
-    appendWidth: {
-      type: String,
-      default: input.appendWidth
-    },
     border: {
       type: Boolean,
       default: input.border
+    },
+    borderType: {
+      type: String,
+      default: input.borderType
+    },
+    borderStyleType: {
+      type: String,
+      default: input.borderStyleType
+    },
+    borderWeightType: {
+      type: String,
+      default: input.borderWeightType
+    },
+    radius: {
+      type: Boolean,
+      default: input.radius
+    },
+    radiusType: {
+      type: String,
+      default: input.radiusType
     },
     placeholder: {
       type: String
@@ -37,7 +33,11 @@ export default {
     type: {
       type: String
     },
-    value: String
+    value: String,
+    readonly: {
+      type: Boolean,
+      default: input.readonly
+    }
   },
   data() {
     return {
@@ -80,6 +80,26 @@ export default {
   computed: {
     inputClassName() {
       let className = [];
+      if (this.border) {
+        className.push("vui-input__border");
+        if (this.borderType) {
+          className.push("vui-input__border--" + this.borderType);
+        }
+        if (this.borderStyleType) {
+          className.push("vui-input__border--" + this.borderStyleType);
+        }
+        if (this.borderWeightType) {
+          className.push("vui-input__border--" + this.borderWeightType);
+        }
+      }
+      if (this.radius && this.borderType === "round") {
+        if (this.radiusType) {
+          className.push("vui-input__radius--" + this.radiusType);
+        }
+      }
+      if (this.isActive && !this.readonly) {
+        className.push("vui-input__border--active");
+      }
 
       return className;
     },
@@ -93,15 +113,9 @@ export default {
 </script>
 
 <template>
-  <div class="vui-input" :class="inputClassName" :style="inputStyle">
-    <div
-      class="vui-input--prepend"
-      :style="{ flexBasis: prependWidth, textAlign: prependTextAlign }"
-      v-if="prepend"
-    >
-      <slot name="prepend">
-        {{ prependText }}
-      </slot>
+  <div class="vui-input" :class="inputClassName">
+    <div class="vui-input__append">
+      <slot name="prepend"> </slot>
     </div>
 
     <input
@@ -112,15 +126,11 @@ export default {
       v-model="currentValue"
       @change="inputChange"
       @keyup.enter="inputEnter"
+      :readonly="readonly"
+      class="vui-input__inner"
     />
-    <div
-      class="vui-input--append"
-      :style="{ flexBasis: appendWidth }"
-      v-if="append"
-    >
-      <slot name="append">
-        <div @click="inputClick">删除</div>
-      </slot>
+    <div class="vui-input__append">
+      <slot name="append"></slot>
     </div>
   </div>
 </template>

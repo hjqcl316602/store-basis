@@ -19,20 +19,16 @@ export let loading = {
 };
 
 export let input = {
-  prepend: false, // 是否显示输入框前面部分
-  prependWidth: '80px', // 输入框前面部分的宽度
-  prependText: '', // 输入框前面部分的文本
-  prependTextAlign: 'right', // 输入框前面部分的文本对齐方式
-  append: true, // 是否显示输入框后部分
-  appendWidth: '40px', // 输入框后面部分的宽度
-  appendText: '', // 输入框后面部分的文本
   border: true, // 是否显示border
-  borderType: 'round', // border 的类型，包括 bottom round
-  borderThin: true, // border 是否是细的
-  radiusType: '', // border-radius的大小 normal round
+  borderType: 'round', // border的类型 top bottom round
+  borderStyleType: 'solid', // border样式的类型，包括 solid dashed
+  borderWeightType: 'half', // border粗细类型 half thin thiner
+  radius: false, // 是否需要radius,当borderType=round才有效
+  radiusType: 'normal', // border-radius的大小 normal round
   size: 'medium', // 尺寸类型,包括smaller small medium large larger,
   placeholder: '', //提示语
-  type: 'text' //输入的类型
+  type: 'text', //输入的类型,
+  readonly: false // 是否是只读性
 };
 
 export let image = {
