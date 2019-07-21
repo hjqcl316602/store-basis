@@ -1,11 +1,7 @@
 <template>
   <div id="app">
     <div class="  vui-padding--larger">
-      <div class="main-box">
-        <vui-wrap :multiple="4">
-          <div class="inner"></div>
-        </vui-wrap>
-      </div>
+      <div class="main-box"></div>
 
       <div class="inner"></div>
     </div>
@@ -16,13 +12,12 @@
 <script>
 import Vue from "vue";
 
-import { Loading, Input, Image, Wrap } from "../package/ui/index.js";
+import { Loading, Input, Image } from "../package/ui/index.js";
 Vue.use(Loading.Cross)
   .use(Loading.Circle)
   .use(Loading.Wave)
   .use(Input)
-  .use(Image)
-  .use(Wrap);
+  .use(Image);
 export default {
   data() {
     return {
