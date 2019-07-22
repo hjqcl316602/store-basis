@@ -8,6 +8,11 @@ export let loading = {
     size: 6, // 每个圆的大小尺寸
     diameter: 24 // 直径
   },
+  round: {
+    color: '#fff', // 每个圆的颜色
+    layerColor: '#999',
+    size: 100 // 每个圆的大小尺寸
+  },
   wave: {
     color: '#fff', // 每个方块的颜色
     size: 4, // 每个方块的大小尺寸 - 宽
@@ -15,6 +20,15 @@ export let loading = {
     spacing: 2, // 间距
     alignType: 'start', // 对齐方式 top center bottom
     directionType: 'horizontal' // 排列方式  horizontal vertical
+  },
+  rect: {
+    strokeWidth: 1, //移动条形的宽度
+    strokeSize: 0.5, // 移动条形的长度，相对边的比例
+    strokeNumber: 2, //移动条形的数目
+    layerColor: 'rgba(255,255,255,.1)', // 轨道颜色
+    duraction: 3000, //移动一圈的时间
+    color: '#fff',
+    size: 100 // 尺寸,
   }
 };
 
