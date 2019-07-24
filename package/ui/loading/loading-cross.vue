@@ -10,6 +10,10 @@ export default {
     size: {
       type: Number,
       default: loading.cross.size
+    },
+    duration: {
+      type: Number,
+      default: loading.cross.duration
     }
   },
   data() {
@@ -23,7 +27,10 @@ export default {
       };
     },
     itemStyle() {
-      return { backgroundColor: this.color };
+      let style = {};
+      style["backgroundColor"] = this.color;
+      style["animation-duration"] = this.duration + "ms";
+      return style;
     }
   }
 };
@@ -31,10 +38,12 @@ export default {
 
 <template>
   <div class="vui-loading-cross" :style="style">
-    <div class="vui-loading-cross--item" :style="itemStyle"></div>
-    <div class="vui-loading-cross--item" :style="itemStyle"></div>
-    <div class="vui-loading-cross--item" :style="itemStyle"></div>
-    <div class="vui-loading-cross--item" :style="itemStyle"></div>
+    <div class="vui-loading-cross__wrap">
+      <div class="vui-loading-cross__item" :style="itemStyle"></div>
+      <div class="vui-loading-cross__item" :style="itemStyle"></div>
+      <div class="vui-loading-cross__item" :style="itemStyle"></div>
+      <div class="vui-loading-cross__item" :style="itemStyle"></div>
+    </div>
   </div>
 </template>
 

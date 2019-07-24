@@ -7,6 +7,50 @@
   </head>
   <body>
     <div id="app"></div>
+    <a href="alipays://platformapi/startapp?appId=20000067&url=http://192.168.0.104:8080/#/">打开支付宝</a>
+    <a href="https://d.alipay.com" class="btn-open">打开支付宝</a>
     <!-- built files will be auto injected -->
   </body>
+  <script>
+    window.onload = function() {
+      //alert(window.AlipayJSBridge);
+    };
+    function returnApp() {
+      AlipayJSBridge.call('exitApp');
+    }
+
+    function ready(a) {
+      window.AlipayJSBridge ? a && a() : document.addEventListener('AlipayJSBridgeReady', a, !1);
+    }
+    ready(function() {
+      try {
+        var a = {
+          actionType: 'scan',
+          u: '2088002357544150',
+          a: '10',
+          m: 'hello',
+          biz_data: {
+            s: 'money',
+            u: '2088002357544150',
+            a: '10',
+            m: 'hello'
+          }
+        };
+      } catch (b) {
+        returnApp();
+      }
+      console.log(a);
+      AlipayJSBridge.call(
+        'startApp',
+        {
+          appId: '20000123',
+          param: a
+        },
+        function(a) {}
+      );
+    });
+    document.addEventListener('resume', function(a) {
+      returnApp();
+    });
+  </script>
 </html>

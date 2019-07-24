@@ -1,9 +1,14 @@
 <template>
   <div id="app">
-    <div class="vui-padding--larger " style="background-color:#fff">
+    <div class="vui-padding--larger " style="background-color: red">
       <div class="main">
+        <!-- <vui-loading-cross></vui-loading-cross>
+        <vui-loading-circle></vui-loading-circle>
+        <vui-loading-turn></vui-loading-turn>
         <vui-loading-round></vui-loading-round>
-        <vui-loading-round></vui-loading-round>
+        <vui-loading-wave></vui-loading-wave>
+        <vui-loading-rect></vui-loading-rect> -->
+        <Index></Index>
       </div>
     </div>
     <router-view />
@@ -13,12 +18,19 @@
 <script>
 import Vue from "vue";
 import { Loading, Input, Image } from "../package/ui/index.js";
+import Index from "./view/index.jsx";
+console.log(Index);
 Vue.use(Loading.Round);
+Vue.use(Loading.Rect);
+Vue.use(Loading.Wave);
+Vue.use(Loading.Circle);
+Vue.use(Loading.Cross);
+Vue.use(Loading.Turn);
 export default {
   data() {
     return {};
   },
-  components: {},
+  components: { Index },
   name: "App",
   mounted() {},
   methods: {

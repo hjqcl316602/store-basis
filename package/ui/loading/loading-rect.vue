@@ -6,25 +6,25 @@ export default {
     return {};
   },
   props: {
-    strokeWidth: {
+    itemWidth: {
       type: Number,
-      default: loading.rect.stokeWidth
+      default: loading.rect.itemWidth
     },
-    strokeSize: {
+    itemScale: {
       type: Number,
-      default: loading.rect.strokeSize
+      default: loading.rect.itemScale
     },
-    strokeNumber: {
+    itemNumber: {
       type: Number,
-      default: loading.rect.strokeNumber
+      default: loading.rect.itemNumber
     },
     layerColor: {
       type: String,
       default: loading.rect.layerColor
     },
-    duraction: {
+    duration: {
       type: Number,
-      default: loading.rect.duraction
+      default: loading.rect.duration
     },
     size: {
       type: Number,
@@ -39,17 +39,17 @@ export default {
     rectPathStyle() {
       let style = {};
       style["fill"] = "none";
-      style["stroke-width"] = `${this.strokeWidth}px`;
+      style["stroke-width"] = `${this.itemWidth * 10}px`;
       style["stroke"] = this.color;
-      style["stroke-dasharray"] = `${80 * this.strokeSize},${320 -
-        80 * this.strokeSize}`;
-      style["animation-duration"] = `${this.duraction}ms`;
+      style["stroke-dasharray"] = `${800 * this.itemScale},${3200 -
+        800 * this.itemScale}`;
+      style["animation-duration"] = `${this.duration}ms`;
       return style;
     },
     rectPathNormalStyle() {
       let style = {};
       style["fill"] = "none";
-      style["stroke-width"] = `${this.strokeWidth}px`;
+      style["stroke-width"] = `${this.itemWidth * 10}px`;
       style["stroke"] = this.layerColor;
       return style;
     },
@@ -66,32 +66,32 @@ export default {
 
 <template>
   <div class="vui-loading-rect" :style="rectStyle">
-    <svg viewBox="0 0 100 100" class="vui-loading-rect__svg">
+    <svg viewBox="0 0 1000 1000" class="vui-loading-rect__svg">
       <path
-        d="M 10 10 L 90 10 L 90 90 L 10 90 Z"
+        d="M 100 100 L 900 100 L 900 900 L 100 900 Z"
         :style="rectPathNormalStyle"
       />
       <path
         class="vui-loading-rect__path"
-        d="M 10 10 L 90 10 L 90 90 L 10 90 Z"
+        d="M 100 100 L 900 100 L 900 900 L 100 900 Z"
         :style="rectPathStyle"
       />
       <path
-        v-if="strokeNumber > 3"
+        v-if="itemNumber > 3"
         class="vui-loading-rect__path"
-        d="M 90 10 L 90 90 L 10 90 L 10 10 Z"
+        d="M 900 100 L 900 900 L 100 900 L 100 100 Z"
         :style="rectPathStyle"
       />
       <path
-        v-if="strokeNumber > 1"
+        v-if="itemNumber > 1"
         class="vui-loading-rect__path"
-        d=" M 90 90 L 10 90 L 10 10 L  90 10 Z"
+        d=" M 900 900 L 100 900 L 100 100 L  900 100 Z"
         :style="rectPathStyle"
       />
       <path
-        v-if="strokeNumber > 3"
+        v-if="itemNumber > 3"
         class="vui-loading-rect__path"
-        d="  M 10 90 L 10 10 L  90 10 L  90 90 Z"
+        d="  M 100 900 L 100 100 L  900 100 L  900 900 Z"
         :style="rectPathStyle"
       />
     </svg>

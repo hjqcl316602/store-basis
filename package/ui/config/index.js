@@ -1,34 +1,45 @@
+const loadingRoundImageUrl = require('../assets/icon-loading.png');
 export let loading = {
   cross: {
     color: '#fff', // 每个圆的颜色
-    size: 20 // 每个圆的大小尺寸
+    size: 30, // 每个圆的大小尺寸
+    duration: 1500 //动画周期
   },
   cricle: {
     color: '#fff', // 每个圆的颜色
-    size: 6, // 每个圆的大小尺寸
-    diameter: 24 // 直径
+    size: 30, // 每个圆的大小尺寸
+    itemSize: 6 // 每个圆的大小
   },
   round: {
     color: '#fff', // 每个圆的颜色
-    layerColor: '#999',
-    size: 100 // 每个圆的大小尺寸
+    itemImage: loadingRoundImageUrl, // 旋转的图片，由于svg没有实现角度渐变功能，只能通过图片背景的方式
+    layerColor: '#232323',
+    size: 30, //  圆的大小尺寸
+    duration: 1500, //移动一圈的时间
+    itemWidth: 40 // 旋转动画的宽度
   },
   wave: {
     color: '#fff', // 每个方块的颜色
-    size: 4, // 每个方块的大小尺寸 - 宽
-    scale: 8, // 比例
+    size: 30, // 每个方块的大小尺寸 - 宽
     spacing: 2, // 间距
-    alignType: 'start', // 对齐方式 top center bottom
-    directionType: 'horizontal' // 排列方式  horizontal vertical
+    itemNumber: 5, // 数量
+    align: 'start', // 对齐方式 top center bottom
+    direction: 'horizontal', // 排列方式  horizontal vertical
+    duration: 1500 //动画周期
+  },
+  turn: {
+    color: '#fff', // 每个方块的颜色
+    size: 30, // 每个方块的大小尺寸
+    duration: 1500 //移动一圈的时间
   },
   rect: {
-    strokeWidth: 1, //移动条形的宽度
-    strokeSize: 0.5, // 移动条形的长度，相对边的比例
-    strokeNumber: 2, //移动条形的数目
-    layerColor: 'rgba(255,255,255,.1)', // 轨道颜色
-    duraction: 3000, //移动一圈的时间
+    itemWidth: 4, //移动条形的宽度
+    itemScale: 0.5, // 移动条形的长度，相对边的比例
+    itemNumber: 2, //移动条形的数目 1  2  4
+    layerColor: '#e5e5e5', // 轨道颜色
+    duration: 1500, //移动一圈的时间
     color: '#fff',
-    size: 100 // 尺寸,
+    size: 30 // 尺寸,
   }
 };
 
@@ -56,6 +67,8 @@ export let image = {
   height: '' // 图片高
 };
 
-export let wrap = {
-  multiple: 1 // 缩放倍数
+export let slider = {
+  layerColor: '#e5e5e5',
+  color: '#000',
+  size: 2
 };

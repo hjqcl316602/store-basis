@@ -2,7 +2,7 @@
  * @Description: 波浪型 - loading
  * @Author: your name
  * @Date: 2019-07-19 15:19:55
- * @LastEditTime: 2019-07-19 22:47:07
+ * @LastEditTime: 2019-07-23 16:55:41
  * @LastEditors: Please set LastEditors
  -->
  <script>
@@ -18,59 +18,67 @@ export default {
       type: Number,
       default: loading.wave.size
     },
-    scale: {
+    itemNumber: {
       type: Number,
-      default: loading.wave.scale
+      default: loading.wave.itemNumber
     },
     spacing: {
       type: Number,
       default: loading.wave.spacing
     },
-    alignType: {
+    align: {
       type: String,
-      default: loading.wave.alignType
+      default: loading.wave.align
     },
-    directionType: {
+    direction: {
       type: String,
-      default: loading.wave.directionType
+      default: loading.wave.direction
+    },
+    duration: {
+      type: Number,
+      default: loading.wave.duration
     }
   },
   data() {
     return {};
   },
   computed: {
-    loadingStyle() {
+    waveStyle() {
       let style = {};
-      if (this.directionType === "horizontal") {
-        style["width"] = this.size * 5 + this.spacing * 4 + "px";
-        style["height"] = this.size * this.scale + "px";
-      } else {
-        style["height"] = this.size * 5 + this.spacing * 4 + "px";
-        style["width"] = this.size * this.scale + "px";
-      }
-
+      style["height"] = this.size + "px";
+      style["width"] = this.size + "px";
       return style;
     },
-    loadingClassName() {
+    waveClassName() {
       let className = [];
-      if (this.directionType) {
-        className.push("vui-loading-wave--" + this.directionType);
+      if (this.direction) {
+        className.push("vui-loading-wave--" + this.direction);
       }
-      if (this.alignType) {
-        className.push("vui-loading-wave--" + this.alignType);
+      if (this.align) {
+        className.push("vui-loading-wave--" + this.align);
       }
       return className;
-    },
-    itemStyle() {
+    }
+  },
+  methods: {
+    itemStyle(n) {
       let style = {};
       style["background-color"] = this.color;
-      if (this.directionType === "horizontal") {
-        style["height"] = this.size * this.scale + "px";
+      if (this.direction === "vertical") {
+        style["height"] =
+          (this.size - this.spacing * (this.itemNumber - 1)) / this.itemNumber +
+          "px";
         style["width"] = this.size + "px";
       } else {
-        style["width"] = this.size * this.scale + "px";
+        style["width"] =
+          (this.size - this.spacing * (this.itemNumber - 1)) / this.itemNumber +
+          "px";
         style["height"] = this.size + "px";
       }
+      style["animation-duration"] = this.duration + "ms";
+      style["animation-delay"] =
+        -(this.duration - (this.duration / 2 / this.itemNumber) * (n + 1)) +
+        "ms";
       return style;
     }
   }
@@ -78,12 +86,15 @@ export default {
 </script>
  
  <template>
-  <div class="vui-loading-wave" :class="loadingClassName" :style="loadingStyle">
-    <div class="vui-loading-wave--item" :style="itemStyle"></div>
-    <div class="vui-loading-wave--item" :style="itemStyle"></div>
-    <div class="vui-loading-wave--item" :style="itemStyle"></div>
-    <div class="vui-loading-wave--item" :style="itemStyle"></div>
-    <div class="vui-loading-wave--item" :style="itemStyle"></div>
+  <div class="vui-loading-wave" :style="waveStyle" :class="waveClassName">
+    <div class="vui-loading-wave__wrap">
+      <div
+        class="vui-loading-wave__item"
+        v-for="(item, index) in itemNumber"
+        :style="itemStyle(index)"
+        :key="index"
+      ></div>
+    </div>
   </div>
 </template>
  

@@ -3,7 +3,9 @@ import { loading } from "../config/index";
 export default {
   name: "vui-loading-round",
   data() {
-    return {};
+    return {
+      value: 542
+    };
   },
   props: {
     layerColor: {
@@ -14,9 +16,17 @@ export default {
       type: Number,
       default: loading.round.size
     },
-    color: {
+    itemImage: {
       type: String,
-      default: loading.round.color
+      default: loading.round.itemImage
+    },
+    itemWidth: {
+      type: Number,
+      default: loading.round.itemWidth
+    },
+    duration: {
+      type: Number,
+      default: loading.round.duration
     }
   },
   computed: {
@@ -27,10 +37,11 @@ export default {
       style["background-color"] = this.layerColor;
       return style;
     },
-    roundPathStyle() {
+    roundCircleStyle() {
       let style = {};
       //style["stroke"] = "blue";
-      style["stroke-width"] = "50px";
+      style["stroke-width"] = this.itemWidth;
+      style["animation-duration"] = this.duration + "ms";
       return style;
     }
   }
@@ -39,26 +50,40 @@ export default {
 
 <template>
   <div class="vui-loading-round" :style="roundStyle">
-    <svg viewBox="0 0 1060 1060" class="vui-loading-round__svg" width="100%" height="100%">
+    <svg
+      width="440"
+      height="440"
+      viewBox="0 0 440 440"
+      class="vui-loading-round__svg"
+    >
       <defs>
-        <linearGradient id="orange_red" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop
-            offset="0%"
-            style="stop-color:rgb(255,255,255);
-stop-opacity:1"
-          />
-          <stop
-            offset="100%"
-            style="stop-color:rgb(255,255,255);
-stop-opacity:0"
-          />
-        </linearGradient>
+        <pattern
+          id="pattern-image"
+          x="0"
+          y="0"
+          width="440"
+          height="440"
+          patternUnits="userSpaceOnUse"
+        >
+          <image
+            :xlink:href="itemImage"
+            x="0"
+            y="0"
+            width="440"
+            height="440"
+          ></image>
+        </pattern>
       </defs>
-      <path
-        d="M 530 530 m -500, 0 a 500, 500 0 1, 1 1000, 0 a 500, 500 0 1, 1 -1000, 0"
-        :style="roundPathStyle"
-        stroke="url(#orange_red)"
-        class="vui-loading-round__path"
+      <circle
+        class="vui-loading-round__circle"
+        fill="none"
+        stroke="url(#pattern-image)"
+        :style="roundCircleStyle"
+        stroke-miterlimit="1"
+        cx="220"
+        cy="220"
+        r="160"
+        stroke-linecap="round"
       />
     </svg>
   </div>
