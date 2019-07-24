@@ -1,6 +1,6 @@
 @import './theme.less';
 
-.@{prefix}-input {
+.vui-input {
   position: relative;
 
   input {
@@ -22,14 +22,14 @@
     color: @color-gray
   }
 
-  .@{prefix}-input--prepend {
+  .vui-input--prepend {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
   }
 
-  .@{prefix}-input--append {
+  .vui-input--append {
     position: absolute;
     top: 0;
     right: 0;
@@ -41,95 +41,95 @@
 * input 高度
 */
 
-.@{prefix}-input input,
-.@{prefix}-input.@{prefix}-input--medium input {
+.vui-input input,
+.vui-input.vui-input--medium input {
   height: @input-size-medium;
   line-height: @input-size-medium;
 }
 
-.@{prefix}-input .@{prefix}-input--prepend,
-.@{prefix}-input.@{prefix}-input--medium .@{prefix}-input--prepend,
-.@{prefix}-input .@{prefix}-input--append,
-.@{prefix}-input.@{prefix}-input--medium .@{prefix}-input--append {
+.vui-input .vui-input--prepend,
+.vui-input.vui-input--medium .vui-input--prepend,
+.vui-input .vui-input--append,
+.vui-input.vui-input--medium .vui-input--append {
   min-width: @input-size-medium;
 }
 
-.@{prefix}-input .@{prefix}-input--prepend~input,
-.@{prefix}-input.@{prefix}-input--medium .@{prefix}-input--prepend~input,
-.@{prefix}-input .@{prefix}-input--append~input,
-.@{prefix}-input.@{prefix}-input--medium .@{prefix}-input--append~input {
+.vui-input .vui-input--prepend~input,
+.vui-input.vui-input--medium .vui-input--prepend~input,
+.vui-input .vui-input--append~input,
+.vui-input.vui-input--medium .vui-input--append~input {
   padding-left: @input-size-medium + 10px
 }
 
-.@{prefix}-input.@{prefix}-input--smaller input {
+.vui-input.vui-input--smaller input {
   height: @input-size-smaller;
   line-height: @input-size-smaller;
 }
 
-.@{prefix}-input.@{prefix}-input--smaller .@{prefix}-input--prepend,
-.@{prefix}-input.@{prefix}-input--smaller .@{prefix}-input--append {
+.vui-input.vui-input--smaller .vui-input--prepend,
+.vui-input.vui-input--smaller .vui-input--append {
   min-width: @input-size-smaller;
 }
 
-.@{prefix}-input.@{prefix}-input--smaller .@{prefix}-input--prepend~input,
-.@{prefix}-input.@{prefix}-input--smaller .@{prefix}-input--append~input {
+.vui-input.vui-input--smaller .vui-input--prepend~input,
+.vui-input.vui-input--smaller .vui-input--append~input {
   padding-left: @input-size-smaller + 10px
 }
 
 
-.@{prefix}-input.@{prefix}-input--small input {
+.vui-input.vui-input--small input {
   height: @input-size-small;
   line-height: @input-size-small;
 }
 
-.@{prefix}-input.@{prefix}-input--small .@{prefix}-input--prepend,
-.@{prefix}-input.@{prefix}-input--small .@{prefix}-input--append {
+.vui-input.vui-input--small .vui-input--prepend,
+.vui-input.vui-input--small .vui-input--append {
   min-width: @input-size-small;
 }
 
-.@{prefix}-input.@{prefix}-input--small .@{prefix}-input--prepend~input,
-.@{prefix}-input.@{prefix}-input--smaller .@{prefix}-input--append~input {
+.vui-input.vui-input--small .vui-input--prepend~input,
+.vui-input.vui-input--smaller .vui-input--append~input {
   padding-left: @input-size-small + 10px
 }
 
-.@{prefix}-input.@{prefix}-input--large input {
+.vui-input.vui-input--large input {
   height: @input-size-large;
   line-height: @input-size-large;
 }
 
-.@{prefix}-input.@{prefix}-input--large .@{prefix}-input--prepend,
-.@{prefix}-input.@{prefix}-input--large .@{prefix}-input--append {
+.vui-input.vui-input--large .vui-input--prepend,
+.vui-input.vui-input--large .vui-input--append {
   min-width: @input-size-large;
 }
 
-.@{prefix}-input.@{prefix}-input--large .@{prefix}-input--prepend~input,
-.@{prefix}-input.@{prefix}-input--large .@{prefix}-input--append~input {
+.vui-input.vui-input--large .vui-input--prepend~input,
+.vui-input.vui-input--large .vui-input--append~input {
   padding-left: @input-size-large + 10px
 }
 
-.@{prefix}-input.@{prefix}-input--larger input {
+.vui-input.vui-input--larger input {
   height: @input-size-larger;
   line-height: @input-size-larger;
 }
 
-.@{prefix}-input.@{prefix}-input--larger .@{prefix}-input--prepend,
-.@{prefix}-input.@{prefix}-input--larger .@{prefix}-input--append {
+.vui-input.vui-input--larger .vui-input--prepend,
+.vui-input.vui-input--larger .vui-input--append {
   min-width: @input-size-larger;
 }
 
-.@{prefix}-input.@{prefix}-input--larger .@{prefix}-input--prepend~input,
-.@{prefix}-input.@{prefix}-input--larger .@{prefix}-input--append~input {
+.vui-input.vui-input--larger .vui-input--prepend~input,
+.vui-input.vui-input--larger .vui-input--append~input {
   padding-left: @input-size-larger + 10px
 }
 
 /**
 * input 对齐方式
 */
-.@{prefix}-input.@{prefix}-input--center input {
+.vui-input.vui-input--center input {
   text-align: center
 }
 
-.@{prefix}-input.@{prefix}-input--right input {
+.vui-input.vui-input--right input {
   text-align: right
 }
 

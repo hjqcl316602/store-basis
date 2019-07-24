@@ -49,18 +49,18 @@ export default function connect(string, connect = '-', len = 4, type = 'start') 
   }
 }
 
-connect.start = function(string, connect, len) {
+connect.start = function(string, link, len) {
   return connect(
     string,
-    connect,
+    link,
     len,
     'start'
   );
 };
-connect.end = function(string, connect, len) {
+connect.end = function(string, link, len) {
   return connect(
     string,
-    connect,
+    link,
     len,
     'end'
   );
