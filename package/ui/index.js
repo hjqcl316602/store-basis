@@ -5,6 +5,7 @@ import Input from './input/index.js';
 import Loading from './loading/index.js';
 import Ratio from './ratio/index.js';
 import Slider from './slider/index.js';
+import Message from './message/index.js';
 import Upload from './upload/index.js';
 import Tag from './tag/index.js';
-export { Accordion, Icon, Image, Input, Loading, Ratio, Slider, Upload, Tag };
+export { Accordion, Icon, Image, Input, Loading, Ratio, Slider, Message, Upload, Tag };

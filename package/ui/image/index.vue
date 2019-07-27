@@ -124,21 +124,6 @@ export default {
       <slot></slot>
     </div>
   </div>
-  <!-- 使用方式
-    <vui-image
-        :lazy="true"
-        fill-type="cover"
-        align-type="center"
-        src="http://img4.duitang.com/uploads/item/201511/26/20151126170245_JEKch.jpe"
-      >
-        <vui-loading-circle slot="loading"></vui-loading-circle>
-        <div slot="error">错了</div> 
-        <div @click="change">
-          <div>dshjdshj</div>
-          <div>sdsdhdskdjks打开手机框架的</div> 
-        </div>
-      </vui-image>
-      -->
 </template>
 
 <style   scoped>

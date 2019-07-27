@@ -1,5 +1,6 @@
 const loadingRoundImageUrl = require('../assets/icon-loading.png');
 export let loading = {
+  
   cross: {
     color: '#fff', // 每个圆的颜色
     size: 30, // 每个圆的大小尺寸
@@ -100,4 +101,10 @@ export let accordion = {
     name: '', // 名称，
     maxHeight: 100 // 设置一个最大高度 作用于动画
   }
+};
+
+export let message = {
+  message: '', // 显示的信息
+  type: 'primary', // 类型 waring success danger primary default
+  zIndex: 999
 };
