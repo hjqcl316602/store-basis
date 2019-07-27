@@ -72,3 +72,32 @@ export let slider = {
   color: '#000',
   size: 2
 };
+
+export let upload = {
+  layerSize: 40, // 当其内部是默认的slot，可以设置其尺寸
+  accept: 'image/*', // 接受的类型
+  isRepeat: false //是否可以重复选择
+};
+
+export let tag = {
+  label: '', // 显示信息
+  direction: 'top-right' //位置信息 top-right top-left bottom-right bottom-left top-center bottom-center left-center right-center
+};
+
+export let icon = {
+  name: 'tupian', //名称
+  size: null, //icon 字体大小,不设置默认值是为了能添加class属性覆盖
+  color: '' // icon的颜色
+};
+
+export let ratio = {
+  ratio: 1 // 等比缩放比例 ratio =  宽/高
+};
+
+export let accordion = {
+  value: '', // v-model 当前选中的名称
+  item: {
+    name: '', // 名称，
+    maxHeight: 100 // 设置一个最大高度 作用于动画
+  }
+};

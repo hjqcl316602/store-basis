@@ -26,10 +26,7 @@ import 'store-css-basis';
 @root-font-size: 16px;
 
 @import '../../node_modules/store-css-basis/main/index.less';
-@prefix: jq;
-
-@background-color-body: #f1f1f1;
-
+  
 @color-primary: #409eff;
 @color-danger: #ddc1ba;
 @color-warning: #e6a23c;

@@ -10,6 +10,57 @@ Vue.use(Loading.Cross)
   .use(Image);
 ```
 
+## accordion
+
+## accordion-item
+
+```js
+let accordion = {
+  value: '', // v-model 当前选中的名称
+  item: {
+    name: '', // 名称，
+    maxHeight: 100 // 设置一个最大高度 作用于动画
+  }
+};
+```
+
+```html
+<vui-accordion active-name="" @change="change" v-model="active">
+  <vui-accordion-item name="1" :max-height="50">
+    <div slot="header">
+      <div v-if="active === '1'">12345</div>
+      <div v-else>67890</div>
+    </div>
+    <div slot="panel">
+      <div>多岁的上课了ldkslds</div>
+    </div>
+  </vui-accordion-item>
+  <vui-accordion-item name="2" :max-height="50">
+    <div slot="header">
+      <div v-if="active === '2'">12345</div>
+      <div v-else>67890</div>
+    </div>
+    <div slot="panel">
+      <div>多岁的上课了ldkslds</div>
+    </div>
+  </vui-accordion-item>
+</vui-accordion>
+```
+
+## icon
+
+```js
+let icon = {
+  name: 'tupian', //名称
+  size: null, //icon 字体大小,不设置默认值是为了能添加class属性覆盖
+  color: '' // icon的颜色
+};
+```
+
+```html
+<vui-icon name="spread-right" class="vui-color--danger vui-font-size--large"></vui-icon> <vui-icon name="top-circle" :size="14"></vui-icon>
+```
+
 ## Image
 
 ```js
@@ -35,6 +86,34 @@ let image = {
     <div>sdsdhdskdjks打开手机框架的</div>
   </div>
 </vui-image>
+```
+
+## Input
+
+```js
+let input = {
+  border: true, // 是否显示border
+  borderType: 'round', // border的类型 top bottom round
+  borderStyleType: 'solid', // border样式的类型，包括 solid dashed
+  borderWeightType: 'half', // border粗细类型 half thin thiner
+  radius: false, // 是否需要radius,当borderType=round才有效
+  radiusType: 'normal', // border-radius的大小 normal round
+  size: 'medium', // 尺寸类型,包括smaller small medium large larger,
+  placeholder: '', //提示语
+  type: 'text', //输入的类型,
+  readonly: false // 是否是只读性
+};
+```
+
+```html
+<vui-input border border-type="round" border-weight-type="thiner" border-style-type="dashed" radius radius-type="round" placeholder="请输入您的内容" type="password" size="large">
+  <div slot="prepend" style="height:100%;width:40px;text-align:right;line-height:36px;background-color:red">
+    姓名
+  </div>
+  <div slot="append" style="height:100%;width:40px;text-align:left;line-height:36px;background-color:red">
+    删除
+  </div>
+</vui-input>
 ```
 
 ## Loading
@@ -79,30 +158,28 @@ let loading = {
 <vui-loading-wave align-type="start" direction-type="horizontal" color="#fff" :size="4" :scale="8" :spacing="2"></vui-loading-wave>
 ```
 
-## Input
+## ratio
 
 ```js
-let input = {
-  border: true, // 是否显示border
-  borderType: 'round', // border的类型 top bottom round
-  borderStyleType: 'solid', // border样式的类型，包括 solid dashed
-  borderWeightType: 'half', // border粗细类型 half thin thiner
-  radius: false, // 是否需要radius,当borderType=round才有效
-  radiusType: 'normal', // border-radius的大小 normal round
-  size: 'medium', // 尺寸类型,包括smaller small medium large larger,
-  placeholder: '', //提示语
-  type: 'text', //输入的类型,
-  readonly: false // 是否是只读性
+let ratio = {
+  ratio: 1 // 等比缩放比例 ratio =  宽/高
 };
 ```
 
 ```html
-<vui-input border border-type="round" border-weight-type="thiner" border-style-type="dashed" radius radius-type="round" placeholder="请输入您的内容" type="password" size="large">
-  <div slot="prepend" style="height:100%;width:40px;text-align:right;line-height:36px;background-color:red">
-    姓名
-  </div>
-  <div slot="append" style="height:100%;width:40px;text-align:left;line-height:36px;background-color:red">
-    删除
-  </div>
-</vui-input>
+<vui-ratio :ratio="1"></vui-ratio>
+```
+
+## upload
+
+```js
+let upload = {
+  layerSize: 40, // 当其内部是默认的slot，可以设置其尺寸
+  accept: 'image/*', // 接受的类型
+  isRepeat: false //是否可以重复选择
+};
+```
+
+```html
+<vui-upload @change="change"> </vui-upload>
 ```

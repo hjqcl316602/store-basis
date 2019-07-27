@@ -1,5 +1,10 @@
-import Loading from './loading/index.js';
-import Input from './input/index.js';
+import Accordion from './accordion/index.js';
+import Icon from './icon/index.js';
 import Image from './image/index.js';
+import Input from './input/index.js';
+import Loading from './loading/index.js';
+import Ratio from './ratio/index.js';
 import Slider from './slider/index.js';
-export { Loading, Input, Image, Slider };
+import Upload from './upload/index.js';
+import Tag from './tag/index.js';
+export { Accordion, Icon, Image, Input, Loading, Ratio, Slider, Upload, Tag };

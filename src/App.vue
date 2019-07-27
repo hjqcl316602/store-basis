@@ -1,14 +1,33 @@
 <template>
   <div id="app">
-    <div class="vui-padding--larger " style="background-color: red">
-      <div class="main">
-        <!-- <vui-loading-cross></vui-loading-cross>
-        <vui-loading-circle></vui-loading-circle>
-        <vui-loading-turn></vui-loading-turn>
-        <vui-loading-round></vui-loading-round>
-        <vui-loading-wave></vui-loading-wave>
-        <vui-loading-rect></vui-loading-rect> -->
-        <Index></Index>
+    <div class="vui-padding--larger " style="background-color: #dedede">
+      <div class="">
+        <vui-image
+          :src="require('./image/zly.jpg')"
+          width="100%"
+          height="100px"
+        ></vui-image>
+        <div>
+          <vui-upload @change="change"> </vui-upload>
+        </div>
+        <div>
+          <vui-tag label="黄军泉" direction="top-right">
+            <div>
+              dsdjsdhjsd
+            </div>
+             <vui-ratio :ratio="1"></vui-ratio>
+          </vui-tag>
+        </div>
+        <div>
+          <vui-icon
+            name="spread-right"
+            class="vui-color--danger vui-font-size--large"
+          ></vui-icon>
+          <vui-icon name="top-circle" :size="14"></vui-icon>
+          <vui-icon name="top-circle-solid" :size="14"></vui-icon>
+          <vui-icon name="loading2" :size="14"></vui-icon>
+          <vui-icon color="red"></vui-icon>
+        </div>
       </div>
     </div>
     <router-view />
@@ -17,25 +36,35 @@
 
 <script>
 import Vue from "vue";
-import { Loading, Input, Image } from "../package/ui/index.js";
-import Index from "./view/index.jsx";
-console.log(Index);
-Vue.use(Loading.Round);
-Vue.use(Loading.Rect);
-Vue.use(Loading.Wave);
-Vue.use(Loading.Circle);
-Vue.use(Loading.Cross);
-Vue.use(Loading.Turn);
+import {
+  Loading,
+  Input,
+  Image,
+  Upload,
+  Tag,
+  Icon,
+  Ratio,
+  Accordion
+} from "../package/ui/index.js";
+Vue.use(Image)
+  .use(Upload)
+  .use(Tag)
+  .use(Icon)
+  .use(Ratio)
+  .use(Accordion)
+  .use(Accordion.Item);
 export default {
   data() {
-    return {};
+    return {
+      active: "1"
+    };
   },
-  components: { Index },
+  components: {},
   name: "App",
   mounted() {},
   methods: {
     change(e) {
-      console.log(e);
+      console.log(this.active);
     }
   },
   computed: {
