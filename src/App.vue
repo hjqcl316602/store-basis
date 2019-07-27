@@ -15,7 +15,7 @@ import {
   Ratio,
   Message
 } from "../package/ui/index.js";
-Vue.use(Message);
+Vue.use(Loading);
 export default {
   data() {
     return {
@@ -25,7 +25,10 @@ export default {
   components: {},
   name: "App",
   mounted() {
-    this.$message.danger("dsadsjds", 3000);
+    this.$loading.show("dsadsjds");
+    setTimeout(() => {
+      this.$loading.clear();
+    }, 3000);
   },
   methods: {
     change(e) {

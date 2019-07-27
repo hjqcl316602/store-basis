@@ -25,17 +25,6 @@ LoadingWave.install = function(Vue, options) {
   Vue.component(LoadingWave.name, LoadingWave);
 };
 
-Loading.Cross = LoadingCross;
-Loading.Circle = LoadingCircle;
-Loading.Round = LoadingRound;
-Loading.Rect = LoadingRect;
-Loading.Turn = LoadingTurn;
-Loading.Wave = LoadingWave;
-
-Loading.install = function(Vue, options) {
-  Vue.component(Loading.name, Loading);
-};
-
 let Instance;
 
 let LoadingInstance = function() {
@@ -63,6 +52,18 @@ let LoadingInstance = function() {
     }
   };
 };
-let LoadingInstances = LoadingInstance();
 
-export default Loading;
+let LoadingComponent = LoadingInstance();
+
+LoadingComponent.Cross = LoadingCross;
+LoadingComponent.Circle = LoadingCircle;
+LoadingComponent.Round = LoadingRound;
+LoadingComponent.Rect = LoadingRect;
+LoadingComponent.Turn = LoadingTurn;
+LoadingComponent.Wave = LoadingWave;
+
+LoadingComponent.install = function(Vue) {
+  Vue.prototype.$loading = LoadingComponent;
+};
+
+export default LoadingComponent;
