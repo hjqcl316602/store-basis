@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <div class="vui-padding--larger " style="background-color: #dedede"></div>
+    <div class="vui-padding--larger " style="background-color: #dedede">
+      <div @click="change" class="vui-margin-top--larger">click</div>
+    </div>
     <router-view />
   </div>
 </template>
@@ -15,7 +17,7 @@ import {
   Ratio,
   Message
 } from "../package/ui/index.js";
-Vue.use(Loading);
+Vue.use(Loading).use(Message);
 export default {
   data() {
     return {
@@ -25,10 +27,11 @@ export default {
   components: {},
   name: "App",
   mounted() {
-    this.$loading.show("dsadsjds");
-    setTimeout(() => {
-      this.$loading.clear();
-    }, 3000);
+    // this.$loading.show("dsadsjds");
+    // setTimeout(() => {
+    //   this.$loading.clear();
+    // }, 3000);
+    this.$message("dsds", 40000);
   },
   methods: {
     change(e) {

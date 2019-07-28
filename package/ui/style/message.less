@@ -43,3 +43,10 @@
 .vui-message--default {
   background-color: #000;
 }
+
+// 用于防止用户操作，比如单击按钮后再次提交
+.vui-message--locked {
+  * {
+    pointer-events: none
+  }
+}

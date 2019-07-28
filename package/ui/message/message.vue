@@ -1,56 +1,70 @@
 <script>
 import { message } from "../config";
-export default {
-  name: "vui-message",
-  data() {
-    return {
-      visible: false
-    };
-  },
-  props: {
-    message: {
-      type: String,
-      default: message.message
-    },
-    zIndex: {
-      type: Number,
-      default: message.zIndex
-    },
-    type: {
-      validator(value) {
-        return ["warning", "danger", "success", "primary", "default"].includes(
-          value
-        );
-      },
-      default: message.type
-    }
-  },
-  computed: {
-    messageStyle() {
-      return {
-        zIndex: this.zIndex
-      };
-    },
-    messageClassName() {
-      let className = [];
-      className.push("vui-message");
-      className.push("vui-message--" + this.type);
-      this.visible && className.push("vui-message--active");
-      return className;
-    }
-  },
-  methods: {
-    changeVisible(status) {
-      this.visible = status;
-    },
-    show() {
-      this.visible = true;
-    },
-    hide() {
-      this.visible = false;
-    }
+
+const instance = {};
+
+instance.name = "vui-message";
+
+instance.data = function() {
+  return {
+    visible: false
+  };
+};
+
+/**
+ * 计算属性集合
+ */
+instance.computed = {};
+
+instance.computed.messageStyle = function() {
+  return {
+    zIndex: this.zIndex
+  };
+};
+instance.computed.messageClassName = function() {
+  let className = [];
+  className.push("vui-message");
+  className.push("vui-message--" + this.type);
+  this.visible && className.push("vui-message--active");
+  return className;
+};
+/**
+ * 方法集合
+ */
+instance.methods = {};
+instance.methods.changeVisible = function(status) {
+  this.visible = status;
+  if (this.lock) {
+    let action = this.visible ? "add" : "remove";
+    document.body.classList[action]("vui-message--locked");
   }
 };
+/**
+ * 参数
+ */
+instance.props = {
+  message: {
+    type: String,
+    default: message.message
+  },
+  zIndex: {
+    type: Number,
+    default: message.zIndex
+  },
+  lock: {
+    type: Boolean,
+    default: message.lock
+  },
+  type: {
+    validator(value) {
+      return ["warning", "danger", "success", "primary", "default"].includes(
+        value
+      );
+    },
+    default: message.type
+  }
+};
+export default instance;
 </script>
 
 <template>
