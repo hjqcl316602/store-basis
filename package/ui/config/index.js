@@ -53,7 +53,8 @@ export let input = {
   size: 'medium', // 尺寸类型,包括smaller small medium large larger,
   placeholder: '', //提示语
   type: 'text', //输入的类型,
-  readonly: false // 是否是只读性
+  readonly: false, // 是否是只读性
+  align: 'left' // 文本对齐方式
 };
 
 export let image = {

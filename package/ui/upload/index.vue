@@ -49,6 +49,7 @@ export default {
         id="input-file"
         @change="changUpload"
         ref="input-file"
+        :accept="accept"
       />
       <slot>
         <div class="vui-upload__inner" :style="uploadStyle">

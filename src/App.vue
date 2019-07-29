@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div class="vui-padding--larger " style="background-color: #dedede">
-      <div @click="change" class="vui-margin-top--larger">click</div>
+      <vui-upload></vui-upload>
+      <vui-input align="center"> </vui-input>
     </div>
     <router-view />
   </div>
@@ -15,9 +16,14 @@ import {
   Image,
   Tag,
   Ratio,
-  Message
+  Message,
+  Upload
 } from "../package/ui/index.js";
-Vue.use(Loading).use(Message);
+import "../package/ui/style/index.less";
+Vue.use(Loading)
+  .use(Message)
+  .use(Upload)
+  .use(Input);
 export default {
   data() {
     return {
@@ -31,7 +37,7 @@ export default {
     // setTimeout(() => {
     //   this.$loading.clear();
     // }, 3000);
-    this.$message("dsds", 40000);
+    //this.$message("dsds", 40000);
   },
   methods: {
     change(e) {

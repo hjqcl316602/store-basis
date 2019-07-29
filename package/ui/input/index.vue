@@ -37,6 +37,10 @@ export default {
     readonly: {
       type: Boolean,
       default: input.readonly
+    },
+    align: {
+      type: String,
+      default: input.align
     }
   },
   data() {
@@ -82,6 +86,9 @@ export default {
       let className = [];
       if (this.border) {
         className.push("vui-input__border");
+        if (this.align) {
+          className.push("vui-input--" + this.align);
+        }
         if (this.borderType) {
           className.push("vui-input__border--" + this.borderType);
         }
