@@ -19,7 +19,9 @@ instance.props = {
   value: { type: Boolean, default: confirm.value }
 };
 instance.data = function() {
-  return {};
+  return {
+    currentValue: false
+  };
 };
 instance.methods = {
   cancelHandler() {
@@ -29,7 +31,8 @@ instance.methods = {
   okHandler() {
     this.$emit("input", false);
     this.$emit("ok");
-  }
+  },
+  changeShow() {}
 };
 instance.created = function() {};
 instance.mounted = function() {};
@@ -42,12 +45,24 @@ instance.computed = {
     return className;
   }
 };
+
+instance.watch = {
+  value: {
+    handler(val) {
+      this.currentValue = val;
+    },
+    immediate: true
+  },
+  currentValue(val, oldval) {
+    this.$emit("input", val);
+  }
+};
 export default instance;
 </script>
 
 <template>
   <div>
-    <vui-mask v-if="maskShow" v-model="value"></vui-mask>
+    <vui-mask v-if="maskShow" v-model="currentValue"></vui-mask>
     <div :class="confirmClassName">
       <div class="vui-confirm__header">
         <slot name="header">

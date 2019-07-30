@@ -11,10 +11,10 @@ instance.data = function() {
   return {};
 };
 instance.methods = {
-  transition() { 
+  transition() {
     let elem = this.$el;
     if (this.value) {
-      elem.classList["remove"]("vui-mask--hide");
+      //elem.classList["remove"]("vui-mask--hide");
       !this.scrollable && document.body.classList["add"]("vui-locked");
     } else {
       document.body.classList["remove"]("vui-locked");

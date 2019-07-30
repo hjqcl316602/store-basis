@@ -33,7 +33,7 @@ Vue.use(Loading)
 export default {
   data() {
     return {
-      active: false
+      active: true
     };
   },
   components: {},
