@@ -3,6 +3,8 @@
     <div class="vui-padding--larger " style="background-color: #dedede">
       <vui-upload></vui-upload>
       <vui-input align="center"> </vui-input>
+
+      <vui-confirm v-model="active"></vui-confirm>
     </div>
     <router-view />
   </div>
@@ -17,26 +19,33 @@ import {
   Tag,
   Ratio,
   Message,
-  Upload
+  Upload,
+  Confirm,
+  Mask
 } from "../package/ui/index.js";
 import "../package/ui/style/index.less";
 Vue.use(Loading)
   .use(Message)
   .use(Upload)
-  .use(Input);
+  .use(Input)
+  .use(Confirm)
+  .use(Mask);
 export default {
   data() {
     return {
-      active: "1"
+      active: false
     };
   },
   components: {},
   name: "App",
   mounted() {
     // this.$loading.show("dsadsjds");
+    setTimeout(() => {
+      this.active = true;
+    }, 2000);
     // setTimeout(() => {
-    //   this.$loading.clear();
-    // }, 3000);
+    //   this.active = true;
+    // }, 4000);
     //this.$message("dsds", 40000);
   },
   methods: {

@@ -1,11 +1,13 @@
 import Accordion from './accordion/index.js';
+import Confirm from './confirm/index.js';
 import Icon from './icon/index.js';
 import Image from './image/index.js';
 import Input from './input/index.js';
 import Loading from './loading/index.js';
+import Mask from './mask/index.js';
 import Ratio from './ratio/index.js';
 import Slider from './slider/index.js';
 import Message from './message/index.js';
 import Upload from './upload/index.js';
 import Tag from './tag/index.js';
-export { Accordion, Icon, Image, Input, Loading, Ratio, Slider, Message, Upload, Tag };
+export { Accordion, Confirm, Icon, Image, Input, Loading, Mask, Ratio, Slider, Message, Upload, Tag };

@@ -103,9 +103,28 @@ export let accordion = {
   }
 };
 
+export let mask = {
+  value: false,
+  closable: true, // 背景是否可单击关闭,
+  scrollable: false // 页面是否可滚动
+};
+
 export let message = {
   message: '', // 显示的信息
   type: 'primary', // 类型 waring success danger primary default
   zIndex: 999,
   lock: true // 是否阻止用户进行操作，单击事件，复制等
+};
+
+export let confirm = {
+  value: false,
+  title: '',
+  closable: true, // 背景是否可单击关闭,
+  scrollable: false, // 是否禁止页面滚动
+  maskShow:true, //是否显示背景
+  okShow: true,
+  CancelShow: true,
+  okText: '确认',
+  cancalText: '取消',
+
 };
