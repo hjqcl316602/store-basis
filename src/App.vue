@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <div class="vui-padding--larger " style="background-color: #dedede">
-      <vui-upload></vui-upload>
-      <vui-input align="center"> </vui-input>
-
-      <vui-confirm v-model="active"></vui-confirm>
+      <vui-loading-round></vui-loading-round>
+      <vui-loading-ring color="red" :size="30"> </vui-loading-ring>
     </div>
     <router-view />
   </div>
@@ -24,12 +22,15 @@ import {
   Mask
 } from "../package/ui/index.js";
 import "../package/ui/style/index.less";
-Vue.use(Loading)
+Vue.use(Loading.Round)
+  .use(Loading.Ring)
   .use(Message)
   .use(Upload)
   .use(Input)
   .use(Confirm)
-  .use(Mask);
+  .use(Mask)
+  .use(Tag);
+console.log(Loading);
 export default {
   data() {
     return {

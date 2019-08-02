@@ -40,6 +40,13 @@ export let loading = {
     duration: 1500, //移动一圈的时间
     color: '#fff',
     size: 30 // 尺寸,
+  },
+  ring: {
+    size: 30,
+    layerColor: '#e5e5e5', // 轨道颜色
+    color: '#fff',
+    duration: 1500,
+    layerSize: 4 // 轨道的尺寸
   }
 };
 
@@ -121,10 +128,9 @@ export let confirm = {
   title: '',
   closable: true, // 背景是否可单击关闭,
   scrollable: false, // 是否禁止页面滚动
-  maskShow:true, //是否显示背景
+  maskShow: true, //是否显示背景
   okShow: true,
   CancelShow: true,
   okText: '确认',
-  cancalText: '取消',
-
+  cancalText: '取消'
 };

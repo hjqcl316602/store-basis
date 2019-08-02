@@ -3,6 +3,7 @@ import Loading from './loading.vue';
 import LoadingCircle from './loading-circle.vue';
 import LoadingCross from './loading-cross.vue';
 import LoadingRect from './loading-rect.vue';
+import LoadingRing from './loading-ring.vue';
 import LoadingRound from './loading-round.vue';
 import LoadingTurn from './loading-turn.vue';
 import LoadingWave from './loading-wave.vue';
@@ -24,6 +25,11 @@ LoadingTurn.install = function(Vue, options) {
 LoadingWave.install = function(Vue, options) {
   Vue.component(LoadingWave.name, LoadingWave);
 };
+LoadingRing.install = function(Vue, options) {
+  Vue.component(LoadingRing.name, LoadingRing);
+};
+
+console.log(LoadingRing);
 
 let Instance;
 
@@ -61,6 +67,7 @@ LoadingComponent.Round = LoadingRound;
 LoadingComponent.Rect = LoadingRect;
 LoadingComponent.Turn = LoadingTurn;
 LoadingComponent.Wave = LoadingWave;
+LoadingComponent.Ring = LoadingRing;
 
 LoadingComponent.install = function(Vue) {
   Vue.prototype.$loading = LoadingComponent;
