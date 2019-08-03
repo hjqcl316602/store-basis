@@ -26,6 +26,13 @@ LoadingWave.install = function(Vue, options) {
   Vue.component(LoadingWave.name, LoadingWave);
 };
 LoadingRing.install = function(Vue, options) {
+  let Instance = {
+    render(h) {
+      return h(LoadingRing, {
+        props: options
+      });
+    }
+  };
   Vue.component(LoadingRing.name, LoadingRing);
 };
 

@@ -1,8 +1,28 @@
 <template>
   <div id="app">
-    <div class="vui-padding--larger " style="background-color: #dedede">
-      <vui-loading-round></vui-loading-round>
-      <vui-loading-ring color="red" :size="30"> </vui-loading-ring>
+    <div class="vui-padding--larger " style="background-color: #dedede"></div>
+    <div style="">
+      <vui-carousel :size="20">
+        <vui-carousel-item>
+          <div style="background-color:yellow;height:400px">
+            <div>萨克健身卡技术阿克苏建安看时间啊就看手机卡</div>
+            <div>萨克健身卡技术阿克苏建安看时间啊就看手机卡</div>
+          </div>
+        </vui-carousel-item>
+        <vui-carousel-item>
+          <div style="background-color:red;height:400px">
+            <div>萨克健身卡技术阿克苏建安看时间啊就看手机卡</div>
+            <div>dsjdkjsk就的撒框架的看时间的啥看时间肯定就是</div>
+          </div>
+        </vui-carousel-item>
+        <vui-carousel-item>
+          <div style="background-color:blue;height:400px">
+            <div>萨克健身卡技术阿克苏建安看时间啊就看手机卡</div>
+            <div>dsjdkjsk就的撒框架的看时间的啥看时间肯定就是</div>
+            <div>dsjdkjsk就的撒框架的看时间的啥看时间肯定就是</div>
+          </div>
+        </vui-carousel-item>
+      </vui-carousel>
     </div>
     <router-view />
   </div>
@@ -10,27 +30,9 @@
 
 <script>
 import Vue from "vue";
-import {
-  Loading,
-  Input,
-  Image,
-  Tag,
-  Ratio,
-  Message,
-  Upload,
-  Confirm,
-  Mask
-} from "../package/ui/index.js";
+import { Carousel } from "../package/ui/index.js";
 import "../package/ui/style/index.less";
-Vue.use(Loading.Round)
-  .use(Loading.Ring)
-  .use(Message)
-  .use(Upload)
-  .use(Input)
-  .use(Confirm)
-  .use(Mask)
-  .use(Tag);
-console.log(Loading);
+Vue.use(Carousel).use(Carousel.Item);
 export default {
   data() {
     return {

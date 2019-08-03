@@ -12,7 +12,6 @@ instance.data = function() {
 };
 instance.methods = {
   transition() {
-    let elem = this.$el;
     if (this.value) {
       //elem.classList["remove"]("vui-mask--hide");
       !this.scrollable && document.body.classList["add"]("vui-locked");

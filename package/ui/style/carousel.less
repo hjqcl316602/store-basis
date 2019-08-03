@@ -1,0 +1,28 @@
+.vui-carousel {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.vui-carousel .vui-carousel__wrap {
+  display: flex;
+  width: 10000%;
+
+}
+
+.vui-carousel .vui-carousel-item {
+  width: 1%;
+}
+
+
+.vui-carousel.vui-carousel--transtion .vui-carousel__wrap {
+  transition: transform .3s ease-in-out
+}
+
+.vui-carousel.vui-carousel--transtion {
+  pointer-events: none;
+
+  * {
+    pointer-events: none
+  }
+}

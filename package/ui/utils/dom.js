@@ -13,11 +13,11 @@ export function addRule(selector, css) {
     typeof css === 'string'
       ? css
       : Object.keys(css)
-          .map(function(p) { 
+          .map(function(p) {
             return humpToLink(p) + ':' + (p === 'content' ? "'" + css[p] + "'" : css[p]);
           })
           .join(';');
-  console.log(propText);
+  //console.log(propText);
   if (stylesheet.insertRule) {
     // 标准浏览器支持的
     stylesheet.insertRule(selector + '{' + propText + '}', stylesheet.cssRules.length);

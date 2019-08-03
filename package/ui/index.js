@@ -1,4 +1,5 @@
 import Accordion from './accordion/index.js';
+import Carousel from './carousel/index.js';
 import Confirm from './confirm/index.js';
 import Icon from './icon/index.js';
 import Image from './image/index.js';
@@ -10,4 +11,4 @@ import Slider from './slider/index.js';
 import Message from './message/index.js';
 import Upload from './upload/index.js';
 import Tag from './tag/index.js';
-export { Accordion, Confirm, Icon, Image, Input, Loading, Mask, Ratio, Slider, Message, Upload, Tag };
+export { Accordion, Carousel, Confirm, Icon, Image, Input, Loading, Mask, Ratio, Slider, Message, Upload, Tag };
