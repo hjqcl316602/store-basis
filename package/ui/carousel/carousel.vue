@@ -3,46 +3,76 @@ const instance = {};
 instance.name = "vui-carousel";
 instance.props = {
   duration: { type: Number },
-  threshold: { type: Number }
+  threshold: { type: Number },
+  value: { type: Number }
 };
 instance.data = function() {
   return {
     items: [],
     translateX: 0,
-    index: 0,
-    transition: false
+    currentValue: 0,
+    transition: false,
+    status: ""
   };
 };
 instance.methods = {
-  init() {},
+  init() {
+    this.setInterval();
+  },
 
   getWidth() {
     return this.$el.getBoundingClientRect().width;
   },
+  setInterval() {
+    this.clearInterval();
+    this._interval = setInterval(() => {
+      if (this.currentValue === this.items.length - 1) {
+        this.currentValue = 0;
+      } else {
+        this.currentValue++;
+      }
+      this.updateIndex();
+    }, this.duration);
+  },
+  /**
+   * @name: 清除定时器
+   */
+  clearInterval() {
+    clearInterval(this._interval);
+    this._interval = null;
+  },
   eventStart(e) {
-    this._width = this.getWidth();
+    this.clearInterval();
+    this.status = "start";
     this._startX = this.getPageX(e);
     console.log(this._startX);
   },
   eventMove(e) {
+    if (this.status !== "start") return;
     let moveX = this.getPageX(e) - this._startX;
     this._moveX = this.ease(moveX);
     //console.log(this._moveX);
-    this.translateX = this._moveX - this.index * this._width;
+    this.translateX = this._moveX - this.currentValue * this.getWidth();
   },
   eventEnd(e) {
+    this.status = "end";
     if (this._moveX > this.threshold) {
-      this.index = Math.max(0, --this.index);
+      this.currentValue = Math.max(0, --this.currentValue);
     } else if (this._moveX < -this.threshold) {
-      this.index = Math.min(this.items.length - 1, ++this.index);
+      this.currentValue = Math.min(this.items.length - 1, ++this.currentValue);
     }
     if (Math.abs(this._moveX) > 0) {
       this._moveX = 0;
-      this.moveToIndex(this.index);
+      this.updateIndex();
     }
+    this.setInterval();
   },
   getPageX(e) {
-    return e.touches[0].pageX || e.touches[0].clientX;
+    if (e.touches && e.touches[0]) {
+      return e.touches[0].pageX || e.touches[0].clientX;
+    } else {
+      return e.pageX || e.clientX;
+    }
   },
   /**
    * @name: 缓动函数，
@@ -52,18 +82,26 @@ instance.methods = {
   ease(value) {
     return value / 2;
   },
-  moveToIndex() {
-    this.transition = true;
-    this.translateX = -this.index * this._width;
-    this.$el.addEventListener("transitionend", e => {
-      this.transition = false;
-      this.$emit("changeEnd", this.index);
+  updateIndex() {
+    this.$nextTick(() => {
+      this.clearInterval();
+      let width = this.getWidth();
+      this.transition = true;
+      this.translateX = -this.currentValue * width;
+      this.$el.addEventListener("transitionend", e => {
+        this.transition = false;
+        this.setInterval();
+        this.$emit("change", this.currentValue);
+      });
     });
   }
 };
 instance.created = function() {};
 instance.mounted = function() {
-  this.$nextTick(() => {});
+  this.currentValue = this.value;
+  this.$nextTick(() => {
+    this.init();
+  });
 };
 instance.computed = {
   className() {
@@ -80,6 +118,16 @@ instance.computed = {
     return style;
   }
 };
+
+instance.watch = {
+  value(val) {
+    this.currentValue = val;
+  },
+  currentValue(val, oldval) {
+    this.updateIndex();
+    this.$emit("input", val);
+  }
+};
 export default instance;
 </script>
 
@@ -90,9 +138,15 @@ export default instance;
     @touchstart="eventStart"
     @touchmove="eventMove"
     @touchend="eventEnd"
+    @mousedown="eventStart"
+    @mousemove="eventMove"
+    @mouseup="eventEnd"
   >
     <div class="vui-carousel__wrap" ref="wrap" :style="wrapStyle">
       <slot></slot>
+    </div>
+    <div class="vui-carousel__bar">
+      <slot name="bar"></slot>
     </div>
   </div>
 </template>

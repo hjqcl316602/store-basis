@@ -1,5 +1,6 @@
 import Carousel from './carousel.vue';
 import CarouselItem from './carousel-item.vue';
+import CarouselBar from './carousel-bar.vue';
 /**
  * 合并props属性
  * 只能 duration: { type: Number } 而非 duration: Number
@@ -13,9 +14,7 @@ const mergeProps = function(target, resource) {
 };
 
 const CarouselProps = {
-  size: 10,
-  duration: 4000,
-  color: 'red',
+  duration: 3000,
   threshold: 100 // 移动多少距离才更换
 };
 
@@ -31,5 +30,18 @@ CarouselItem.install = function(Vue, options) {
   Vue.component(CarouselItem.name, CarouselItem);
 };
 Carousel.Item = CarouselItem;
+
+const CarouselBarProps = {
+  size: 10,
+  layerColor: 'rgba(0,0,0,.2)',
+  activeColor: '#fff',
+  barLen: 0
+};
+
+CarouselBar.install = function(Vue, options) {
+  CarouselItem.props = mergeProps(CarouselBar.props, Object.assign(CarouselBarProps, options));
+  Vue.component(CarouselBar.name, CarouselBar);
+};
+Carousel.Bar = CarouselBar;
 
 export default Carousel;
