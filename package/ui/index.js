@@ -9,6 +9,7 @@ import Mask from './mask/index.js';
 import Ratio from './ratio/index.js';
 import Slider from './slider/index.js';
 import Message from './message/index.js';
+import Radio from './radio/index.js';
 import Upload from './upload/index.js';
 import Tag from './tag/index.js';
-export { Accordion, Carousel, Confirm, Icon, Image, Input, Loading, Mask, Ratio, Slider, Message, Upload, Tag };
+export { Accordion, Carousel, Confirm, Icon, Image, Input, Loading, Mask, Ratio, Slider, Message, Radio, Upload, Tag };

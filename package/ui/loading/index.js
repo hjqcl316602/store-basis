@@ -36,8 +36,6 @@ LoadingRing.install = function(Vue, options) {
   Vue.component(LoadingRing.name, LoadingRing);
 };
 
-console.log(LoadingRing);
-
 let Instance;
 
 let LoadingInstance = function() {
