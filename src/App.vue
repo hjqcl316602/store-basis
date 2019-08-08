@@ -2,13 +2,25 @@
   <div id="app">
     <div class="vui-padding--larger " style="background-color: #dedede"></div>
     <div>
-      <vui-radio v-model="index" type="vartical">
-        <vui-radio-item label="111" label-type="prev"> </vui-radio-item>
-        <vui-radio-item label="222" label-type="prev"> </vui-radio-item>
-        <vui-radio-item label="333" label-type="prev"> </vui-radio-item>
-        <vui-radio-item label="444" label-type="prev"> </vui-radio-item>
-        <vui-radio-item label="555" label-type="prev" disabled>
-        </vui-radio-item>
+      <vui-radio-group v-model="index" @change="change">
+        <vui-radio name="1">
+          <div>
+            <span>1</span>
+          </div>
+        </vui-radio>
+        <vui-radio name="2">
+          <div>
+            <span>2</span>
+          </div>
+        </vui-radio>
+        <vui-radio name="3">
+          <div>
+            <span>3</span>
+          </div>
+        </vui-radio>
+      </vui-radio-group>
+      <vui-radio v-model="radio" @change="change">
+        <div>{{ radio }}</div>
       </vui-radio>
     </div>
     <router-view />
@@ -17,14 +29,20 @@
 
 <script>
 import Vue from "vue";
-import { Radio } from "../package/ui/index.js";
+import { Radio, Icon, Check } from "../package/ui/index.js";
 import "../package/ui/style/index.less";
-Vue.use(Radio).use(Radio.Item);
+Vue.use(Radio)
+  .use(Radio.Group)
+  .use(Icon)
+  .use(Check)
+  .use(Check.Group);
 export default {
   data() {
     return {
       active: true,
-      index: 4
+      index: "2",
+      radio: false,
+      indexes: ["1", "2", "3"]
     };
   },
   components: {},
@@ -40,14 +58,14 @@ export default {
     //this.$message("dsds", 40000);
   },
   methods: {
-    change() {
-      this.index = 1;
+    change(val) {
+      console.log(val);
     }
   },
   computed: {},
   watch: {
     index(val) {
-      console.log(val);
+      //console.log(val);
     }
   }
 };

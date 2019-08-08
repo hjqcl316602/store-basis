@@ -2,46 +2,50 @@
 const instance = {};
 instance.name = "vui-radio";
 instance.props = {
-  value: {
-    type: [Number, String]
-  },
-  type: {
-    type: [String]
-  }
+  value: { type: Boolean },
+  name: { type: String },
+  disabled: { type: Boolean }
 };
-instance.data = function() {
-  return {
-    items: [],
-    currentValue: 0
-  };
-};
-instance.methods = {};
-instance.created = function() {};
-instance.mounted = function() {
-  this.currentValue = this.value;
-};
-
-instance.watch = {
-  value(val) {
-    this.currentValue = val;
-  },
-  currentValue(val, oldval) {
-    this.$emit("input", val);
+instance.methods = {
+  changeStatus() {
+    if (this.disabled) return;
+    if (this.isGroup) {
+      if (!this.$parent.least && this.currentValue === this.name) {
+        this.currentValue = "";
+      } else {
+        this.currentValue = this.name;
+      }
+    } else {
+      this.currentValue = !this.currentValue;
+    }
   }
 };
 
 instance.computed = {
-  className() {
-    let className = ["vui-radio"];
-    this.type && className.push("vui-radio--" + this.type);
-    return className;
+  currentValue: {
+    get() {
+      return this.isGroup ? this.$parent.value : this.value;
+    },
+    set(val) {
+      if (this.isGroup) {
+        this.$parent.$emit("input", val);
+        this.$parent.$emit("change", val);
+      } else {
+        this.$emit("input", val);
+        this.$emit("change", val);
+      }
+    }
+  },
+  isGroup() {
+    return this.$parent && this.$parent.name === "vui-radio-group";
   }
 };
+
 export default instance;
 </script>
 
 <template>
-  <div :class="className">
+  <div :class="['vui-radio']" @click="changeStatus">
     <slot></slot>
   </div>
 </template>

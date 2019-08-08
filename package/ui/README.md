@@ -161,13 +161,41 @@ let loading = {
 ## ratio
 
 ```js
-let ratio = {
-  ratio: 1 // 等比缩放比例 ratio =  宽/高
+const RadioGroupProps = {
+  value: '', // [ String ]
+  least: false, // [ Boolean ] 至少是否有选择 true - 至少选择一个  false - 可以全部不选择
+  type: 'hor' // [ String ] 类型 hor - 水平 ver - 垂直
+};
+const RadioProps = {
+  value: false, // [ Boolean ]
+  disabled: false, // [ Boolean ]
+  name: '' //  [ String ]  当前radio的名称，如果name值为空，则父元素的value以角标值计算
 };
 ```
 
 ```html
-<vui-ratio :ratio="1"></vui-ratio>
+// 组合使用
+<vui-radio-group v-model="index" @change="change">
+  <vui-radio name="1">
+    <div>
+      <span>1</span>
+    </div>
+  </vui-radio>
+  <vui-radio name="2">
+    <div>
+      <span>2</span>
+    </div>
+  </vui-radio>
+  <vui-radio name="3">
+    <div>
+      <span>3</span>
+    </div>
+  </vui-radio>
+</vui-radio-group>
+//单独使用
+<vui-radio v-model="radio" @change="change">
+  <div>{{ radio }}</div>
+</vui-radio>
 ```
 
 ## upload
