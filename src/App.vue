@@ -1,27 +1,11 @@
 <template>
   <div id="app">
     <div class="vui-padding--larger " style="background-color: #dedede"></div>
+
     <div>
-      <vui-radio-group v-model="index" @change="change">
-        <vui-radio name="1">
-          <div>
-            <span>1</span>
-          </div>
-        </vui-radio>
-        <vui-radio name="2">
-          <div>
-            <span>2</span>
-          </div>
-        </vui-radio>
-        <vui-radio name="3">
-          <div>
-            <span>3</span>
-          </div>
-        </vui-radio>
-      </vui-radio-group>
-      <vui-radio v-model="radio" @change="change">
-        <div>{{ radio }}</div>
-      </vui-radio>
+      <vui-border top bottom left right :size="0.5">
+        <div style="height:50px"></div>
+      </vui-border>
     </div>
     <router-view />
   </div>
@@ -29,20 +13,21 @@
 
 <script>
 import Vue from "vue";
-import { Radio, Icon, Check } from "../package/ui/index.js";
+import { Radio, Icon, Check, Border } from "../package/ui/index.js";
 import "../package/ui/style/index.less";
 Vue.use(Radio)
   .use(Radio.Group)
   .use(Icon)
   .use(Check)
-  .use(Check.Group);
+  .use(Check.Group)
+  .use(Border);
 export default {
   data() {
     return {
       active: true,
       index: "2",
-      radio: false,
-      indexes: ["1", "2", "3"]
+      check: false,
+      checkes: ["1", "2"]
     };
   },
   components: {},

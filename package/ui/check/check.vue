@@ -2,27 +2,53 @@
 const instance = {};
 instance.name = "vui-check";
 instance.props = {
+  value: { type: Boolean },
   name: { type: String },
   disabled: { type: Boolean }
 };
 instance.methods = {
   changeStatus() {
     if (this.disabled) return;
-    if (!this.$parent.least && this.$parent.currentValue === this.name) {
-      this.$parent.currentValue = "";
+    if (this.isGroup) {
+      // 判断该值是否存在数组中
+      let index = this.currentValue.findIndex(elem => {
+        return elem === this.name;
+      });
+      if (index > -1) {
+        this.currentValue.splice(index, 1);
+      } else {
+        console.log(this.currentValue, this.$parent.max);
+        if (this.currentValue.length === this.$parent.max) {
+          this.currentValue.shift(); // 删除第一个
+        }
+        this.currentValue.push(this.name);
+      }
     } else {
-      this.$parent.currentValue = this.name;
+      this.currentValue = !this.currentValue;
     }
   }
 };
-instance.beforeCreate = function() {
-  this.$parent.items.push(this);
-};
-instance.beforeDestroy = function() {
-  this.$parent.items.splice(this.$parent.items.indexOf(this), 1);
+
+instance.computed = {
+  currentValue: {
+    get() {
+      return this.isGroup ? this.$parent.value : this.value;
+    },
+    set(val) {
+      if (this.isGroup) {
+        this.$parent.$emit("input", val);
+        this.$parent.$emit("change", val);
+      } else {
+        this.$emit("input", val);
+        this.$emit("change", val);
+      }
+    }
+  },
+  isGroup() {
+    return this.$parent && this.$parent.name === "vui-check-group";
+  }
 };
 
-instance.mounted = function() {};
 export default instance;
 </script>
 

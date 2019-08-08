@@ -10,6 +10,10 @@ Vue.use(Loading.Cross)
   .use(Image);
 ```
 
+注意事项
+
+- 添加 css 时，组件的 css 需要放置在一般的 css 的前面，才能覆盖原本的 css 属性
+
 ## accordion
 
 ## accordion-item
@@ -45,6 +49,41 @@ let accordion = {
     </div>
   </vui-accordion-item>
 </vui-accordion>
+```
+
+## check
+
+```js
+const CheckGroupProps = {
+  value: [], // [ Array ]
+  max: Infinity, // [ Number ] 最多只能选择几个
+  type: 'hor' // [ String ] 类型 hor - 水平 ver - 垂直
+};
+const CheckProps = {
+  value: false, // [ Boolean ]
+  disabled: false, // [ Boolean ]
+  name: '' // [ String ] 当前Check的名称，如果name值为空，则父元素的value以角标值计算
+};
+```
+
+```html
+<vui-check-group v-model="checkes" type="ver" :max="2">
+  <vui-check name="1">
+    <div>this is 1</div>
+  </vui-check>
+  <vui-check name="2">
+    <div>this is 2</div>
+  </vui-check>
+  <vui-check name="3">
+    <div>this is 3</div>
+  </vui-check>
+  <vui-check name="4" disabled>
+    <div>this is 4</div>
+  </vui-check>
+</vui-check-group>
+<vui-check v-model="check">
+  <div>this is a check,and it status is {{ check }}</div>
+</vui-check>
 ```
 
 ## icon

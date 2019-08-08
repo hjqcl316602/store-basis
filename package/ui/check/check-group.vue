@@ -3,37 +3,17 @@ const instance = {};
 instance.name = "vui-check-group";
 instance.props = {
   value: { type: Array },
-  least: { type: Boolean },
+  max: { type: Number },
   type: { type: String }
 };
 instance.data = function() {
   return {
-    items: [],
-    currentValue: ""
+    name: "vui-check-group"
   };
 };
 instance.methods = {};
 instance.created = function() {};
-instance.mounted = function() {
-  this.currentValue = this.value;
-  setTimeout(() => {
-    let findIndex = this.items.findIndex(el => {
-      return el.disabled;
-    });
-    if (this.value === this.items[findIndex].name) {
-      this.currentValue = "";
-    }
-  }, 0);
-};
-
-instance.watch = {
-  value(val) {
-    this.currentValue = val;
-  },
-  currentValue(val, oldval) {
-    this.$emit("input", val);
-  }
-};
+instance.mounted = function() {};
 
 export default instance;
 </script>
