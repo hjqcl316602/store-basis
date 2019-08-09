@@ -1,4 +1,13 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-09 09:08:35
+ * @LastEditTime: 2019-08-09 21:19:59
+ * @LastEditors: Please set LastEditors
+ -->
+ 
 <script>
+import { getClient } from "../utils/dom";
 const config = {
   value: "", //
   fix: true, // [ Boolean  ] 宽度是否固定 false 是指不用设置宽度，而是自动排列
@@ -24,12 +33,12 @@ instance.data = function() {
 instance.methods = {
   eventStart(e) {
     if (!this.isMove) return false;
-    this._startX = this.getPageX(e);
+    this._startX = getClient(e).x;
     this._translateX = this.translateX;
   },
   eventMove(e) {
     if (!this.isMove) return false;
-    this._moveX = this.getPageX(e) - this._startX;
+    this._moveX = getClient(e).x - this._startX;
     let moveX = this._translateX + this._moveX;
     //console.log(moveX);
     this.updateTranslate(moveX, false);
@@ -65,12 +74,13 @@ instance.methods = {
     this.translateX = translateX;
     this.isTransition = isTransition;
     this.$refs["tabs"].style["transform"] = `translateX(${this.translateX}px)`;
-
     this.updateBarTRanslate(isTransition);
   },
+  /**
+   *bar的移动
+   */
   updateBarTRanslate(isTransition) {
-    let hisBarTanslateX = this.barTanslateX;
-    let currentItemWidth = 0;
+    let prevWidth = 0;
     for (let n = 0; n < this.items.length; n++) {
       let temp = this.items[n];
       let tempWidth = temp.$el.getBoundingClientRect().width;
@@ -78,11 +88,11 @@ instance.methods = {
         this.$refs["bar"].style["width"] = tempWidth + "px";
         break;
       }
-      currentItemWidth += tempWidth;
+      prevWidth += tempWidth;
     }
-    this.barTanslateX = currentItemWidth + this.translateX;
+    let barTanslateX = prevWidth + this.translateX;
     this.isBarTransition = isTransition;
-    this.$refs["bar"].style["transform"] = `translateX(${this.barTanslateX}px)`;
+    this.$refs["bar"].style["transform"] = `translateX(${barTanslateX}px)`;
   },
 
   /**

@@ -1,5 +1,13 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-19 22:06:51
+ * @LastEditTime: 2019-08-09 22:19:55
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
 import { addRule } from "../utils/dom";
+let hash = 0;
 const instance = {};
 instance.name = "vui-border";
 instance.props = {
@@ -15,11 +23,14 @@ instance.props = {
   circle: { type: Boolean }
 };
 instance.data = function() {
-  return {};
+  return {
+    hash: hash++
+  };
 };
 instance.methods = {
   setStyle() {
     this.$nextTick(() => {
+      this.$el.setAttribute(`data-v-${this.hash}`, "");
       let style = {};
       style["border-color"] = this.color;
       style["border-style"] = this.type;
@@ -48,9 +59,7 @@ instance.methods = {
       if (this.round) {
         style["border-width"] = "1px";
       }
-
-      console.log(style);
-      addRule(".vui-border:after", style);
+      addRule(`.vui-border[data-v-${this.hash}]:after`, style, "border");
     });
   }
 };

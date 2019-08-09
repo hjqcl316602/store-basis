@@ -1,11 +1,15 @@
 <!--
  * @Description: In User Settings Edit
  * @Author: your name
- * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-08-09 21:32:02
+ * @Date: 2019-08-09 21:26:43
+ * @LastEditTime: 2019-08-09 22:32:25
  * @LastEditors: Please set LastEditors
  -->
 <script>
+import Vue from "vue";
+import Tab from "./index";
+
+Vue.use(Tab).use(Tab.Group);
 const instance = {};
 instance.name = "";
 instance.props = {};
@@ -20,7 +24,7 @@ export default instance;
 
 <template>
   <div class="">
-    <router-view />
+    tab
   </div>
 </template>
 

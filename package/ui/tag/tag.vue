@@ -1,5 +1,15 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-26 21:37:30
+ * @LastEditTime: 2019-08-09 23:15:30
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
-import { tag } from "../config/index";
+const config = {
+  label: "", // [ String ] 显示的信息
+  direction: "top-right" // [ String ] 相对位置
+};
 export default {
   name: "vui-tag",
   data() {
@@ -8,7 +18,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: tag.label
+      default: config.label
     },
     direction: {
       validator(value) {
@@ -23,7 +33,7 @@ export default {
           "right-center"
         ].includes(value);
       },
-      default: tag.direction
+      default: config.direction
     }
   },
   computed: {
@@ -38,9 +48,9 @@ export default {
 <template>
   <div class="vui-tag">
     <slot></slot>
-    <div class="vui-tag__label" :class="'vui-tag--' + this.direction">
+    <div class="vui-tag--label" :class="'vui-tag--' + this.direction">
       <slot name="label">
-        <div class="vui-tag__message">
+        <div class="vui-tag--message">
           <span> {{ label }}</span>
         </div>
       </slot>

@@ -1,3 +1,11 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-19 15:12:37
+ * @LastEditTime: 2019-08-09 21:10:26
+ * @LastEditors: Please set LastEditors
+ -->
+
 # store-vue-ui
 
 npm install store-vue-ui
@@ -62,7 +70,7 @@ const BorderProps = {
   right: false, // [ Boolean ] 是否显示右边框
   top: false, // [ Boolean ] 是否显示上边框
   round: false, // [ Boolean ] 是否显示四周的边框
-  radius: 0, // [ Number ] border-radiusda大小
+  radius: 0, // [ Number ] border-radius 大小
   circle: false, //[ Boolean ] 是否是圆角
   type: 'solid' // [ String ] border样式 solid dashed...
 };

@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-09 09:08:25
+ * @LastEditTime: 2019-08-09 21:04:48
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
 const config = {
   name: "" // [ String ] 当前tab的名称

@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-02 16:36:38
+ * @LastEditTime: 2019-08-09 22:13:41
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
 import { loading } from "../config";
 import { addRule } from "../utils/dom";
@@ -32,19 +39,31 @@ instance.data = function() {
 instance.methods = {
   setStyle() {
     this.$nextTick(() => {
-      addRule(".vui-loading-ring", {
-        width: this.size + "px",
-        height: this.size + "px"
-      });
-      addRule(".vui-loading-ring:before", {
-        borderColor: this.layerColor,
-        borderWidth: this.layerSize + "px"
-      });
-      addRule(".vui-loading-ring:after", {
-        borderWidth: this.layerSize + "px",
-        borderTopColor: this.color,
-        animationDuration: this.duration + "ms"
-      });
+      addRule(
+        ".vui-loading-ring",
+        {
+          width: this.size + "px",
+          height: this.size + "px"
+        },
+        "loading-ring"
+      );
+      addRule(
+        ".vui-loading-ring:before",
+        {
+          borderColor: this.layerColor,
+          borderWidth: this.layerSize + "px"
+        },
+        "loading-ring"
+      );
+      addRule(
+        ".vui-loading-ring:after",
+        {
+          borderWidth: this.layerSize + "px",
+          borderTopColor: this.color,
+          animationDuration: this.duration + "ms"
+        },
+        "loading-ring"
+      );
     });
   }
 };
