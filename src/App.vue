@@ -3,9 +3,26 @@
     <div class="vui-padding--larger " style="background-color: #dedede"></div>
 
     <div>
-      <vui-border top bottom left right :size="0.5">
-        <div style="height:50px"></div>
-      </vui-border>
+      <vui-tab-group v-model="active" @change="change">
+        <vui-tab name="1">
+          <div style="line-height:50px">电影{{ active === "1" }}</div>
+        </vui-tab>
+        <vui-tab name="2">
+          <div style="line-height:50px">视频{{ active === "2" }}</div>
+        </vui-tab>
+        <vui-tab name="3">
+          <div style="line-height:50px">军事{{ active === "3" }}</div>
+        </vui-tab>
+        <vui-tab name="4">
+          <div style="line-height:50px">娱乐{{ active === "4" }}</div>
+        </vui-tab>
+        <vui-tab name="5">
+          <div style="line-height:50px">科技{{ active === "5" }}</div>
+        </vui-tab>
+        <vui-tab name="6">
+          <div style="line-height:50px">数码{{ active === "6" }}</div>
+        </vui-tab>
+      </vui-tab-group>
     </div>
     <router-view />
   </div>
@@ -13,43 +30,26 @@
 
 <script>
 import Vue from "vue";
-import { Radio, Icon, Check, Border } from "../package/ui/index.js";
+import { Tab } from "../package/ui/index.js";
 import "../package/ui/style/index.less";
-Vue.use(Radio)
-  .use(Radio.Group)
-  .use(Icon)
-  .use(Check)
-  .use(Check.Group)
-  .use(Border);
+Vue.use(Tab).use(Tab.Group);
 export default {
   data() {
     return {
-      active: true,
-      index: "2",
-      check: false,
-      checkes: ["1", "2"]
+      active: "3"
     };
   },
   components: {},
   name: "App",
-  mounted() {
-    // this.$loading.show("dsadsjds");
-    setTimeout(() => {
-      this.active = true;
-    }, 2000);
-    // setTimeout(() => {
-    //   this.active = true;
-    // }, 4000);
-    //this.$message("dsds", 40000);
-  },
+  mounted() {},
   methods: {
     change(val) {
-      console.log(val);
+      //console.log(val);
     }
   },
   computed: {},
   watch: {
-    index(val) {
+    active(val) {
       //console.log(val);
     }
   }

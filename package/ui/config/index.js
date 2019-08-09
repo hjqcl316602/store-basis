@@ -1,4 +1,23 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-15 14:51:55
+ * @LastEditTime: 2019-08-09 16:11:03
+ * @LastEditors: Please set LastEditors
+ * 注意事项
+ * 1. 通过安装时添加默认参数的方式的问题，更新代码时会出现不能获取到该值，只能刷新页面才能获取到，暂时放弃该方式。
+    const TabProps = {
+      name: '' // [ String ] 当前tab的名称
+    };
+    Tab.install = function(Vue, options) {
+      Tab.props = mergeProps(Tab.props, Object.assign(TabProps, options));
+      Vue.component(Tab.name, Tab);
+    }; 
+    export default Tab;
+ */
+
 const loadingRoundImageUrl = require('../assets/icon-loading.png');
+
 export let loading = {
   cross: {
     color: '#fff', // 每个圆的颜色

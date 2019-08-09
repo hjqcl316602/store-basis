@@ -5,12 +5,14 @@ instance.name = "vui-border";
 instance.props = {
   size: { type: Number },
   color: { type: String },
-  radius: { type: Number },
+  radius: { type: [Number, String] },
   left: { type: Boolean },
   right: { type: Boolean },
   top: { type: Boolean },
   bottom: { type: Boolean },
-  type: { type: String }
+  round: { type: Boolean },
+  type: { type: String },
+  circle: { type: Boolean }
 };
 instance.data = function() {
   return {};
@@ -19,15 +21,36 @@ instance.methods = {
   setStyle() {
     this.$nextTick(() => {
       let style = {};
-      style["borderColor"] = this.color;
-      style["borderStyle"] = this.type;
+      style["border-color"] = this.color;
+      style["border-style"] = this.type;
       style["height"] = 100 * (1 / this.size) + "%";
       style["width"] = 100 * (1 / this.size) + "%";
       style["transform"] = "scale(" + this.size + ")";
-      if (this.bottom) {
-        style["borderBottomWidth"] = "1px";
+      style["border-width"] = 0;
+      if (this.circle) {
+        style["border-radius"] = "10rem";
+      } else {
+        style["border-radius"] = parseFloat(this.radius) * 2 + "px";
       }
-      addRule(".jui-border:after", style);
+
+      if (this.bottom) {
+        style["border-bottom-width"] = "1px";
+      }
+      if (this.top) {
+        style["border-top-width"] = "1px";
+      }
+      if (this.left) {
+        style["border-left-width"] = "1px";
+      }
+      if (this.right) {
+        style["border-right-width"] = "1px";
+      }
+      if (this.round) {
+        style["border-width"] = "1px";
+      }
+
+      console.log(style);
+      addRule(".vui-border:after", style);
     });
   }
 };
@@ -42,7 +65,12 @@ export default instance;
 </script>
 
 <template>
-  <div class="jui-border">
+  <div
+    class="vui-border"
+    :style="{
+      'border-radius': this.circle ? '10em' : parseFloat(this.radius) + 'px'
+    }"
+  >
     <slot></slot>
   </div>
 </template>

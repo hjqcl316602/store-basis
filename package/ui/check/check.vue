@@ -17,7 +17,7 @@ instance.methods = {
       if (index > -1) {
         this.currentValue.splice(index, 1);
       } else {
-        console.log(this.currentValue, this.$parent.max);
+        
         if (this.currentValue.length === this.$parent.max) {
           this.currentValue.shift(); // 删除第一个
         }
