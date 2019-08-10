@@ -1,5 +1,16 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-23 12:12:09
+ * @LastEditTime: 2019-08-10 10:30:43
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
-import { loading } from "../config/index";
+const config = {
+  color: "#fff", // [ string ] 每个方块的颜色
+  size: 30, // [ string ,number] 每个方块的大小尺寸
+  duration: 1500 // [ string ,number]移动一圈的时间
+};
 export default {
   name: "vui-loading-turn",
   data() {
@@ -8,24 +19,29 @@ export default {
   props: {
     color: {
       type: String,
-      default: loading.turn.color
+      default: config.color
     },
     size: {
-      type: Number,
-      default: loading.turn.size
+      type: [Number, String],
+      default: config.size
     },
     duration: {
-      type: Number,
-      default: loading.turn.duration
+      type: [Number, String],
+      default: config.duration
     }
   },
   computed: {
     turnStyle() {
       let style = {};
-      style["width"] = `${this.size}px`;
-      style["height"] = `${this.size}px`;
+      let size = typeof this.size === "number" ? this.size + "px" : this.size;
+      let duration =
+        typeof this.duration === "number"
+          ? this.duration + "ms"
+          : this.duration;
+      style["width"] = size;
+      style["height"] = size;
       style["background-color"] = this.color;
-      style["animation-duration"] = this.duration + "ms";
+      style["animation-duration"] = duration;
       return style;
     }
   }

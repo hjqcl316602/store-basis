@@ -1,5 +1,21 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-22 18:18:42
+ * @LastEditTime: 2019-08-10 10:27:50
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
-import { loading } from "../config/index";
+const loadingRoundImageUrl = require("../assets/icon-loading.png");
+
+const config = {
+  color: "#fff", // [string  ] 每个圆的颜色
+  itemImage: loadingRoundImageUrl, // [string  ]  旋转的图片，由于svg没有实现角度渐变功能，只能通过图片背景的方式
+  layerColor: "#232323", // [string  ]
+  size: 30, //  [string ,number ] 圆的大小尺寸
+  duration: 1500, // [string ,number ]移动一圈的时间
+  itemWidth: 40 // [ number ] 旋转动画的宽度
+};
 export default {
   name: "vui-loading-round",
   data() {
@@ -10,38 +26,43 @@ export default {
   props: {
     layerColor: {
       type: String,
-      default: loading.round.layerColor
+      default: config.layerColor
     },
     size: {
-      type: Number,
-      default: loading.round.size
+      type: [Number, String],
+      default: config.size
     },
     itemImage: {
       type: String,
-      default: loading.round.itemImage
+      default: config.itemImage
     },
     itemWidth: {
       type: Number,
-      default: loading.round.itemWidth
+      default: config.itemWidth
     },
     duration: {
-      type: Number,
-      default: loading.round.duration
+      type: [Number, String],
+      default: config.duration
     }
   },
   computed: {
     roundStyle() {
       let style = {};
-      style["width"] = `${this.size}px`;
-      style["height"] = `${this.size}px`;
+      let size = typeof this.size === "number" ? this.size + "px" : this.size;
+      style["width"] = size;
+      style["height"] = size;
       style["background-color"] = this.layerColor;
       return style;
     },
     roundCircleStyle() {
       let style = {};
       //style["stroke"] = "blue";
+      let duration =
+        typeof this.duration === "number"
+          ? this.duration + "ms"
+          : this.duration;
       style["stroke-width"] = this.itemWidth;
-      style["animation-duration"] = this.duration + "ms";
+      style["animation-duration"] = duration;
       return style;
     }
   }

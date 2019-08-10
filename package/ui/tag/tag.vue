@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-26 21:37:30
- * @LastEditTime: 2019-08-09 23:15:30
+ * @LastEditTime: 2019-08-10 08:45:11
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -35,13 +35,7 @@ export default {
       },
       default: config.direction
     }
-  },
-  computed: {
-    labelStyle() {
-      let style = {};
-    }
-  },
-  mounted() {}
+  }
 };
 </script>
 

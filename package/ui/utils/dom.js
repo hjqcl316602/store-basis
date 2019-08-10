@@ -2,7 +2,7 @@
  * @Description: In User Settings Edie
  * @Author: your name
  * @Date: 2019-08-02 18:20:50
- * @LastEditTime: 2019-08-09 22:11:22
+ * @LastEditTime: 2019-08-10 09:13:40
  * @LastEditors: Please set LastEditors
  */
 import { humpToLink } from './string';
@@ -54,4 +54,28 @@ export function getClient(event) {
       y: event.pageY || event.clientY
     };
   }
+}
+
+/**
+ * @description: 获取指定的class类
+ * @param {  callback } [ function ]
+ * @return:
+ */
+
+export function getClassRules(callback) {
+  let styles = document.getElementsByTagName('style');
+  let res = [];
+  for (let n = 0; n < styles.length; n++) {
+    let temp = styles[n];
+    let rules = temp.sheet.rules;
+    if (rules.length > 0) {
+      for (let k = 0; k < rules.length; k++) {
+        let text = rules[k]['selectorText'];
+        if (callback.call(this, text || '')) {
+          res.push(text);
+        }
+      }
+    }
+  }
+  return res;
 }

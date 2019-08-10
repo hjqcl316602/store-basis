@@ -1,5 +1,20 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-22 16:15:19
+ * @LastEditTime: 2019-08-10 10:20:57
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
-import { loading } from "../config/index";
+const config = {
+  itemWidth: 4, // [ number ]移动条形的宽度
+  itemScale: 0.5, //  [ number ]移动条形的长度，相对边的比例
+  itemNumber: 2, //  [ number ]移动条形的数目 1  2  4
+  layerColor: "#e5e5e5", //  [ string ]轨道颜色
+  duration: 1500, // [ number ,string ]移动一圈的时间
+  color: "#fff", // [ string ]
+  size: 30 // [ number ,string ]尺寸,
+};
 export default {
   name: "vui-loading-rect",
   data() {
@@ -8,42 +23,46 @@ export default {
   props: {
     itemWidth: {
       type: Number,
-      default: loading.rect.itemWidth
+      default: config.itemWidth
     },
     itemScale: {
       type: Number,
-      default: loading.rect.itemScale
+      default: config.itemScale
     },
     itemNumber: {
       type: Number,
-      default: loading.rect.itemNumber
+      default: config.itemNumber
     },
     layerColor: {
       type: String,
-      default: loading.rect.layerColor
+      default: config.layerColor
     },
     duration: {
       type: Number,
-      default: loading.rect.duration
+      default: config.duration
     },
     size: {
-      type: Number,
-      default: loading.rect.size
+      type: [Number, String],
+      default: config.size
     },
     color: {
       type: String,
-      default: loading.rect.color
+      default: config.color
     }
   },
   computed: {
     rectPathStyle() {
       let style = {};
+      let duration =
+        typeof this.duration === "number"
+          ? this.duration + "ms"
+          : this.duration;
       style["fill"] = "none";
       style["stroke-width"] = `${this.itemWidth * 10}px`;
       style["stroke"] = this.color;
       style["stroke-dasharray"] = `${800 * this.itemScale},${3200 -
         800 * this.itemScale}`;
-      style["animation-duration"] = `${this.duration}ms`;
+      style["animation-duration"] = duration;
       return style;
     },
     rectPathNormalStyle() {
@@ -55,8 +74,9 @@ export default {
     },
     rectStyle() {
       let style = {};
-      style["width"] = `${this.size}px`;
-      style["height"] = `${this.size}px`;
+      let size = typeof this.size === "number" ? this.size + "px" : this.size;
+      style["width"] = size;
+      style["height"] = size;
 
       return style;
     }

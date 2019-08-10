@@ -2,68 +2,101 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-02 16:36:38
- * @LastEditTime: 2019-08-09 22:13:41
+ * @LastEditTime: 2019-08-10 11:04:09
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import { loading } from "../config";
 import { addRule } from "../utils/dom";
+const config = {
+  size: 30, // [ Number ,String] 尺寸
+  layerColor: "#e5e5e5", //  [ String ] 轨道颜色
+  color: "#fff", // [ String ]
+  copies: 1, // [ number ] 占据的份数 1,2,3,4
+  duration: 1500, // [ Number ,String ] 时长
+  layerSize: 4 // [ Number ,String] 轨道的尺寸
+};
 
+let hash = 0;
 const instance = {};
 instance.name = "vui-loading-ring";
 instance.props = {
   layerColor: {
     type: String,
-    default: loading.ring.layerColor
+    default: config.layerColor
   },
   layerSize: {
-    type: Number,
-    default: loading.ring.layerSize
+    type: [Number, String],
+    default: config.layerSize
   },
   size: {
-    type: Number,
-    default: loading.ring.size
+    type: [Number, String],
+    default: config.size
   },
   color: {
     type: String,
-    default: loading.ring.color
+    default: config.color
   },
   duration: {
-    type: Number,
-    default: loading.ring.duration
+    type: [Number, String],
+    default: config.duration
+  },
+  copies: {
+    validator(value) {
+      return [1, 2, 3, 4].includes(value);
+    },
+    default: config.copies
   }
 };
 instance.data = function() {
-  return {};
+  return {
+    hash: hash++
+  };
 };
 instance.methods = {
   setStyle() {
     this.$nextTick(() => {
+      let dataHash = `data-v-${this.hash}`;
+      let ringHash = `.vui-loading-ring[${dataHash}]`;
+      let ringAfterHash = ringHash + ":after";
+      this.$el.setAttribute(dataHash, "");
+
+      let size = typeof this.size === "number" ? this.size + "px" : this.size;
+      let layerSize =
+        typeof this.layerSize === "number"
+          ? this.layerSize + "px"
+          : this.layerSize;
+      let duration =
+        typeof this.duration === "number"
+          ? this.duration + "ms"
+          : this.duration;
       addRule(
-        ".vui-loading-ring",
+        ringHash,
         {
-          width: this.size + "px",
-          height: this.size + "px"
+          width: size,
+          height: size
         },
         "loading-ring"
       );
-      addRule(
-        ".vui-loading-ring:before",
-        {
-          borderColor: this.layerColor,
-          borderWidth: this.layerSize + "px"
-        },
-        "loading-ring"
-      );
-      addRule(
-        ".vui-loading-ring:after",
-        {
-          borderWidth: this.layerSize + "px",
-          borderTopColor: this.color,
-          animationDuration: this.duration + "ms"
-        },
-        "loading-ring"
-      );
+      let style = {};
+      style["border-width"] = layerSize;
+      style["border-color"] = this.layerColor;
+      style["animation-duration"] = duration;
+      if (this.copies === 1) {
+        style["border-top-color"] = this.color;
+      }
+      if (this.copies === 2) {
+        style["border-top-color"] = this.color;
+        style["border-right-color"] = this.color;
+      }
+      if (this.copies === 3) {
+        style["border-top-color"] = this.color;
+        style["border-right-color"] = this.color;
+        style["border-bottom-color"] = this.color;
+      }
+      if (this.copies === 4) {
+        style["border-color"] = this.color;
+      }
+      addRule(ringAfterHash, style, "loading-ring");
     });
   }
 };

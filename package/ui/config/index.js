@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-15 14:51:55
- * @LastEditTime: 2019-08-09 16:11:03
+ * @LastEditTime: 2019-08-10 09:53:13
  * @LastEditors: Please set LastEditors
  * 注意事项
  * 1. 通过安装时添加默认参数的方式的问题，更新代码时会出现不能获取到该值，只能刷新页面才能获取到，暂时放弃该方式。
@@ -16,59 +16,8 @@
     export default Tab;
  */
 
-const loadingRoundImageUrl = require('../assets/icon-loading.png');
 
-export let loading = {
-  cross: {
-    color: '#fff', // 每个圆的颜色
-    size: 30, // 每个圆的大小尺寸
-    duration: 1500 //动画周期
-  },
-  cricle: {
-    color: '#fff', // 每个圆的颜色
-    size: 30, // 每个圆的大小尺寸
-    itemSize: 6 // 每个圆的大小
-  },
-  round: {
-    color: '#fff', // 每个圆的颜色
-    itemImage: loadingRoundImageUrl, // 旋转的图片，由于svg没有实现角度渐变功能，只能通过图片背景的方式
-    layerColor: '#232323',
-    size: 30, //  圆的大小尺寸
-    duration: 1500, //移动一圈的时间
-    itemWidth: 40 // 旋转动画的宽度
-  },
-  wave: {
-    color: '#fff', // 每个方块的颜色
-    size: 30, // 每个方块的大小尺寸 - 宽
-    spacing: 2, // 间距
-    itemNumber: 5, // 数量
-    align: 'start', // 对齐方式 top center bottom
-    direction: 'horizontal', // 排列方式  horizontal vertical
-    duration: 1500 //动画周期
-  },
-  turn: {
-    color: '#fff', // 每个方块的颜色
-    size: 30, // 每个方块的大小尺寸
-    duration: 1500 //移动一圈的时间
-  },
-  rect: {
-    itemWidth: 4, //移动条形的宽度
-    itemScale: 0.5, // 移动条形的长度，相对边的比例
-    itemNumber: 2, //移动条形的数目 1  2  4
-    layerColor: '#e5e5e5', // 轨道颜色
-    duration: 1500, //移动一圈的时间
-    color: '#fff',
-    size: 30 // 尺寸,
-  },
-  ring: {
-    size: 30,
-    layerColor: '#e5e5e5', // 轨道颜色
-    color: '#fff',
-    duration: 1500,
-    layerSize: 4 // 轨道的尺寸
-  }
-};
-
+ 
 export let input = {
   border: true, // 是否显示border
   borderType: 'round', // border的类型 top bottom round

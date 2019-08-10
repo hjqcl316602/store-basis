@@ -1,33 +1,49 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-15 11:22:06
+ * @LastEditTime: 2019-08-10 10:22:25
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
-import { loading } from "../config/index";
+const config = {
+  color: "#fff", // [ string ] 每个圆的颜色
+  size: 30, // [ string , number ] 每个圆的大小尺寸
+  itemSize: 6 // [ string , number ] 每个圆的大小
+};
 export default {
   name: "vui-loading-circle",
   props: {
     color: {
       type: String,
-      default: loading.cricle.color
+      default: config.color
     },
     size: {
-      type: Number,
-      default: loading.cricle.size
+      type: [Number, String],
+      default: config.size
     },
     itemSize: {
-      type: Number,
-      default: loading.cricle.itemSize
+      type: [Number, String],
+      default: config.itemSize
     }
   },
   computed: {
     listStyle() {
+      let size = typeof this.size === "number" ? this.size + "px" : this.size;
       return {
-        height: this.size + "px",
-        width: this.size + "px"
+        height: size,
+        width: size
       };
     },
     itemStyle() {
       let style = {};
+      let itemSize =
+        typeof this.itemSize === "number"
+          ? this.itemSize + "px"
+          : this.itemSize;
       style["backgroundColor"] = this.color;
-      style["width"] = this.itemSize + "px";
-      style["height"] = this.itemSize + "px";
+      style["width"] = itemSize;
+      style["height"] = itemSize;
       return style;
     }
   },
