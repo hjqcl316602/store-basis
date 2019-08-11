@@ -2,7 +2,7 @@
  * @Description: In User Settings Edie
  * @Author: your name
  * @Date: 2019-08-02 18:20:50
- * @LastEditTime: 2019-08-10 09:13:40
+ * @LastEditTime: 2019-08-11 15:07:18
  * @LastEditors: Please set LastEditors
  */
 import { humpToLink } from './string';
@@ -38,21 +38,23 @@ export function addRule(selector, css, name) {
   }
 }
 /**
- * @description: 获取鼠标或手指的位置
+ * @description: 获取元素的宽度
+ * @param { ele } 元素
+ * @return:
+ */
+export function getWidth(ele) {
+  return ele.getBoundingClientRect().width;
+}
+/**
+ * @description: 获取鼠标或手指的X位置
  * @param { event }
  * @return: [ object ]
  */
-export function getClient(event) {
+export function getClientX(event) {
   if (event.touches && event.touches[0]) {
-    return {
-      x: event.touches[0].pageX || event.touches[0].clientX,
-      y: event.touches[0].pageY || event.touches[0].clientY
-    };
+    return event.touches[0].pageX || event.touches[0].clientX;
   } else {
-    return {
-      x: event.pageX || event.clientX,
-      y: event.pageY || event.clientY
-    };
+    return event.pageX || event.clientX;
   }
 }
 

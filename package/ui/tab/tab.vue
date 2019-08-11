@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-09 09:08:25
- * @LastEditTime: 2019-08-09 21:04:48
+ * @LastEditTime: 2019-08-11 15:58:16
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -19,7 +19,8 @@ instance.data = function() {
 };
 instance.methods = {
   changeTab() {
-    //this.$parent.currentValue = this.name;
+    //console.log(this.$parent.moveStartX, this.$parent.moveEndX);
+    if (this.$parent.moveStartX !== this.$parent.moveEndX) return; // 解决与父元素的滑动事件的冲突
     this.$parent.$emit("input", this.name);
   },
   setStyle() {

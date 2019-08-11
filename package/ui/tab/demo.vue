@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-09 21:26:43
- * @LastEditTime: 2019-08-09 22:32:25
+ * @LastEditTime: 2019-08-11 17:39:31
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -14,19 +14,122 @@ const instance = {};
 instance.name = "";
 instance.props = {};
 instance.data = function() {
-  return {};
+  return {
+    options: [
+      { name: "电影", value: "1" },
+      { name: "视频", value: "2" },
+      { name: "军事", value: "3" },
+      { name: "科技", value: "4" },
+      { name: "生活", value: "5" }
+    ],
+    active: "1"
+  };
 };
 instance.methods = {};
 instance.created = function() {};
 instance.mounted = function() {};
+instance.watch = {};
 export default instance;
 </script>
 
 <template>
-  <div class="">
-    tab
+  <div class="hj-padding--large">
+    <div class="hj-margin-bottom--large">
+      <div class="hj-margin-bottom">自动分配</div>
+      <vui-tab-group v-model="active" :fix="false">
+        <vui-tab
+          v-for="(item, index) in options"
+          :key="index"
+          :name="item['value']"
+        >
+          <div
+            class="vv-tab-item"
+            :class="{ active: item['value'] === active }"
+          >
+            {{ item["name"] }}
+          </div>
+        </vui-tab>
+      </vui-tab-group>
+    </div>
+    <div class="hj-margin-bottom--large">
+      <div class="hj-margin-bottom">添加滑动条</div>
+      <vui-tab-group v-model="active" :fix="false" show-bar>
+        <vui-tab
+          v-for="(item, index) in options"
+          :key="index"
+          :name="item['value']"
+        >
+          <div
+            class="vv-tab-item"
+            :class="{ active: item['value'] === active }"
+          >
+            {{ item["name"] }}
+          </div>
+        </vui-tab>
+      </vui-tab-group>
+    </div>
+    <div class="hj-margin-bottom--large">
+      <div class="hj-margin-bottom">设置可见数5</div>
+      <vui-tab-group v-model="active" :threshold="5">
+        <vui-tab
+          v-for="(item, index) in options"
+          :key="index"
+          :name="item['value']"
+        >
+          <div
+            class="vv-tab-item"
+            :class="{ active: item['value'] === active }"
+          >
+            {{ item["name"] }}
+          </div>
+        </vui-tab>
+      </vui-tab-group>
+    </div>
+
+    <div class="hj-margin-bottom--large">
+      <div class="hj-margin-bottom">设置可见数3</div>
+      <vui-tab-group v-model="active" :threshold="3" show-bar>
+        <vui-tab
+          v-for="(item, index) in options"
+          :key="index"
+          :name="item['value']"
+        >
+          <div
+            class="vv-tab-item"
+            :class="{ active: item['value'] === active }"
+          >
+            {{ item["name"] }}
+          </div>
+        </vui-tab>
+      </vui-tab-group>
+    </div>
+    <div class="hj-margin-bottom--large">
+      <div class="hj-margin-bottom">设置可见数4.5</div>
+      <vui-tab-group v-model="active" :threshold="4.5" show-bar>
+        <vui-tab
+          v-for="(item, index) in options"
+          :key="index"
+          :name="item['value']"
+        >
+          <div
+            class="vv-tab-item"
+            :class="{ active: item['value'] === active }"
+          >
+            {{ item["name"] }}
+          </div>
+        </vui-tab>
+      </vui-tab-group>
+    </div>
   </div>
 </template>
 
 <style   scoped>
+.vv-tab-item {
+  text-align: center;
+  line-height: 36px;
+  padding: 5px;
+}
+.vv-tab-item.active {
+  color: #39f;
+}
 </style>

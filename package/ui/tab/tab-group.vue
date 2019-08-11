@@ -1,122 +1,142 @@
 <!--
  * @Description: In User Settings Edit
  * @Author: your name
- * @Date: 2019-08-09 09:08:35
- * @LastEditTime: 2019-08-09 21:19:59
+ * @Date: 2019-08-11 13:58:20
+ * @LastEditTime: 2019-08-11 17:41:00
  * @LastEditors: Please set LastEditors
  -->
- 
 <script>
-import { getClient } from "../utils/dom";
+import { getWidth, getClientX } from "../utils/dom";
 const config = {
   value: "", //
   fix: true, // [ Boolean  ] 宽度是否固定 false 是指不用设置宽度，而是自动排列
-  threshold: 4 // [ Number ] 最多可见数
+  threshold: 4, // [ Number ] 最多可见数
+  showBar: false // 底部滑动条
 };
+
 const instance = {};
 instance.name = "vui-tab-group";
 instance.props = {
   value: { type: String, default: config.value },
   fix: { type: Boolean, default: config.fix },
-  threshold: { type: Number, default: config.threshold }
+  threshold: { type: Number, default: config.threshold },
+  showBar: { type: Boolean, default: config.showBar }
 };
-
 instance.data = function() {
   return {
     items: [],
-    translateX: 0,
-    barTanslateX: 0,
-    isTransition: false,
-    isBarTransition: false
+    moveStatus: "end",
+    moveStartX: 0,
+    moveEndX: 0,
+    moveX: 0,
+    isTabTransition: false,
+    isBarTransition: false,
+    translateX: 0
   };
 };
 instance.methods = {
   eventStart(e) {
-    if (!this.isMove) return false;
-    this._startX = getClient(e).x;
+    this.moveStatus = "start";
+    this.moveStartX = getClientX(e);
     this._translateX = this.translateX;
   },
   eventMove(e) {
-    if (!this.isMove) return false;
-    this._moveX = getClient(e).x - this._startX;
-    let moveX = this._translateX + this._moveX;
-    //console.log(moveX);
-    this.updateTranslate(moveX, false);
+    this.moveEndX = getClientX(e);
+    let differ = this.getTabsWidth() - this.getTabWidth();
+    if (this.moveStatus !== "start") return false;
+    if (differ <= 0) return false;
+    this.translateX = this.moveEndX - this.moveStartX + this._translateX;
+    this.moveTab(false);
+    this.moveBar(false);
   },
   eventEnd(e) {
-    // 子元素的总宽度
+    this.moveStatus = "end";
+    let differ = this.getTabsWidth() - this.getTabWidth();
+    if (differ < 0) return false;
+    if (this.translateX > 0) {
+      this.translateX = 0;
+    } else if (this.translateX < -differ) {
+      this.translateX = -differ;
+    }
+    this.moveTab(true);
+    this.moveBar(true);
   },
   /**
-   * 选中更新
+   * 移动tab
    */
-  updateSelect(val) {
-    let currentItemWidth = 0;
+  moveTab(transtion) {
+    this.isTabTransition = transtion;
+    setTimeout(() => {
+      this.$refs["tab"].style["transform"] = `translateX(${this.translateX}px)`;
+    }, 0);
+  },
+  /**
+   * 移动bar
+   */
+  moveBar(transtion) {
+    if (!this.showBar) return;
+    let findIndex = this.items.findIndex(ele => {
+      return ele.name === this.value;
+    });
+    if (findIndex === -1) return false;
+    let width = 0;
     for (let n = 0; n < this.items.length; n++) {
-      let temp = this.items[n];
-      let tempWidth = temp.$el.getBoundingClientRect().width;
-      if (temp.name === val) {
-        currentItemWidth += tempWidth / 2;
+      if (n === findIndex) {
+        this.$refs["bar"].style["width"] = getWidth(this.items[n].$el) + "px";
         break;
       }
-      currentItemWidth += tempWidth;
+      width += getWidth(this.items[n].$el);
     }
-    this.updateTranslate(this.wrapWidth / 2 - currentItemWidth, true);
+    this.isBarTransition = transtion;
+    let move = width + this.translateX;
+    this.$refs["bar"].style["transform"] = `translateX(${move}px)`;
   },
   /**
-   * 更新tab组件的水平移动距离
-   * isTransition : 是指是否需要动画
+   * 切换tab
    */
-  updateTranslate(moveX, isTransition) {
-    let translateX = Math.max(
-      this.wrapWidth - this.itemWidth,
-      Math.min(0, moveX)
-    );
-    this.translateX = translateX;
-    this.isTransition = isTransition;
-    this.$refs["tabs"].style["transform"] = `translateX(${this.translateX}px)`;
-    this.updateBarTRanslate(isTransition);
-  },
-  /**
-   *bar的移动
-   */
-  updateBarTRanslate(isTransition) {
-    let prevWidth = 0;
-    for (let n = 0; n < this.items.length; n++) {
-      let temp = this.items[n];
-      let tempWidth = temp.$el.getBoundingClientRect().width;
-      if (temp.name === this.currentValue) {
-        this.$refs["bar"].style["width"] = tempWidth + "px";
-        break;
-      }
-      prevWidth += tempWidth;
-    }
-    let barTanslateX = prevWidth + this.translateX;
-    this.isBarTransition = isTransition;
-    this.$refs["bar"].style["transform"] = `translateX(${barTanslateX}px)`;
-  },
+  updateTab(name) {
+    let findIndex = this.items.findIndex(ele => {
+      return ele.name === name;
+    });
+    if (findIndex === -1) return false;
 
-  /**
-   * 获取鼠标或手指的当前位置
-   */
-  getPageX(e) {
-    if (e.touches && e.touches[0]) {
-      return e.touches[0].pageX || e.touches[0].clientX;
-    } else {
-      return e.pageX || e.clientX;
+    let width = 0;
+    for (let n = 0; n < this.items.length; n++) {
+      if (n === findIndex) break;
+      width += getWidth(this.items[n].$el);
     }
+    let differ = this.getTabsWidth() - this.getTabWidth();
+    width = differ < 0 ? 0 : width > differ ? differ : width;
+    this.translateX = -width;
+    this.moveTab(true);
+    this.moveBar(true);
+  },
+  /**
+   * 获取tab内层的宽度
+   */
+  getTabsWidth() {
+    let width = 0;
+    this.items.forEach(ele => {
+      width += getWidth(ele.$el);
+    });
+    return width;
+  },
+  /**
+   * 获取tab外层的宽度
+   */
+  getTabWidth() {
+    return getWidth(this.$el);
   }
 };
 instance.created = function() {};
 instance.mounted = function() {
-  this.updateSelect(this.value);
+  this.$nextTick(() => {
+    this.updateTab(this.value);
+  });
 };
-instance.updated = function() {
-  //this.setItemStyle();
-};
-
 instance.watch = {
   currentValue(val, oldval) {
-    this.updateSelect(val);
+    this.updateTab(val);
     this.$emit("input", val);
     this.$emit("change", val);
   }
@@ -124,27 +144,15 @@ instance.watch = {
 instance.computed = {
   currentValue() {
     return this.value;
-  },
-  wrapWidth() {
-    return this.$el.getBoundingClientRect().width;
-  },
-  itemWidth() {
-    let width = 0;
-    this.items.forEach(element => {
-      width += element.$el.getBoundingClientRect().width;
-    });
-    return width;
-  },
-  isMove() {
-    return this.wrapWidth < this.itemWidth;
   }
 };
+
 export default instance;
 </script>
 
 <template>
   <div
-    :class="['vui-tab__wrap']"
+    class="vui-tab-wrap"
     @touchstart="eventStart"
     @touchmove="eventMove"
     @touchend="eventEnd"
@@ -154,15 +162,16 @@ export default instance;
   >
     <div
       class="vui-tab-group"
-      ref="tabs"
-      :class="{ 'vui-tab-group--transition': isTransition }"
+      ref="tab"
+      :class="{ 'vui-tab-group--transition': isTabTransition }"
     >
       <slot></slot>
     </div>
     <div
-      class="vui-tab__bar"
+      class="vui-tab-bar"
+      v-if="showBar"
       ref="bar"
-      :class="{ 'vui-tab__bar--transition': isBarTransition }"
+      :class="{ 'vui-tab-bar--transition': isBarTransition }"
     ></div>
   </div>
 </template>
