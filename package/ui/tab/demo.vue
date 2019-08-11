@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-09 21:26:43
- * @LastEditTime: 2019-08-11 17:39:31
+ * @LastEditTime: 2019-08-11 17:42:34
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -17,8 +17,8 @@ instance.data = function() {
   return {
     options: [
       { name: "电影", value: "1" },
-      { name: "视频", value: "2" },
-      { name: "军事", value: "3" },
+      { name: "视频库", value: "2" },
+      { name: "军事题材", value: "3" },
       { name: "科技", value: "4" },
       { name: "生活", value: "5" }
     ],
