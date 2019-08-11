@@ -1,6 +1,6 @@
 @import './theme.less';
 
-.vui-input {
+.hj-input {
   position: relative;
 
   input {
@@ -22,14 +22,14 @@
     color: @color-gray
   }
 
-  .vui-input--prepend {
+  .hj-input--prepend {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
   }
 
-  .vui-input--append {
+  .hj-input--append {
     position: absolute;
     top: 0;
     right: 0;
@@ -41,95 +41,95 @@
 * input 高度
 */
 
-.vui-input input,
-.vui-input.vui-input--medium input {
+.hj-input input,
+.hj-input.hj-input--medium input {
   height: @input-size-medium;
   line-height: @input-size-medium;
 }
 
-.vui-input .vui-input--prepend,
-.vui-input.vui-input--medium .vui-input--prepend,
-.vui-input .vui-input--append,
-.vui-input.vui-input--medium .vui-input--append {
+.hj-input .hj-input--prepend,
+.hj-input.hj-input--medium .hj-input--prepend,
+.hj-input .hj-input--append,
+.hj-input.hj-input--medium .hj-input--append {
   min-width: @input-size-medium;
 }
 
-.vui-input .vui-input--prepend~input,
-.vui-input.vui-input--medium .vui-input--prepend~input,
-.vui-input .vui-input--append~input,
-.vui-input.vui-input--medium .vui-input--append~input {
+.hj-input .hj-input--prepend~input,
+.hj-input.hj-input--medium .hj-input--prepend~input,
+.hj-input .hj-input--append~input,
+.hj-input.hj-input--medium .hj-input--append~input {
   padding-left: @input-size-medium + 10px
 }
 
-.vui-input.vui-input--smaller input {
+.hj-input.hj-input--smaller input {
   height: @input-size-smaller;
   line-height: @input-size-smaller;
 }
 
-.vui-input.vui-input--smaller .vui-input--prepend,
-.vui-input.vui-input--smaller .vui-input--append {
+.hj-input.hj-input--smaller .hj-input--prepend,
+.hj-input.hj-input--smaller .hj-input--append {
   min-width: @input-size-smaller;
 }
 
-.vui-input.vui-input--smaller .vui-input--prepend~input,
-.vui-input.vui-input--smaller .vui-input--append~input {
+.hj-input.hj-input--smaller .hj-input--prepend~input,
+.hj-input.hj-input--smaller .hj-input--append~input {
   padding-left: @input-size-smaller + 10px
 }
 
 
-.vui-input.vui-input--small input {
+.hj-input.hj-input--small input {
   height: @input-size-small;
   line-height: @input-size-small;
 }
 
-.vui-input.vui-input--small .vui-input--prepend,
-.vui-input.vui-input--small .vui-input--append {
+.hj-input.hj-input--small .hj-input--prepend,
+.hj-input.hj-input--small .hj-input--append {
   min-width: @input-size-small;
 }
 
-.vui-input.vui-input--small .vui-input--prepend~input,
-.vui-input.vui-input--smaller .vui-input--append~input {
+.hj-input.hj-input--small .hj-input--prepend~input,
+.hj-input.hj-input--smaller .hj-input--append~input {
   padding-left: @input-size-small + 10px
 }
 
-.vui-input.vui-input--large input {
+.hj-input.hj-input--large input {
   height: @input-size-large;
   line-height: @input-size-large;
 }
 
-.vui-input.vui-input--large .vui-input--prepend,
-.vui-input.vui-input--large .vui-input--append {
+.hj-input.hj-input--large .hj-input--prepend,
+.hj-input.hj-input--large .hj-input--append {
   min-width: @input-size-large;
 }
 
-.vui-input.vui-input--large .vui-input--prepend~input,
-.vui-input.vui-input--large .vui-input--append~input {
+.hj-input.hj-input--large .hj-input--prepend~input,
+.hj-input.hj-input--large .hj-input--append~input {
   padding-left: @input-size-large + 10px
 }
 
-.vui-input.vui-input--larger input {
+.hj-input.hj-input--larger input {
   height: @input-size-larger;
   line-height: @input-size-larger;
 }
 
-.vui-input.vui-input--larger .vui-input--prepend,
-.vui-input.vui-input--larger .vui-input--append {
+.hj-input.hj-input--larger .hj-input--prepend,
+.hj-input.hj-input--larger .hj-input--append {
   min-width: @input-size-larger;
 }
 
-.vui-input.vui-input--larger .vui-input--prepend~input,
-.vui-input.vui-input--larger .vui-input--append~input {
+.hj-input.hj-input--larger .hj-input--prepend~input,
+.hj-input.hj-input--larger .hj-input--append~input {
   padding-left: @input-size-larger + 10px
 }
 
 /**
 * input 对齐方式
 */
-.vui-input.vui-input--center input {
+.hj-input.hj-input--center input {
   text-align: center
 }
 
-.vui-input.vui-input--right input {
+.hj-input.hj-input--right input {
   text-align: right
 }
 
@@ -137,12 +137,12 @@
  
 /**
 // 使用方式
-<div class="vui-input vui-input--smaller">
-  <div class="vui-input--prepend">
+<div class="hj-input hj-input--smaller">
+  <div class="hj-input--prepend">
     名称
   </div>
-  <div class="vui-input--append"></div>
+  <div class="hj-input--append"></div>
   <input type="text" placeholder="请输入文本... " />
-  <div class="vui-input--message"></div>
+  <div class="hj-input--message"></div>
 </div>
 */

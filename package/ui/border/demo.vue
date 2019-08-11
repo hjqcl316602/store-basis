@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-09 22:42:23
- * @LastEditTime: 2019-08-09 23:05:11
+ * @LastEditTime: 2019-08-11 09:46:43
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -22,60 +22,60 @@ export default instance;
 </script>
 
 <template>
-  <div class="vui-padding--large">
-    <div class="vui-margin-bottom">
+  <div class="hj-padding--large">
+    <div class="hj-margin-bottom">
       <vui-border top>
-        <div class="vui-padding">上边框(top)</div>
+        <div class="hj-padding">上边框(top)</div>
       </vui-border>
     </div>
-    <div class="vui-margin-bottom">
+    <div class="hj-margin-bottom">
       <vui-border bottom>
-        <div class="vui-padding">下边框(bottom)</div>
+        <div class="hj-padding">下边框(bottom)</div>
       </vui-border>
     </div>
-    <div class="vui-margin-bottom">
+    <div class="hj-margin-bottom">
       <vui-border left>
-        <div class="vui-padding">左边框(left)</div>
+        <div class="hj-padding">左边框(left)</div>
       </vui-border>
     </div>
-    <div class="vui-margin-bottom">
+    <div class="hj-margin-bottom">
       <vui-border right>
-        <div class="vui-padding">右边框(right)</div>
+        <div class="hj-padding">右边框(right)</div>
       </vui-border>
     </div>
-    <div class="vui-margin-bottom">
+    <div class="hj-margin-bottom">
       <vui-border round>
-        <div class="vui-padding">四周(round)</div>
+        <div class="hj-padding">四周(round)</div>
       </vui-border>
     </div>
-    <div class="vui-margin-bottom">
+    <div class="hj-margin-bottom">
       <vui-border round color="red">
-        <div class="vui-padding">红色(color="red")</div>
+        <div class="hj-padding">红色(color="red")</div>
       </vui-border>
     </div>
-    <div class="vui-margin-bottom">
+    <div class="hj-margin-bottom">
       <vui-border round color="red" :size="1 / 2">
-        <div class="vui-padding">二分之一像素(:size="1/2")</div>
+        <div class="hj-padding">二分之一像素(:size="1/2")</div>
       </vui-border>
     </div>
-    <div class="vui-margin-bottom">
+    <div class="hj-margin-bottom">
       <vui-border round color="red" :size="1 / 3">
-        <div class="vui-padding">三分之一像素(:size="1/3")</div>
+        <div class="hj-padding">三分之一像素(:size="1/3")</div>
       </vui-border>
     </div>
-    <div class="vui-margin-bottom">
+    <div class="hj-margin-bottom">
       <vui-border round color="red" :size="1 / 3" type="dashed">
-        <div class="vui-padding">样式（type="dashed"）</div>
+        <div class="hj-padding">样式（type="dashed"）</div>
       </vui-border>
     </div>
-    <div class="vui-margin-bottom">
+    <div class="hj-margin-bottom">
       <vui-border round color="red" :size="1 / 3" radius="4px">
-        <div class="vui-padding">圆角(radius="4px")</div>
+        <div class="hj-padding">圆角(radius="4px")</div>
       </vui-border>
     </div>
-    <div class="vui-margin-bottom">
+    <div class="hj-margin-bottom">
       <vui-border round color="red" :size="1 / 3" circle>
-        <div class="vui-padding">全圆角(circle)</div>
+        <div class="hj-padding">全圆角(circle)</div>
       </vui-border>
     </div>
   </div>

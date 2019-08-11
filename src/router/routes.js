@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-08-10 09:42:09
+ * @LastEditTime: 2019-08-11 09:33:07
  * @LastEditors: Please set LastEditors
  */
 
@@ -10,6 +10,8 @@ const index = r => require.ensure([], () => r(require('../../package/ui/demo.vue
 const border = r => require.ensure([], () => r(require('../../package/ui/border/demo.vue')), 'border');
 const icon = r => require.ensure([], () => r(require('../../package/ui/icon/demo.vue')), 'icon');
 const loading = r => require.ensure([], () => r(require('../../package/ui/loading/demo.vue')), 'loading');
+const ratio = r => require.ensure([], () => r(require('../../package/ui/ratio/demo.vue')), 'ratio');
+const row = r => require.ensure([], () => r(require('../../package/ui/row/demo.vue')), 'row');
 const tab = r => require.ensure([], () => r(require('../../package/ui/tab/demo.vue')), 'tab');
 const tag = r => require.ensure([], () => r(require('../../package/ui/tag/demo.vue')), 'tag');
 
@@ -34,6 +36,18 @@ const routes = [
     name: 'loading',
     component: loading,
     meta: { title: '加载动画', en: 'loading' }
+  },
+  {
+    path: '/ratio',
+    name: 'ratio',
+    component: ratio,
+    meta: { title: '等比例尺寸', en: 'ratio' }
+  },
+  {
+    path: '/row',
+    name: 'row',
+    component: row,
+    meta: { title: '布局', en: 'row' }
   },
   {
     path: '/tab',

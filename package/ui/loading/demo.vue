@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-10 09:39:17
- * @LastEditTime: 2019-08-10 11:04:38
+ * @LastEditTime: 2019-08-11 09:49:29
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -29,19 +29,19 @@ export default instance;
 </script>
 
 <template>
-  <div class="vui-padding--large">
-    <div class="vui-margin-bottom--large">
-      <h3 class="vui-margin-bottom--large">loading-circle</h3>
-      <div class="vui-flex vui-justify-content--space-around">
+  <div class="hj-padding--large">
+    <div class="hj-margin-bottom--large">
+      <h3 class="hj-margin-bottom--large">loading-circle</h3>
+      <div class="hj-flex hj-justify-content--space-around">
         <vui-loading-circle color="#000"></vui-loading-circle>
         <vui-loading-circle color="red"></vui-loading-circle>
         <vui-loading-circle color="#000" size="20px"></vui-loading-circle>
         <vui-loading-circle color="#000" itemSize="3px"></vui-loading-circle>
       </div>
     </div>
-    <div class="vui-margin-bottom--large">
-      <h3 class="vui-margin-bottom--large">loading-cross</h3>
-      <div class="vui-flex vui-justify-content--space-around">
+    <div class="hj-margin-bottom--large">
+      <h3 class="hj-margin-bottom--large">loading-cross</h3>
+      <div class="hj-flex hj-justify-content--space-around">
         <vui-loading-cross color="#000"></vui-loading-cross>
         <vui-loading-cross color="#000" :duration="4000"></vui-loading-cross>
         <vui-loading-cross color="red" :duration="4000"></vui-loading-cross>
@@ -53,9 +53,9 @@ export default instance;
       </div>
     </div>
 
-    <div class="vui-margin-bottom--large">
-      <h3 class="vui-margin-bottom--large">loading-rect</h3>
-      <div class="vui-flex vui-justify-content--space-around">
+    <div class="hj-margin-bottom--large">
+      <h3 class="hj-margin-bottom--large">loading-rect</h3>
+      <div class="hj-flex hj-justify-content--space-around">
         <vui-loading-rect color="#000"></vui-loading-rect>
         <vui-loading-rect color="#000" size="40px"></vui-loading-rect>
         <vui-loading-rect color="#000" layerColor="red"></vui-loading-rect>
@@ -67,9 +67,9 @@ export default instance;
       </div>
     </div>
 
-    <div class="vui-margin-bottom--large">
-      <h3 class="vui-margin-bottom--large">loading-ring</h3>
-      <div class="vui-flex vui-justify-content--space-around">
+    <div class="hj-margin-bottom--large">
+      <h3 class="hj-margin-bottom--large">loading-ring</h3>
+      <div class="hj-flex hj-justify-content--space-around">
         <vui-loading-ring color="#000"></vui-loading-ring>
         <vui-loading-ring color="#000" :copies="2"></vui-loading-ring>
         <vui-loading-ring color="#000" :copies="3"></vui-loading-ring>
@@ -82,9 +82,9 @@ export default instance;
       </div>
     </div>
 
-    <div class="vui-margin-bottom--large">
-      <h3 class="vui-margin-bottom--large">loading-round</h3>
-      <div class="vui-flex vui-justify-content--space-around">
+    <div class="hj-margin-bottom--large">
+      <h3 class="hj-margin-bottom--large">loading-round</h3>
+      <div class="hj-flex hj-justify-content--space-around">
         <vui-loading-round></vui-loading-round>
         <vui-loading-round layerColor="red"></vui-loading-round>
         <vui-loading-round size="40px"></vui-loading-round>
@@ -93,18 +93,18 @@ export default instance;
       </div>
     </div>
 
-    <div class="vui-margin-bottom--large">
-      <h3 class="vui-margin-bottom--large">loading-turn</h3>
-      <div class="vui-flex vui-justify-content--space-around">
+    <div class="hj-margin-bottom--large">
+      <h3 class="hj-margin-bottom--large">loading-turn</h3>
+      <div class="hj-flex hj-justify-content--space-around">
         <vui-loading-turn color="red"></vui-loading-turn>
         <vui-loading-turn color="red" size="50px"></vui-loading-turn>
         <vui-loading-turn color="red" duration="5s"></vui-loading-turn>
       </div>
     </div>
 
-    <div class="vui-margin-bottom--large">
-      <h3 class="vui-margin-bottom--large">loading-wave</h3>
-      <div class="vui-flex vui-justify-content--space-around">
+    <div class="hj-margin-bottom--large">
+      <h3 class="hj-margin-bottom--large">loading-wave</h3>
+      <div class="hj-flex hj-justify-content--space-around">
         <vui-loading-wave color="red"></vui-loading-wave>
         <vui-loading-wave color="red" :size="40"></vui-loading-wave>
         <vui-loading-wave color="red" :itemNumber="3"></vui-loading-wave>

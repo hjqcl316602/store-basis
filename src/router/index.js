@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-08-09 22:51:01
+ * @LastEditTime: 2019-08-11 09:18:02
  * @LastEditors: Please set LastEditors
  */
 import Vue from 'vue';
@@ -16,7 +16,7 @@ let route = new Router({
 });
 
 route.beforeEach((to, from, next) => {
-  console.log(from, to);
+  //console.log(from, to);
   document.title = to['meta']['title'];
   next();
 });

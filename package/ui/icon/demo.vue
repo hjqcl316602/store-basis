@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: huangjunquan
  * @Date: 2019-08-10 08:49:20
- * @LastEditTime: 2019-08-10 09:32:37
+ * @LastEditTime: 2019-08-11 09:45:14
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -39,14 +39,14 @@ export default instance;
 </script>
 
 <template>
-  <div class="vui-padding--large">
-    <div class="vui-row--flex vui-row-gutter--large">
-      <div class="  vui-span--8" v-for="(item, index) in iconList" :key="index">
+  <div class="hj-padding--large">
+    <div class="hj-row--flex hj-row-gutter--large">
+      <div class="  hj-span--8" v-for="(item, index) in iconList" :key="index">
         <div
-          class="vui-padding-top--larger vui-padding-bottom--larger vui-text-align--center vui-flex vui-flex-direction--column vui-align-items--center"
+          class="hj-padding-top--larger hj-padding-bottom--larger hj-text-align--center hj-flex hj-flex-direction--column hj-align-items--center"
         >
           <vui-icon :name="item" size="24px"></vui-icon>
-          <span class="vui-margin-top">{{ item }}</span>
+          <span class="hj-margin-top">{{ item }}</span>
         </div>
       </div>
     </div>
