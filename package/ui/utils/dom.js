@@ -2,7 +2,7 @@
  * @Description: In User Settings Edie
  * @Author: your name
  * @Date: 2019-08-02 18:20:50
- * @LastEditTime: 2019-08-11 15:07:18
+ * @LastEditTime: 2019-08-12 10:51:29
  * @LastEditors: Please set LastEditors
  */
 import { humpToLink } from './string';
@@ -80,4 +80,26 @@ export function getClassRules(callback) {
     }
   }
   return res;
+}
+
+export function getScrollBarWidth() {
+  let div = document.createElement('div');
+  let inner = document.createElement('div');
+  let width = 100;
+  inner.style.height = width * 1.5 + 'px';
+  div.appendChild(inner);
+  div.style.width = width + 'px';
+  div.style.height = width + 'px';
+  div.style.overflow = 'scroll';
+  div.style.display = 'none';
+  // setTimeout(() => {
+  //   let divWidth = inner.getBoundingClientRect().width;
+  //   console.log(100 - divWidth);
+  // }, 1000);
+  let currentTime = +new Date();
+  window.onload = function() {
+    let time = +new Date();
+    console.log(time - currentTime);
+  };
+  document.body.appendChild(div);
 }
