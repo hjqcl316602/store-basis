@@ -2,12 +2,13 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-08-11 09:33:07
+ * @LastEditTime: 2019-08-14 10:14:23
  * @LastEditors: Please set LastEditors
  */
 
 const index = r => require.ensure([], () => r(require('../../package/ui/demo.vue')), 'index');
 const border = r => require.ensure([], () => r(require('../../package/ui/border/demo.vue')), 'border');
+const grail = r => require.ensure([], () => r(require('../../package/ui/grail/demo.vue')), 'grail');
 const icon = r => require.ensure([], () => r(require('../../package/ui/icon/demo.vue')), 'icon');
 const loading = r => require.ensure([], () => r(require('../../package/ui/loading/demo.vue')), 'loading');
 const ratio = r => require.ensure([], () => r(require('../../package/ui/ratio/demo.vue')), 'ratio');
@@ -24,6 +25,12 @@ const routes = [
     name: 'border',
     component: border,
     meta: { title: '边框', en: 'border' }
+  },
+  {
+    path: '/grail',
+    name: 'grail',
+    component: grail,
+    meta: { title: '圣杯布局', en: 'grail' }
   },
   {
     path: '/icon',
