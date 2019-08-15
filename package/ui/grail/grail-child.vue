@@ -2,24 +2,28 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-14 10:04:38
- * @LastEditTime: 2019-08-14 15:06:35
+ * @LastEditTime: 2019-08-15 09:29:09
  * @LastEditors: Please set LastEditors
  -->
 <script>
 const config = {
   type: "left", // [ String ]  位置类型
-  zIndex: 1
+  zIndex: 1,
+  padding: true // 是否设置父元素的padding值
 };
 const instance = {};
 instance.name = "vui-grail-child";
 instance.props = {
   type: {
     validator(value) {
-      return ["left", "right", "top", "bottom"].includes(value);
+      return ["left", "right", "top", "bottom", "cover", "center"].includes(
+        value
+      );
     },
     default: config.type
   },
-  zIndex: { type: [Number, String], default: config.zIndex }
+  zIndex: { type: [Number, String], default: config.zIndex },
+  padding: { type: Boolean, default: config.padding }
 };
 instance.data = function() {
   return {};

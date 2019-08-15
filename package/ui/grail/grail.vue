@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-14 10:04:04
- * @LastEditTime: 2019-08-14 14:37:20
+ * @LastEditTime: 2019-08-15 09:38:14
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -19,13 +19,16 @@ instance.methods = {
     this.childs.forEach(element => {
       let type = element["type"];
       let elStyle = this.$el.style;
+      let padding = element["padding"];
       let size = 0;
       elStyle["padding"] = 0;
-      if (type === "left" || type === "right") {
-        size = element.$el.offsetWidth;
-      }
-      if (type === "top" || type === "bottom") {
-        size = element.$el.offsetHeight;
+      if (padding) {
+        if (type === "left" || type === "right") {
+          size = element.$el.offsetWidth;
+        }
+        if (type === "top" || type === "bottom") {
+          size = element.$el.offsetHeight;
+        }
       }
       elStyle["padding-" + type] = size + "px";
     });
