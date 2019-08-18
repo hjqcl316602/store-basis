@@ -2,28 +2,26 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-14 10:04:38
- * @LastEditTime: 2019-08-15 09:29:09
+ * @LastEditTime: 2019-08-18 21:24:26
  * @LastEditors: Please set LastEditors
  -->
 <script>
 const config = {
-  type: "left", // [ String ]  位置类型
+  type: "left", // [ String ]  位置类型 ['left','right','top','bottom','center','cover','top-right','top-left','bottom-left','bottom-right']
   zIndex: 1,
-  padding: true // 是否设置父元素的padding值
+  paddingWidth: false, // 是否设置父元素的padding值,
+  paddingHeight: false
 };
 const instance = {};
 instance.name = "vui-grail-child";
 instance.props = {
   type: {
-    validator(value) {
-      return ["left", "right", "top", "bottom", "cover", "center"].includes(
-        value
-      );
-    },
+    type: String,
     default: config.type
   },
   zIndex: { type: [Number, String], default: config.zIndex },
-  padding: { type: Boolean, default: config.padding }
+  paddingWidth: { type: Boolean, default: config.paddingWidth },
+  paddingHeight: { type: Boolean, default: config.paddingHeight }
 };
 instance.data = function() {
   return {};

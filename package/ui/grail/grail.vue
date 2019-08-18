@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-14 10:04:04
- * @LastEditTime: 2019-08-15 09:38:14
+ * @LastEditTime: 2019-08-18 21:24:16
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -19,28 +19,61 @@ instance.methods = {
     this.childs.forEach(element => {
       let type = element["type"];
       let elStyle = this.$el.style;
-      let padding = element["padding"];
-      let size = 0;
+      let paddingHeight = element["paddingHeight"];
+      let paddingWidth = element["paddingWidth"];
+      let typeStorage = [
+        "left",
+        "right",
+        "top",
+        "bottom",
+        "center",
+        "cover",
+        "top-right",
+        "top-left",
+        "bottom-left",
+        "bottom-right"
+      ];
+      let widthTypes = [
+        "left",
+        "right",
+        "top-right",
+        "top-left",
+        "bottom-left",
+        "bottom-right"
+      ];
+      let heightTypes = [
+        "top",
+        "bottom",
+        "top-right",
+        "top-left",
+        "bottom-left",
+        "bottom-right"
+      ];
       elStyle["padding"] = 0;
-      if (padding) {
-        if (type === "left" || type === "right") {
-          size = element.$el.offsetWidth;
-        }
-        if (type === "top" || type === "bottom") {
-          size = element.$el.offsetHeight;
+      if (widthTypes.includes(type) && paddingWidth) {
+        let width = element.$el.offsetWidth;
+        if (type.indexOf("left") > -1) {
+          elStyle["padding-left"] = width + "px";
+        } else {
+          elStyle["padding-right"] = width + "px";
         }
       }
-      elStyle["padding-" + type] = size + "px";
+
+      if (heightTypes.includes(type) && paddingHeight) {
+        let height = element.$el.offsetHeight;
+        if (type.indexOf("top") > -1) {
+          elStyle["padding-top"] = height + "px";
+        } else {
+          elStyle["padding-bottom"] = height + "px";
+        }
+      }
     });
   }
 };
-instance.created = function() {};
 instance.mounted = function() {
-  console.log("mounted");
   this.$nextTick(() => this.setStyle());
 };
 instance.updated = function() {
-  console.log("updated");
   this.$nextTick(() => this.setStyle());
 };
 export default instance;

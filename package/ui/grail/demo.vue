@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-14 10:13:01
- * @LastEditTime: 2019-08-15 09:37:37
+ * @LastEditTime: 2019-08-18 21:23:36
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -34,7 +34,7 @@ export default instance;
   <div class="hj-padding--large">
     <vui-grail class="hj-margin-bottom">
       <div style="background-color:blue;height:100px"></div>
-      <vui-grail-child type="top">
+      <vui-grail-child type="top" padding-height>
         <div style="background-color:red;">
           <div>
             top,以子元素的高度设置父元素的padding-top值
@@ -44,7 +44,7 @@ export default instance;
     </vui-grail>
     <vui-grail class="hj-margin-bottom">
       <div style="background-color:blue;height:100px"></div>
-      <vui-grail-child type="top">
+      <vui-grail-child type="top" padding-height>
         <div style="background-color:red;height:50px">
           <div>
             top，设置子元素的固定高度
@@ -55,7 +55,7 @@ export default instance;
 
     <vui-grail class="hj-margin-bottom">
       <div style="background-color:blue;height:100px"></div>
-      <vui-grail-child type="top" :padding="false">
+      <vui-grail-child type="top">
         <div style="background-color:red;">
           <div>
             top，不设置父元素的padding值
@@ -68,7 +68,7 @@ export default instance;
       <div style="background-color:blue;">
         圣杯布局底部padding值会根据底部相对布局的元素的高度自动设置，也可以设置底部元素的固定高度
       </div>
-      <vui-grail-child type="bottom">
+      <vui-grail-child type="bottom" padding-height>
         <div style="background-color:red;">
           <div>
             bottom
@@ -80,8 +80,8 @@ export default instance;
       <div style="background-color:blue;">
         圣杯布局左部padding值会根据左部相对布局的元素的高度自动设置，也可以设置左部元素的固定高度
       </div>
-      <vui-grail-child type="left">
-        <div style="background-color:red;">
+      <vui-grail-child type="left" padding-width>
+        <div style="background-color:red;height:100%">
           <div>
             left
           </div>
@@ -92,8 +92,8 @@ export default instance;
       <div style="background-color:blue;">
         圣杯布局右部padding值会根据右部相对布局的元素的高度自动设置，也可以设置右部元素的固定高度
       </div>
-      <vui-grail-child type="right">
-        <div style="background-color:red;">
+      <vui-grail-child type="right" padding-width>
+        <div style="background-color:red;height:100%">
           <div>
             right
           </div>
@@ -120,6 +120,95 @@ export default instance;
         <div style="">
           <div>
             center
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+    <vui-grail class="hj-margin-bottom">
+      <div style="height:200px;background-color:blue;padding:20px">
+        圣杯布局 top-right
+      </div>
+      <vui-grail-child type="top-right" z-index="2">
+        <div style="background-color:red;">
+          <div>
+            top-right
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+    <vui-grail class="hj-margin-bottom">
+      <div style="height:200px;background-color:blue;padding:20px">
+        圣杯布局 top-right，设置子元素的padding-right
+      </div>
+      <vui-grail-child type="top-right" z-index="2" padding-width>
+        <div style="background-color:red;">
+          <div>
+            top-right
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+    <vui-grail class="hj-margin-bottom">
+      <div style="height:200px;background-color:blue;padding:20px">
+        圣杯布局 top-right，设置子元素的padding-top
+      </div>
+      <vui-grail-child type="top-right" z-index="2" padding-height>
+        <div style="background-color:red;">
+          <div>
+            top-right
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+    <vui-grail class="hj-margin-bottom">
+      <div style="height:200px;background-color:blue;padding:20px">
+        圣杯布局 top-right，设置子元素的padding-top,padding-right
+      </div>
+      <vui-grail-child
+        type="top-right"
+        z-index="2"
+        padding-height
+        padding-width
+      >
+        <div style="background-color:red;">
+          <div>
+            top-right
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+    <vui-grail class="hj-margin-bottom">
+      <div style="height:200px;background-color:blue;padding:20px">
+        圣杯布局 top-left
+      </div>
+      <vui-grail-child type="top-left" z-index="2">
+        <div style="background-color:red;">
+          <div>
+            top-left
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+    <vui-grail class="hj-margin-bottom">
+      <div style="height:200px;background-color:blue;padding:20px">
+        圣杯布局 bottom-right
+      </div>
+      <vui-grail-child type="bottom-right" z-index="2">
+        <div style="background-color:red;">
+          <div>
+            bottom-right
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+    <vui-grail class="hj-margin-bottom">
+      <div style="height:200px;background-color:blue;padding:20px">
+        圣杯布局 bottom-left
+      </div>
+      <vui-grail-child type="bottom-left" z-index="2">
+        <div style="background-color:red;">
+          <div>
+            bottom-left
           </div>
         </div>
       </vui-grail-child>
