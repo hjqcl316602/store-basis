@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-10 09:39:17
- * @LastEditTime: 2019-08-11 09:49:29
+ * @LastEditTime: 2019-08-20 16:07:44
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -36,7 +36,11 @@ export default instance;
         <vui-loading-circle color="#000"></vui-loading-circle>
         <vui-loading-circle color="red"></vui-loading-circle>
         <vui-loading-circle color="#000" size="20px"></vui-loading-circle>
-        <vui-loading-circle color="#000" itemSize="3px"></vui-loading-circle>
+        <vui-loading-circle
+          color="#000"
+          itemSize="6px"
+          size="30px"
+        ></vui-loading-circle>
       </div>
     </div>
     <div class="hj-margin-bottom--large">

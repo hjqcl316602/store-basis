@@ -2,15 +2,14 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-22 18:18:42
- * @LastEditTime: 2019-08-10 10:27:50
+ * @LastEditTime: 2019-08-20 15:24:42
  * @LastEditors: Please set LastEditors
  -->
 <script>
-const loadingRoundImageUrl = require("../assets/icon-loading.png");
-
+import { ICON_LOADING_ROUND } from "../assets/image";
 const config = {
   color: "#fff", // [string  ] 每个圆的颜色
-  itemImage: loadingRoundImageUrl, // [string  ]  旋转的图片，由于svg没有实现角度渐变功能，只能通过图片背景的方式
+  itemImage: ICON_LOADING_ROUND, // [string  ]  旋转的图片，由于svg没有实现角度渐变功能，只能通过图片背景的方式
   layerColor: "#232323", // [string  ]
   size: 30, //  [string ,number ] 圆的大小尺寸
   duration: 1500, // [string ,number ]移动一圈的时间
