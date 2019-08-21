@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-14 10:04:04
- * @LastEditTime: 2019-08-18 21:24:16
+ * @LastEditTime: 2019-08-21 11:39:58
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -39,7 +39,9 @@ instance.methods = {
         "top-right",
         "top-left",
         "bottom-left",
-        "bottom-right"
+        "bottom-right",
+        "left-center",
+        "right-center"
       ];
       let heightTypes = [
         "top",
@@ -47,7 +49,9 @@ instance.methods = {
         "top-right",
         "top-left",
         "bottom-left",
-        "bottom-right"
+        "bottom-right",
+        "top-center",
+        "bottom-center"
       ];
       elStyle["padding"] = 0;
       if (widthTypes.includes(type) && paddingWidth) {

@@ -9,8 +9,8 @@
     "start": "npm run dev",
     "build": "node build/build.js",
     "build:style": "gulp --gulpfile build/build-style.js",
-    "dist:ui": "webpack --config build/webpack.dist.ui.config.js",
-    "dist:es": "webpack --config build/webpack.dist.es.config.js"
+    "build:ui": "webpack --config build/webpack.dist.ui.config.js",
+    "build:es": "webpack --config build/webpack.dist.es.config.js"
   },
   "dependencies": {
     "axios": "^0.19.0",

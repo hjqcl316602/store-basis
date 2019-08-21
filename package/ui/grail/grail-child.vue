@@ -2,12 +2,12 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-14 10:04:38
- * @LastEditTime: 2019-08-18 21:24:26
+ * @LastEditTime: 2019-08-21 11:34:59
  * @LastEditors: Please set LastEditors
  -->
 <script>
 const config = {
-  type: "left", // [ String ]  位置类型 ['left','right','top','bottom','center','cover','top-right','top-left','bottom-left','bottom-right']
+  type: "left", // [ String ]  位置类型 ['left','right','top','bottom','center','cover','top-right','top-left','bottom-left','bottom-right','top-center','bottom-center','left-center','right-center']
   zIndex: 1,
   paddingWidth: false, // 是否设置父元素的padding值,
   paddingHeight: false

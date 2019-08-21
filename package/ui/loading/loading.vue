@@ -1,5 +1,12 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-11 14:55:59
+ * @LastEditTime: 2019-08-21 11:11:34
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
-import LoadingWave from "./loading-wave";
+import LoadingWave from "./loading-wave.vue";
 export default {
   name: "vui-loading",
   components: {

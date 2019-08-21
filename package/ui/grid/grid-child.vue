@@ -2,31 +2,30 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-11 09:25:07
- * @LastEditTime: 2019-08-21 12:58:12
+ * @LastEditTime: 2019-08-21 13:09:02
  * @LastEditors: Please set LastEditors
  -->
 <script>
 const config = {
   span: 0, // [ number ] 占据的栅格数
-  fix: true,
   auto: false,
   width: "", // [ number , string ] 宽度
   push: 0, // [ number ] 栅格向右移动格数
   pull: 0 // [ number ] 栅格向左移动格数
 };
 const instance = {};
-instance.name = "vui-span";
+instance.name = "vui-grid-child";
 instance.props = {
   span: {
-    type: Number,
+    type: [Number, String],
     default: config.span
   },
   push: {
-    type: Number,
+    type: [Number, String],
     default: config.push
   },
   pull: {
-    type: Number,
+    type: [Number, String],
     default: config.pull
   },
   auto: {
@@ -64,10 +63,10 @@ instance.computed = {
         style["padding-left"] = gutter / 2 + "px";
         style["padding-right"] = gutter / 2 + "px";
       }
-      let gutterVer = this.$parent.gutterVer;
+      let gutterRow = this.$parent.gutterRow;
       if (gutter) {
-        style["padding-top"] = gutterVer / 2 + "px";
-        style["padding-bottom"] = gutterVer / 2 + "px";
+        style["padding-top"] = gutterRow / 2 + "px";
+        style["padding-bottom"] = gutterRow / 2 + "px";
       }
     }
     if (this.push) {
@@ -82,19 +81,19 @@ instance.computed = {
     let className = [];
 
     if (this.auto) {
-      className.push("vui-span--auto");
+      className.push("vui-grid-child--auto");
     }
     return className;
   },
   isRow() {
-    return !!this.$parent && this.$parent.name === "vui-row";
+    return !!this.$parent && this.$parent.name === "vui-grid";
   }
 };
 export default instance;
 </script>
 
 <template>
-  <div class="vui-span" :class="spanClassName" :style="spanStyle">
+  <div class="vui-grid-child" :class="spanClassName" :style="spanStyle">
     <slot></slot>
   </div>
 </template>

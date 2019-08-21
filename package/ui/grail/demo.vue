@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-14 10:13:01
- * @LastEditTime: 2019-08-18 21:23:36
+ * @LastEditTime: 2019-08-21 11:43:30
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -100,6 +100,68 @@ export default instance;
         </div>
       </vui-grail-child>
     </vui-grail>
+
+    <vui-grail class="hj-margin-bottom">
+      <div style="background-color:blue;">
+        圣杯布局头部居中
+      </div>
+      <vui-grail-child type="top-center">
+        <div style="background-color:red;height:100%">
+          <div>
+            top-center
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+    <vui-grail class="hj-margin-bottom">
+      <div style="background-color:blue;">
+        圣杯布局头部居中,设置padding
+      </div>
+      <vui-grail-child type="top-center" padding-height>
+        <div style="background-color:red;height:100%">
+          <div>
+            top-center
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+    <vui-grail class="hj-margin-bottom">
+      <div style="background-color:blue;">
+        圣杯布局底部居中
+      </div>
+      <vui-grail-child type="bottom-center">
+        <div style="background-color:red;height:100%">
+          <div>
+            bottom-center
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+    <vui-grail class="hj-margin-bottom">
+      <div style="background-color:blue;">
+        圣杯布局右边居中
+      </div>
+      <vui-grail-child type="right-center">
+        <div style="background-color:red;height:100%">
+          <div>
+            right-center
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+    <vui-grail class="hj-margin-bottom">
+      <div style="background-color:blue;">
+        圣杯布局左边居中
+      </div>
+      <vui-grail-child type="left-center">
+        <div style="background-color:red;height:100%">
+          <div>
+            left-center
+          </div>
+        </div>
+      </vui-grail-child>
+    </vui-grail>
+
     <vui-grail class="hj-margin-bottom">
       <div style="height:200px;background-color:blue;padding:20px">
         圣杯布局 cover ，父元素的高宽既是子元素的高宽
