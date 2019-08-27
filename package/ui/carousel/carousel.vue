@@ -1,9 +1,20 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-03 13:44:00
+ * @LastEditTime: 2019-08-23 11:27:53
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
+const config = {
+  duration: 3000,
+  threshold: 100 // 移动多少距离才更换
+};
 const instance = {};
 instance.name = "vui-carousel";
 instance.props = {
-  duration: { type: Number },
-  threshold: { type: Number },
+  duration: { type: Number, default: config.duration },
+  threshold: { type: Number, default: config.threshold },
   value: { type: Number }
 };
 instance.data = function() {

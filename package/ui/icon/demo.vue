@@ -2,14 +2,14 @@
  * @Description: In User Settings Edit
  * @Author: huangjunquan
  * @Date: 2019-08-10 08:49:20
- * @LastEditTime: 2019-08-11 09:45:14
+ * @LastEditTime: 2019-08-23 11:17:01
  * @LastEditors: Please set LastEditors
  -->
 <script>
 import Vue from "vue";
 import ui from "./index";
-import { getClassRules } from "../utils/dom";
-import { isStart } from "../utils/string";
+import styler from "../../es/domer/styler";
+import check from "../../es/stringer/check";
 Vue.use(ui);
 const instance = {};
 instance.name = "";
@@ -23,8 +23,8 @@ instance.mounted = function() {};
 instance.computed = {
   iconList() {
     let res = [];
-    let rules = getClassRules(function(text) {
-      return isStart(text, ".vui-icon");
+    let rules = styler.getRules(function(text) {
+      return check.start(text, ".vui-icon");
     });
     rules.forEach(rule => {
       let regex = /^\.vui-icon--(.*?)\:\:before$/;

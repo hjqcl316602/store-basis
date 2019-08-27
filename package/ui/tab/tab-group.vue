@@ -2,11 +2,11 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-11 13:58:20
- * @LastEditTime: 2019-08-12 08:58:25
+ * @LastEditTime: 2019-08-23 11:22:28
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import { getWidth, getClientX } from "../utils/dom";
+import clienter from "../../es/domer/clienter";
 const config = {
   value: "", //
   fix: true, // [ Boolean  ] 宽度是否固定 false 是指不用设置宽度，而是自动排列
@@ -37,11 +37,11 @@ instance.data = function() {
 instance.methods = {
   eventStart(e) {
     this.moveStatus = "start";
-    this.moveStartX = getClientX(e);
+    this.moveStartX = clienter.getX(e);
     this._translateX = this.translateX;
   },
   eventMove(e) {
-    this.moveEndX = getClientX(e);
+    this.moveEndX = clienter.getX(e);
     let differ = this.getTabsWidth() - this.getTabWidth();
     if (this.moveStatus !== "start") return false;
     if (differ <= 0) return false;
@@ -82,10 +82,11 @@ instance.methods = {
     let width = 0;
     for (let n = 0; n < this.items.length; n++) {
       if (n === findIndex) {
-        this.$refs["bar"].style["width"] = getWidth(this.items[n].$el) + "px";
+        this.$refs["bar"].style["width"] =
+          clienter.getWidth(this.items[n].$el) + "px";
         break;
       }
-      width += getWidth(this.items[n].$el);
+      width += clienter.getWidth(this.items[n].$el);
     }
     this.isBarTransition = transtion;
     let move = width + this.translateX;
@@ -103,7 +104,7 @@ instance.methods = {
     let width = 0;
     for (let n = 0; n < this.items.length; n++) {
       if (n === findIndex) break;
-      width += getWidth(this.items[n].$el);
+      width += clienter.getWidth(this.items[n].$el);
     }
     let differ = this.getTabsWidth() - this.getTabWidth();
     width = differ < 0 ? 0 : width > differ ? differ : width;
@@ -117,7 +118,7 @@ instance.methods = {
   getTabsWidth() {
     let width = 0;
     this.items.forEach(ele => {
-      width += getWidth(ele.$el);
+      width += clienter.getWidth(ele.$el);
     });
     return width;
   },
@@ -125,7 +126,7 @@ instance.methods = {
    * 获取tab外层的宽度
    */
   getTabWidth() {
-    return getWidth(this.$el);
+    return clienter.getWidth(this.$el);
   }
 };
 instance.created = function() {};

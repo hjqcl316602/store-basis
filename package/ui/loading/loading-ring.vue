@@ -2,11 +2,11 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-02 16:36:38
- * @LastEditTime: 2019-08-10 11:04:09
+ * @LastEditTime: 2019-08-23 11:23:48
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import { addRule } from "../utils/dom";
+import styler from "../../es/domer/styler";
 const config = {
   size: 30, // [ Number ,String] 尺寸
   layerColor: "#e5e5e5", //  [ String ] 轨道颜色
@@ -69,7 +69,7 @@ instance.methods = {
         typeof this.duration === "number"
           ? this.duration + "ms"
           : this.duration;
-      addRule(
+      styler.addRule(
         ringHash,
         {
           width: size,
@@ -96,7 +96,7 @@ instance.methods = {
       if (this.copies === 4) {
         style["border-color"] = this.color;
       }
-      addRule(ringAfterHash, style, "loading-ring");
+      styler.addRule(ringAfterHash, style, "loading-ring");
     });
   }
 };

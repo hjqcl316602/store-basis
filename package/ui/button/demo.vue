@@ -1,12 +1,14 @@
 <!--
  * @Description: In User Settings Edit
  * @Author: your name
- * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-08-24 08:49:19
+ * @Date: 2019-08-27 18:26:13
+ * @LastEditTime: 2019-08-27 18:47:52
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import elementResizeDetectorMaker from "element-resize-detector";
+import Vue from "vue";
+import ui from "./index";
+Vue.use(ui);
 const instance = {};
 instance.name = "";
 instance.props = {};
@@ -15,15 +17,15 @@ instance.data = function() {
 };
 instance.methods = {};
 instance.created = function() {};
-instance.mounted = function() {
-  
-};
+instance.mounted = function() {};
 export default instance;
 </script>
 
 <template>
   <div class="">
-    <router-view />
+    <vui-button long size="larger" color="primary">
+      <span>按钮</span>
+    </vui-button>
   </div>
 </template>
 

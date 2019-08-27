@@ -1,12 +1,14 @@
 <!--
  * @Description: In User Settings Edit
  * @Author: your name
- * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-08-24 08:49:19
+ * @Date: 2019-08-24 09:40:57
+ * @LastEditTime: 2019-08-27 11:18:29
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import elementResizeDetectorMaker from "element-resize-detector";
+import Vue from "vue";
+import LoadingBar from "./index";
+
 const instance = {};
 instance.name = "";
 instance.props = {};
@@ -16,15 +18,22 @@ instance.data = function() {
 instance.methods = {};
 instance.created = function() {};
 instance.mounted = function() {
-  
+  LoadingBar.start(40);
+  setTimeout(() => {
+    LoadingBar.update(60);
+  }, 1000);
+  setTimeout(() => {
+    LoadingBar.update(80);
+  }, 2000);
+  setTimeout(() => {
+    LoadingBar.finish();
+  }, 3000);
 };
 export default instance;
 </script>
 
 <template>
-  <div class="">
-    <router-view />
-  </div>
+  <div class="" style="padding:20px"></div>
 </template>
 
 <style   scoped>

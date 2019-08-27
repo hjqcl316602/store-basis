@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-11 14:30:25
+ * @LastEditTime: 2019-08-27 11:13:18
+ * @LastEditors: Please set LastEditors
+ */
 import Vue from 'vue';
 import Loading from './loading.vue';
 import LoadingCircle from './loading-circle.vue';
@@ -26,13 +33,6 @@ LoadingWave.install = function(Vue, options) {
   Vue.component(LoadingWave.name, LoadingWave);
 };
 LoadingRing.install = function(Vue, options) {
-  let Instance = {
-    render(h) {
-      return h(LoadingRing, {
-        props: options
-      });
-    }
-  };
   Vue.component(LoadingRing.name, LoadingRing);
 };
 

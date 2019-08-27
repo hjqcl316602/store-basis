@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-08 10:32:37
+ * @LastEditTime: 2019-08-08 10:32:37
+ * @LastEditors: your name
+ -->
 <script>
 const instance = {};
 instance.name = "vui-check";

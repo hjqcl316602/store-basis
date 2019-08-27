@@ -1,25 +1,36 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-30 15:34:50
+ * @LastEditTime: 2019-08-27 18:12:25
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
-import { mask } from "../config";
+const config = {
+  value: false,
+  closable: true,
+  scrollable: false,
+  transitionName: "slide-bottom" // 动画名称
+};
 const instance = {};
 instance.name = "vui-mask";
 instance.props = {
-  value: { type: Boolean, default: mask.value },
-  closable: { type: Boolean, default: mask.closable },
-  scrollable: { type: Boolean, default: mask.scrollable }
+  value: { type: Boolean, default: config.value },
+  closable: { type: Boolean, default: config.closable },
+  scrollable: { type: Boolean, default: config.scrollable },
+  transitionName: { type: String, default: config.transitionName }
 };
 instance.data = function() {
-  return {};
+  return {
+    currentValue: false
+  };
 };
 instance.methods = {
   transition() {
-    if (this.value) {
-      //elem.classList["remove"]("vui-mask--hide");
-      !this.scrollable && document.body.classList["add"]("vui-locked");
+    if (this.value && !this.scrollable) {
+      document.body.classList["add"]("vui-locked");
     } else {
       document.body.classList["remove"]("vui-locked");
-      // elem.addEventListener("transitionend", function(e) {
-      //   elem.classList["add"]("vui-mask--hide");
-      // });
     }
   },
   handler() {
@@ -29,18 +40,22 @@ instance.methods = {
 };
 instance.created = function() {};
 instance.mounted = function() {
-  this.transition();
+  this.$nextTick(() => {
+    this.transition();
+    this.currentValue = this.value;
+  });
 };
 instance.updated = function() {
   this.transition();
 };
-instance.computed = {
-  maskClassName() {
-    let className = ["vui-mask"];
-    if (this.value) {
-      className.push("vui-mask--active");
-    }
-    return className;
+instance.computed = {};
+
+instance.watch = {
+  currentValue(val) {
+    this.$emit("input", val);
+  },
+  value(val) {
+    this.currentValue = val;
   }
 };
 
@@ -48,9 +63,11 @@ export default instance;
 </script>
 
 <template>
-  <div :class="maskClassName" @click="handler">
-    <slot></slot>
-  </div>
+  <transition :name="transitionName">
+    <div class="vui-mask" @click="handler" v-if="currentValue">
+      <slot></slot>
+    </div>
+  </transition>
 </template>
 
 <style   scoped>

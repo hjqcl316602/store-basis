@@ -1,6 +1,6 @@
 @import './theme.less';
 
-.vui-btn {
+.vui-button {
 
   outline: none;
   border: none;
@@ -30,7 +30,7 @@
 /**
 * 按钮 触发动画
 */
-.vui-btn::before {
+.vui-button::before {
   content: " ";
   position: absolute;
   top: 50%;
@@ -46,14 +46,14 @@
   transition: all .3s;
 }
 
-.vui-btn:active::before {
+.vui-button:active::before {
   opacity: .1;
 }
 
 /**
 * 按钮 禁用样式
 */
-.vui-btn--disabled {
+.vui-button--disabled {
   opacity: .6;
   cursor: not-allowed;
 
@@ -65,33 +65,33 @@
 /**
 * 按钮 长状
 */
-.vui-btn--long {
+.vui-button--long {
   display: block
 }
 
 /**
 * 按钮 尺寸
 */
-.vui-btn--smaller {
+.vui-button--smaller {
   line-height: @btn-size-smaller;
   padding: 0 @btn-size-smaller/4;
   height: @btn-size-smaller;
 }
 
-.vui-btn--small {
+.vui-button--small {
   line-height: @btn-size-small;
   padding: 0 @btn-size-small/4;
   height: @btn-size-small;
 }
 
 
-.vui-btn--large {
+.vui-button--large {
   line-height: @btn-size-large;
   padding: 0 @btn-size-large/4;
   height: @btn-size-large;
 }
 
-.vui-btn--larger {
+.vui-button--larger {
   line-height: @btn-size-larger;
   padding: 0 @btn-size-larger/4;
   height: @btn-size-larger;
@@ -101,102 +101,102 @@
 /**
 * 按钮 默认样式
 */
-.vui-btn--warning {
+.vui-button--warning {
   color: @color-warning;
 }
 
-.vui-btn--danger {
+.vui-button--danger {
   color: @color-danger;
 }
 
-.vui-btn--primary {
+.vui-button--primary {
   color: @color-primary;
 }
 
-.vui-btn--success {
+.vui-button--success {
   color: @color-success;
 }
 
-.vui-btn--black {
+.vui-button--black {
   color: @color-black;
 }
 
-.vui-btn--dark {
+.vui-button--dark {
   color: @color-dark;
 }
 
-.vui-btn--light {
+.vui-button--light {
   color: @color-light;
 }
 
-.vui-btn--gray {
+.vui-button--gray {
   color: @color-gray;
 }
 
-.vui-btn--white {
+.vui-button--white {
   color: @color-white;
 }
 
 /**
 * 按钮 块状样式
 */
-.vui-btn--pack {
+.vui-button--pack {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.2)
 }
 
-.vui-btn--pack.vui-btn--round {
+.vui-button--pack.vui-button--round {
   border-radius: 10em
 }
 
-.vui-btn--pack.vui-btn--radius {
+.vui-button--pack.vui-button--radius {
   border-radius: 4px
 }
 
 /**
 * 按钮 块状样式 - 颜色
 */
-.vui-btn--pack.vui-btn--warning {
+.vui-button--pack.vui-button--warning {
   color: #fff;
   background-color: @color-warning;
 
 }
 
-.vui-btn--pack.vui-btn--danger {
+.vui-button--pack.vui-button--danger {
   color: #fff;
   background-color: @color-danger;
 }
 
-.vui-btn--pack.vui-btn--primary {
+.vui-button--pack.vui-button--primary {
   color: #fff;
   background-color: @color-primary;
 }
 
-.vui-btn--pack.vui-btn--success {
+.vui-button--pack.vui-button--success {
   color: #fff;
   background-color: @color-success;
 }
 
-.vui-btn--pack.vui-btn--black {
+.vui-button--pack.vui-button--black {
   color: #fff;
   background-color: @color-black;
 }
 
-.vui-btn--pack.vui-btn--dark {
+.vui-button--pack.vui-button--dark {
   color: #fff;
   background-color: @color-dark;
 }
 
-.vui-btn--pack.vui-btn--light {
+.vui-button--pack.vui-button--light {
   color: #fff;
   background-color: @color-light;
 }
 
-.vui-btn--pack.vui-btn--gray {
+.vui-button--pack.vui-button--gray {
   color: #fff;
   background-color: @color-gray;
 }
 
-.vui-btn--pack.vui-btn--white {
+.vui-button--pack.vui-button--white {
   color: #fff;
   background-color: @color-white;
 }
@@ -204,7 +204,7 @@
 /**
 * 按钮 镂空样式
 */
-.vui-btn--hollow {
+.vui-button--hollow {
   position: relative;
 }
 
@@ -212,7 +212,7 @@
 * 按钮 镂空样式 - border
 */
 
-.vui-btn--hollow::after {
+.vui-button--hollow::after {
   content: '';
   position: absolute;
   top: 0;
@@ -230,14 +230,14 @@
 /**
 * 按钮 镂空样式 - border - dashed
 */
-.vui-btn--hollow.vui-btn--dashed::after {
+.vui-button--hollow.vui-button--dashed::after {
   border-style: dashed;
 }
 
 /**
 * 按钮 镂空样式 - border - 细
 */
-.vui-btn--hollow.vui-btn--thin::after {
+.vui-button--hollow.vui-button--thin::after {
   width: 200%;
   height: 200%;
   transform: scale(.5);
@@ -246,19 +246,19 @@
 /**
 * 按钮 镂空样式 - border - 小圆角
 */
-.vui-btn--hollow.vui-btn--radius,
-.vui-btn--hollow.vui-btn--radius::after {
+.vui-button--hollow.vui-button--radius,
+.vui-button--hollow.vui-button--radius::after {
   border-radius: 4px
 }
 
 /**
 * 按钮 镂空样式 - border - 大圆角
 */
-.vui-btn--hollow.vui-btn--round,
-.vui-btn--hollow.vui-btn--round::after {
+.vui-button--hollow.vui-button--round,
+.vui-button--hollow.vui-button--round::after {
   border-radius: 10em
 }
 
-.vui-btn--hollow.vui-btn--thin.vui-btn--radius::after {
+.vui-button--hollow.vui-button--thin.vui-button--radius::after {
   border-radius: 8px
 }

@@ -1,26 +1,12 @@
 @import './theme.less';
 
 .vui-mask {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, .6);
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  transition: transform .3s ease-in-out, background-color .3s ease-in-out;
+  bottom: 0;
+  right: 0;
   z-index: 9999;
-  transform: translateY(-100%);
-}
-
-.vui-mask.vui-mask--hide {
-  display: none
-}
-
-.vui-mask.vui-mask--active {
-  transform: translateY(0);
-  background-color: @mask-bg;
-}
-
-.vui-locked {
-  overflow: hidden
+  overflow: auto
 }

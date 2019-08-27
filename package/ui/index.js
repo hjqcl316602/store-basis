@@ -2,11 +2,12 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-11 14:30:39
- * @LastEditTime: 2019-08-21 13:03:51
+ * @LastEditTime: 2019-08-27 18:28:55
  * @LastEditors: Please set LastEditors
  */
 import Accordion from './accordion/index.js';
 import Border from './border/index.js';
+import Button from './button/index.js';
 import Carousel from './carousel/index.js';
 import Check from './check/index.js';
 import Confirm from './confirm/index.js';
@@ -16,6 +17,7 @@ import Icon from './icon/index.js';
 import Image from './image/index.js';
 import Input from './input/index.js';
 import Loading from './loading/index.js';
+import LoadingBar from './loading-bar/index.js';
 import Mask from './mask/index.js';
 import Message from './message/index.js';
 import Radio from './radio/index.js';
@@ -24,4 +26,4 @@ import Slider from './slider/index.js';
 import Tab from './tab/index.js';
 import Upload from './upload/index.js';
 import Tag from './tag/index.js';
-export { Accordion, Border, Carousel, Check, Confirm, Grail, Grid, Icon, Image, Input, Loading, Mask, Message, Radio, Ratio, Slider, Tab, Upload, Tag };
+export { Accordion, Border, Button, Carousel, Check, Confirm, Grail, Grid, Icon, Image, Input, Loading, LoadingBar, Mask, Message, Radio, Ratio, Slider, Tab, Upload, Tag };

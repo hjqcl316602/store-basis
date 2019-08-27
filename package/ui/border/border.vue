@@ -2,25 +2,38 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-19 22:06:51
- * @LastEditTime: 2019-08-09 22:19:55
+ * @LastEditTime: 2019-08-23 10:44:25
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import { addRule } from "../utils/dom";
+import styler from "../../es/domer/styler";
+const config = {
+  size: 1, // [ Number ] border的尺寸
+  color: "#dedede", // [ String] border的颜色
+  left: false, // [ Boolean ] 是否显示左边框
+  bottom: false, // [ Boolean ] 是否显示下边框
+  right: false, // [ Boolean ] 是否显示右边框
+  top: false, // [ Boolean ] 是否显示上边框
+  round: false, // [ Boolean ] 是否显示四周的边框
+  radius: 0, // [ Number ] border-radiusda大小
+  circle: false, //[ Boolean ] 是否是圆角
+  type: "solid" // [ String ] border样式 solid dashed...
+};
+
 let hash = 0;
 const instance = {};
 instance.name = "vui-border";
 instance.props = {
-  size: { type: Number },
-  color: { type: String },
-  radius: { type: [Number, String] },
-  left: { type: Boolean },
-  right: { type: Boolean },
-  top: { type: Boolean },
-  bottom: { type: Boolean },
-  round: { type: Boolean },
-  type: { type: String },
-  circle: { type: Boolean }
+  size: { type: Number, default: config.size },
+  color: { type: String, default: config.color },
+  radius: { type: [Number, String], default: config.radius },
+  left: { type: Boolean, default: config.left },
+  right: { type: Boolean, default: config.right },
+  top: { type: Boolean, default: config.top },
+  bottom: { type: Boolean, default: config.bottom },
+  round: { type: Boolean, default: config.round },
+  type: { type: String, default: config.type },
+  circle: { type: Boolean, default: config.circle }
 };
 instance.data = function() {
   return {
@@ -59,7 +72,7 @@ instance.methods = {
       if (this.round) {
         style["border-width"] = "1px";
       }
-      addRule(`.vui-border[data-v-${this.hash}]:after`, style, "border");
+      styler.addRule(`.vui-border[data-v-${this.hash}]:after`, style, "border");
     });
   }
 };
