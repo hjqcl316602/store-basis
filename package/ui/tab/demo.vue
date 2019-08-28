@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-09 21:26:43
- * @LastEditTime: 2019-08-11 17:42:34
+ * @LastEditTime: 2019-08-28 15:28:50
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -33,9 +33,9 @@ export default instance;
 </script>
 
 <template>
-  <div class="hj-padding--large">
-    <div class="hj-margin-bottom--large">
-      <div class="hj-margin-bottom">自动分配</div>
+  <div class="vui-padding--large">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">自动分配</div>
       <vui-tab-group v-model="active" :fix="false">
         <vui-tab
           v-for="(item, index) in options"
@@ -51,8 +51,8 @@ export default instance;
         </vui-tab>
       </vui-tab-group>
     </div>
-    <div class="hj-margin-bottom--large">
-      <div class="hj-margin-bottom">添加滑动条</div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">添加滑动条</div>
       <vui-tab-group v-model="active" :fix="false" show-bar>
         <vui-tab
           v-for="(item, index) in options"
@@ -68,8 +68,8 @@ export default instance;
         </vui-tab>
       </vui-tab-group>
     </div>
-    <div class="hj-margin-bottom--large">
-      <div class="hj-margin-bottom">设置可见数5</div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">设置可见数5</div>
       <vui-tab-group v-model="active" :threshold="5">
         <vui-tab
           v-for="(item, index) in options"
@@ -86,8 +86,8 @@ export default instance;
       </vui-tab-group>
     </div>
 
-    <div class="hj-margin-bottom--large">
-      <div class="hj-margin-bottom">设置可见数3</div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">设置可见数3</div>
       <vui-tab-group v-model="active" :threshold="3" show-bar>
         <vui-tab
           v-for="(item, index) in options"
@@ -103,8 +103,8 @@ export default instance;
         </vui-tab>
       </vui-tab-group>
     </div>
-    <div class="hj-margin-bottom--large">
-      <div class="hj-margin-bottom">设置可见数4.5</div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">设置可见数4.5</div>
       <vui-tab-group v-model="active" :threshold="4.5" show-bar>
         <vui-tab
           v-for="(item, index) in options"

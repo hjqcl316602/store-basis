@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-11 09:01:39
- * @LastEditTime: 2019-08-11 09:44:47
+ * @LastEditTime: 2019-08-28 15:28:25
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -22,34 +22,34 @@ export default instance;
 </script>
 
 <template>
-  <div class="hj-padding--large">
-    <div class="hj-margin-bottom--large" style="width:100px">
+  <div class="vui-padding--large">
+    <div class="vui-margin-bottom--large" style="width:100px">
       <vui-ratio :ratio="0.5">
-        <div class="hj-cover hj-center" style="background-color:#dedede">
+        <div class="vui-cover vui-center" style="background-color:#dedede">
           <span>1:2 </span>
         </div>
       </vui-ratio>
     </div>
 
-    <div class="hj-margin-bottom--large" style="width:100px">
+    <div class="vui-margin-bottom--large" style="width:100px">
       <vui-ratio :ratio="1">
-        <div class="hj-cover hj-center" style="background-color:#dedede">
+        <div class="vui-cover vui-center" style="background-color:#dedede">
           <span>1:1</span>
         </div>
       </vui-ratio>
     </div>
 
-    <div class="hj-margin-bottom--large" style="width:100px">
+    <div class="vui-margin-bottom--large" style="width:100px">
       <vui-ratio :ratio="2">
-        <div class="hj-cover hj-center" style="background-color:#dedede">
+        <div class="vui-cover vui-center" style="background-color:#dedede">
           <span>2:1</span>
         </div>
       </vui-ratio>
     </div>
 
-    <div class="hj-margin-bottom--large" style="width:100px">
+    <div class="vui-margin-bottom--large" style="width:100px">
       <vui-ratio :ratio="16 / 9">
-        <div class="hj-cover hj-center" style="background-color:#dedede">
+        <div class="vui-cover vui-center" style="background-color:#dedede">
           <span> 16:9 </span>
         </div>
       </vui-ratio>

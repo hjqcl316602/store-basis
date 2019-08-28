@@ -23,58 +23,58 @@ export default instance;
 </script>
 
 <template>
-  <div class="hj-padding--large">
-    <div class="hj-margin-bottom--large">
+  <div class="vui-padding--large">
+    <div class="vui-margin-bottom--large">
       <vui-tag label="10">
         <div>显示信息(label='10')</div>
       </vui-tag>
     </div>
-    <div class="hj-margin-bottom--large">
+    <div class="vui-margin-bottom--large">
       <vui-tag label="10" direction="top-right">
         <div>位置(direction='top-right')</div>
       </vui-tag>
     </div>
-    <div class="hj-margin-bottom--large">
+    <div class="vui-margin-bottom--large">
       <vui-tag label="10" direction="top-left">
         <div>位置(direction='top-left')</div>
       </vui-tag>
     </div>
-    <div class="hj-margin-bottom--large">
+    <div class="vui-margin-bottom--large">
       <vui-tag label="10" direction="bottom-left">
         <div>位置(direction='bottom-left')</div>
       </vui-tag>
     </div>
-    <div class="hj-margin-bottom--large">
+    <div class="vui-margin-bottom--large">
       <vui-tag label="10" direction="bottom-left">
         <div>位置(direction='bottom-left')</div>
       </vui-tag>
     </div>
-    <div class="hj-margin-bottom--large">
+    <div class="vui-margin-bottom--large">
       <vui-tag label="10" direction="top-center">
         <div>位置(direction='top-center')</div>
       </vui-tag>
     </div>
-    <div class="hj-margin-bottom--large">
+    <div class="vui-margin-bottom--large">
       <vui-tag label="10" direction="bottom-center">
         <div>位置(direction='bottom-center')</div>
       </vui-tag>
     </div>
-    <div class="hj-margin-bottom--large">
+    <div class="vui-margin-bottom--large">
       <vui-tag label="10" direction="left-center">
         <div>位置(direction='left-center')</div>
       </vui-tag>
     </div>
-    <div class="hj-margin-bottom--large">
+    <div class="vui-margin-bottom--large">
       <vui-tag label="10" direction="right-center">
         <div>位置(direction='right-center')</div>
       </vui-tag>
     </div>
-    <div class="hj-margin-bottom--large">
+    <div class="vui-margin-bottom--large">
       <vui-tag direction="top-right">
         <div>自定义label样式</div>
         <div slot="label">
           <span
-            class="hj-font-size--medium hj-font-weight--800 hj-font-style--italic"
+            class="vui-font-size--medium vui-font-weight--800 vui-font-style--italic"
             >label</span
           >
         </div>
