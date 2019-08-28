@@ -1,6 +1,6 @@
 @import './theme.less';
 
-.hj-btn {
+.vui-btn {
 
   outline: none;
   border: none;
@@ -30,7 +30,7 @@
 /**
 * 按钮 触发动画
 */
-.hj-btn::before {
+.vui-btn::before {
   content: " ";
   position: absolute;
   top: 50%;
@@ -46,14 +46,14 @@
   transition: all .3s;
 }
 
-.hj-btn:active::before {
+.vui-btn:active::before {
   opacity: .1;
 }
 
 /**
 * 按钮 禁用样式
 */
-.hj-btn--disabled {
+.vui-btn--disabled {
   opacity: .6;
   cursor: not-allowed;
 
@@ -65,33 +65,33 @@
 /**
 * 按钮 长状
 */
-.hj-btn--long {
+.vui-btn--long {
   display: block
 }
 
 /**
 * 按钮 尺寸
 */
-.hj-btn--smaller {
+.vui-btn--smaller {
   line-height: @btn-size-smaller;
   padding: 0 @btn-size-smaller/4;
   height: @btn-size-smaller;
 }
 
-.hj-btn--small {
+.vui-btn--small {
   line-height: @btn-size-small;
   padding: 0 @btn-size-small/4;
   height: @btn-size-small;
 }
 
 
-.hj-btn--large {
+.vui-btn--large {
   line-height: @btn-size-large;
   padding: 0 @btn-size-large/4;
   height: @btn-size-large;
 }
 
-.hj-btn--larger {
+.vui-btn--larger {
   line-height: @btn-size-larger;
   padding: 0 @btn-size-larger/4;
   height: @btn-size-larger;
@@ -101,102 +101,102 @@
 /**
 * 按钮 默认样式
 */
-.hj-btn--warning {
+.vui-btn--warning {
   color: @color-warning;
 }
 
-.hj-btn--danger {
+.vui-btn--danger {
   color: @color-danger;
 }
 
-.hj-btn--primary {
+.vui-btn--primary {
   color: @color-primary;
 }
 
-.hj-btn--success {
+.vui-btn--success {
   color: @color-success;
 }
 
-.hj-btn--black {
+.vui-btn--black {
   color: @color-black;
 }
 
-.hj-btn--dark {
+.vui-btn--dark {
   color: @color-dark;
 }
 
-.hj-btn--light {
+.vui-btn--light {
   color: @color-light;
 }
 
-.hj-btn--gray {
+.vui-btn--gray {
   color: @color-gray;
 }
 
-.hj-btn--white {
+.vui-btn--white {
   color: @color-white;
 }
 
 /**
 * 按钮 块状样式
 */
-.hj-btn--pack {
+.vui-btn--pack {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.2)
 }
 
-.hj-btn--pack.hj-btn--round {
+.vui-btn--pack.vui-btn--round {
   border-radius: 10em
 }
 
-.hj-btn--pack.hj-btn--radius {
+.vui-btn--pack.vui-btn--radius {
   border-radius: 4px
 }
 
 /**
 * 按钮 块状样式 - 颜色
 */
-.hj-btn--pack.hj-btn--warning {
+.vui-btn--pack.vui-btn--warning {
   color: #fff;
   background-color: @color-warning;
 
 }
 
-.hj-btn--pack.hj-btn--danger {
+.vui-btn--pack.vui-btn--danger {
   color: #fff;
   background-color: @color-danger;
 }
 
-.hj-btn--pack.hj-btn--primary {
+.vui-btn--pack.vui-btn--primary {
   color: #fff;
   background-color: @color-primary;
 }
 
-.hj-btn--pack.hj-btn--success {
+.vui-btn--pack.vui-btn--success {
   color: #fff;
   background-color: @color-success;
 }
 
-.hj-btn--pack.hj-btn--black {
+.vui-btn--pack.vui-btn--black {
   color: #fff;
   background-color: @color-black;
 }
 
-.hj-btn--pack.hj-btn--dark {
+.vui-btn--pack.vui-btn--dark {
   color: #fff;
   background-color: @color-dark;
 }
 
-.hj-btn--pack.hj-btn--light {
+.vui-btn--pack.vui-btn--light {
   color: #fff;
   background-color: @color-light;
 }
 
-.hj-btn--pack.hj-btn--gray {
+.vui-btn--pack.vui-btn--gray {
   color: #fff;
   background-color: @color-gray;
 }
 
-.hj-btn--pack.hj-btn--white {
+.vui-btn--pack.vui-btn--white {
   color: #fff;
   background-color: @color-white;
 }
@@ -204,7 +204,7 @@
 /**
 * 按钮 镂空样式
 */
-.hj-btn--hollow {
+.vui-btn--hollow {
   position: relative;
 }
 
@@ -212,7 +212,7 @@
 * 按钮 镂空样式 - border
 */
 
-.hj-btn--hollow::after {
+.vui-btn--hollow::after {
   content: '';
   position: absolute;
   top: 0;
@@ -230,14 +230,14 @@
 /**
 * 按钮 镂空样式 - border - dashed
 */
-.hj-btn--hollow.hj-btn--dashed::after {
+.vui-btn--hollow.vui-btn--dashed::after {
   border-style: dashed;
 }
 
 /**
 * 按钮 镂空样式 - border - 细
 */
-.hj-btn--hollow.hj-btn--thin::after {
+.vui-btn--hollow.vui-btn--thin::after {
   width: 200%;
   height: 200%;
   transform: scale(.5);
@@ -246,19 +246,19 @@
 /**
 * 按钮 镂空样式 - border - 小圆角
 */
-.hj-btn--hollow.hj-btn--radius,
-.hj-btn--hollow.hj-btn--radius::after {
+.vui-btn--hollow.vui-btn--radius,
+.vui-btn--hollow.vui-btn--radius::after {
   border-radius: 4px
 }
 
 /**
 * 按钮 镂空样式 - border - 大圆角
 */
-.hj-btn--hollow.hj-btn--round,
-.hj-btn--hollow.hj-btn--round::after {
+.vui-btn--hollow.vui-btn--round,
+.vui-btn--hollow.vui-btn--round::after {
   border-radius: 10em
 }
 
-.hj-btn--hollow.hj-btn--thin.hj-btn--radius::after {
+.vui-btn--hollow.vui-btn--thin.vui-btn--radius::after {
   border-radius: 8px
 }
