@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-11 14:30:39
- * @LastEditTime: 2019-08-27 18:28:55
+ * @LastEditTime: 2019-08-28 17:53:24
  * @LastEditors: Please set LastEditors
  */
 import Accordion from './accordion/index.js';
@@ -23,7 +23,9 @@ import Message from './message/index.js';
 import Radio from './radio/index.js';
 import Ratio from './ratio/index.js';
 import Slider from './slider/index.js';
+import Tag from './tag/index.js';
+import Text from './text/index.js';
 import Tab from './tab/index.js';
 import Upload from './upload/index.js';
-import Tag from './tag/index.js';
-export { Accordion, Border, Button, Carousel, Check, Confirm, Grail, Grid, Icon, Image, Input, Loading, LoadingBar, Mask, Message, Radio, Ratio, Slider, Tab, Upload, Tag };
+
+export { Accordion, Border, Button, Carousel, Check, Confirm, Grail, Grid, Icon, Image, Input, Loading, LoadingBar, Mask, Message, Radio, Ratio, Slider, Tag, Text, Tab, Upload };

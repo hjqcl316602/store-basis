@@ -22,9 +22,7 @@
   word-break: break-word;
   white-space: nowrap;
   margin: 0;
-  line-height: @btn-size-medium;
-  padding: 0 @btn-size-medium/4;
-  height: @btn-size-medium;
+  padding: @btn-padding;
 }
 
 /**
@@ -53,7 +51,7 @@
 /**
 * 按钮 禁用样式
 */
-.vui-button--disabled {
+.vui-button.vui-button-disabled {
   opacity: .6;
   cursor: not-allowed;
 
@@ -65,146 +63,118 @@
 /**
 * 按钮 长状
 */
-.vui-button--long {
+.vui-button.vui-button-long {
   display: block
+}
+
+/**
+* 按钮 radius
+*/
+.vui-button.vui-button-round {
+  border-radius: 10em
+}
+
+.vui-button.vui-button-radius {
+  border-radius: @btn-radius
 }
 
 /**
 * 按钮 尺寸
 */
-.vui-button--smaller {
+
+.vui-button.vui-button--smaller {
   line-height: @btn-size-smaller;
-  padding: 0 @btn-size-smaller/4;
-  height: @btn-size-smaller;
 }
 
-.vui-button--small {
+.vui-button.vui-button--small {
   line-height: @btn-size-small;
-  padding: 0 @btn-size-small/4;
-  height: @btn-size-small;
 }
 
+.vui-button {
+  line-height: @btn-size-medium;
+}
 
-.vui-button--large {
+.vui-button.vui-button--large {
   line-height: @btn-size-large;
-  padding: 0 @btn-size-large/4;
-  height: @btn-size-large;
 }
 
-.vui-button--larger {
+.vui-button.vui-button--larger {
   line-height: @btn-size-larger;
-  padding: 0 @btn-size-larger/4;
-  height: @btn-size-larger;
 }
 
 
 /**
 * 按钮 默认样式
 */
-.vui-button--warning {
+.vui-button.vui-button--warning {
   color: @color-warning;
 }
 
-.vui-button--danger {
+.vui-button.vui-button--danger {
   color: @color-danger;
 }
 
-.vui-button--primary {
+.vui-button.vui-button--primary {
   color: @color-primary;
 }
 
-.vui-button--success {
+.vui-button.vui-button--success {
   color: @color-success;
 }
 
-.vui-button--black {
+.vui-button.vui-button--black {
   color: @color-black;
 }
 
-.vui-button--dark {
-  color: @color-dark;
-}
-
-.vui-button--light {
-  color: @color-light;
-}
-
-.vui-button--gray {
-  color: @color-gray;
-}
-
-.vui-button--white {
+.vui-button.vui-button--white {
   color: @color-white;
 }
 
 /**
 * 按钮 块状样式
 */
-.vui-button--pack {
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2)
-}
-
-.vui-button--pack.vui-button--round {
-  border-radius: 10em
-}
-
-.vui-button--pack.vui-button--radius {
-  border-radius: 4px
+.vui-button.vui-button-pack {
+  box-shadow: @btn-shadow
 }
 
 /**
 * 按钮 块状样式 - 颜色
 */
-.vui-button--pack.vui-button--warning {
+.vui-button.vui-button-pack.vui-button--warning {
   color: #fff;
   background-color: @color-warning;
 
 }
 
-.vui-button--pack.vui-button--danger {
+.vui-button.vui-button-pack.vui-button--danger {
   color: #fff;
   background-color: @color-danger;
 }
 
-.vui-button--pack.vui-button--primary {
+.vui-button.vui-button-pack.vui-button--primary {
   color: #fff;
   background-color: @color-primary;
 }
 
-.vui-button--pack.vui-button--success {
+.vui-button.vui-button-pack.vui-button--success {
   color: #fff;
   background-color: @color-success;
 }
 
-.vui-button--pack.vui-button--black {
+.vui-button.vui-button-pack.vui-button--black {
   color: #fff;
   background-color: @color-black;
 }
 
-.vui-button--pack.vui-button--dark {
-  color: #fff;
-  background-color: @color-dark;
-}
-
-.vui-button--pack.vui-button--light {
-  color: #fff;
-  background-color: @color-light;
-}
-
-.vui-button--pack.vui-button--gray {
-  color: #fff;
-  background-color: @color-gray;
-}
-
-.vui-button--pack.vui-button--white {
-  color: #fff;
+.vui-button.vui-button-pack.vui-button--white {
+  color: @color-primary;
   background-color: @color-white;
 }
 
 /**
 * 按钮 镂空样式
 */
-.vui-button--hollow {
+.vui-button.vui-button-hollow {
   position: relative;
 }
 
@@ -212,7 +182,7 @@
 * 按钮 镂空样式 - border
 */
 
-.vui-button--hollow::after {
+.vui-button.vui-button-hollow::after {
   content: '';
   position: absolute;
   top: 0;
@@ -230,14 +200,14 @@
 /**
 * 按钮 镂空样式 - border - dashed
 */
-.vui-button--hollow.vui-button--dashed::after {
+.vui-button.vui-button-hollow--dashed::after {
   border-style: dashed;
 }
 
 /**
 * 按钮 镂空样式 - border - 细
 */
-.vui-button--hollow.vui-button--thin::after {
+.vui-button.vui-button-hollow--thin::after {
   width: 200%;
   height: 200%;
   transform: scale(.5);
@@ -246,19 +216,17 @@
 /**
 * 按钮 镂空样式 - border - 小圆角
 */
-.vui-button--hollow.vui-button--radius,
-.vui-button--hollow.vui-button--radius::after {
-  border-radius: 4px
+.vui-button.vui-button-hollow.vui-button-radius::after {
+  border-radius: @btn-radius
 }
 
 /**
 * 按钮 镂空样式 - border - 大圆角
 */
-.vui-button--hollow.vui-button--round,
-.vui-button--hollow.vui-button--round::after {
+.vui-button.vui-button-hollow.vui-button-round::after {
   border-radius: 10em
 }
 
-.vui-button--hollow.vui-button--thin.vui-button--radius::after {
-  border-radius: 8px
+.vui-button.vui-button-hollow--thin.vui-button-radius::after {
+  border-radius: @btn-radius * 2
 }

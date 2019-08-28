@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-08-27 18:30:05
+ * @LastEditTime: 2019-08-28 17:54:00
  * @LastEditors: Please set LastEditors
  */
 
@@ -18,6 +18,7 @@ const mask = r => require.ensure([], () => r(require('../../package/ui/mask/demo
 const ratio = r => require.ensure([], () => r(require('../../package/ui/ratio/demo.vue')), 'ratio');
 const tab = r => require.ensure([], () => r(require('../../package/ui/tab/demo.vue')), 'tab');
 const tag = r => require.ensure([], () => r(require('../../package/ui/tag/demo.vue')), 'tag');
+const text = r => require.ensure([], () => r(require('../../package/ui/text/demo.vue')), 'text');
 
 const routes = [
   { path: '*', redirect: '/index', meta: { hide: true } },
@@ -88,6 +89,12 @@ const routes = [
     name: 'tag',
     component: tag,
     meta: { title: '标记', en: 'tag' }
+  },
+  {
+    path: '/text',
+    name: 'text',
+    component: text,
+    meta: { title: '文本', en: 'text' }
   }
 ];
 export default routes;
