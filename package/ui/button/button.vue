@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-27 18:26:08
- * @LastEditTime: 2019-08-28 17:34:19
+ * @LastEditTime: 2019-08-31 09:52:58
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -104,7 +104,11 @@ export default instance;
 </script>
 
 <template>
-  <div :class="styles.className" :style="styles.style">
+  <div
+    :class="styles.className"
+    :style="styles.style"
+    @click="$emit('click', $event)"
+  >
     <slot></slot>
   </div>
 </template>

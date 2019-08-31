@@ -23,7 +23,7 @@
 /*
 * 文本 块级
 */
-.vui-text.vui-text--long {
+.vui-text.vui-text-long {
   display: block
 }
 
@@ -92,6 +92,182 @@
 /*
 * 文本 加粗
 */
-.vui-text.vui-text--bold {
+.vui-text.vui-text-bold {
   font-weight: bold
+}
+
+/*
+* 文本 倾斜
+*/
+.vui-text.vui-text-italic {
+  font-style: italic
+}
+
+/**
+* 文本字符间距
+*/
+
+.vui-text.vui-text-letter-spacing--smaller {
+  letter-spacing: @text-letter-spacing-smaller;
+}
+
+.vui-text.vui-text-letter-spacing--small {
+  letter-spacing: @text-letter-spacing-small;
+}
+
+.vui-text.vui-text-letter-spacing--medium {
+  letter-spacing: @text-letter-spacing-medium;
+}
+
+.vui-text.vui-text-letter-spacing--large {
+  letter-spacing: @text-letter-spacing-large;
+}
+
+.vui-text.vui-text-letter-spacing--larger {
+  letter-spacing: @text-letter-spacing-larger;
+}
+
+/**
+* 文本行高
+*/
+.vui-text.vui-text-height--smaller {
+  line-height: @text-height-smaller
+}
+
+.vui-text.vui-text-height--small {
+  line-height: @text-height-small
+}
+
+.vui-text.vui-text-height--medium {
+  line-height: @text-height-medium
+}
+
+.vui-text.vui-text-height--large {
+  line-height: @text-height-large
+}
+
+.vui-text.vui-text-height--larger {
+  line-height: @text-height-larger
+}
+
+/**
+* 文本 装饰
+*/
+.vui-text.vui-text-decoration--none {
+  text-decoration: none
+}
+
+.vui-text.vui-text-decoration--underline {
+  text-decoration: underline
+}
+
+.vui-text.vui-text-decoration--overline {
+  text-decoration: overline
+}
+
+.vui-text.vui-text-decoration--line-through {
+  text-decoration: line-through
+}
+
+.vui-text.vui-text-decoration--blink {
+  text-decoration: blink
+}
+
+/**
+* 文本 对齐方式
+*/
+.vui-text.vui-text-align--left {
+  text-align: left
+}
+
+.vui-text.vui-text-align--center {
+  text-align: center
+}
+
+.vui-text.vui-text-align--right {
+  text-align: right
+}
+
+/**
+* 文本 首行缩进
+*/
+
+.vui-text.vui-text-indent--smaller {
+  text-indent: @text-indent-smaller;
+}
+
+.vui-text.vui-text-indent--small {
+  text-indent: @text-indent-small;
+}
+
+.vui-text.vui-text-indent--medium {
+  text-indent: @text-indent-medium;
+}
+
+.vui-text.vui-text-indent--large {
+  text-indent: @text-indent-large;
+}
+
+.vui-text.vui-text-indent--larger {
+  text-indent: @text-indent-larger;
+}
+
+/**
+* 文本 单词间距
+*/
+.vui-text.vui-text-word-spacing--smaller {
+  word-spacing: @text-word-spacing-smaller;
+}
+
+.vui-text.vui-text-word-spacing--small {
+  word-spacing: @text-word-spacing-small;
+}
+
+.vui-text.vui-text-word-spacing--medium {
+  word-spacing: @text-word-spacing-medium;
+}
+
+.vui-text.vui-text-word-spacing--large {
+  word-spacing: @text-word-spacing-large;
+}
+
+.vui-text.vui-text-word-spacing--larger {
+  word-spacing: @text-word-spacing-larger;
+}
+
+/**
+* 文本 允许长单词换行到下一行
+*/
+.vui-text.vui-text-word-wrap {
+  word-wrap: break-word;
+}
+
+/**
+* 文本 恰当的断字点进行换行
+*/
+
+.vui-text.vui-text-word-break--break-all {
+  word-break: break-all
+}
+
+.vui-text.vui-text-word-break--break-word {
+  word-break: break-word
+}
+
+/**
+* 文本的截取
+*/
+
+.vui-text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vui-text-clamp {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-emphasis: none;
 }

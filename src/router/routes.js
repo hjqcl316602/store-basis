@@ -2,13 +2,14 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-08-28 17:54:00
+ * @LastEditTime: 2019-08-31 09:41:37
  * @LastEditors: Please set LastEditors
  */
 
 const index = r => require.ensure([], () => r(require('../../package/ui/demo.vue')), 'index');
 const border = r => require.ensure([], () => r(require('../../package/ui/border/demo.vue')), 'border');
 const button = r => require.ensure([], () => r(require('../../package/ui/button/demo.vue')), 'button');
+const floater = r => require.ensure([], () => r(require('../../package/ui/floater/demo.vue')), 'floater');
 const grail = r => require.ensure([], () => r(require('../../package/ui/grail/demo.vue')), 'grail');
 const grid = r => require.ensure([], () => r(require('../../package/ui/grid/demo.vue')), 'grid');
 const icon = r => require.ensure([], () => r(require('../../package/ui/icon/demo.vue')), 'icon');
@@ -35,6 +36,12 @@ const routes = [
     name: 'button',
     component: button,
     meta: { title: '按钮', en: 'button' }
+  },
+  {
+    path: '/floater',
+    name: 'floater',
+    component: floater,
+    meta: { title: '悬浮', en: 'floater' }
   },
   {
     path: '/grail',
