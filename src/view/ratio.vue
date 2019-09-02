@@ -2,13 +2,10 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-11 09:01:39
- * @LastEditTime: 2019-08-28 15:28:25
+ * @LastEditTime: 2019-09-02 23:19:06
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import Vue from "vue";
-import ui from "./index";
-Vue.use(ui);
 const instance = {};
 instance.name = "";
 instance.props = {};

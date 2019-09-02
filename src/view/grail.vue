@@ -2,14 +2,10 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-14 10:13:01
- * @LastEditTime: 2019-08-21 11:43:30
+ * @LastEditTime: 2019-09-02 23:14:36
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import Vue from "vue";
-import Grail from "./index";
-
-Vue.use(Grail).use(Grail.Child);
 const instance = {};
 instance.name = "";
 instance.props = {};

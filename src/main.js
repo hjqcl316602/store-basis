@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-08-24 09:04:05
+ * @LastEditTime: 2019-09-02 23:00:53
  * @LastEditors: Please set LastEditors
  */
 // The Vue build version to load with the `import` command
@@ -12,13 +12,8 @@ import App from './App';
 import router from './router';
 
 import './theme/index.less';
-import { number } from '../package/es';
+import './ui/index.js';
 
-// import '../package/ui/style/index.less';
-// import '../package/css/basis/index.less';
-// import '../package/css/main/index.less';
-
-//Vue.config.productionTip = false;
 new Vue({
   el: '#app',
   router,

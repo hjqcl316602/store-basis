@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-08-24 08:49:19
+ * @LastEditTime: 2019-09-01 23:58:22
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -15,9 +15,7 @@ instance.data = function() {
 };
 instance.methods = {};
 instance.created = function() {};
-instance.mounted = function() {
-  
-};
+instance.mounted = function() {};
 export default instance;
 </script>
 

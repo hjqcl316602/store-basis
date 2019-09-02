@@ -2,24 +2,25 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-08-31 09:41:37
+ * @LastEditTime: 2019-09-02 23:20:38
  * @LastEditors: Please set LastEditors
  */
 
-const index = r => require.ensure([], () => r(require('../../package/ui/demo.vue')), 'index');
-const border = r => require.ensure([], () => r(require('../../package/ui/border/demo.vue')), 'border');
-const button = r => require.ensure([], () => r(require('../../package/ui/button/demo.vue')), 'button');
-const floater = r => require.ensure([], () => r(require('../../package/ui/floater/demo.vue')), 'floater');
-const grail = r => require.ensure([], () => r(require('../../package/ui/grail/demo.vue')), 'grail');
-const grid = r => require.ensure([], () => r(require('../../package/ui/grid/demo.vue')), 'grid');
-const icon = r => require.ensure([], () => r(require('../../package/ui/icon/demo.vue')), 'icon');
-const loading = r => require.ensure([], () => r(require('../../package/ui/loading/demo.vue')), 'loading');
-const loadingBar = r => require.ensure([], () => r(require('../../package/ui/loading-bar/demo.vue')), 'loadingBar');
-const mask = r => require.ensure([], () => r(require('../../package/ui/mask/demo.vue')), 'mask');
-const ratio = r => require.ensure([], () => r(require('../../package/ui/ratio/demo.vue')), 'ratio');
-const tab = r => require.ensure([], () => r(require('../../package/ui/tab/demo.vue')), 'tab');
-const tag = r => require.ensure([], () => r(require('../../package/ui/tag/demo.vue')), 'tag');
-const text = r => require.ensure([], () => r(require('../../package/ui/text/demo.vue')), 'text');
+const index = r => require.ensure([], () => r(require('../view/index.vue')), 'index');
+const border = r => require.ensure([], () => r(require('../view/border.vue')), 'border');
+const box = r => require.ensure([], () => r(require('../view/box.vue')), 'box');
+const button = r => require.ensure([], () => r(require('../view/button.vue')), 'button');
+const floater = r => require.ensure([], () => r(require('../view/floater.vue')), 'floater');
+const grail = r => require.ensure([], () => r(require('../view/grail.vue')), 'grail');
+const grid = r => require.ensure([], () => r(require('../view/grid.vue')), 'grid');
+const icon = r => require.ensure([], () => r(require('../view/icon.vue')), 'icon');
+const loading = r => require.ensure([], () => r(require('../view/loading.vue')), 'loading');
+const loadingBar = r => require.ensure([], () => r(require('../view/loading-bar.vue')), 'loadingBar');
+const mask = r => require.ensure([], () => r(require('../view/mask.vue')), 'mask');
+const ratio = r => require.ensure([], () => r(require('../view/ratio.vue')), 'ratio');
+const tab = r => require.ensure([], () => r(require('../view/tab.vue')), 'tab');
+const tag = r => require.ensure([], () => r(require('../view/tag.vue')), 'tag');
+const text = r => require.ensure([], () => r(require('../view/text.vue')), 'text');
 
 const routes = [
   { path: '*', redirect: '/index', meta: { hide: true } },
@@ -30,6 +31,12 @@ const routes = [
     name: 'border',
     component: border,
     meta: { title: '边框', en: 'border' }
+  },
+  {
+    path: '/box',
+    name: 'box',
+    component: box,
+    meta: { title: '盒子', en: 'box' }
   },
   {
     path: '/button',

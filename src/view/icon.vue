@@ -2,15 +2,12 @@
  * @Description: In User Settings Edit
  * @Author: huangjunquan
  * @Date: 2019-08-10 08:49:20
- * @LastEditTime: 2019-08-28 15:25:35
+ * @LastEditTime: 2019-09-02 23:16:42
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import Vue from "vue";
-import ui from "./index";
-import styler from "../../es/domer/styler";
-import check from "../../es/stringer/check";
-Vue.use(ui);
+import styler from "../../package/es/domer/styler";
+import check from "../../package/es/stringer/check";
 const instance = {};
 instance.name = "";
 instance.props = {};

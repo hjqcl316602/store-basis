@@ -2,14 +2,11 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-09 21:29:46
- * @LastEditTime: 2019-08-28 15:29:00
+ * @LastEditTime: 2019-09-02 23:11:16
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import Vue from "vue";
-import { Border, Icon } from "./index";
-import routes from "../../src/router/routes";
-Vue.use(Border).use(Icon);
+import routes from "../router/routes";
 const instance = {};
 instance.name = "";
 instance.props = {};
@@ -54,6 +51,7 @@ export default instance;
         </span>
       </div>
     </vui-border>
+    <vui-box padding-top="10px" padding-bottom=""> </vui-box>
   </div>
 </template>
 

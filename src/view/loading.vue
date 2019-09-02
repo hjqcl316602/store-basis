@@ -2,20 +2,10 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-10 09:39:17
- * @LastEditTime: 2019-08-28 15:25:44
+ * @LastEditTime: 2019-09-02 23:17:27
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import Vue from "vue";
-import ui from "./index";
-Vue.use(ui)
-  .use(ui.Circle)
-  .use(ui.Cross)
-  .use(ui.Rect)
-  .use(ui.Ring)
-  .use(ui.Round)
-  .use(ui.Turn)
-  .use(ui.Wave);
 const instance = {};
 instance.name = "";
 instance.props = {};
