@@ -2,12 +2,11 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-11 14:30:39
- * @LastEditTime: 2019-09-03 17:28:54
+ * @LastEditTime: 2019-09-03 21:09:45
  * @LastEditors: Please set LastEditors
  */
 import Accordion from './accordion/index.js';
 import Border from './border/index.js';
-import Box from './Box/index.js';
 import Button from './button/index.js';
 import Carousel from './carousel/index.js';
 import Check from './check/index.js';
@@ -26,7 +25,6 @@ import Radio from './radio/index.js';
 import Ratio from './ratio/index.js';
 import Slider from './slider/index.js';
 import Tag from './tag/index.js';
-import Text from './text/index.js';
 import Tab from './tab/index.js';
 import Upload from './upload/index.js';
 
@@ -39,10 +37,10 @@ const LoadingRing = Loading.Ring;
 const LoadingRound = Loading.Round;
 const LoadingTurn = Loading.Turn;
 const LoadingWave = Loading.Wave;
+const TabGroup = Tab.Group;
 export {
   Accordion,
   Border,
-  Box,
   Button,
   Carousel,
   Check,
@@ -70,7 +68,7 @@ export {
   Ratio,
   Slider,
   Tag,
-  Text,
+  TabGroup,
   Tab,
   Upload
 };

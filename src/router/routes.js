@@ -2,13 +2,12 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-09-02 23:20:38
+ * @LastEditTime: 2019-09-03 21:08:18
  * @LastEditors: Please set LastEditors
  */
 
 const index = r => require.ensure([], () => r(require('../view/index.vue')), 'index');
 const border = r => require.ensure([], () => r(require('../view/border.vue')), 'border');
-const box = r => require.ensure([], () => r(require('../view/box.vue')), 'box');
 const button = r => require.ensure([], () => r(require('../view/button.vue')), 'button');
 const floater = r => require.ensure([], () => r(require('../view/floater.vue')), 'floater');
 const grail = r => require.ensure([], () => r(require('../view/grail.vue')), 'grail');
@@ -20,7 +19,6 @@ const mask = r => require.ensure([], () => r(require('../view/mask.vue')), 'mask
 const ratio = r => require.ensure([], () => r(require('../view/ratio.vue')), 'ratio');
 const tab = r => require.ensure([], () => r(require('../view/tab.vue')), 'tab');
 const tag = r => require.ensure([], () => r(require('../view/tag.vue')), 'tag');
-const text = r => require.ensure([], () => r(require('../view/text.vue')), 'text');
 
 const routes = [
   { path: '*', redirect: '/index', meta: { hide: true } },
@@ -31,12 +29,6 @@ const routes = [
     name: 'border',
     component: border,
     meta: { title: '边框', en: 'border' }
-  },
-  {
-    path: '/box',
-    name: 'box',
-    component: box,
-    meta: { title: '盒子', en: 'box' }
   },
   {
     path: '/button',
@@ -103,12 +95,6 @@ const routes = [
     name: 'tag',
     component: tag,
     meta: { title: '标记', en: 'tag' }
-  },
-  {
-    path: '/text',
-    name: 'text',
-    component: text,
-    meta: { title: '文本', en: 'text' }
   }
 ];
 export default routes;

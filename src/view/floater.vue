@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-31 09:37:36
- * @LastEditTime: 2019-09-03 10:36:07
+ * @LastEditTime: 2019-09-03 20:30:28
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -30,51 +30,51 @@ export default instance;
 <template>
   <div class="vui-padding--large">
     <vui-floater type="top" v-if="top" padding>
-      <vui-box box-shadow="bottom">
-        <vui-text>top</vui-text>
-      </vui-box>
+      <div class="vui-background-color--white">
+        <span>top</span>
+      </div>
     </vui-floater>
     <vui-floater type="bottom" v-if="bottom" padding>
-      <vui-box box-shadow="top">
-        <vui-text>
+      <div class="vui-background-color--white">
+        <span>
           bottom
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
     </vui-floater>
     <vui-floater type="left" v-if="left" padding>
-      <vui-box box-shadow="right">
-        <vui-text>
+      <div class="vui-background-color--white">
+        <span>
           left
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
     </vui-floater>
     <vui-floater type="right" v-if="right" padding>
-      <vui-box box-shadow="left">
-        <vui-text>
+      <div class="vui-background-color--white">
+        <span>
           right
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
     </vui-floater>
     <vui-floater type="top-left" v-if="topLeft">
-      <vui-box background-color="primary">
-        <vui-text>
+      <div class="vui-background-color--primary">
+        <span>
           topLeft
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
     </vui-floater>
     <vui-floater type="top-right" v-if="topRight">
-      <vui-box background-color="primary">
-        <vui-text>
+      <div class="vui-background-color--primary">
+        <span>
           topRight
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
     </vui-floater>
     <vui-floater type="bottom-left" v-if="bottomLeft">
-      <vui-box background-color="primary">
-        <vui-text>
+      <div class="vui-background-color--primary">
+        <span>
           bottomLeft
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
     </vui-floater>
     <vui-floater
       type="bottom-right"
@@ -82,11 +82,11 @@ export default instance;
       bottom="10px"
       right="10px"
     >
-      <vui-box background-color="primary">
-        <vui-text>
+      <div class="vui-background-color--primary">
+        <span>
           bottomRight | bottom=10px | right=10px
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
     </vui-floater>
     <vui-button pack color="primary" @click="top = !top">上</vui-button>
     <vui-button pack color="primary" @click="bottom = !bottom">下</vui-button>

@@ -1,31 +1,24 @@
 @import './theme.less';
 
-[class^=vui-text] {
-  display: inline-block;
-  line-height: 1;
-  color: @color-dark;
-  font-size: 100%;
-  font-family: inherit;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  direction: ltr;
-  letter-spacing: normal;
-  text-align: left;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-}
-
-/*
-* 文本 块级
-*/
-.vui-text-long {
-  display: block
-}
+// [class^=vui-text] {
+//   display: inline-block;
+//   line-height: 1;
+//   color: @color-dark;
+//   font-size: 100%;
+//   font-family: inherit;
+//   font-style: normal;
+//   font-variant: normal;
+//   font-weight: normal;
+//   direction: ltr;
+//   letter-spacing: normal;
+//   text-align: left;
+//   text-decoration: none;
+//   text-indent: 0;
+//   text-transform: none;
+//   word-spacing: normal;
+//   word-break: normal;
+//   word-wrap: normal;
+// }
 
 /*
 * 文本 size
@@ -92,14 +85,14 @@
 /*
 * 文本 加粗
 */
-.vui-text-bold {
+.vui-text--bold {
   font-weight: bold
 }
 
 /*
 * 文本 倾斜
 */
-.vui-text-italic {
+.vui-text--italic {
   font-style: italic
 }
 
@@ -107,46 +100,46 @@
 * 文本字符间距
 */
 
-.vui-text-letter-spacing--smaller {
+.vui-letter-spacing--smaller {
   letter-spacing: @text-letter-spacing-smaller;
 }
 
-.vui-text-letter-spacing--small {
+.vui-letter-spacing--small {
   letter-spacing: @text-letter-spacing-small;
 }
 
-.vui-text-letter-spacing--medium {
+.vui-letter-spacing--medium {
   letter-spacing: @text-letter-spacing-medium;
 }
 
-.vui-text-letter-spacing--large {
+.vui-letter-spacing--large {
   letter-spacing: @text-letter-spacing-large;
 }
 
-.vui-text-letter-spacing--larger {
+.vui-letter-spacing--larger {
   letter-spacing: @text-letter-spacing-larger;
 }
 
 /**
 * 文本行高
 */
-.vui-text-height--smaller {
+.vui-line-height--smaller {
   line-height: @text-height-smaller
 }
 
-.vui-text-height--small {
+.vui-line-height--small {
   line-height: @text-height-small
 }
 
-.vui-text-height--medium {
+.vui-line-height--medium {
   line-height: @text-height-medium
 }
 
-.vui-text-height--large {
+.vui-line-height--large {
   line-height: @text-height-large
 }
 
-.vui-text-height--larger {
+.vui-line-height--larger {
   line-height: @text-height-larger
 }
 

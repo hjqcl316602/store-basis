@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-09 21:29:46
- * @LastEditTime: 2019-09-03 18:12:28
+ * @LastEditTime: 2019-09-03 20:20:53
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -32,7 +32,7 @@ export default instance;
 
 <template>
   <div class="">
-    <vui-box background-color="white">
+    <div class="vui-background-color--white">
       <vui-border
         bottom
         color="#aaa"
@@ -40,29 +40,25 @@ export default instance;
         v-for="(item, index) in routes"
         :key="index"
       >
-        <vui-box padding="large">
+        <div class="vui-padding--large">
           <div @click="changeRoute(item)">
             <vui-grid>
               <vui-grid-child flex-grow="1">
-                <vui-text color="dark">
+                <span class="">
                   {{ item["meta"]["title"] }}
-                </vui-text>
+                </span>
               </vui-grid-child>
-              <vui-grid-child flex-grow="0">
-                <vui-text color="light" size="smaller">
-                  <vui-box type="inline-block" margin-right="medium">
-                    <vui-text>
-                      {{ item["meta"]["en"] }}
-                    </vui-text>
-                  </vui-box>
-                  <vui-icon name="right"></vui-icon>
-                </vui-text>
+              <vui-grid-child flex-grow="0" class="vui-center--vertical">
+                <span class="vui-margin-right vui-text--light">
+                  {{ item["meta"]["en"] }}
+                </span>
+                <vui-icon name="right" color="light"></vui-icon>
               </vui-grid-child>
             </vui-grid>
           </div>
-        </vui-box>
+        </div>
       </vui-border>
-    </vui-box>
+    </div>
   </div>
 </template>
 

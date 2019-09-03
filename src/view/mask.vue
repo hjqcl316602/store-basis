@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-27 11:24:26
- * @LastEditTime: 2019-09-02 23:18:32
+ * @LastEditTime: 2019-09-03 20:53:46
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -25,17 +25,18 @@ export default instance;
 </script>
 
 <template>
-  <div class="" style="height:1000px">
-    <button @click="show = !show">fade</button>
-    <button @click="show1 = !show1">slide-right</button>
-    <button @click="show2 = !show2">slide-left</button>
-    <button @click="show3 = !show3">slide-top</button>
-    <button @click="show4 = !show4">slide-bottom</button>
+  <div class="vui-padding" style="height:1000px">
+    <vui-button pack @click="show = !show">fade</vui-button>
+    <vui-button pack @click="show1 = !show1">slide-right</vui-button>
+    <vui-button pack @click="show2 = !show2">slide-left</vui-button>
+    <vui-button pack @click="show3 = !show3">slide-top</vui-button>
+    <vui-button pack @click="show4 = !show4">slide-bottom</vui-button>
     <vui-mask v-model="show" transitionName="fade"> </vui-mask>
     <vui-mask v-model="show1" transitionName="slide-right"> </vui-mask>
     <vui-mask v-model="show2" transitionName="slide-left"> </vui-mask>
     <vui-mask v-model="show3" transitionName="slide-top"> </vui-mask>
-    <vui-mask v-model="show4" transitionName="slide-bottom"> </vui-mask>
+    <vui-mask v-model="show4" transitionName="slide-bottom" scrollable>
+    </vui-mask>
   </div>
 </template>
 

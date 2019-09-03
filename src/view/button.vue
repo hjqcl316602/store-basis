@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-27 18:26:13
- * @LastEditTime: 2019-09-03 18:01:41
+ * @LastEditTime: 2019-09-03 20:27:15
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -19,12 +19,12 @@ export default instance;
 </script>
 
 <template>
-  <vui-box padding="large">
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">类型</vui-text>
-      </vui-box>
-      <vui-box>
+  <div class="vui-padding--large">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">类型</span>
+      </div>
+      <div>
         <vui-button>
           <span>default</span>
         </vui-button>
@@ -34,13 +34,13 @@ export default instance;
         <vui-button hollow>
           <span>hollow</span>
         </vui-button>
-      </vui-box>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">long</vui-text>
-      </vui-box>
-      <vui-box>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">long</span>
+      </div>
+      <div>
         <vui-button long>
           <span>default</span>
         </vui-button>
@@ -51,26 +51,26 @@ export default instance;
         <vui-button long hollow>
           <span>hollow</span>
         </vui-button>
-      </vui-box>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">icon</vui-text>
-      </vui-box>
-      <vui-box>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">icon</span>
+      </div>
+      <div>
         <vui-button long pack color="primary">
-          <vui-text>
+          <span>
             <vui-icon name="vui-icon--eye"> </vui-icon>
-            <vui-text>eye</vui-text>
-          </vui-text>
+            <span>eye</span>
+          </span>
         </vui-button>
-      </vui-box>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">color</vui-text>
-      </vui-box>
-      <vui-box>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">color</span>
+      </div>
+      <div>
         <vui-button color="primary">
           <span>primary</span>
         </vui-button>
@@ -92,8 +92,8 @@ export default instance;
         <vui-button color="#020271">
           <span>自定义</span>
         </vui-button>
-      </vui-box>
-      <vui-box>
+      </div>
+      <div>
         <vui-button color="primary" pack>
           <span>primary</span>
         </vui-button>
@@ -115,7 +115,7 @@ export default instance;
         <vui-button color="#020271" pack>
           <span>自定义</span>
         </vui-button>
-        <vui-box>
+        <div>
           <vui-button color="primary" hollow>
             <span>primary</span>
           </vui-button>
@@ -137,14 +137,14 @@ export default instance;
           <vui-button color="#020271" hollow>
             <span>自定义</span>
           </vui-button>
-        </vui-box>
-      </vui-box>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">size</vui-text>
-      </vui-box>
-      <vui-box>
+        </div>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">size</span>
+      </div>
+      <div>
         <vui-button color="primary" size="smaller">
           <span>smaller</span>
         </vui-button>
@@ -163,8 +163,8 @@ export default instance;
         <vui-button color="primary" size="60px">
           <span>自定义(60px)</span>
         </vui-button>
-      </vui-box>
-      <vui-box>
+      </div>
+      <div>
         <vui-button color="primary" pack size="smaller">
           <span>smaller</span>
         </vui-button>
@@ -183,8 +183,8 @@ export default instance;
         <vui-button color="primary" pack size="60px">
           <span>自定义(60px)</span>
         </vui-button>
-      </vui-box>
-      <vui-box>
+      </div>
+      <div>
         <vui-button color="primary" hollow size="smaller">
           <span>smaller</span>
         </vui-button>
@@ -203,13 +203,13 @@ export default instance;
         <vui-button color="primary" hollow size="60px">
           <span>自定义(60px)</span>
         </vui-button>
-      </vui-box>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">disabled</vui-text>
-      </vui-box>
-      <vui-box>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">disabled</span>
+      </div>
+      <div>
         <vui-button disabled color="primary">
           <span>primary</span>
         </vui-button>
@@ -231,8 +231,8 @@ export default instance;
         <vui-button disabled color="#020271">
           <span>自定义</span>
         </vui-button>
-      </vui-box>
-      <vui-box>
+      </div>
+      <div>
         <vui-button disabled color="primary" pack>
           <span>primary</span>
         </vui-button>
@@ -254,8 +254,8 @@ export default instance;
         <vui-button disabled color="#020271" pack>
           <span>自定义</span>
         </vui-button>
-      </vui-box>
-      <vui-box>
+      </div>
+      <div>
         <vui-button disabled color="primary" hollow>
           <span>primary</span>
         </vui-button>
@@ -277,14 +277,14 @@ export default instance;
         <vui-button disabled color="#020271" hollow>
           <span>自定义</span>
         </vui-button>
-      </vui-box>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">radius</vui-text>
-      </vui-box>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">radius</span>
+      </div>
 
-      <vui-box>
+      <div>
         <vui-button color="primary" pack radius>
           <span>primary</span>
         </vui-button>
@@ -303,8 +303,8 @@ export default instance;
         <vui-button color="white" pack radius>
           <span>white</span>
         </vui-button>
-      </vui-box>
-      <vui-box>
+      </div>
+      <div>
         <vui-button color="primary" hollow radius>
           <span>primary</span>
         </vui-button>
@@ -323,13 +323,13 @@ export default instance;
         <vui-button color="white" hollow radius>
           <span>white</span>
         </vui-button>
-      </vui-box>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">round</vui-text>
-      </vui-box>
-      <vui-box>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">round</span>
+      </div>
+      <div>
         <vui-button color="primary" pack round>
           <span>primary</span>
         </vui-button>
@@ -348,8 +348,8 @@ export default instance;
         <vui-button color="white" pack round>
           <span>white</span>
         </vui-button>
-      </vui-box>
-      <vui-box>
+      </div>
+      <div>
         <vui-button color="primary" hollow round>
           <span>primary</span>
         </vui-button>
@@ -368,13 +368,13 @@ export default instance;
         <vui-button color="white" hollow round>
           <span>white</span>
         </vui-button>
-      </vui-box>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">thin</vui-text>
-      </vui-box>
-      <vui-box>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">thin</span>
+      </div>
+      <div>
         <vui-button color="primary" hollow thin>
           <span>primary</span>
         </vui-button>
@@ -393,13 +393,13 @@ export default instance;
         <vui-button color="white" hollow thin>
           <span>white</span>
         </vui-button>
-      </vui-box>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">thin | radius</vui-text>
-      </vui-box>
-      <vui-box>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">thin | radius</span>
+      </div>
+      <div>
         <vui-button color="primary" hollow thin radius>
           <span>primary</span>
         </vui-button>
@@ -418,13 +418,13 @@ export default instance;
         <vui-button color="white" hollow thin radius>
           <span>white</span>
         </vui-button>
-      </vui-box>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">thin | round</vui-text>
-      </vui-box>
-      <vui-box>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">thin | round</span>
+      </div>
+      <div>
         <vui-button color="primary" hollow thin round>
           <span>primary</span>
         </vui-button>
@@ -443,13 +443,15 @@ export default instance;
         <vui-button color="white" hollow thin round>
           <span>white</span>
         </vui-button>
-      </vui-box>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">thin | round | dashed</vui-text>
-      </vui-box>
-      <vui-box>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary"
+          >thin | round | dashed</span
+        >
+      </div>
+      <div>
         <vui-button color="primary" hollow thin round dashed>
           <span>primary</span>
         </vui-button>
@@ -468,9 +470,9 @@ export default instance;
         <vui-button color="white" hollow thin round dashed>
           <span>white</span>
         </vui-button>
-      </vui-box>
-    </vui-box>
-  </vui-box>
+      </div>
+    </div>
+  </div>
 </template> 
 
 <style   scoped>

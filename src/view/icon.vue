@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: huangjunquan
  * @Date: 2019-08-10 08:49:20
- * @LastEditTime: 2019-09-03 17:20:58
+ * @LastEditTime: 2019-09-03 20:48:39
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -42,7 +42,7 @@ export default instance;
 
 <template>
   <vui-box padding="large">
-    <vui-grid gutter="20" gutter-row="20">
+    <vui-grid gutter="20" gutter-row="50">
       <vui-grid-child span="12" v-for="(item, index) in icons" :key="index">
         <vui-grid flex-direction="column" align-items="center">
           <vui-box margin-bottom="10px">

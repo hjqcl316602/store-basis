@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-11 09:31:28
- * @LastEditTime: 2019-09-03 17:04:40
+ * @LastEditTime: 2019-09-03 20:47:56
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -19,296 +19,379 @@ export default instance;
 </script>
 
 <template>
-  <vui-box padding="large">
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">span</vui-text>
-      </vui-box>
+  <div class="vui-padding--large">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">span</span>
+      </div>
       <vui-grid>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="warning">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">span | gutter</vui-text>
-      </vui-box>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">span | gutter</span>
+      </div>
       <vui-grid gutter="10">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="warning">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">span | gutter | gutter-row</vui-text>
-      </vui-box>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary"
+          >span | gutter | gutter-row</span
+        >
+      </div>
       <vui-grid gutter="10" gutter-row="10">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="warning">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="success">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="black">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="red">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">span | push </vui-text>
-      </vui-box>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">span | push </span>
+      </div>
       <vui-grid>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">
+          <div class="vui-height--medium vui-background-color--primary">
             span=8
-          </vui-box>
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8" push="8">
-          <vui-box height="medium" background-color="primary">
+          <div class="vui-height--medium vui-background-color--primary">
             span=8|push=8
-          </vui-box>
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           row = 32 | span
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid row="32">
         <vui-grid-child span="16">
-          <vui-box height="medium" background-color="danger">span=16</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=16
+          </div>
         </vui-grid-child>
         <vui-grid-child span="16">
-          <vui-box height="medium" background-color="primary">span=16</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=16
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           justify-content=flex-end |span
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid justify-content="flex-end">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           justify-content=flex-end |span | pull
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid justify-content="flex-end">
         <vui-grid-child span="8" pull="4">
-          <vui-box height="medium" background-color="danger">
+          <div class="vui-height--medium vui-background-color--primary">
             span=8 | pull=4
-          </vui-box>
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">justify-content=center | span</vui-text>
-      </vui-box>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary"
+          >justify-content=center | span</span
+        >
+      </div>
       <vui-grid justify-content="center">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           justify-content=space-between | span
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid justify-content="space-between">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           justify-content=space-around | span
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid justify-content="space-around">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           align-items="center" | span
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid align-items="center">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="larger" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           align-items="flex-end" | span
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid align-items="flex-end">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="larger" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           align-items="flex-start" | span
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid align-items="flex-start">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="larger" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           flex-direction=row | span
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid flex-direction="row">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           flex-direction=column | span
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid flex-direction="column">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           flex-direction=column | justify-content=space-between | span |
           height=120px
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid
         flex-direction="column"
         justify-content="space-between"
         style="height:120px"
       >
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div
+            class="vui-height--medium vui-background-color--primary"
+            background-color="primary"
+          >
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           flex-direction=column | justify-content=space-between | span |
           height=120px | align-items="center"
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid
         flex-direction="column"
         justify-content="space-between"
@@ -316,131 +399,181 @@ export default instance;
         style="height:120px"
       >
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="4">
-          <vui-box height="medium" background-color="primary">span=4</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=4
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           align-content="center" | span | height="120px"
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid align-content="center" style="height:120px">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div
+            class="vui-height--medium vui-background-color--primary"
+            background-color="primary"
+          >
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div
+            class="vui-height--medium vui-background-color--primary"
+            background-color="primary"
+          >
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div
+            class="vui-height--medium vui-background-color--primary"
+            background-color="primary"
+          >
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           align-content="space-between" | span | height="120px"
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid align-content="space-between" style="height:120px">
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div
+            class="vui-height--medium vui-background-color--primary"
+            background-color="primary"
+          >
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div
+            class="vui-height--medium vui-background-color--primary"
+            background-color="primary"
+          >
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="danger">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="medium" background-color="primary">span=8</vui-box>
+          <div
+            class="vui-height--medium vui-background-color--primary"
+            background-color="primary"
+          >
+            span=8
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           span | align-self
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid>
         <vui-grid-child span="8">
-          <vui-box height="small" background-color="danger">span=8</vui-box>
+          <div class="vui-height--small vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8">
-          <vui-box height="larger" background-color="primary">span=8</vui-box>
+          <div class="vui-height--medium vui-background-color--primary">
+            span=8
+          </div>
         </vui-grid-child>
         <vui-grid-child span="8" align-self="flex-end">
-          <vui-box height="smaller" background-color="danger">
+          <div class="vui-height--smaller vui-background-color--primary">
             span=8 | align-self="flex-end"
-          </vui-box>
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           width | flex-grow
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid>
         <vui-grid-child width="150px">
-          <vui-box height="small" background-color="danger">
+          <div class="vui-height--small vui-background-color--primary">
             width="100px"
-          </vui-box>
+          </div>
         </vui-grid-child>
         <vui-grid-child flex-grow="1">
-          <vui-box height="larger" background-color="primary">
+          <div class="vui-height--medium vui-background-color--primary">
             flex-grow="1"
-          </vui-box>
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
+    </div>
 
-    <vui-box margin-bottom="large">
-      <vui-box margin-bottom="medium">
-        <vui-text bold color="primary">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <span class="vui-text--bold vui-text--primary">
           width | flex-grow
-        </vui-text>
-      </vui-box>
+        </span>
+      </div>
       <vui-grid>
         <vui-grid-child flex-grow="0">
-          <vui-box height="small" background-color="danger">
+          <div class="vui-height--small vui-background-color--primary ">
             flex-grow="0"
-          </vui-box>
+          </div>
         </vui-grid-child>
         <vui-grid-child flex-grow="1">
-          <vui-box height="larger" background-color="primary">
+          <div class="vui-height--medium vui-background-color--primary">
             flex-grow="1"
-          </vui-box>
+          </div>
         </vui-grid-child>
       </vui-grid>
-    </vui-box>
-  </vui-box>
+    </div>
+  </div>
 </template>
 
 <style   scoped>
