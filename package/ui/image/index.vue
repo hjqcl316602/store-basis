@@ -1,5 +1,21 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-19 09:53:43
+ * @LastEditTime: 2019-09-03 21:36:03
+ * @LastEditors: Please set LastEditors
+ -->
 <script>
-import { image } from "../config/index";
+const image = {
+  src: "", // 图片地址
+  lazy: true, //是否懒加载
+  lazyThreshold: 40, // 懒加载阈值，即image的顶部距离窗口的底部的差值
+  lazyDuration: 1000, // 懒加载图片定时器的时差
+  fillType: "width", //填充方式  width（宽度100%） height（高度100%） min（至少一边100%） max（至多一边100%） cover（两边100%）
+  alignType: "center", // 对齐方式center top bottom left right top-left top-right bottom-left bottom-right
+  width: "", // 图片宽
+  height: "" // 图片高
+};
 export default {
   name: "vui-image",
   props: {
@@ -24,14 +40,8 @@ export default {
       type: String,
       default: image.alignType
     },
-    width: {
-      type: String,
-      default: image.width
-    },
-    height: {
-      type: String,
-      default: image.height
-    }
+    width: String,
+    height: String
   },
   data() {
     return {
@@ -88,13 +98,8 @@ export default {
     }
   },
   computed: {
-    imageStyle() {
+    styles() {
       let style = {};
-      style["width"] = this.width;
-      style["height"] = this.height;
-      return style;
-    },
-    imageClassName() {
       let className = [];
       if (this.fillType) {
         className.push("vui-image--" + this.fillType);
@@ -102,7 +107,9 @@ export default {
       if (this.alignType) {
         className.push("vui-image--" + this.alignType);
       }
-      return className;
+      style["width"] = this.width;
+      style["height"] = this.height;
+      return { style, className };
     }
   },
   beforeDestroy() {
@@ -112,7 +119,7 @@ export default {
 </script>
 
 <template>
-  <div class="vui-image" :class="imageClassName" :style="imageStyle">
+  <div class="vui-image" :class="styles.className" :style="styles.style">
     <div class="vui-image--loading" v-if="status === 'loading'">
       <slot name="loading"> </slot>
     </div>

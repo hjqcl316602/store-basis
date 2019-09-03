@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-09-03 21:08:18
+ * @LastEditTime: 2019-09-03 21:18:38
  * @LastEditors: Please set LastEditors
  */
 
@@ -13,6 +13,7 @@ const floater = r => require.ensure([], () => r(require('../view/floater.vue')),
 const grail = r => require.ensure([], () => r(require('../view/grail.vue')), 'grail');
 const grid = r => require.ensure([], () => r(require('../view/grid.vue')), 'grid');
 const icon = r => require.ensure([], () => r(require('../view/icon.vue')), 'icon');
+const image = r => require.ensure([], () => r(require('../view/image.vue')), 'image');
 const loading = r => require.ensure([], () => r(require('../view/loading.vue')), 'loading');
 const loadingBar = r => require.ensure([], () => r(require('../view/loading-bar.vue')), 'loadingBar');
 const mask = r => require.ensure([], () => r(require('../view/mask.vue')), 'mask');
@@ -59,6 +60,12 @@ const routes = [
     name: 'icon',
     component: icon,
     meta: { title: '图标', en: 'icon' }
+  },
+  {
+    path: '/image',
+    name: 'image',
+    component: image,
+    meta: { title: '图片', en: 'image' }
   },
   {
     path: '/loading',
