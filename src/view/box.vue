@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-02 20:36:59
- * @LastEditTime: 2019-09-02 23:23:02
+ * @LastEditTime: 2019-09-03 09:59:32
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -24,10 +24,10 @@ export default instance;
       <vui-box marginBottom="medium">
         <vui-text bold color="primary">display</vui-text>
       </vui-box>
-      <vui-box> block</vui-box>
-      <vui-box inline-block>inline-block</vui-box>
-      <vui-box inline>inline</vui-box>
-      <vui-box none>none</vui-box>
+      <vui-box type="block">block</vui-box>
+      <vui-box type="inline-block">inline-block</vui-box>
+      <vui-box type="inline">inline</vui-box>
+      <vui-box type="none">none</vui-box>
     </vui-box>
     <vui-box marginBottom="large">
       <vui-box marginBottom="medium">
@@ -102,6 +102,7 @@ export default instance;
         background-color | black
       </vui-box>
     </vui-box>
+
     <vui-box marginBottom="large">
       <vui-box marginBottom="medium">
         <vui-text bold color="primary">
@@ -244,6 +245,34 @@ export default instance;
       </vui-box>
       <vui-box margin-bottom="10px" box-shadow=" 2px  2px 2px red">
         box-shadow | 自定义 | 2px 2px 2px red
+      </vui-box>
+    </vui-box>
+    <vui-box margin-bottom="larger">
+      <vui-box margin-bottom="medium">
+        <vui-text bold color="primary">
+          overflow(overflow-y、overflow-x)
+        </vui-text>
+      </vui-box>
+      <vui-box height="medium" overflow="hidden">
+        <vui-box height="larger">
+          <vui-text>
+            overflow | hidden
+          </vui-text>
+        </vui-box>
+      </vui-box>
+      <vui-box height="medium" overflow="scroll">
+        <vui-box height="larger">
+          <vui-text>
+            overflow | scroll
+          </vui-text>
+        </vui-box>
+      </vui-box>
+      <vui-box height="medium" overflow="auto">
+        <vui-box height="larger">
+          <vui-text>
+            overflow | auto
+          </vui-text>
+        </vui-box>
       </vui-box>
     </vui-box>
   </vui-box>

@@ -2,14 +2,18 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-31 09:37:45
- * @LastEditTime: 2019-08-31 10:10:13
+ * @LastEditTime: 2019-09-03 10:12:39
  * @LastEditors: Please set LastEditors
  -->
 <script>
 const config = {
   type: "top", // ['top','bottom','left','right']
   padding: false, // 是否需要设置body的padding值
-  zIndex: 99
+  zIndex: 99,
+  top: "",
+  bottom: "",
+  left: "",
+  right: ""
 };
 const instance = {};
 instance.name = "vui-floater";
@@ -25,6 +29,18 @@ instance.props = {
   zIndex: {
     type: [Number, String],
     default: config.zIndex
+  },
+  top: {
+    type: String
+  },
+  bottom: {
+    type: String
+  },
+  left: {
+    type: String
+  },
+  right: {
+    type: String
   }
 };
 instance.data = function() {
@@ -67,6 +83,18 @@ instance.computed = {
     }
     if (this.zIndex) {
       style["zIndex"] = this.zIndex;
+    }
+    if (this.top) {
+      style["top"] = this.top;
+    }
+    if (this.bottom) {
+      style["bottom"] = this.bottom;
+    }
+    if (this.left) {
+      style["left"] = this.left;
+    }
+    if (this.right) {
+      style["right"] = this.right;
     }
     return { className, style };
   }

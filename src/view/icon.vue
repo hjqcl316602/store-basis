@@ -2,41 +2,58 @@
  * @Description: In User Settings Edit
  * @Author: huangjunquan
  * @Date: 2019-08-10 08:49:20
- * @LastEditTime: 2019-09-02 23:16:42
+ * @LastEditTime: 2019-09-03 17:20:58
  * @LastEditors: Please set LastEditors
  -->
 <script>
-import styler from "../../package/es/domer/styler";
-import check from "../../package/es/stringer/check";
 const instance = {};
 instance.name = "";
 instance.props = {};
 instance.data = function() {
-  return {};
+  return {
+    icons: [
+      "vui-icon--radio-button-on",
+      "vui-icon--tupian",
+      "vui-icon--arrow-bottom",
+      "vui-icon--arrow-left",
+      "vui-icon--arrow-right",
+      "vui-icon--arrow-top",
+      "vui-icon--spread-left",
+      "vui-icon--spread-up",
+      "vui-icon--spread-bottom",
+      "vui-icon--spread-right",
+      "vui-icon--bottom-circle",
+      "vui-icon--top-circle",
+      "vui-icon--left-circle",
+      "vui-icon--right-circle",
+      "vui-icon--top-circle-solid",
+      "vui-icon--bottom-circle-solid",
+      "vui-icon--right-circle-solid",
+      "vui-icon--left-circle-solid"
+    ]
+  };
 };
 instance.methods = {};
 instance.created = function() {};
 instance.mounted = function() {};
-instance.computed = {
-  iconList() {
-    let res = [];
-    let rules = styler.getRules(function(text) {
-      return check.start(text, ".vui-icon");
-    });
-    rules.forEach(rule => {
-      let regex = /^\.vui-icon--(.*?)\:\:before$/;
-      rule.replace(regex, function(a, b, c) {
-        res.push(b);
-      });
-    });
-    return res;
-  }
-};
+instance.computed = {};
 export default instance;
 </script>
 
 <template>
-  <div class="vui-padding--large">
+  <vui-box padding="large">
+    <vui-grid gutter="20" gutter-row="20">
+      <vui-grid-child span="12" v-for="(item, index) in icons" :key="index">
+        <vui-grid flex-direction="column" align-items="center">
+          <vui-box margin-bottom="10px">
+            <vui-icon :name="item" color="primary" size="20px"></vui-icon>
+          </vui-box>
+          <vui-text color="gray">{{ item }}</vui-text>
+        </vui-grid>
+      </vui-grid-child>
+    </vui-grid>
+  </vui-box>
+  <!-- <div class="vui-padding--large" v-if="false">
     <div class="vui-row--flex vui-row-gutter--large">
       <div class="  vui-span--8" v-for="(item, index) in iconList" :key="index">
         <div
@@ -47,7 +64,7 @@ export default instance;
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style   scoped>

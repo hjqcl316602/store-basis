@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-28 17:50:08
- * @LastEditTime: 2019-08-31 09:30:36
+ * @LastEditTime: 2019-09-03 18:02:50
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -114,6 +114,8 @@ instance.computed = {
       } else {
         style["color"] = this.color;
       }
+    } else {
+      style["color"] = "inherit";
     }
     if (this.letterSpacing) {
       if (config.letterSpacings.includes(this.letterSpacing)) {

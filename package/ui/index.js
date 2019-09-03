@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-11 14:30:39
- * @LastEditTime: 2019-09-02 23:04:20
+ * @LastEditTime: 2019-09-03 17:28:54
  * @LastEditors: Please set LastEditors
  */
 import Accordion from './accordion/index.js';
@@ -30,6 +30,15 @@ import Text from './text/index.js';
 import Tab from './tab/index.js';
 import Upload from './upload/index.js';
 
+const GrailChild = Grail.Child;
+const GridChild = Grid.Child;
+const LoadingCircle = Loading.Circle;
+const LoadingCross = Loading.Cross;
+const LoadingRect = Loading.Rect;
+const LoadingRing = Loading.Ring;
+const LoadingRound = Loading.Round;
+const LoadingTurn = Loading.Turn;
+const LoadingWave = Loading.Wave;
 export {
   Accordion,
   Border,
@@ -40,11 +49,20 @@ export {
   Floater,
   Confirm,
   Grail,
+  GrailChild,
   Grid,
+  GridChild,
   Icon,
   Image,
   Input,
   Loading,
+  LoadingCircle,
+  LoadingCross,
+  LoadingRect,
+  LoadingRing,
+  LoadingRound,
+  LoadingTurn,
+  LoadingWave,
   LoadingBar,
   Mask,
   Message,

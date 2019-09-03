@@ -2,12 +2,12 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-24 09:40:57
- * @LastEditTime: 2019-08-27 11:18:29
+ * @LastEditTime: 2019-09-03 18:34:23
  * @LastEditors: Please set LastEditors
  -->
 <script>
 import Vue from "vue";
-import LoadingBar from "./index";
+import { LoadingBar } from "../../package/ui/index";
 
 const instance = {};
 instance.name = "";

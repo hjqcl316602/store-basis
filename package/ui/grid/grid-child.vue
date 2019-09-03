@@ -2,90 +2,121 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-11 09:25:07
- * @LastEditTime: 2019-08-21 13:09:02
+ * @LastEditTime: 2019-09-03 16:49:28
  * @LastEditors: Please set LastEditors
  -->
 <script>
 const config = {
-  span: 0, // [ number ] 占据的栅格数
-  auto: false,
-  width: "", // [ number , string ] 宽度
-  push: 0, // [ number ] 栅格向右移动格数
-  pull: 0 // [ number ] 栅格向左移动格数
+  span: "", //占据的栅格数
+  push: "", //栅格向右移动格数
+  pull: "", //栅格向左移动格数
+  flexGrow: "",
+  flexShrink: "",
+  alignSelf: "",
+  width: "" // 宽度
 };
 const instance = {};
 instance.name = "vui-grid-child";
 instance.props = {
   span: {
-    type: [Number, String],
-    default: config.span
+    validator(value) {
+      return !value || (!!value && !isNaN(Number(value)) && Number(value) > 0);
+    }
   },
   push: {
-    type: [Number, String],
-    default: config.push
+    validator(value) {
+      return !value || (!!value && !isNaN(Number(value)) && Number(value) > 0);
+    }
   },
   pull: {
-    type: [Number, String],
-    default: config.pull
-  },
-  auto: {
-    type: Boolean,
-    default: config.auto
+    validator(value) {
+      return !value || (!!value && !isNaN(Number(value)) && Number(value) > 0);
+    }
   },
   width: {
-    type: [Number, String],
-    default: config.width
+    type: String
+  },
+  flexGrow: {
+    type: String
+  },
+  flexShrink: {
+    type: String
+  },
+
+  alignSelf: {
+    validator(value) {
+      let types = [
+        "auto",
+        "flex-start",
+        "flex-end",
+        "center",
+        "baseline",
+        "stretch"
+      ];
+      return types.includes(value);
+    }
   }
 };
 instance.data = function() {
   return {};
 };
 instance.methods = {};
-instance.created = function() {
-  this.$parent.spans.push(this);
-};
-instance.beforeDestroy = function() {
-  this.$parent.spans.splice(this.$parent.items.indexOf(this), 1);
-};
+
 instance.mounted = function() {};
 instance.computed = {
-  spanStyle() {
+  styles() {
     let style = {};
-    if (this.isRow && !this.auto) {
+    let className = ["vui-grid-child"];
+    if (this.isExitParent) {
+      let { row, gutter, gutterRow } = this.$parent;
+      row = Number(row);
       if (this.width) {
-        style["flex-basis"] =
-          typeof this.width === "number" ? this.width + "px" : this.width;
+        style["width"] = this.width;
       } else {
-        style["flex-basis"] = (100 / this.$parent.row) * this.span + "%";
+        style["width"] = (100 / row) * this.span + "%";
       }
-      let gutter = this.$parent.gutter;
+
+      let growTypes = ["0", "1"];
+      if (this.flexGrow) {
+        if (growTypes.includes(this.flexGrow)) {
+          className.push("vui-flex-grow--" + this.flexGrow);
+        }
+      }
+
+      let shrinkTypes = ["0", "1"];
+      if (this.flexShrink) {
+        if (shrinkTypes.includes(this.flexShrink)) {
+          className.push("vui-flex-shrink--" + this.flexShrink);
+        }
+      }
+
+      if (this.alignSelf) {
+        className.push("vui-align-self--" + this.alignSelf);
+      }
+
       if (gutter) {
         style["padding-left"] = gutter / 2 + "px";
         style["padding-right"] = gutter / 2 + "px";
       }
-      let gutterRow = this.$parent.gutterRow;
       if (gutter) {
         style["padding-top"] = gutterRow / 2 + "px";
         style["padding-bottom"] = gutterRow / 2 + "px";
       }
-    }
-    if (this.push) {
-      style["margin-left"] = (100 / this.$parent.row) * this.push + "%";
-    }
-    if (this.pull) {
-      style["margin-right"] = (100 / this.$parent.row) * this.pull + "%";
-    }
-    return style;
-  },
-  spanClassName() {
-    let className = [];
 
-    if (this.auto) {
-      className.push("vui-grid-child--auto");
+      if (this.push) {
+        style["margin-left"] = (100 / row) * this.push + "%";
+      }
+      if (this.pull) {
+        style["margin-right"] = (100 / row) * this.pull + "%";
+      }
     }
-    return className;
+    return {
+      style,
+      className
+    };
   },
-  isRow() {
+
+  isExitParent() {
     return !!this.$parent && this.$parent.name === "vui-grid";
   }
 };
@@ -93,7 +124,7 @@ export default instance;
 </script>
 
 <template>
-  <div class="vui-grid-child" :class="spanClassName" :style="spanStyle">
+  <div :class="styles.className" :style="styles.style">
     <slot></slot>
   </div>
 </template>

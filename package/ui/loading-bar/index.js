@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-24 09:40:18
- * @LastEditTime: 2019-08-27 11:14:40
+ * @LastEditTime: 2019-09-03 18:34:53
  * @LastEditors: Please set LastEditors
  */
 import Vue from 'vue';
@@ -18,7 +18,7 @@ let LoadingInstance = function() {
     start(width) {
       if (component) return;
       component = new Instance();
-      console.log(component);
+      //console.log(component);
       elem = component.$mount().$el;
       document.body.appendChild(elem);
       setTimeout(() => {
