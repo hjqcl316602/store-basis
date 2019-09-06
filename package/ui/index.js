@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-11 14:30:39
- * @LastEditTime: 2019-09-03 21:09:45
+ * @LastEditTime: 2019-09-06 09:17:13
  * @LastEditors: Please set LastEditors
  */
 import Accordion from './accordion/index.js';
@@ -12,6 +12,7 @@ import Carousel from './carousel/index.js';
 import Check from './check/index.js';
 import Floater from './floater/index.js';
 import Confirm from './confirm/index.js';
+import Ellipsis from './ellipsis/index.js';
 import Grail from './grail/index.js';
 import Grid from './grid/index.js';
 import Icon from './icon/index.js';
@@ -46,6 +47,7 @@ export {
   Check,
   Floater,
   Confirm,
+  Ellipsis,
   Grail,
   GrailChild,
   Grid,

@@ -2,18 +2,34 @@
  * @Description: In User Settings Edit 
  * @Author: your name
  * @Date: 2019-09-03 21:16:11
- * @LastEditTime: 2019-09-03 21:41:48
+ * @LastEditTime: 2019-09-04 11:11:09
  * @LastEditors: Please set LastEditors
  -->
 <script>
+let image_1 = require("../image/zly.jpg");
+let image_2 = require("../image/zly2.jpg");
 const instance = {};
 instance.name = "";
 instance.props = {};
 instance.data = function() {
-  return {};
+  return {
+    image: image_1,
+    status: false
+  };
 };
 instance.computed = {};
-instance.methods = {};
+instance.methods = {
+  change() {
+    this.status = !this.status;
+    this.image = this.status ? image_2 : image_1;
+  },
+  loadingSuccess() {
+    this.$message("加载成功");
+  },
+  loadingError() {
+    this.$message.danger("加载失败");
+  }
+};
 instance.created = function() {};
 instance.mounted = function() {};
 instance.watch = {};
@@ -22,6 +38,22 @@ export default instance;
 
 <template>
   <div class="vui-padding">
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom vui-text--bold vui-text--primary">
+        <div class="vui-text--bold vui-text--primary">
+          本地切换
+        </div>
+        <div class="vui-text--light">
+          由于之前存在切换之后不能更新图片
+        </div>
+      </div>
+      <div class="vui-margin-bottom">
+        <vui-image width="100px" height="100px" :src="image" class="">
+          <span>center</span>
+        </vui-image>
+      </div>
+      <vui-button @click="change" hollow thin color="primary">切换</vui-button>
+    </div>
     <div class="vui-margin-bottom--large">
       <div class="vui-margin-bottom vui-text--bold vui-text--primary">
         <div class="vui-text--bold vui-text--primary">
@@ -37,7 +69,7 @@ export default instance;
         height="100px"
         src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567526746768&di=d53df45ee65e21d73bf0377a8e48d2ac&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201508%2F19%2F20150819183143_PK2kj.jpeg"
       >
-        <span>center</span>
+        <span>center（默认）</span>
       </vui-image>
       <vui-image
         width="100px"
@@ -50,17 +82,18 @@ export default instance;
       <vui-image
         width="100px"
         height="100px"
-        align-type="bottom"
+        align-type="top-left"
         src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567526746768&di=d53df45ee65e21d73bf0377a8e48d2ac&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201508%2F19%2F20150819183143_PK2kj.jpeg"
       >
-        <span>bottom</span>
+        <span>top-left</span>
       </vui-image>
       <vui-image
         width="100px"
         height="100px"
+        align-type="bottom"
         src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567526746768&di=d53df45ee65e21d73bf0377a8e48d2ac&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201508%2F19%2F20150819183143_PK2kj.jpeg"
       >
-        <span>center</span>
+        <span>bottom</span>
       </vui-image>
     </div>
     <div class="vui-margin-bottom--large">
@@ -77,19 +110,19 @@ export default instance;
         <vui-image
           width="100px"
           height="100px"
+          src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567526746768&di=d53df45ee65e21d73bf0377a8e48d2ac&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201508%2F19%2F20150819183143_PK2kj.jpeg"
+        >
+          <span>width（默认）</span>
+        </vui-image>
+        <vui-image
+          width="100px"
+          height="100px"
           fill-type="height"
           src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567526746768&di=d53df45ee65e21d73bf0377a8e48d2ac&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201508%2F19%2F20150819183143_PK2kj.jpeg"
         >
           <span>height</span>
         </vui-image>
-        <vui-image
-          width="100px"
-          height="100px"
-          fill-type="width"
-          src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567526746768&di=d53df45ee65e21d73bf0377a8e48d2ac&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201508%2F19%2F20150819183143_PK2kj.jpeg"
-        >
-          <span>width</span>
-        </vui-image>
+
         <vui-image
           width="100px"
           height="100px"
@@ -116,14 +149,13 @@ export default instance;
         </vui-image>
       </div>
     </div>
-
     <div class="vui-margin-bottom--large">
       <div class="vui-margin-bottom">
         <div class="vui-text--bold vui-text--primary">
           lazy
         </div>
         <div class="vui-text--light">
-          lazyThreshol（懒加载阈值，即image的顶部距离窗口的底部的差值）、lazyDuration（
+          lazyThreshold（懒加载阈值，即image的顶部距离窗口的底部的差值）、lazyDuration（
           懒加载图片定时器的时差）
         </div>
       </div>
@@ -132,7 +164,7 @@ export default instance;
           width="100px"
           height="100px"
           lazy
-          lazyThreshol="100"
+          lazyThreshold="100"
           src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567526746768&di=d53df45ee65e21d73bf0377a8e48d2ac&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201508%2F19%2F20150819183143_PK2kj.jpeg"
         >
           <div slot="loading">
@@ -143,14 +175,60 @@ export default instance;
           width="100px"
           height="100px"
           lazy
-          lazyThreshol="100"
-          src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567526746768&di=e3a682468845abba50fa12174fb5218e&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201808%2F29%2F20180829041223_lbofb.jp"
+          lazyThreshold="100"
+          src="http://n.sinaimg.cn/541/w854h487/20190902/0f75-ieaiqii0002448.jpg"
         >
           <div slot="loading">
             <vui-loading-ring color="#000"></vui-loading-ring>
           </div>
           <div slot="error">
             <span>失败</span>
+          </div>
+        </vui-image>
+      </div>
+    </div>
+    <div class="vui-margin-bottom--large">
+      <div class="vui-margin-bottom">
+        <div class="vui-text--bold vui-text--primary">
+          showDelay
+        </div>
+        <div class="vui-text--light">
+          延迟显示
+        </div>
+      </div>
+      <div>
+        <span>lazyThreshol="100" | showDelay="1000"</span>
+        <vui-image
+          width="100px"
+          height="100px"
+          lazy
+          lazyThreshold="100"
+          showDelay="1000"
+          :loading-success="loadingSuccess"
+          :loading-error="loadingError"
+          src="http://n.sinaimg.cn/sinacn20190902ac/541/w854h487/20190902/0f75-ieaiqii0002448.jpg"
+        >
+          <div slot="loading">
+            <vui-loading-ring color="#000"></vui-loading-ring>
+          </div>
+        </vui-image>
+      </div>
+      <div>
+        <vui-image
+          width="100px"
+          height="100px"
+          lazy
+          lazyThreshold="100"
+          showDelay="100"
+          :loading-success="loadingSuccess"
+          :loading-error="loadingError"
+          src="http://n.sinaimg.cn/541/w854h487/20190902/0f75-ieaiqii0002448.jpg"
+        >
+          <div slot="loading">
+            <vui-loading-ring color="#000"></vui-loading-ring>
+          </div>
+          <div slot="error">
+            加载失败
           </div>
         </vui-image>
       </div>

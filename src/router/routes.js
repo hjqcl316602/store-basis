@@ -2,13 +2,14 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-09-03 21:18:38
+ * @LastEditTime: 2019-09-06 17:51:21
  * @LastEditors: Please set LastEditors
  */
 
 const index = r => require.ensure([], () => r(require('../view/index.vue')), 'index');
 const border = r => require.ensure([], () => r(require('../view/border.vue')), 'border');
 const button = r => require.ensure([], () => r(require('../view/button.vue')), 'button');
+const ellipsis = r => require.ensure([], () => r(require('../view/ellipsis.vue')), 'ellipsis');
 const floater = r => require.ensure([], () => r(require('../view/floater.vue')), 'floater');
 const grail = r => require.ensure([], () => r(require('../view/grail.vue')), 'grail');
 const grid = r => require.ensure([], () => r(require('../view/grid.vue')), 'grid');
@@ -17,6 +18,8 @@ const image = r => require.ensure([], () => r(require('../view/image.vue')), 'im
 const loading = r => require.ensure([], () => r(require('../view/loading.vue')), 'loading');
 const loadingBar = r => require.ensure([], () => r(require('../view/loading-bar.vue')), 'loadingBar');
 const mask = r => require.ensure([], () => r(require('../view/mask.vue')), 'mask');
+const message = r => require.ensure([], () => r(require('../view/message.vue')), 'message');
+const notice = r => require.ensure([], () => r(require('../view/notice.vue')), 'notice');
 const ratio = r => require.ensure([], () => r(require('../view/ratio.vue')), 'ratio');
 const tab = r => require.ensure([], () => r(require('../view/tab.vue')), 'tab');
 const tag = r => require.ensure([], () => r(require('../view/tag.vue')), 'tag');
@@ -36,6 +39,12 @@ const routes = [
     name: 'button',
     component: button,
     meta: { title: '按钮', en: 'button' }
+  },
+  {
+    path: '/ellipsis',
+    name: 'ellipsis',
+    component: ellipsis,
+    meta: { title: '文本截断', en: 'ellipsis' }
   },
   {
     path: '/floater',
@@ -84,6 +93,18 @@ const routes = [
     name: 'mask',
     component: mask,
     meta: { title: '遮罩层', en: 'mask' }
+  },
+  {
+    path: '/message',
+    name: 'message',
+    component: message,
+    meta: { title: '轻提示', en: 'message' }
+  },
+  {
+    path: '/notice',
+    name: 'notice',
+    component: notice,
+    meta: { title: '通知', en: 'notice' }
   },
   {
     path: '/ratio',

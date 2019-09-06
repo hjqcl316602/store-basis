@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-11 09:31:28
- * @LastEditTime: 2019-09-03 20:47:56
+ * @LastEditTime: 2019-09-04 18:19:59
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -567,8 +567,10 @@ export default instance;
           </div>
         </vui-grid-child>
         <vui-grid-child flex-grow="1">
-          <div class="vui-height--medium vui-background-color--primary">
-            flex-grow="1"
+          <div class="vui-padding-left">
+            <div class="vui-height--medium vui-background-color--primary">
+              flex-grow="1"
+            </div>
           </div>
         </vui-grid-child>
       </vui-grid>

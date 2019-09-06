@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-30 15:34:50
- * @LastEditTime: 2019-08-27 18:12:25
+ * @LastEditTime: 2019-09-04 11:48:41
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -36,6 +36,12 @@ instance.methods = {
   handler() {
     this.closable && this.$emit("input", false);
     this.$emit("click");
+  },
+  touchmove(event) {
+    if (this.value && !this.scrollable) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
   }
 };
 instance.created = function() {};
@@ -64,7 +70,12 @@ export default instance;
 
 <template>
   <transition :name="transitionName">
-    <div class="vui-mask" @click="handler" v-if="currentValue">
+    <div
+      class="vui-mask"
+      @click="handler"
+      v-if="currentValue"
+      @touchmove="touchmove"
+    >
       <slot></slot>
     </div>
   </transition>
