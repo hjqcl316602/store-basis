@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-14 10:04:04
- * @LastEditTime: 2019-08-21 11:39:58
+ * @LastEditTime: 2019-09-09 10:45:16
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -53,7 +53,8 @@ instance.methods = {
         "top-center",
         "bottom-center"
       ];
-      elStyle["padding"] = 0;
+
+      //elStyle["padding"] = 0;
       if (widthTypes.includes(type) && paddingWidth) {
         let width = element.$el.offsetWidth;
         if (type.indexOf("left") > -1) {
@@ -66,6 +67,7 @@ instance.methods = {
       if (heightTypes.includes(type) && paddingHeight) {
         let height = element.$el.offsetHeight;
         if (type.indexOf("top") > -1) {
+          console.log("grail", height);
           elStyle["padding-top"] = height + "px";
         } else {
           elStyle["padding-bottom"] = height + "px";

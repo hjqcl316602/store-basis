@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-14 10:13:01
- * @LastEditTime: 2019-09-02 23:14:36
+ * @LastEditTime: 2019-09-09 10:46:31
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -34,6 +34,7 @@ export default instance;
         <div style="background-color:red;">
           <div>
             top,以子元素的高度设置父元素的padding-top值
+            以子元素的高度设置父元素的padding-top值以子元素的高度设置父元素的padding-top值
           </div>
         </div>
       </vui-grail-child>

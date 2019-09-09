@@ -2,11 +2,11 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-06 17:45:41
- * @LastEditTime: 2019-09-06 17:54:07
+ * @LastEditTime: 2019-09-09 09:27:42
  * @LastEditors: Please set LastEditors
  */
-import Mask from './notice.vue';
-Mask.install = function(Vue, options) {
-  Vue.component(Mask.name, Mask);
+import UI from './notice.vue';
+UI.install = function(Vue, options) {
+  Vue.component(UI.name, UI);
 };
-export default Mask;
+export default UI;
