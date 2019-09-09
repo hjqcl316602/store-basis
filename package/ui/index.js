@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-11 14:30:39
- * @LastEditTime: 2019-09-09 17:37:17
+ * @LastEditTime: 2019-09-09 17:40:23
  * @LastEditors: Please set LastEditors
  */
 import Accordion from './accordion/index.js';
@@ -31,6 +31,7 @@ import Tag from './tag/index.js';
 import Tab from './tab/index.js';
 import Upload from './upload/index.js';
 
+const CarouselChild = Carousel.Child;
 const GrailChild = Grail.Child;
 const GridChild = Grid.Child;
 const LoadingCircle = Loading.Circle;
@@ -46,6 +47,7 @@ export {
   Border,
   Button,
   Carousel,
+  CarouselChild,
   Check,
   Floater,
   Confirm,

@@ -15,7 +15,8 @@ export default {
     maxHeight: {
       type: Number,
       default: accordion.item.maxHeight
-    }
+    },
+	
   },
   methods: {
     changePanel() {
