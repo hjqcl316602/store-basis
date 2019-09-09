@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-06 17:45:47
- * @LastEditTime: 2019-09-09 11:53:19
+ * @LastEditTime: 2019-09-09 15:00:16
  * @LastEditors: Please set LastEditors
  -->
 <script>
@@ -79,9 +79,9 @@ instance.mounted = function() {
 };
 instance.updated = function() {
   console.log("update");
-  this.$nextTick(() => {
-    this.initialize();
-  });
+  // this.$nextTick(() => {
+  //   this.initialize();
+  // });
 };
 instance.watch = {
   currentValue(val) {

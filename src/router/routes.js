@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-09-06 17:51:21
+ * @LastEditTime: 2019-09-09 17:37:05
  * @LastEditors: Please set LastEditors
  */
 
@@ -20,6 +20,7 @@ const loadingBar = r => require.ensure([], () => r(require('../view/loading-bar.
 const mask = r => require.ensure([], () => r(require('../view/mask.vue')), 'mask');
 const message = r => require.ensure([], () => r(require('../view/message.vue')), 'message');
 const notice = r => require.ensure([], () => r(require('../view/notice.vue')), 'notice');
+const noticeBar = r => require.ensure([], () => r(require('../view/notice-bar.vue')), 'noticeBar');
 const ratio = r => require.ensure([], () => r(require('../view/ratio.vue')), 'ratio');
 const tab = r => require.ensure([], () => r(require('../view/tab.vue')), 'tab');
 const tag = r => require.ensure([], () => r(require('../view/tag.vue')), 'tag');
@@ -105,6 +106,12 @@ const routes = [
     name: 'notice',
     component: notice,
     meta: { title: '通知', en: 'notice' }
+  },
+  {
+    path: '/notice-bar',
+    name: 'noticeBar',
+    component: noticeBar,
+    meta: { title: '通知栏', en: 'notice-bar' }
   },
   {
     path: '/ratio',

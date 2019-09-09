@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-07-11 14:30:39
- * @LastEditTime: 2019-09-09 09:31:55
+ * @LastEditTime: 2019-09-09 17:37:17
  * @LastEditors: Please set LastEditors
  */
 import Accordion from './accordion/index.js';
@@ -23,6 +23,7 @@ import LoadingBar from './loading-bar/index.js';
 import Mask from './mask/index.js';
 import Message from './message/index.js';
 import Notice from './notice/index.js';
+import NoticeBar from './notice-bar/index.js';
 import Radio from './radio/index.js';
 import Ratio from './ratio/index.js';
 import Slider from './slider/index.js';
@@ -68,6 +69,7 @@ export {
   Mask,
   Message,
   Notice,
+  NoticeBar,
   Radio,
   Ratio,
   Slider,
