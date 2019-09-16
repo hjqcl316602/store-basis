@@ -9,6 +9,7 @@
 const index = r => require.ensure([], () => r(require('../view/index.vue')), 'index');
 const border = r => require.ensure([], () => r(require('../view/border.vue')), 'border');
 const button = r => require.ensure([], () => r(require('../view/button.vue')), 'button');
+const carousel = r => require.ensure([], () => r(require('../view/carousel.vue')), 'carousel');
 const ellipsis = r => require.ensure([], () => r(require('../view/ellipsis.vue')), 'ellipsis');
 const floater = r => require.ensure([], () => r(require('../view/floater.vue')), 'floater');
 const grail = r => require.ensure([], () => r(require('../view/grail.vue')), 'grail');
@@ -40,6 +41,12 @@ const routes = [
     name: 'button',
     component: button,
     meta: { title: '按钮', en: 'button' }
+  },
+  {
+    path: '/carousel',
+    name: 'carousel',
+    component: carousel,
+    meta: { title: '轮播', en: 'carousel' }
   },
   {
     path: '/ellipsis',

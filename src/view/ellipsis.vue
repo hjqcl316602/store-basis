@@ -28,7 +28,7 @@ instance.data = function() {
 instance.computed = {};
 instance.methods = {
   handler(type, show) {
-    this.show[show] = type == "roll" ? false : true;
+    this.show[show] = type !== "roll"
   }
 };
 instance.created = function() {};

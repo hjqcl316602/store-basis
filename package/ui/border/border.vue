@@ -1,10 +1,3 @@
-<!--
- * @Description: In User Settings Edit
- * @Author: your name
- * @Date: 2019-07-19 22:06:51
- * @LastEditTime: 2019-08-23 10:44:25
- * @LastEditors: Please set LastEditors
- -->
 <script>
 import styler from "../../es/domer/styler";
 const config = {
@@ -83,6 +76,7 @@ instance.mounted = function() {
 instance.updated = function() {
   this.setStyle();
 };
+/* dsds */
 export default instance;
 </script>
 
@@ -97,5 +91,4 @@ export default instance;
   </div>
 </template>
 
-<style   scoped>
-</style>
+<style scoped></style>

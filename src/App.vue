@@ -1,17 +1,10 @@
-<!--
- * @Description: In User Settings Edit
- * @Author: your name
- * @Date: 2019-07-09 11:47:30
- * @LastEditTime: 2019-09-06 09:09:27
- * @LastEditors: Please set LastEditors
- -->
 <script>
-import elementResizeDetectorMaker from 'element-resize-detector';
+import elementResizeDetectorMaker from "element-resize-detector";
 const instance = {};
-instance.name = '';
+instance.name = "";
 instance.props = {};
 instance.data = function() {
-	return {};
+  return {};
 };
 instance.methods = {};
 instance.created = function() {};
@@ -20,10 +13,9 @@ export default instance;
 </script>
 
 <template>
-	<div class="">
-		<div class="vui-text--bold"></div>
-		<router-view />
-	</div>
+  <div class="">
+    <router-view />
+  </div>
 </template>
 
 <style scoped></style>

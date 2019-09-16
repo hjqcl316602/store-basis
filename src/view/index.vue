@@ -1,12 +1,6 @@
-<!--
- * @Description: In User Settings Edit
- * @Author: your name
- * @Date: 2019-08-09 21:29:46
- * @LastEditTime: 2019-09-03 20:20:53
- * @LastEditors: Please set LastEditors
- -->
 <script>
 import routes from "../router/routes";
+console.log(routes);
 const instance = {};
 instance.name = "";
 instance.props = {};
@@ -62,5 +56,4 @@ export default instance;
   </div>
 </template>
 
-<style   scoped>
-</style>
+<style scoped></style>
