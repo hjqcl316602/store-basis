@@ -1,5 +1,4 @@
-@import './theme.less'; 
-
+@import "./theme.less";
 
 /**
 * 布局
@@ -11,7 +10,7 @@
   height: auto;
   zoom: 1;
   display: block;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .vui-row:before {
@@ -28,18 +27,18 @@
   height: 0;
 }
 
-.vui-row [class*=vui-span] {
+.vui-row [class*="vui-span"] {
   display: block;
   position: relative;
   float: left;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
-.vui-row--right [class*=vui-span] {
+.vui-row--right [class*="vui-span"] {
   display: block;
   position: relative;
   float: right;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 /**
@@ -52,62 +51,62 @@
   flex-direction: row;
 }
 
-.vui-row--flex [class*=vui-span] {
+.vui-row--flex [class*="vui-span"] {
   flex: none;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 /**
 * 布局 间距 4 8 12 16 20 
 */
-[class*=vui-row].vui-row-gutter--smaller {
-  margin-left: -@gutter-smaller/2;
-  margin-right: -@gutter-smaller/2;
+[class*="vui-row"].vui-row-gutter--smaller {
+  margin-left: -@gutter-smaller / 2;
+  margin-right: -@gutter-smaller / 2;
 }
 
-[class*=vui-row].vui-row-gutter--smaller>[class*=vui-span] {
-  padding-left: @gutter-smaller/2;
-  padding-right: @gutter-smaller/2;
+[class*="vui-row"].vui-row-gutter--smaller > [class*="vui-span"] {
+  padding-left: @gutter-smaller / 2;
+  padding-right: @gutter-smaller / 2;
 }
 
-[class*=vui-row].vui-row-gutter--small {
-  margin-left: -@gutter-small/2;
-  margin-right: -@gutter-small/2;
+[class*="vui-row"].vui-row-gutter--small {
+  margin-left: -@gutter-small / 2;
+  margin-right: -@gutter-small / 2;
 }
 
-[class*=vui-row].vui-row-gutter--small>[class*=vui-span] {
-  padding-left: @gutter-small/2;
-  padding-right: @gutter-small/2;
+[class*="vui-row"].vui-row-gutter--small > [class*="vui-span"] {
+  padding-left: @gutter-small / 2;
+  padding-right: @gutter-small / 2;
 }
 
-[class*=vui-row].vui-row-gutter {
-  margin-left: -@gutter-medium/2;
-  margin-right: -@gutter-medium/2;
+[class*="vui-row"].vui-row-gutter {
+  margin-left: -@gutter-medium / 2;
+  margin-right: -@gutter-medium / 2;
 }
 
-[class*=vui-row].vui-row-gutter>[class*=vui-span] {
-  padding-left: @gutter-medium/2;
-  padding-right: @gutter-medium/2;
+[class*="vui-row"].vui-row-gutter > [class*="vui-span"] {
+  padding-left: @gutter-medium / 2;
+  padding-right: @gutter-medium / 2;
 }
 
-[class*=vui-row].vui-row-gutter--large {
-  margin-left: -@gutter-large/2;
-  margin-right: -@gutter-large/2;
+[class*="vui-row"].vui-row-gutter--large {
+  margin-left: -@gutter-large / 2;
+  margin-right: -@gutter-large / 2;
 }
 
-[class*=vui-row].vui-row-gutter--large>[class*=vui-span] {
-  padding-left: @gutter-large/2;
-  padding-right: @gutter-large/2;
+[class*="vui-row"].vui-row-gutter--large > [class*="vui-span"] {
+  padding-left: @gutter-large / 2;
+  padding-right: @gutter-large / 2;
 }
 
-[class*=vui-row].vui-row-gutter--larger {
-  margin-left: -@gutter-larger/2;
-  margin-right: -@gutter-larger/2;
+[class*="vui-row"].vui-row-gutter--larger {
+  margin-left: -@gutter-larger / 2;
+  margin-right: -@gutter-larger / 2;
 }
 
-[class*=vui-row].vui-row-gutter--larger>[class*=vui-span] {
-  padding-left: @gutter-larger/2;
-  padding-right: @gutter-larger/2;
+[class*="vui-row"].vui-row-gutter--larger > [class*="vui-span"] {
+  padding-left: @gutter-larger / 2;
+  padding-right: @gutter-larger / 2;
 }
 
 /**
@@ -115,19 +114,19 @@
 */
 
 .vui-span--1 {
-  width: 1/24 * 100%
+  width: 1/24 * 100%;
 }
 
 .vui-span--2 {
-  width: 2/24 * 100%
+  width: 2/24 * 100%;
 }
 
 .vui-span--3 {
-  width: 3/24 * 100%
+  width: 3/24 * 100%;
 }
 
 .vui-span--4 {
-  width: 4/24 * 100%
+  width: 4/24 * 100%;
 }
 
 .vui-span--5 {
@@ -135,19 +134,19 @@
 }
 
 .vui-span--6 {
-  width: 6/24 * 100%
+  width: 6/24 * 100%;
 }
 
 .vui-span--7 {
-  width: 7/24 * 100%
+  width: 7/24 * 100%;
 }
 
 .vui-span--8 {
-  width: 8/24 * 100%
+  width: 8/24 * 100%;
 }
 
 .vui-span--9 {
-  width: 9/24 * 100%
+  width: 9/24 * 100%;
 }
 
 .vui-span--10 {
@@ -155,19 +154,19 @@
 }
 
 .vui-span--11 {
-  width: 11/24 * 100%
+  width: 11/24 * 100%;
 }
 
 .vui-span--12 {
-  width: 12/24 * 100%
+  width: 12/24 * 100%;
 }
 
 .vui-span--13 {
-  width: 13/24 * 100%
+  width: 13/24 * 100%;
 }
 
 .vui-span--14 {
-  width: 14/24 * 100%
+  width: 14/24 * 100%;
 }
 
 .vui-span--15 {
@@ -175,19 +174,19 @@
 }
 
 .vui-span--16 {
-  width: 16/24 * 100%
+  width: 16/24 * 100%;
 }
 
 .vui-span--17 {
-  width: 17/24 * 100%
+  width: 17/24 * 100%;
 }
 
 .vui-span--18 {
-  width: 18/24 * 100%
+  width: 18/24 * 100%;
 }
 
 .vui-span--19 {
-  width: 19/24 * 100%
+  width: 19/24 * 100%;
 }
 
 .vui-span--20 {
@@ -195,40 +194,39 @@
 }
 
 .vui-span--21 {
-  width: 21/24 * 100%
+  width: 21/24 * 100%;
 }
 
 .vui-span--22 {
-  width: 22/24 * 100%
+  width: 22/24 * 100%;
 }
 
 .vui-span--23 {
-  width: 23/24 * 100%
+  width: 23/24 * 100%;
 }
 
 .vui-span--24 {
-  width: 24/24 * 100%
+  width: 24/24 * 100%;
 }
-
 
 /**
 * 布局 左偏移量
 */
 
 .vui-push--1 {
-  margin-left: 1/24 * 100%
+  margin-left: 1/24 * 100%;
 }
 
 .vui-push--2 {
-  margin-left: 2/24 * 100%
+  margin-left: 2/24 * 100%;
 }
 
 .vui-push--3 {
-  margin-left: 3/24 * 100%
+  margin-left: 3/24 * 100%;
 }
 
 .vui-push--4 {
-  margin-left: 4/24 * 100%
+  margin-left: 4/24 * 100%;
 }
 
 .vui-push--5 {
@@ -236,19 +234,19 @@
 }
 
 .vui-push--6 {
-  margin-left: 6/24 * 100%
+  margin-left: 6/24 * 100%;
 }
 
 .vui-push--7 {
-  margin-left: 7/24 * 100%
+  margin-left: 7/24 * 100%;
 }
 
 .vui-push--8 {
-  margin-left: 8/24 * 100%
+  margin-left: 8/24 * 100%;
 }
 
 .vui-push--9 {
-  margin-left: 9/24 * 100%
+  margin-left: 9/24 * 100%;
 }
 
 .vui-push--10 {
@@ -256,19 +254,19 @@
 }
 
 .vui-push--11 {
-  margin-left: 11/24 * 100%
+  margin-left: 11/24 * 100%;
 }
 
 .vui-push--12 {
-  margin-left: 12/24 * 100%
+  margin-left: 12/24 * 100%;
 }
 
 .vui-push--13 {
-  margin-left: 13/24 * 100%
+  margin-left: 13/24 * 100%;
 }
 
 .vui-push--14 {
-  margin-left: 14/24 * 100%
+  margin-left: 14/24 * 100%;
 }
 
 .vui-push--15 {
@@ -276,19 +274,19 @@
 }
 
 .vui-push--16 {
-  margin-left: 16/24 * 100%
+  margin-left: 16/24 * 100%;
 }
 
 .vui-push--17 {
-  margin-left: 17/24 * 100%
+  margin-left: 17/24 * 100%;
 }
 
 .vui-push--18 {
-  margin-left: 18/24 * 100%
+  margin-left: 18/24 * 100%;
 }
 
 .vui-push--19 {
-  margin-left: 19/24 * 100%
+  margin-left: 19/24 * 100%;
 }
 
 .vui-push--20 {
@@ -296,40 +294,39 @@
 }
 
 .vui-push--21 {
-  margin-left: 21/24 * 100%
+  margin-left: 21/24 * 100%;
 }
 
 .vui-push--22 {
-  margin-left: 22/24 * 100%
+  margin-left: 22/24 * 100%;
 }
 
 .vui-push--23 {
-  margin-left: 23/24 * 100%
+  margin-left: 23/24 * 100%;
 }
 
 .vui-push--24 {
-  margin-left: 24/24 * 100%
+  margin-left: 24/24 * 100%;
 }
-
 
 /**
 * 布局 右偏移量
 */
 
 .vui-pull--1 {
-  margin-right: 1/24 * 100%
+  margin-right: 1/24 * 100%;
 }
 
 .vui-pull--2 {
-  margin-right: 2/24 * 100%
+  margin-right: 2/24 * 100%;
 }
 
 .vui-pull--3 {
-  margin-right: 3/24 * 100%
+  margin-right: 3/24 * 100%;
 }
 
 .vui-pull--4 {
-  margin-right: 4/24 * 100%
+  margin-right: 4/24 * 100%;
 }
 
 .vui-pull--5 {
@@ -337,19 +334,19 @@
 }
 
 .vui-pull--6 {
-  margin-right: 6/24 * 100%
+  margin-right: 6/24 * 100%;
 }
 
 .vui-pull--7 {
-  margin-right: 7/24 * 100%
+  margin-right: 7/24 * 100%;
 }
 
 .vui-pull--8 {
-  margin-right: 8/24 * 100%
+  margin-right: 8/24 * 100%;
 }
 
 .vui-pull--9 {
-  margin-right: 9/24 * 100%
+  margin-right: 9/24 * 100%;
 }
 
 .vui-pull--10 {
@@ -357,19 +354,19 @@
 }
 
 .vui-pull--11 {
-  margin-right: 11/24 * 100%
+  margin-right: 11/24 * 100%;
 }
 
 .vui-pull--12 {
-  margin-right: 12/24 * 100%
+  margin-right: 12/24 * 100%;
 }
 
 .vui-pull--13 {
-  margin-right: 13/24 * 100%
+  margin-right: 13/24 * 100%;
 }
 
 .vui-pull--14 {
-  margin-right: 14/24 * 100%
+  margin-right: 14/24 * 100%;
 }
 
 .vui-pull--15 {
@@ -377,19 +374,19 @@
 }
 
 .vui-pull--16 {
-  margin-right: 16/24 * 100%
+  margin-right: 16/24 * 100%;
 }
 
 .vui-pull--17 {
-  margin-right: 17/24 * 100%
+  margin-right: 17/24 * 100%;
 }
 
 .vui-pull--18 {
-  margin-right: 18/24 * 100%
+  margin-right: 18/24 * 100%;
 }
 
 .vui-pull--19 {
-  margin-right: 19/24 * 100%
+  margin-right: 19/24 * 100%;
 }
 
 .vui-pull--20 {
@@ -397,17 +394,17 @@
 }
 
 .vui-pull--21 {
-  margin-right: 21/24 * 100%
+  margin-right: 21/24 * 100%;
 }
 
 .vui-pull--22 {
-  margin-right: 22/24 * 100%
+  margin-right: 22/24 * 100%;
 }
 
 .vui-pull--23 {
-  margin-right: 23/24 * 100%
+  margin-right: 23/24 * 100%;
 }
 
 .vui-pull--24 {
-  margin-right: 24/24 * 100%
+  margin-right: 24/24 * 100%;
 }

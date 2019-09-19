@@ -1,103 +1,103 @@
-@import './theme.less';
+@import "./theme.less";
 
 /**
 * 边框
 */
-.vui-border-top,
-.vui-border-bottom,
-.vui-border-left,
-.vui-border-right,
-.vui-border {
-  position: relative
+.vi-border {
+  position: relative;
 }
 
-.vui-border-top:after,
-.vui-border-bottom:after,
-.vui-border-left:after,
-.vui-border-right:after,
-.vui-border:after {
-  content: '';
+.vi-border:after {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   transform-origin: 0 0;
   pointer-events: none;
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  transform: scale(1);
-  border-color: @border-color;
   border-style: solid;
-  border-width: 0
+  border-width: 0;
 }
 
 /**
 * 边框 四周
 */
 
-.vui-border:after {
-  border-width: 1px
+.vi-border.is-border--round:after {
+  border-width: 1px;
 }
 
-.vui-border-top:after {
-  border-top-width: 1px
+.vi-border.is-border--top:after {
+  border-top-width: 1px;
 }
 
-.vui-border-bottom:after {
-  border-bottom-width: 1px
+.vi-border.is-border--bottom:after {
+  border-bottom-width: 1px;
 }
 
-.vui-border-left:after {
-  border-left-width: 1px
+.vi-border.is-border--left:after {
+  border-left-width: 1px;
 }
 
-.vui-border-right:after {
-  border-right-width: 1px
+.vi-border.is-border--right:after {
+  border-right-width: 1px;
 }
 
 /**
 * border的粗细
 */
-.vui-border--thiner:after {
+.vi-border.is-border--thiner:after {
   width: 400%;
   height: 400%;
   transform: scale(1/4);
 }
 
-.vui-border--thin:after {
+.vi-border.is-border--thin:after {
   width: 300%;
   height: 300%;
   transform: scale(1/3);
 }
 
-.vui-border--half:after {
+.vi-border.is-border--half:after {
   width: 200%;
   height: 200%;
-  transform: scale(.5);
+  transform: scale(0.5);
+}
+.vi-border:after {
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
 }
 
 /**
 * border的样式
 */
-.vui-border--dashed:after {
-  border-style: dashed
+.vi-border:after {
+  border-style: solid;
+}
+.vi-border.is-border--dashed:after {
+  border-style: dashed;
 }
 
 /**
 * border的颜色
 */
-.vui-border--lighter:after {
-  border-color: @border-color-lighter
+.vi-border.is-border--lighter:after {
+  border-color: @border-color-lighter;
 }
 
-.vui-border--light:after {
-  border-color: @border-color-light
+.vi-border.is-border--light:after {
+  border-color: @border-color-light;
 }
 
-.vui-border--dark:after {
-  border-color: @border-color-dark
+.vi-border:after {
+  border-color: @border-color;
 }
 
-.vui-border--darker:after {
-  border-color: @border-color-darker
+.vi-border.is-border--dark:after {
+  border-color: @border-color-dark;
+}
+
+.vi-border.is-border--darker:after {
+  border-color: @border-color-darker;
 }
