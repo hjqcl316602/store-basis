@@ -1,4 +1,4 @@
-@import './theme.less';
+@import "./theme.less";
 
 .vui-message {
   position: fixed;
@@ -8,7 +8,7 @@
   padding: 10px;
   text-align: center;
   transform: translateY(-100%);
-  transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -20,12 +20,11 @@
 }
 
 .vui-message span {
-  line-height: 1.5
+  line-height: 1.5;
 }
 
 .vui-message--danger {
   background-color: @color-danger;
-
 }
 
 .vui-message--warning {
@@ -47,6 +46,6 @@
 // 用于防止用户操作，比如单击按钮后再次提交
 .vui-message--locked {
   * {
-    pointer-events: none
+    pointer-events: none;
   }
 }

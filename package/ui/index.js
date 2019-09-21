@@ -6,6 +6,7 @@
  * @LastEditors: Please set LastEditors
  */
 import Accordion from "./accordion/index.js";
+import Action from "./action/index.js";
 import Border from "./border/index.js";
 import Button from "./button/index.js";
 import Carousel from "./carousel/index.js";
@@ -24,6 +25,7 @@ import Mask from "./mask/index.js";
 import Message from "./message/index.js";
 import Notice from "./notice/index.js";
 import NoticeBar from "./notice-bar/index.js";
+import Popup from "./popup/index.js";
 import Radio from "./radio/index.js";
 import Ratio from "./ratio/index.js";
 import Slider from "./slider/index.js";
@@ -44,6 +46,7 @@ const LoadingWave = Loading.Wave;
 const TabGroup = Tab.Group;
 export {
   Accordion,
+  Action,
   Border,
   Button,
   Carousel,
@@ -72,6 +75,7 @@ export {
   Message,
   Notice,
   NoticeBar,
+  Popup,
   Radio,
   Ratio,
   Slider,

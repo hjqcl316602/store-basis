@@ -1,9 +1,6 @@
 import Vue from "vue";
 import App from "./App";
-import router from "./router";
-
-import "./theme/index.less";
-import "./ui/index.js";
+import { router } from "./package";
 
 new Vue({
   el: "#app",

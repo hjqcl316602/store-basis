@@ -1,4 +1,4 @@
-@import './theme.less';
+@import "./theme.less";
 
 .vui-input {
   position: relative;
@@ -20,15 +20,15 @@
 }
 
 .vui-input.vui-input--left .vui-input__inner {
-  text-align: left
+  text-align: left;
 }
 
 .vui-input.vui-input--right .vui-input__inner {
-  text-align: right
+  text-align: right;
 }
 
 .vui-input.vui-input--center .vui-input__inner {
-  text-align: center
+  text-align: center;
 }
 
 .vui-input .vui-input__inner::placeholder {
@@ -38,37 +38,36 @@
 
 .vui-input.vui-input--smaller .vui-input__inner {
   height: @input-size-smaller;
-  line-height: @input-size-smaller
+  line-height: @input-size-smaller;
 }
 
 .vui-input.vui-input--small .vui-input__inner {
   height: @input-size-small;
-  line-height: @input-size-small
+  line-height: @input-size-small;
 }
 
 .vui-input .vui-input__inner,
 .vui-input.vui-input--medium .vui-input__inner {
   height: @input-size-medium;
-  line-height: @input-size-medium
+  line-height: @input-size-medium;
 }
 
 .vui-input.vui-input--large .vui-input__inner {
   height: @input-size-large;
-  line-height: @input-size-large
+  line-height: @input-size-large;
 }
 
 .vui-input.vui-input--larger .vui-input__inner {
   height: @input-size-larger;
-  line-height: @input-size-larger
+  line-height: @input-size-larger;
 }
-
 
 /**
 * input  border
 */
 
 .vui-input.vui-input__border::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -79,9 +78,9 @@
   height: 100%;
   transform: scale(1);
   border-color: @input-border-color;
-  transition: border-color .5s ease-in-out;
+  transition: border-color 0.5s ease-in-out;
   border-style: solid;
-  border-width: 0
+  border-width: 0;
 }
 
 .vui-input.vui-input__border.vui-input__border--round::before {
@@ -99,7 +98,7 @@
 .vui-input.vui-input__border.vui-input__border--half::before {
   width: 200%;
   height: 200%;
-  transform: scale(.5);
+  transform: scale(0.5);
 }
 
 .vui-input.vui-input__border.vui-input__border--thin::before {
@@ -115,15 +114,15 @@
 }
 
 .vui-input.vui-input__border.vui-input__border--dashed::before {
-  border-style: dashed
+  border-style: dashed;
 }
 
 .vui-input.vui-input__border.vui-input__border--solid::before {
-  border-style: solid
+  border-style: solid;
 }
 
 .vui-input.vui-input__border.vui-input__border--active::before {
-  border-color: @input-border-active-color
+  border-color: @input-border-active-color;
 }
 
 /**
@@ -131,19 +130,19 @@
 */
 
 .vui-input.vui-input__radius--normal {
-  border-radius: @input-radius
+  border-radius: @input-radius;
 }
 
 .vui-input.vui-input__radius--normal.vui-input__border--half::before {
-  border-radius: @input-radius * 2
+  border-radius: @input-radius * 2;
 }
 
 .vui-input.vui-input__radius--normal.vui-input__border--thin::before {
-  border-radius: @input-radius * 3
+  border-radius: @input-radius * 3;
 }
 
 .vui-input.vui-input__radius--normal.vui-input__border--thiner::before {
-  border-radius: @input-radius * 4
+  border-radius: @input-radius * 4;
 }
 
 .vui-input.vui-input__radius--round {
@@ -151,5 +150,5 @@
 }
 
 .vui-input.vui-input__radius--round.vui-input__border::before {
-  border-radius: 10em
+  border-radius: 10em;
 }

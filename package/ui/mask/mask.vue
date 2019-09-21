@@ -72,7 +72,7 @@ export default instance;
   <transition :name="transitionName">
     <div
       class="vui-mask"
-      @click="handler"
+      @click.self="handler"
       v-if="currentValue"
       @touchmove="touchmove"
     >
@@ -81,5 +81,4 @@ export default instance;
   </transition>
 </template>
 
-<style   scoped>
-</style>
+<style scoped></style>

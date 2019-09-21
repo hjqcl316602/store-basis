@@ -1,3 +1,5 @@
+@color-bg: #f1f1f1;
+
 @color-primary: #39f;
 @color-danger: #f30;
 @color-warning: #e6a23c;
@@ -125,9 +127,16 @@
 @input-padding-size: 15px;
 @input-text-color: @color-dark;
 @input-border-color: @border-color;
-@input-border-active-color: @color-primary ;
+@input-border-active-color: @color-primary;
 @input-placeholder-color: @border-color-lighter;
 
 @input-radius: 4px;
 
-@mask-bg: rgba(0, 0, 0, 0.6);
+// background-color
+@background-color-mask: rgba(0, 0, 0, 0.6);
+@background-color-popup: #fff;
+@background-color-action: @color-bg;
+// z-index
+@z-index-mask: 9999;
+@z-index-popup: 10000;
+@z-index-action: 10000;

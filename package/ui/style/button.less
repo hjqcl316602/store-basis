@@ -1,7 +1,6 @@
-@import './theme.less';
+@import "./theme.less";
 
 .vui-button {
-
   outline: none;
   border: none;
   cursor: pointer; // 手机端可以取消该属性，否则会出现按键激活样式
@@ -41,18 +40,18 @@
   background-color: #000;
   border-radius: inherit;
   transform: translate(-50%, -50%);
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .vui-button:active::before {
-  opacity: .1;
+  opacity: 0.1;
 }
 
 /**
 * 按钮 禁用样式
 */
 .vui-button.vui-button-disabled {
-  opacity: .6;
+  opacity: 0.6;
   cursor: not-allowed;
 
   &::before {
@@ -64,18 +63,18 @@
 * 按钮 长状
 */
 .vui-button.vui-button-long {
-  display: block
+  display: block;
 }
 
 /**
 * 按钮 radius
 */
 .vui-button.vui-button-round {
-  border-radius: 10em
+  border-radius: 10em;
 }
 
 .vui-button.vui-button-radius {
-  border-radius: @btn-radius
+  border-radius: @btn-radius;
 }
 
 /**
@@ -101,7 +100,6 @@
 .vui-button.vui-button--larger {
   line-height: @btn-size-larger;
 }
-
 
 /**
 * 按钮 默认样式
@@ -134,7 +132,7 @@
 * 按钮 块状样式
 */
 .vui-button.vui-button-pack {
-  box-shadow: @btn-shadow
+  box-shadow: @btn-shadow;
 }
 
 /**
@@ -143,7 +141,6 @@
 .vui-button.vui-button-pack.vui-button--warning {
   color: #fff;
   background-color: @color-warning;
-
 }
 
 .vui-button.vui-button-pack.vui-button--danger {
@@ -183,7 +180,7 @@
 */
 
 .vui-button.vui-button-hollow::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -210,23 +207,23 @@
 .vui-button.vui-button-hollow--thin::after {
   width: 200%;
   height: 200%;
-  transform: scale(.5);
+  transform: scale(0.5);
 }
 
 /**
 * 按钮 镂空样式 - border - 小圆角
 */
 .vui-button.vui-button-hollow.vui-button-radius::after {
-  border-radius: @btn-radius
+  border-radius: @btn-radius;
 }
 
 /**
 * 按钮 镂空样式 - border - 大圆角
 */
 .vui-button.vui-button-hollow.vui-button-round::after {
-  border-radius: 10em
+  border-radius: 10em;
 }
 
 .vui-button.vui-button-hollow--thin.vui-button-radius::after {
-  border-radius: @btn-radius * 2
+  border-radius: @btn-radius * 2;
 }
