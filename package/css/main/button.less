@@ -1,5 +1,8 @@
 @import "./theme.less";
 
+.vi-btn-group {
+  font-size: 0; // 解决子元素display:inline-block的间距
+}
 .vi-btn {
   outline: none;
   border: none;
@@ -133,6 +136,8 @@
 * 按钮 块状样式
 */
 .vi-btn.is-btn--pack {
+}
+.vi-btn.is-btn--pack.is-btn--shadow {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 }
 /**

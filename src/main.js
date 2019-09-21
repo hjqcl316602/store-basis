@@ -1,10 +1,10 @@
 import Vue from "vue";
-import App from "./App";
-import { router } from "./package";
+import { router, store, root } from "./package";
 
 new Vue({
   el: "#app",
   router,
-  components: { App },
-  template: "<App/>"
+  store,
+  components: { root },
+  template: "<root/>"
 });

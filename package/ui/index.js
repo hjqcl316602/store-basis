@@ -29,6 +29,7 @@ import Popup from "./popup/index.js";
 import Radio from "./radio/index.js";
 import Ratio from "./ratio/index.js";
 import Slider from "./slider/index.js";
+import SwipeCell from "./swipe-cell/index.js";
 import Tag from "./tag/index.js";
 import Tab from "./tab/index.js";
 import Upload from "./upload/index.js";
@@ -79,6 +80,7 @@ export {
   Radio,
   Ratio,
   Slider,
+  SwipeCell,
   Tag,
   TabGroup,
   Tab,
