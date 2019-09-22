@@ -1,6 +1,6 @@
 import Vue from "vue";
-import { router, store, root } from "./package";
-
+import { router, store, root } from "./exchange";
+console.log(Vue.http);
 new Vue({
   el: "#app",
   router,
