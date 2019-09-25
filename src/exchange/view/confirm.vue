@@ -96,9 +96,9 @@ export default {
   <div class="vv-confirm vv-panel " style="min-height: 100vh">
     <div class="vi-padding--large">
       <div class="vi-text-align--center vi-margin-bottom--large">
-        <span class="vi-font-weight--bold vi-font-size--large">{{
-          title
-        }}</span>
+        <span class="vi-font-weight--bold vi-font-size--large">
+          {{ title }}
+        </span>
       </div>
       <div class="vi-border is-border--bottom is-border--thiner">
         <div class="  vi-input is-input--larger">

@@ -18,8 +18,8 @@ let instance = axios.create({
   method: "post",
   baseURL: "",
   headers: {
-    "Content-Type": "application/x-www-form-urlencoded",
-    "user-type": "admin"
+    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+    //"Content-Type": "application/json;charset=utf-8"
   },
   withCredentials: true,
   responseType: "json",
@@ -31,7 +31,7 @@ instance.interceptors.request.use(
   res => {
     res["headers"]["x-auth-token"] =
       localStorage.getItem("app/service/token") || "";
-    res["data"] = qs.stringify(res["data"]);
+    res["data"] = qs.stringify(res["data"], { arrayFormat: "brackets" });
     LoadingBar.start(80);
     return res;
   },
@@ -42,10 +42,11 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   res => {
+    //console.log("res");
     LoadingBar.finish();
     let status = res["status"];
     if (status >= 200 || status <= 300) {
-      console.log(res);
+      //console.log(res);
       let data = res["data"];
       let code = data["code"];
       if (code === 3000 || code === 4000) {
@@ -61,6 +62,7 @@ instance.interceptors.response.use(
     }
   },
   err => {
+    //console.log("err");
     LoadingBar.finish();
     let errMsg = err["message"];
 

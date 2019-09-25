@@ -30,6 +30,18 @@ const money = r =>
   require.ensure([], () => r(require("../view/money.vue")), "money");
 const advert = r =>
   require.ensure([], () => r(require("../view/advert.vue")), "advert");
+const advertDetail = r =>
+  require.ensure(
+    [],
+    () => r(require("../view/advert-detail.vue")),
+    "advert-detail"
+  );
+const advertEdit = r =>
+  require.ensure(
+    [],
+    () => r(require("../view/advert-edit.vue")),
+    "advert-edit"
+  );
 const account = r =>
   require.ensure([], () => r(require("../view/account.vue")), "account");
 const transfer = r =>
@@ -86,6 +98,18 @@ const routes = [
     name: "advert",
     component: advert,
     meta: { title: "我的广告" }
+  },
+  {
+    path: "/advert-edit/:type",
+    name: "advert-edit",
+    component: advertEdit,
+    meta: { title: "广告编辑" }
+  },
+  {
+    path: "/advert-detail",
+    name: "advert-detail",
+    component: advertDetail,
+    meta: { title: "详情" }
   },
   {
     path: "/account",

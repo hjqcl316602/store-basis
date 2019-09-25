@@ -7,7 +7,8 @@ const config = {
   type: "bottom", // bottom | top | right | left
   closable: true, //是可点击遮罩层关闭
   animate: true, // 是否动画
-  title: ""
+  title: "",
+  scrollable: false // 背景是否可滚动
 };
 export default {
   name: "vui-popup",
@@ -15,6 +16,7 @@ export default {
     return {};
   },
   props: {
+    scrollable: { type: Boolean, default: config.scrollable },
     value: {
       type: Boolean,
       default: config.value
@@ -65,6 +67,12 @@ export default {
   methods: {
     handler() {
       this.closable && this.$emit("input", false);
+    },
+    touchmove(event) {
+      if (!this.scrollable) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
     }
   },
   mounted() {}
@@ -74,7 +82,11 @@ export default {
 <template>
   <div>
     <vui-mask v-model="currentValue" transitionName="fade"> </vui-mask>
-    <div :class="styles.className" @click.self="handler">
+    <div
+      :class="styles.className"
+      @click.self="handler"
+      @touchmove="touchmove($event)"
+    >
       <div class="vui-popup">
         <slot></slot>
       </div>

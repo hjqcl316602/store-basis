@@ -136,10 +136,10 @@ export default {
       :key="index"
     >
       <div class="vv-panel vi-padding--large">
-        <div class=" vi-margin-bottom--large">
+        <div class=" vi-margin-bottom">
           <div class="vi-margin-bottom">
             <div class="vi-flex vi-justify-content--space-between">
-              <div class="vi-margin-bottom">
+              <div class="">
                 <vui-image
                   height="24px"
                   width="40px"
@@ -151,7 +151,13 @@ export default {
               </div>
               <div class="">
                 <template v-if="item['checked'] === 1">
-                  <i class="iconfont icon-xing vi-color--warning"></i>
+                  <span class="vi-font-weight--bold vi-color--danger"
+                    >已开启</span
+                  >
+                  <i
+                    class="iconfont icon-xing vi-color--warning"
+                    v-if="false"
+                  ></i>
                 </template>
               </div>
             </div>
@@ -159,25 +165,25 @@ export default {
           <div class="">
             <template v-if="item.type === 1">
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
               >
                 <span class="vi-color--gray">卡号</span>
                 <span class="vi-font-weight--bold">{{ item.url }}</span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
               >
                 <span class="vi-color--gray">真实姓名</span>
                 <span class="vi-color--light">{{ item.realName }}</span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
               >
                 <span class="vi-color--gray">开户行</span>
                 <span class="vi-color--light">{{ item.name }}</span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
               >
                 <span class="vi-color--gray">简称</span>
                 <span class="vi-color--light">
@@ -187,7 +193,7 @@ export default {
             </template>
             <template v-if="item.type === 2 || item.type === 4">
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
               >
                 <span class="vi-color--gray">账号</span>
                 <span class="vi-font-weight--bold">{{ item.name }}</span>
@@ -195,19 +201,19 @@ export default {
             </template>
             <template v-if="item.type === 3">
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
               >
                 <span class="vi-color--gray">账号</span>
                 <span class="vi-font-weight--bold">{{ item.name }}</span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
               >
                 <span class="vi-color--gray">真实姓名</span>
                 <span class="vi-color--light">{{ item.realName }}</span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
               >
                 <span class="vi-color--gray">ID号</span>
                 <span class="vi-color--light">
@@ -217,13 +223,13 @@ export default {
             </template>
             <template v-if="item.type === 5">
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
               >
                 <span class="vi-color--gray">账号</span>
                 <span class="vi-font-weight--bold">{{ item.name }}</span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
               >
                 <span class="vi-color--gray">支付方式</span>
                 <span class="vi-color--light">
@@ -233,7 +239,7 @@ export default {
             </template>
           </div>
         </div>
-        <div class="  vi-text-align--right">
+        <div class="vi-text-align--right">
           <div
             class="vi-btn  is-btn--radius is-btn--smaller is-btn--hollow is-btn--thiner"
             v-if="item.type !== 1"

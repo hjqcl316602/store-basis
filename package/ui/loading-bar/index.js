@@ -34,11 +34,13 @@ let LoadingInstance = function() {
       // console.log(component);
       setTimeout(() => {
         component.setWidth(100);
-        elem.addEventListener("transitionend", function(e) {
-          document.body.removeChild(elem);
+        setTimeout(() => {
+          //console.log(elem);
+          //console.log(document.body);
+          if (elem != null) document.body.removeChild(elem);
           elem = null;
           component = null;
-        });
+        }, 300);
       }, 0);
     }
   };
