@@ -6,9 +6,16 @@ import checker from "./checker";
  * @return [ number ]
  */
 let scroller = function(element, rootParent = window) {
-  if (!checker(element)) throw new Error("The first argument must be HTMLElement.");
+  if (!checker(element))
+    throw new Error("The first argument must be HTMLElement.");
   let node = element;
-  while (node && node.tagName !== "HTML" && node.tagName !== "BODY" && node.nodeType === 1 && node !== rootParent) {
+  while (
+    node &&
+    node.tagName !== "HTML" &&
+    node.tagName !== "BODY" &&
+    node.nodeType === 1 &&
+    node !== rootParent
+  ) {
     const { overflowY } = window.getComputedStyle(node);
     if (overflowY === "scroll" || overflowY === "auto") {
       return node;
@@ -27,11 +34,14 @@ let scroller = function(element, rootParent = window) {
  * @return
  * 当 top = null时，则是获取值，否则是设置值
  */
-scroller.top = function(element, top) {
+scroller.scrollTop = function(element, top) {
   if (top == null) {
     let scrollTop = 0;
     if (checker.window(element)) {
-      scrollTop = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+      scrollTop =
+        window.pageYOffset ||
+        document.body.scrollTop ||
+        document.documentElement.scrollTop;
     } else {
       scrollTop = element.scrollTop;
     }
@@ -44,6 +54,16 @@ scroller.top = function(element, top) {
       element.scrollTop = top;
     }
   }
+};
+/**
+ * @name 获取指定元素的滚动内容高度
+ * @param { element } [ element ]
+ */
+scroller.scrollHeight = function(element) {
+  if (checker.dom(element)) {
+    return element.scrollHeight;
+  }
+  return document.documentElement.scrollHeight || document.body.scrollHeight;
 };
 
 export default scroller;

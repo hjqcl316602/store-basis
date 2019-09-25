@@ -5,8 +5,8 @@
  * @LastEditTime: 2019-09-03 18:34:53
  * @LastEditors: Please set LastEditors
  */
-import Vue from 'vue';
-import loadingBar from './loading-bar.vue';
+import Vue from "vue";
+import loadingBar from "./loading-bar.vue";
 let Instance;
 
 let LoadingInstance = function() {
@@ -31,10 +31,10 @@ let LoadingInstance = function() {
       }, 0);
     },
     finish() {
-      console.log(component);
+      // console.log(component);
       setTimeout(() => {
         component.setWidth(100);
-        elem.addEventListener('transitionend', function(e) {
+        elem.addEventListener("transitionend", function(e) {
           document.body.removeChild(elem);
           elem = null;
           component = null;

@@ -21,6 +21,7 @@ import Image from "./image/index.js";
 import Input from "./input/index.js";
 import Loading from "./loading/index.js";
 import LoadingBar from "./loading-bar/index.js";
+import Loadmore from "./loadmore/index.js";
 import Mask from "./mask/index.js";
 import Message from "./message/index.js";
 import Notice from "./notice/index.js";
@@ -72,6 +73,7 @@ export {
   LoadingTurn,
   LoadingWave,
   LoadingBar,
+  Loadmore,
   Mask,
   Message,
   Notice,

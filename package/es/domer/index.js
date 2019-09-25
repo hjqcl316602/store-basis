@@ -5,17 +5,27 @@
  * @LastEditTime: 2019-08-23 11:21:11
  * @LastEditors: Please set LastEditors
  */
-import checker from './checker';
-import classer from './classer';
-import getScrollbarWidth from './getScrollbarWidth';
-import heighter from './heighter';
-import listener from './listener';
-import clienter from './clienter';
-import queryer from './queryer';
-import scroller from './scroller';
-import styler from './styler';
+import checker from "./checker";
+import classer from "./classer";
+import getScrollbarWidth from "./getScrollbarWidth";
+import heighter from "./heighter";
+import listener from "./listener";
+import clienter from "./clienter";
+import queryer from "./queryer";
+import scroller from "./scroller";
+import styler from "./styler";
 
-export default { classer, checker, getScrollbarWidth, heighter, listener, clienter, queryer, scroller, styler };
+export default {
+  classer,
+  checker,
+  getScrollbarWidth,
+  heighter,
+  listener,
+  clienter,
+  queryer,
+  scroller,
+  styler
+};
 
 // window.innerHeight 各大浏览器表现一致
 

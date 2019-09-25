@@ -64,6 +64,7 @@ export default {
   updated() {},
   methods: {
     initialize() {
+      this.$el.style["background-image"] = "none";
       this.$nextTick(() => {
         if (this.lazy) {
           this.setLazyInterval();
@@ -109,6 +110,7 @@ export default {
         this.status.load = "loaded";
 
         setTimeout(() => {
+          console.log("lodad");
           this.status.result = "success";
           this.$el.style["background-image"] = `url(${this.src})`;
           this.loadingSuccess && this.loadingSuccess();
@@ -139,6 +141,7 @@ export default {
   },
   watch: {
     src(val) {
+      console.log(val);
       this.initialize();
     }
   }
@@ -160,6 +163,4 @@ export default {
   </div>
 </template>
 
-<style   scoped>
-</style>
- 
+<style scoped></style>
