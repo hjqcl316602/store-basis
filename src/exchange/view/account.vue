@@ -118,9 +118,9 @@ export default {
       <div style="width: 80vw">
         <div class="vi-padding--large">
           <div class="">
-            <div class="vi-margin-bottom">
+            <div class="vi-margin-bottom--large">
               <vui-image
-                height="24px"
+                height="28px"
                 width="40px"
                 fill-type="height"
                 align-type="left"
@@ -129,7 +129,10 @@ export default {
               </vui-image>
             </div>
             <template v-if="detail.message.type === 1">
-              <div class="vi-margin-bottom vi-flex vi-align-items--center">
+              <div
+                class=" vi-flex vi-align-items--center"
+                style="line-height: 28px"
+              >
                 <span
                   class="vi-color--gray vi-text-align--right vi-padding-right--large"
                   style="width:80px"
@@ -139,7 +142,10 @@ export default {
                   {{ detail.message.url }}
                 </span>
               </div>
-              <div class="vi-margin-bottom vi-flex vi-align-items--center">
+              <div
+                class=" vi-flex vi-align-items--center"
+                style="line-height: 28px"
+              >
                 <span
                   class="vi-color--gray vi-text-align--right vi-padding-right--large"
                   style="width:80px"
@@ -149,17 +155,24 @@ export default {
                   {{ detail.message.realName }}
                 </span>
               </div>
-              <div class="vi-margin-bottom vi-flex vi-align-items--center">
+              <div
+                class=" vi-flex vi-align-items--center"
+                style="line-height: 28px"
+              >
                 <span
                   class="vi-color--gray vi-text-align--right vi-padding-right--large"
                   style="width:80px"
-                  >开户行</span
                 >
+                  开户行
+                </span>
                 <span class=" vi-flex--1">
                   {{ detail.message.name }}
                 </span>
               </div>
-              <div class="vi-margin-bottom vi-flex vi-align-items--center">
+              <div
+                class=" vi-flex vi-align-items--center"
+                style="line-height: 28px"
+              >
                 <span
                   class="vi-color--gray vi-text-align--right vi-padding-right--large"
                   style="width:80px"
@@ -173,7 +186,10 @@ export default {
             <template
               v-if="detail.message.type === 2 || detail.message.type === 4"
             >
-              <div class="vi-margin-bottom vi-flex vi-align-items--center">
+              <div
+                class=" vi-flex vi-align-items--center"
+                style="line-height: 28px"
+              >
                 <span
                   class="vi-color--gray vi-text-align--right vi-padding-right--large"
                   style="width:80px"
@@ -185,54 +201,74 @@ export default {
               </div>
             </template>
             <template v-if="detail.message.type === 3">
-              <div class="vi-margin-bottom vi-flex vi-align-items--center">
+              <div
+                class=" vi-flex vi-align-items--center"
+                style="line-height: 28px"
+              >
                 <span
                   class="vi-color--gray vi-text-align--right vi-padding-right--large"
                   style="width:80px"
-                  >账号</span
                 >
+                  账号
+                </span>
                 <span class="vi-font-weight--bold vi-color--primary vi-flex--1">
                   {{ detail.message.name }}
                 </span>
               </div>
-              <div class="vi-margin-bottom vi-flex vi-align-items--center">
+              <div
+                class=" vi-flex vi-align-items--center"
+                style="line-height: 28px"
+              >
                 <span
                   class="vi-color--gray vi-text-align--right vi-padding-right--large"
                   style="width:80px"
-                  >真实姓名</span
                 >
+                  真实姓名
+                </span>
                 <span class=" vi-flex--1">
                   {{ detail.message.realName }}
                 </span>
               </div>
-              <div class="vi-margin-bottom vi-flex vi-align-items--center">
+              <div
+                class=" vi-flex vi-align-items--center"
+                style="line-height: 28px"
+              >
                 <span
                   class="vi-color--gray vi-text-align--right vi-padding-right--large"
                   style="width:80px"
-                  >ID号</span
                 >
+                  ID号
+                </span>
                 <span class=" vi-flex--1">
                   {{ detail.message.alipayOrMask || "--" }}
                 </span>
               </div>
             </template>
             <template v-if="detail.message.type === 5">
-              <div class="vi-margin-bottom vi-flex vi-align-items--center">
+              <div
+                class=" vi-flex vi-align-items--center"
+                style="line-height: 28px"
+              >
                 <span
                   class="vi-color--gray vi-text-align--right vi-padding-right--large"
                   style="width:80px"
-                  >账号</span
                 >
+                  账号
+                </span>
                 <span class="vi-font-weight--bold vi-color--primary vi-flex--1">
                   {{ detail.message.name }}
                 </span>
               </div>
-              <div class="vi-margin-bottom vi-flex vi-align-items--center">
+              <div
+                class=" vi-flex vi-align-items--center"
+                style="line-height: 28px"
+              >
                 <span
                   class="vi-color--gray vi-text-align--right vi-padding-right--large"
                   style="width:80px"
-                  >支付方式</span
                 >
+                  支付方式
+                </span>
                 <span class=" vi-flex--1">
                   {{ detail.message.alipayOrMask || "--" }}
                 </span>
@@ -283,18 +319,21 @@ export default {
       </div>
     </vui-popup>
     <div
-      class="vi-margin-bottom"
+      class="vi-border is-border--bottom is-border--thiner"
       v-for="(item, index) in params.list"
       :key="index"
       @click="selectAcount(item)"
     >
       <div class="vv-panel vi-padding--large">
         <div class=" vi-margin-bottom">
-          <div class="vi-margin-bottom">
-            <div class="vi-flex vi-justify-content--space-between">
+          <div class="">
+            <div
+              class="vi-flex vi-justify-content--space-between"
+              style="line-height: 36px"
+            >
               <div class="">
                 <vui-image
-                  height="24px"
+                  height="28px"
                   width="40px"
                   fill-type="height"
                   align-type="left"
@@ -314,27 +353,33 @@ export default {
           <div class="">
             <template v-if="item.type === 1">
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class=" vi-flex vi-justify-content--space-between"
+                style="line-height: 28px"
               >
                 <span class="vi-color--gray">卡号</span>
-                <span class="vi-font-weight--bold vi-color--primary">{{
-                  item.url
-                }}</span>
+                <span class="vi-font-weight--bold vi-color--primary">
+                  {{ item.url }}
+                </span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class=" vi-flex vi-justify-content--space-between"
+                style="line-height: 28px"
               >
                 <span class="vi-color--gray">真实姓名</span>
                 <span class="">{{ item.realName }}</span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class=" vi-flex vi-justify-content--space-between"
+                style="line-height: 28px"
               >
                 <span class="vi-color--gray">开户行</span>
-                <span class="">{{ item.name }}</span>
+                <span class="">
+                  {{ item.name }}
+                </span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class=" vi-flex vi-justify-content--space-between"
+                style="line-height: 28px"
               >
                 <span class="vi-color--gray">简称</span>
                 <span class="">
@@ -344,31 +389,35 @@ export default {
             </template>
             <template v-if="item.type === 2 || item.type === 4">
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class=" vi-flex vi-justify-content--space-between"
+                style="line-height: 28px"
               >
                 <span class="vi-color--gray">账号</span>
-                <span class="vi-font-weight--bold vi-color--primary">{{
-                  item.name
-                }}</span>
+                <span class="vi-font-weight--bold vi-color--primary">
+                  {{ item.name }}
+                </span>
               </div>
             </template>
             <template v-if="item.type === 3">
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class=" vi-flex vi-justify-content--space-between"
+                style="line-height: 28px"
               >
                 <span class="vi-color--gray">账号</span>
-                <span class="vi-font-weight--bold vi-color--primary">{{
-                  item.name
-                }}</span>
+                <span class="vi-font-weight--bold vi-color--primary">
+                  {{ item.name }}
+                </span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class=" vi-flex vi-justify-content--space-between"
+                style="line-height: 28px"
               >
                 <span class="vi-color--gray">真实姓名</span>
                 <span class="">{{ item.realName }}</span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class=" vi-flex vi-justify-content--space-between"
+                style="line-height: 28px"
               >
                 <span class="vi-color--gray">ID号</span>
                 <span class="">
@@ -378,15 +427,17 @@ export default {
             </template>
             <template v-if="item.type === 5">
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class=" vi-flex vi-justify-content--space-between"
+                style="line-height: 28px"
               >
                 <span class="vi-color--gray ">账号</span>
-                <span class="vi-font-weight--bold vi-color--primary">{{
-                  item.name
-                }}</span>
+                <span class="vi-font-weight--bold vi-color--primary">
+                  {{ item.name }}
+                </span>
               </div>
               <div
-                class="vi-margin-bottom vi-flex vi-justify-content--space-between"
+                class=" vi-flex vi-justify-content--space-between"
+                style="line-height: 28px"
               >
                 <span class="vi-color--gray">支付方式</span>
                 <span class="vi-color--light">

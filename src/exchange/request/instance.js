@@ -30,9 +30,10 @@ let instance = axios.create({
 instance.interceptors.request.use(
   res => {
     res["headers"]["x-auth-token"] =
-      localStorage.getItem("app/service/token") || "";
+      localStorage.getItem("service/token") || "";
     res["data"] = qs.stringify(res["data"], { arrayFormat: "brackets" });
-    LoadingBar.start(80);
+    let closeLoading = res.headers.closeLoading;
+    !closeLoading && LoadingBar.start(80);
     return res;
   },
   err => {
@@ -51,8 +52,8 @@ instance.interceptors.response.use(
       let code = data["code"];
       if (code === 3000 || code === 4000) {
         Message.danger(data["message"]);
-        localStorage.setItem("app/login/redirect", window.location.href);
-        store.commit("set/user/member", null);
+        localStorage.setItem("login/redirect", window.location.href);
+        store.commit("set/member", null);
         router.push("/login");
         //return Promise.reject(res);
       } else {

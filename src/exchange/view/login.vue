@@ -1,43 +1,48 @@
 <script>
 import { loginIn } from "../request/login";
 import { mapState } from "vuex";
-let user = localStorage.getItem("app/login/message")
-  ? JSON.parse(localStorage.getItem("app/login/message"))
-  : {};
 export default {
   name: "vv-login",
   data() {
     return {
       params: {
-        username: user.username,
-        password: user.password
+        username: localStorage.getItem("login/username"),
+        password: localStorage.getItem("login/password")
       }
     };
   },
   props: {},
   computed: mapState({
-    member: "member"
+    member: "member",
+    loginCacheType: state => state.login.cache.type
   }),
   methods: {
     loginIn() {
       loginIn(this.params).then(res => {
         let data = res["data"];
         if (data["code"] === 0) {
-          localStorage.setItem(
-            "app/login/message",
-            JSON.stringify(this.params)
-          );
           let message = data.data;
+          if (this.loginCacheType == 1) {
+            localStorage.setItem("login/username", this.params.username);
+          }
+          if (this.loginCacheType == 2) {
+            localStorage.setItem("login/username", this.params.username);
+            localStorage.setItem("login/password", this.params.password);
+          }
+          if (this.loginCacheType == 3) {
+            localStorage.removeItem("login/username");
+            localStorage.removeItem("login/password");
+          }
 
           if (message != null) {
             let token = message.token;
-            this.$store.commit("set/user/member", message);
-            localStorage.setItem("app/service/token", token);
+            this.$store.commit("set/member", message);
+            localStorage.setItem("service/token", token);
             this.$message.success("恭喜您，登录成功");
-            let redirect = localStorage.getItem("app/login/redirect");
-            localStorage.removeItem("app/login/redirect");
+            let redirect = localStorage.getItem("login/redirect");
+            localStorage.removeItem("login/redirect");
             setTimeout(() => {
-              if (redirect) {
+              if (redirect && redirect.indexOf("login") === -1) {
                 //window.location.href = redirect;
                 this.$router.replace(redirect.split("#")[1]);
               } else {

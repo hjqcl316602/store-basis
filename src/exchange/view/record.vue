@@ -11,7 +11,8 @@ const recordTypes = [
   },
   {
     value: 2,
-    label: "转账"
+    label: "转账",
+    className: "vi-color--danger"
   },
   {
     value: 3,
@@ -19,19 +20,23 @@ const recordTypes = [
   },
   {
     value: 4,
-    label: "法币买入"
+    label: "法币买入",
+    className: "vi-color--primary"
   },
   {
     value: 5,
-    label: "法币卖出"
+    label: "法币卖出",
+    className: "vi-color--primary"
   },
   {
     value: 6,
-    label: "活动奖励"
+    label: "活动奖励",
+    className: "vi-color--warning"
   },
   {
     value: 7,
-    label: "推广奖励"
+    label: "推广奖励",
+    className: "vi-color--warning"
   },
   {
     value: 8,
@@ -51,7 +56,8 @@ const recordTypes = [
   },
   {
     value: 12,
-    label: "佣金奖励"
+    label: "佣金奖励",
+    className: "vi-color--success"
   }
 ];
 export default {
@@ -134,7 +140,8 @@ export default {
       >
         <div class="vi-padding--large">
           <div
-            class="vi-flex vi-justify-content--space-between vi-align-items--center vi-margin-bottom"
+            class="vi-flex vi-justify-content--space-between"
+            style="line-height: 28px"
           >
             <div>
               <span class="vi-color--gray">
@@ -144,17 +151,15 @@ export default {
             <div class="">
               <span
                 class=" vi-font-weight--bold vi-font-size--large "
-                :class="{
-                  'vi-color--danger': Number(item.amount) < 0,
-                  'vi-color--primary': Number(item.amount) >= 0
-                }"
+                :class="getRecordType(item.type).className"
               >
                 {{ item.amount }}
               </span>
             </div>
           </div>
           <div
-            class="vi-flex vi-justify-content--space-between vi-align-items--center vi-margin-bottom"
+            class="vi-flex vi-justify-content--space-between  "
+            style="line-height: 28px"
           >
             <div>
               <span class="vi-color--gray">
@@ -168,7 +173,8 @@ export default {
             </div>
           </div>
           <div
-            class="vi-flex vi-justify-content--space-between vi-align-items--center vi-margin-bottom"
+            class="vi-flex vi-justify-content--space-between "
+            style="line-height: 28px"
           >
             <div>
               <span class="vi-color--gray">
@@ -183,7 +189,8 @@ export default {
           </div>
 
           <div
-            class="vi-flex vi-justify-content--space-between vi-align-items--center"
+            class="vi-flex vi-justify-content--space-between "
+            style="line-height: 28px"
           >
             <div>
               <span class="vi-color--gray">

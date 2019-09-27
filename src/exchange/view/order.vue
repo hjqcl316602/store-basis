@@ -154,7 +154,8 @@ export default {
         @click="selectOrder(item)"
       >
         <div
-          class="vi-flex vi-margin-bottom--large vi-justify-content--space-between"
+          class="vi-flex vi-justify-content--space-between"
+          style="line-height: 36px"
         >
           <vui-image
             height="24px"
@@ -171,7 +172,10 @@ export default {
           </span>
         </div>
 
-        <div class="vi-flex vi-margin-bottom vi-justify-content--space-between">
+        <div
+          class="vi-flex  vi-justify-content--space-between"
+          style="line-height: 28px"
+        >
           <div class="vi-padding-right--large vi-text-align--right ">
             <span class="vi-color--gray">
               订单号
@@ -185,7 +189,8 @@ export default {
         </div>
 
         <div
-          class="vi-flex vi-margin-bottom vi-justify-content--space-between"
+          class="vi-flex  vi-justify-content--space-between"
+          style="line-height: 28px"
           v-if="item.unit"
         >
           <div class="vi-padding-right--large vi-text-align--right ">
@@ -200,7 +205,10 @@ export default {
           </div>
         </div>
 
-        <div class="vi-flex vi-margin-bottom vi-justify-content--space-between">
+        <div
+          class="vi-flex  vi-justify-content--space-between"
+          style="line-height: 28px"
+        >
           <div class="vi-padding-right--large vi-text-align--right ">
             <span class="vi-color--gray">
               交易对象
@@ -214,7 +222,8 @@ export default {
         </div>
 
         <div
-          class="vi-flex vi-margin-bottom vi-justify-content--space-between"
+          class="vi-flex  vi-justify-content--space-between"
+          style="line-height: 28px"
           v-if="item.amount"
         >
           <div class="vi-padding-right--large vi-text-align--right ">
@@ -230,7 +239,8 @@ export default {
         </div>
 
         <div
-          class="vi-flex vi-margin-bottom vi-justify-content--space-between"
+          class="vi-flex  vi-justify-content--space-between"
+          style="line-height: 28px"
           v-if="item.price"
         >
           <div class="vi-padding-right--large vi-text-align--right ">
@@ -243,7 +253,10 @@ export default {
           </div>
         </div>
 
-        <div class="vi-flex vi-margin-bottom vi-justify-content--space-between">
+        <div
+          class="vi-flex  vi-justify-content--space-between"
+          style="line-height: 28px"
+        >
           <div class="vi-padding-right--large vi-text-align--right ">
             <span class="vi-color--gray">
               时间
@@ -256,7 +269,8 @@ export default {
           </div>
         </div>
         <div
-          class="vi-flex vi-margin-bottom vi-justify-content--space-between"
+          class="vi-flex  vi-justify-content--space-between"
+          style="line-height: 28px"
           v-if="item.leftTime"
         >
           <div class="vi-padding-right--large vi-text-align--right ">
@@ -271,7 +285,8 @@ export default {
           </div>
         </div>
         <div
-          class="vi-flex vi-margin-bottom vi-justify-content--space-between"
+          class="vi-flex  vi-justify-content--space-between"
+          style="line-height: 28px"
           v-if="item.payRemark"
         >
           <div class="vi-padding-right--large vi-text-align--right ">

@@ -33,7 +33,7 @@ let LoadingInstance = function() {
     finish() {
       // console.log(component);
       setTimeout(() => {
-        component.setWidth(100);
+        component && component.setWidth(100);
         setTimeout(() => {
           //console.log(elem);
           //console.log(document.body);
@@ -41,7 +41,7 @@ let LoadingInstance = function() {
           elem = null;
           component = null;
         }, 300);
-      }, 0);
+      }, 20);
     }
   };
 };

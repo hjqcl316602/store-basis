@@ -200,7 +200,7 @@ export default {
             >
             </vui-image>
           </div>
-          <div class="vi-margin-bottom--small vi-flex vi-align-items--center">
+          <div class=" vi-flex " style="line-height: 28px">
             <span
               class="vi-color--gray vi-text-align--right vi-padding-right--large"
               style="width:80px"
@@ -219,7 +219,7 @@ export default {
               </span>
             </template>
           </div>
-          <div class="vi-margin-bottom--small vi-flex vi-align-items--center">
+          <div class=" vi-flex " style="line-height: 28px">
             <span
               class="vi-color--gray vi-text-align--right vi-padding-right--large"
               style="width:80px"
@@ -231,7 +231,7 @@ export default {
             </span>
           </div>
 
-          <div class="vi-margin-bottom--small vi-flex vi-align-items--center">
+          <div class=" vi-flex " style="line-height: 28px">
             <span
               class="vi-color--gray vi-text-align--right vi-padding-right--large"
               style="width:80px"
@@ -242,7 +242,7 @@ export default {
               {{ detail.message.payMode }}
             </span>
           </div>
-          <div class="vi-margin-bottom--small vi-flex vi-align-items--center">
+          <div class=" vi-flex " style="line-height: 28px">
             <span
               class="vi-color--gray vi-text-align--right vi-padding-right--large"
               style="width:80px"
@@ -253,7 +253,7 @@ export default {
               {{ detail.message.advertiseType === 1 ? "在线出售" : "在线购买" }}
             </span>
           </div>
-          <div class="vi-margin-bottom--small vi-flex vi-align-items--center">
+          <div class=" vi-flex " style="line-height: 28px">
             <span
               class="vi-color--gray vi-text-align--right vi-padding-right--large"
               style="width:80px"
@@ -264,7 +264,7 @@ export default {
               {{ detail.message.coin ? detail.message.coin.name : "--" }}
             </span>
           </div>
-          <div class="vi-margin-bottom--small vi-flex vi-align-items--center">
+          <div class=" vi-flex " style="line-height: 28px">
             <span
               class="vi-color--gray vi-text-align--right vi-padding-right--large"
               style="width:80px"
@@ -275,7 +275,7 @@ export default {
               {{ detail.message.number }}
             </span>
           </div>
-          <div class="vi-margin-bottom--small vi-flex vi-align-items--center">
+          <div class=" vi-flex " style="line-height: 28px">
             <span
               class="vi-color--gray vi-text-align--right vi-padding-right--large"
               style="width:80px"
@@ -284,7 +284,7 @@ export default {
             </span>
             <span class="vi-flex--1   "> {{ detail.message.price }}CNY </span>
           </div>
-          <div class="vi-margin-bottom--small vi-flex vi-align-items--center">
+          <div class=" vi-flex " style="line-height: 28px">
             <span
               class="vi-color--gray vi-text-align--right vi-padding-right--large"
               style="width:80px"
@@ -295,7 +295,7 @@ export default {
               {{ detail.message.minLimit }}~{{ detail.message.maxLimit }}CNY
             </span>
           </div>
-          <div class="vi-margin-bottom--small vi-flex vi-align-items--center">
+          <div class=" vi-flex " style="line-height: 28px">
             <span
               class="vi-color--gray vi-text-align--right vi-padding-right--large"
               style="width:80px"
@@ -306,7 +306,7 @@ export default {
               {{ detail.message.createTime }}
             </span>
           </div>
-          <div class="vi-margin-bottom--small vi-flex vi-align-items--center">
+          <div class=" vi-flex " style="line-height: 28px">
             <span
               class="vi-color--gray vi-text-align--right vi-padding-right--large"
               style="width:80px"
@@ -317,7 +317,7 @@ export default {
               {{ detail.message.updateTime }}
             </span>
           </div>
-          <div class="vi-margin-bottom--small vi-flex vi-align-items--center">
+          <div class=" vi-flex " style="line-height: 28px">
             <span
               class="vi-color--gray vi-text-align--right vi-padding-right--large"
               style="width:80px"
@@ -371,61 +371,62 @@ export default {
         :key="index"
         @click="select(item)"
       >
-        <div class="vi-margin-bottom--small">
-          <div class="vi-flex vi-justify-content--space-between">
-            <vui-image
-              height="24px"
-              width="40px"
-              fill-type="height"
-              align-type="left"
-              :src="getType(item.payMode)['icon']"
-            >
-            </vui-image>
-            <span
-              class="vi-color--danger vi-font-weight--bold"
-              v-if="item.status === 0"
-            >
-              上架中
-            </span>
-          </div>
+        <div
+          class="vi-flex vi-justify-content--space-between"
+          style="line-height: 36px"
+        >
+          <vui-image
+            height="24px"
+            width="40px"
+            fill-type="height"
+            align-type="left"
+            :src="getType(item.payMode)['icon']"
+          >
+          </vui-image>
+          <span
+            class="vi-color--danger vi-font-weight--bold"
+            v-if="item.status === 0"
+          >
+            上架中
+          </span>
+          <span class="vi-color--gray vi-font-weight--bold" v-else>
+            待上架
+          </span>
         </div>
-        <div class="vi-margin-bottom--small">
-          <div class="vi-flex vi-justify-content--space-between">
-            <span class="vi-color--gray">剩余数量</span>
-            <span class="vi-font-weight--bold vi-color--primary">
-              {{ item.remainAmount }}
-            </span>
-          </div>
+        <div
+          class="vi-flex vi-justify-content--space-between"
+          style="line-height: 28px"
+        >
+          <span class="vi-color--gray">剩余数量</span>
+          <span class="vi-font-weight--bold vi-color--primary">
+            {{ item.remainAmount }}
+          </span>
         </div>
-        <div class="vi-margin-bottom--small">
-          <div class="vi-flex vi-justify-content--space-between">
-            <span class="vi-color--gray">类型</span>
-            <span class="vi-color--light">
-              {{ item.advertiseType === 1 ? "在线出售" : "在线购买" }}
-            </span>
-          </div>
+        <div
+          class="vi-flex vi-justify-content--space-between"
+          style="line-height: 28px"
+        >
+          <span class="vi-color--gray">类型</span>
+          <span class="vi-color--light">
+            {{ item.advertiseType === 1 ? "在线出售" : "在线购买" }}
+          </span>
         </div>
-        <div class="vi-margin-bottom--small">
-          <div class="vi-flex vi-justify-content--space-between">
-            <span class="vi-color--gray">币种</span>
-            <span class="vi-color--light">
-              {{ item.coin ? item.coin.name : "--" }}
-            </span>
-          </div>
+
+        <div
+          class="vi-flex vi-justify-content--space-between"
+          style="line-height: 28px"
+        >
+          <span class="vi-color--gray">单价</span>
+          <span class="vi-color--light"> {{ item.price }}CNY </span>
         </div>
-        <div class="vi-margin-bottom--small">
-          <div class="vi-flex vi-justify-content--space-between">
-            <span class="vi-color--gray">单价</span>
-            <span class="vi-color--light"> {{ item.price }}CNY </span>
-          </div>
-        </div>
-        <div class="vi-margin-bottom--small">
-          <div class="vi-flex vi-justify-content--space-between">
-            <span class="vi-color--gray">限额</span>
-            <span class="vi-color--light">
-              {{ item.minLimit }}~{{ item.maxLimit }}CNY
-            </span>
-          </div>
+        <div
+          class="vi-flex vi-justify-content--space-between"
+          style="line-height: 28px"
+        >
+          <span class="vi-color--gray">限额</span>
+          <span class="vi-color--light">
+            {{ item.minLimit }}~{{ item.maxLimit }}CNY
+          </span>
         </div>
         <!--<div class="vi-margin-bottom&#45;&#45;small">-->
         <!--<div class="vi-flex vi-justify-content&#45;&#45;space-between">-->

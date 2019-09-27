@@ -155,7 +155,8 @@ export default {
         </div>
         <div>
           <div
-            class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
+            class="  vi-flex vi-justify-content--space-between"
+            style="line-height: 28px"
           >
             <span class="vi-color--gray">成交量</span>
             <span class="vi-color--light">
@@ -163,13 +164,15 @@ export default {
             </span>
           </div>
           <div
-            class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
+            class=" vi-flex vi-justify-content--space-between"
+            style="line-height: 28px"
           >
             <span class="vi-color--gray">单价</span>
             <span class="vi-color--light"> {{ item["price"] }}CNY </span>
           </div>
           <div
-            class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
+            class=" vi-flex vi-justify-content--space-between"
+            style="line-height: 28px"
           >
             <span class="vi-color--gray">限额</span>
             <span class="vi-color--light">
@@ -182,7 +185,8 @@ export default {
           </div>
 
           <div
-            class="vi-margin-bottom--small vi-flex vi-justify-content--space-between"
+            class=" vi-flex vi-justify-content--space-between"
+            style="line-height: 28px"
           >
             <span class="vi-color--gray">剩余数量</span>
             <span class="vi-color--primary vi-font-weight--bold">

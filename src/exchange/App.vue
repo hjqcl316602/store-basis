@@ -3,7 +3,7 @@ import { loginCheck } from "./request/login";
 import { getTraddingOrder } from "./request/order";
 import { mapState } from "vuex";
 import { orderTradding } from "./assets";
-const DURATION_ORDER = 30 * 1000;
+const DURATION_ORDER = 15 * 1000;
 
 export default {
   name: "",
@@ -17,7 +17,7 @@ export default {
   },
   props: {},
   computed: mapState({
-    name: "name"
+    orderNoticeType: state => state.order.notice.type
   }),
   methods: {
     loginCheck() {
@@ -27,19 +27,18 @@ export default {
           let message = data.data;
           if (message != null) {
             let token = message.token;
-            this.$store.commit("set/user/member", message);
-            localStorage.setItem("app/service/token", token);
+            this.$store.commit("set/member", message);
+            localStorage.setItem("service/token", token);
             this.setTimer();
           } else {
             setTimeout(() => {
               this.$router.push("/login");
-              localStorage.setItem("app/login/redirect", window.location.href);
+              localStorage.setItem("login/redirect", window.location.href);
             }, 1000);
-            this.$message.danger("获取登录信息失败，请重新登录");
           }
         } else {
           setTimeout(() => {
-            localStorage.setItem("app/login/redirect", window.location.href);
+            localStorage.setItem("login/redirect", window.location.href);
             this.$router.push("/login");
           }, 1000);
           this.$message.danger(data.message);
@@ -53,7 +52,7 @@ export default {
           let message = data.data;
           let total = message.sell + message.buy + message.appeal;
           console.log(total);
-          if (total > 0) {
+          if (total > 0 && this.orderNoticeType == 1) {
             this.playAudio();
           }
           this.$store.commit("set/order/traddding", data["data"]);
@@ -82,6 +81,11 @@ export default {
           console.log("音频播放失败");
         }
       }
+    }
+  },
+  watch: {
+    orderNoticeType(val) {
+      this.setTimer();
     }
   },
   created() {

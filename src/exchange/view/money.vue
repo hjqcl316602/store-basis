@@ -40,59 +40,58 @@ export default {
 </script>
 
 <template>
-  <div class="vv-money">
-    <div class="vv-panel">
-      <div class="vi-padding--large">
-        <div
-          class="vi-flex vi-align-items--center vi-justify-content--space-between vi-margin-bottom"
-        >
-          <div>
-            <span class="vi-color--gray">
-              币种
-            </span>
-          </div>
-          <div class=" ">
-            <span class="vi-font-weight--bold">
-              {{ message.coin ? message.coin.name : "" }}
-            </span>
-          </div>
-        </div>
-        <div
-          class="vi-flex vi-align-items--center vi-justify-content--space-between vi-margin-bottom"
-        >
-          <div>
-            <span class="vi-color--gray">
-              可用
-            </span>
-          </div>
-          <div class=" ">
-            <span class="vi-font-weight--bold">
-              {{ message.balance }}
-            </span>
-          </div>
-        </div>
-        <div
-          class="vi-flex vi-align-items--center vi-justify-content--space-between vi-margin-bottom"
-        >
-          <div>
-            <span class="vi-color--gray">
-              冻结
-            </span>
-          </div>
-          <div class=" ">
-            <span class="vi-font-weight--bold">
-              {{ message.frozenBalance }}
-            </span>
-          </div>
-        </div>
-        <div class="vi-text-align--right">
-          <div
-            class="vi-btn is-btn--primary is-btn--radius is-btn--smaller is-btn--hollow is-btn--thiner"
-            @click="toTransfer"
-          >
-            内部转账
-          </div>
-        </div>
+  <div class="vv-panel vi-padding--large" style="min-height: 100vh">
+    <div class="vi-flex vi-margin-bottom" style="line-height: 28px">
+      <div
+        style="width: 100px"
+        class="vi-text-align--right vi-padding-right--large"
+      >
+        <span class="vi-color--gray">
+          币种
+        </span>
+      </div>
+      <div class=" ">
+        <span class="">
+          {{ message.coin ? message.coin.name : "" }}
+        </span>
+      </div>
+    </div>
+    <div class="vi-flex vi-margin-bottom" style="line-height: 28px">
+      <div
+        style="width: 100px"
+        class="vi-text-align--right vi-padding-right--large"
+      >
+        <span class="vi-color--gray">
+          可用
+        </span>
+      </div>
+      <div class=" ">
+        <span class=" vi-color--primary">
+          {{ message.balance }}
+        </span>
+      </div>
+    </div>
+    <div class="vi-flex vi-margin-bottom" style="line-height: 28px">
+      <div
+        style="width: 100px"
+        class="vi-text-align--right vi-padding-right--large"
+      >
+        <span class="vi-color--gray">
+          冻结
+        </span>
+      </div>
+      <div class=" ">
+        <span class="">
+          {{ message.frozenBalance }}
+        </span>
+      </div>
+    </div>
+    <div class="vi-text-align--right">
+      <div
+        class="vi-btn is-btn--primary is-btn--radius is-btn--hollow is-btn--thiner"
+        @click="toTransfer"
+      >
+        内部转账
       </div>
     </div>
   </div>

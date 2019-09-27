@@ -25,41 +25,54 @@ export default {
   <div class="vv-user">
     <div>
       <div class="vv-panel vi-padding--large vi-margin-bottom--large">
-        <div class="vi-flex  vi-align-items--center">
-          <div class="vv-head  ">
-            <vui-image
-              width="100%"
-              height="100%"
-              fill-type="min"
-              :src="member.avatar"
-            >
-              <div slot="error">
-                <img :src="icon.headEmpty" alt="" class="vi-cover" />
-              </div>
-            </vui-image>
+        <div
+          class="vi-flex vi-justify-content--space-between vi-align-items--center"
+          @click="$router.push('/set')"
+        >
+          <div class="vi-flex  vi-align-items--center">
+            <div class="vv-head  ">
+              <vui-image
+                width="100%"
+                height="100%"
+                fill-type="min"
+                :src="member.avatar"
+              >
+                <div slot="error">
+                  <img :src="icon.headEmpty" alt="" class="vi-cover" />
+                </div>
+              </vui-image>
+            </div>
+            <div class="vi-margin-left">
+              <span class="vi-font-weight--bold vi-color--primary">
+                {{ member.username }} | {{ member.realName }}
+              </span>
+            </div>
           </div>
-          <div class="vi-margin-left">
-            <span class="vi-font-weight--bold vi-color--primary"
-              >{{ member.username }} | {{ member.realName }}</span
-            >
+          <div>
+            <i class="iconfont icon-jiantou"></i>
           </div>
         </div>
       </div>
       <div class="vv-panel vi-margin-bottom--large">
         <div
-          class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center vi-border is-border--bottom is-border--thiner"
+          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
+          style="line-height: 48px"
           @click="$router.push('/order/withdraw')"
         >
           <div>
             <template v-if="orderTradding.sell > 0">
-              <vui-tag :label="orderTradding.sell">
-                <span class="">
+              <vui-tag
+                :label="orderTradding.sell"
+                direction="right-center"
+                class="vi-padding-right--large"
+              >
+                <span class="vi-font-size--medium">
                   卖出订单
                 </span>
               </vui-tag>
             </template>
             <template v-else>
-              <span class="">
+              <span class="vi-font-size--medium">
                 卖出订单
               </span>
             </template>
@@ -69,19 +82,24 @@ export default {
           </div>
         </div>
         <div
-          class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center vi-border is-border--bottom is-border--thiner"
+          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
           @click="$router.push('/order/recharge')"
+          style="line-height: 48px"
         >
           <div>
             <template v-if="orderTradding.buy > 0">
-              <vui-tag :label="orderTradding.buy">
-                <span class="">
+              <vui-tag
+                :label="orderTradding.buy"
+                direction="right-center"
+                class="vi-padding-right--large"
+              >
+                <span class="vi-font-size--medium">
                   买入订单
                 </span>
               </vui-tag>
             </template>
             <template v-else>
-              <span class="">
+              <span class="vi-font-size--medium">
                 买入订单
               </span>
             </template>
@@ -91,19 +109,24 @@ export default {
           </div>
         </div>
         <div
-          class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center  "
+          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between   "
           @click="$router.push('/order/custom')"
+          style="line-height: 48px"
         >
           <div>
             <template v-if="orderTradding.appeal > 0">
-              <vui-tag :label="orderTradding.appeal">
-                <span class="">
+              <vui-tag
+                :label="orderTradding.appeal"
+                direction="right-center"
+                class="vi-padding-right--large"
+              >
+                <span class="vi-font-size--medium">
                   申述订单
                 </span>
               </vui-tag>
             </template>
             <template v-else>
-              <span class="">
+              <span class="vi-font-size--medium">
                 申述订单
               </span>
             </template>
@@ -115,11 +138,12 @@ export default {
       </div>
       <div class="vv-panel vi-margin-bottom--large">
         <div
-          class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center vi-border is-border--bottom is-border--thiner"
+          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
           @click="$router.push('/advert')"
+          style="line-height: 48px"
         >
           <div>
-            <span class="">
+            <span class="vi-font-size--medium">
               我的广告
             </span>
           </div>
@@ -128,11 +152,11 @@ export default {
           </div>
         </div>
         <div
-          class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center vi-border is-border--bottom is-border--thiner"
-          @click="$router.push('/order')"
+          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
+          style="line-height: 48px"
         >
           <div>
-            <span class="">
+            <span class="vi-font-size--medium">
               我的订单
             </span>
           </div>
@@ -141,11 +165,12 @@ export default {
           </div>
         </div>
         <div
-          class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center vi-border is-border--bottom is-border--thiner"
+          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
           @click="$router.push('/account')"
+          style="line-height: 48px"
         >
           <div>
-            <span class="">
+            <span class="vi-font-size--medium">
               我的账号
             </span>
           </div>
@@ -154,11 +179,12 @@ export default {
           </div>
         </div>
         <div
-          class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center vi-border is-border--bottom is-border--thiner"
+          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
           @click="$router.push('/money')"
+          style="line-height: 48px"
         >
           <div>
-            <span class="">
+            <span class="vi-font-size--medium">
               我的钱包
             </span>
           </div>
@@ -167,26 +193,14 @@ export default {
           </div>
         </div>
         <div
-          class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center "
+          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  "
           @click="$router.push('/record')"
+          style="line-height: 48px"
         >
           <div>
-            <span class="">
-              资产流水
+            <span class="vi-font-size--medium">
+              我的流水
             </span>
-          </div>
-          <div>
-            <i class="iconfont icon-jiantou"></i>
-          </div>
-        </div>
-      </div>
-      <div class="vv-panel">
-        <div
-          class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center "
-          @click="$router.push('/set')"
-        >
-          <div>
-            <span class=""> 设置 </span>
           </div>
           <div>
             <i class="iconfont icon-jiantou"></i>
