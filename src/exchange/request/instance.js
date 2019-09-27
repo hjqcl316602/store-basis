@@ -51,6 +51,7 @@ instance.interceptors.response.use(
       let code = data["code"];
       if (code === 3000 || code === 4000) {
         Message.danger(data["message"]);
+        localStorage.setItem("app/login/redirect", window.location.href);
         store.commit("set/user/member", null);
         router.push("/login");
         //return Promise.reject(res);

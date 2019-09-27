@@ -17,7 +17,7 @@ export default {
   },
   props: {
     label: {
-      type: String,
+      type: [String, Number],
       default: config.label
     },
     direction: {
@@ -52,5 +52,4 @@ export default {
   </div>
 </template>
 
-<style   scoped>
-</style>
+<style scoped></style>

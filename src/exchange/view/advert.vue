@@ -162,7 +162,12 @@ export default {
       } else if (type === "update") {
         this.$router.push({
           path: "/advert-edit/update",
-          query: { id: this.detail.message.id }
+          query: {
+            id: this.detail.message.id,
+            mode: this.detail.message.payMode,
+            maxLimit: this.detail.message.maxLimit,
+            number: this.detail.message.number
+          }
         });
       }
     },
@@ -328,20 +333,20 @@ export default {
             <template v-if="detail.message.status === 1">
               <template v-if="detail.message.remainAmount > 0">
                 <div
-                  class="vi-btn is-btn--hollow is-btn--warning is-btn--thiner is-btn--radius is-btn--smaller"
+                  class="vi-btn is-btn--hollow is-btn--warning is-btn--thiner is-btn--radius "
                   @click="handler('on')"
                 >
                   <span>上架</span>
                 </div>
               </template>
               <div
-                class="vi-btn is-btn--hollow is-btn--primary is-btn--thiner is-btn--radius is-btn--smaller"
+                class="vi-btn is-btn--hollow is-btn--primary is-btn--thiner is-btn--radius "
                 @click="handler('update')"
               >
                 <span>修改</span>
               </div>
               <div
-                class="vi-btn is-btn--hollow is-btn--danger is-btn--thiner is-btn--radius is-btn--smaller"
+                class="vi-btn is-btn--hollow is-btn--danger is-btn--thiner is-btn--radius "
                 @click="handler('del')"
               >
                 <span>删除</span>
@@ -349,7 +354,7 @@ export default {
             </template>
             <template v-else>
               <div
-                class="vi-btn is-btn--hollow is-btn--warning is-btn--thiner is-btn--radius is-btn--smaller"
+                class="vi-btn is-btn--hollow is-btn--warning is-btn--thiner is-btn--radius "
                 @click="handler('off')"
               >
                 <span>下架</span>

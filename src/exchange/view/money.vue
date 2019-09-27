@@ -24,11 +24,12 @@ export default {
         }
       });
     },
-
     toTransfer() {
       this.$router.push({
         path: "/transfer",
-        query: { unit: this.message.coin.name, balance: this.message.balance }
+        query: {
+          type: "inner"
+        }
       });
     }
   },
@@ -41,7 +42,7 @@ export default {
 <template>
   <div class="vv-money">
     <div class="vv-panel">
-      <div class="vi-padding--large" @click="action.show = true">
+      <div class="vi-padding--large">
         <div
           class="vi-flex vi-align-items--center vi-justify-content--space-between vi-margin-bottom"
         >
@@ -94,21 +95,5 @@ export default {
         </div>
       </div>
     </div>
-    <vui-swipe-cell v-if="false">
-      <div slot="right" class="vi-btn-group" style="height:100%">
-        <div
-          class="vi-btn is-btn--pack is-btn--primary  "
-          style="height:100%;display: flex;align-items: center;padding: 16px"
-          @click="
-            $router.push({
-              path: '/transfer',
-              query: { unit: message.coin.name, balance: message.balance }
-            })
-          "
-        >
-          <span class="vi-font-weight--bold">内部转账</span>
-        </div>
-      </div>
-    </vui-swipe-cell>
   </div>
 </template>

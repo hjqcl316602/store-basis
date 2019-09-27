@@ -40,6 +40,13 @@ export let transferToUser = params =>
 
 /**
  * 时间：2019/9/22 ,
+ * 描述：订单转账
+ */
+export let transferToOrder = params =>
+  axios.post(config.http + "/otc/order/directTransfer", params);
+
+/**
+ * 时间：2019/9/22 ,
  * 描述：我的账号
  */
 export let getAccount = params =>

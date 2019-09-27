@@ -24,6 +24,12 @@ const orderCustom = r =>
     () => r(require("../view/order-custom.vue")),
     "orderCustom"
   );
+const orderDetail = r =>
+  require.ensure(
+    [],
+    () => r(require("../view/order-detail.vue")),
+    "orderDetail"
+  );
 const record = r =>
   require.ensure([], () => r(require("../view/record.vue")), "record");
 const money = r =>
@@ -48,6 +54,7 @@ const transfer = r =>
   require.ensure([], () => r(require("../view/transfer.vue")), "transfer");
 const confirm = r =>
   require.ensure([], () => r(require("../view/confirm.vue")), "confirm");
+const set = r => require.ensure([], () => r(require("../view/set.vue")), "set");
 const routes = [
   { path: "*", redirect: "/home", meta: { hide: true } },
   { path: "/", redirect: "/home", meta: { hide: true } },
@@ -70,10 +77,10 @@ const routes = [
     meta: { title: "个人中心" }
   },
   {
-    path: "/order",
+    path: "/order/:type",
     name: "order",
     component: order,
-    meta: { title: "我的订单" }
+    meta: { title: "订单" }
   },
   {
     path: "/order-withdraw",
@@ -92,6 +99,12 @@ const routes = [
     name: "orderCustom",
     component: orderCustom,
     meta: { title: "申述订单" }
+  },
+  {
+    path: "/order-detail",
+    name: "orderDetail",
+    component: orderDetail,
+    meta: { title: "订单详情" }
   },
   {
     path: "/advert",
@@ -140,6 +153,12 @@ const routes = [
     name: "confirm",
     component: confirm,
     meta: { title: "信息确认" }
+  },
+  {
+    path: "/set",
+    name: "set",
+    component: set,
+    meta: { title: "设置" }
   }
 ];
 export default routes;

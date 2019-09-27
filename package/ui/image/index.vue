@@ -8,7 +8,7 @@
 <script>
 const image = {
   src: "", // 图片地址
-  lazy: true, //是否懒加载
+  lazy: false, //是否懒加载
   lazyThreshold: 40, // 懒加载阈值，即image的顶部距离窗口的底部的差值
   lazyDuration: 1000, // 懒加载图片定时器的时差
   showDelay: 50, // 显示延迟，由于加载过快

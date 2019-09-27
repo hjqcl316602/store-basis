@@ -1,4 +1,6 @@
 <script>
+import { getRechargeOrder } from "../request/order";
+
 export default {
   name: "vv-order-recharge",
   data() {

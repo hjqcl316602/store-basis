@@ -1,5 +1,42 @@
 <script>
 import { deleteAccount, toggleAccount } from "../request";
+import { release } from "../request/order";
+import {
+  iconHeadNormal,
+  iconAli,
+  iconWx,
+  iconUnion,
+  iconCard,
+  iconPolymer
+} from "../image";
+
+let types = [
+  {
+    text: "银联",
+    icon: iconCard,
+    value: 1
+  },
+  {
+    text: "微信",
+    icon: iconWx,
+    value: 2
+  },
+  {
+    text: "支付宝",
+    icon: iconAli,
+    value: 3
+  },
+  {
+    text: "云闪付",
+    icon: iconUnion,
+    value: 4
+  },
+  {
+    text: "聚合码",
+    icon: iconPolymer,
+    value: 5
+  }
+];
 export default {
   name: "",
   data() {
@@ -9,39 +46,52 @@ export default {
         jyPassword: "",
         type: "",
         target: "",
-        checked: 0
+        handler: "",
+        checked: 0,
+        money: 0,
+        name: ""
       }
     };
   },
   props: {},
-  computed: {
-    title() {
-      let title = "";
-      if (this.params.target === "del-account") {
-        title = "删除账号";
-      }
-      if (this.params.target === "toggle-account") {
-        if (this.params.checked === 0) {
-          title = "开启账号";
-        } else {
-          title = "关闭账号";
-        }
-      }
-      return title;
-    }
-  },
+  computed: {},
   methods: {
     init() {
       this.params = Object.assign(this.params, this.$route.query);
       console.log(this.params);
     },
     sure() {
-      if (this.params.target === "del-account") {
-        this.deleteAccount();
+      if (this.params.target === "account") {
+        if (this.params.handler === "toggle") {
+          this.toggleAccount();
+        } else if (this.params.handler === "del") {
+          this.deleteAccount();
+        }
+      } else if (this.params.target === "order") {
+        if (this.params.handler === "confirm") {
+          this.release();
+        }
       }
-      if (this.params.target === "toggle-account") {
-        this.toggleAccount();
+    },
+    release() {
+      if (!this.params.jyPassword) {
+        this.$message.danger("请输入资金密码");
+        return;
       }
+      release({
+        orderSn: this.params.id,
+        jyPassword: this.params.jyPassword
+      }).then(res => {
+        let data = res.data;
+        if (data.code === 0) {
+          this.$message.success(data.message);
+          setTimeout(() => {
+            this.$router.go(-1);
+          }, 1500);
+        } else {
+          this.$message.danger(data.message);
+        }
+      });
     },
     deleteAccount() {
       if (!this.params.jyPassword) {
@@ -84,6 +134,13 @@ export default {
           this.$message.danger(data.message);
         }
       });
+    },
+    getType(type) {
+      return (
+        types.find(ele => {
+          return ele["value"] === type;
+        }) || {}
+      );
     }
   },
   mounted() {
@@ -96,12 +153,80 @@ export default {
   <div class="vv-confirm vv-panel " style="min-height: 100vh">
     <div class="vi-padding--large">
       <div class="vi-text-align--center vi-margin-bottom--large">
-        <span class="vi-font-weight--bold vi-font-size--large">
-          {{ title }}
-        </span>
+        <template v-if="params.target === 'order'">
+          <template v-if="params.handler === 'confirm'">
+            <div
+              class="vi-font-weight--bold vi-font-size--large vi-margin-bottom--large"
+            >
+              订单放行
+            </div>
+            <div class="vi-margin-bottom">
+              <div class="vi-margin-bottom vi-center">
+                <vui-image
+                  height="24px"
+                  width="40px"
+                  fill-type="height"
+                  align-type="center"
+                  :src="getType(params.type)['icon']"
+                >
+                </vui-image>
+              </div>
+              <div class="vi-margin-bottom">
+                <span>
+                  ￥
+                </span>
+                <span class="vi-font-weight--bold" style="font-size: 24px">
+                  {{ params.money }}
+                </span>
+              </div>
+              <div>
+                <span class="vi-color--light">{{ params.id }}</span>
+              </div>
+            </div>
+            <div>
+              <span class="vi-color--danger vi-font-weight--bold">
+                请谨慎放行，放行后不可追回
+              </span>
+            </div>
+          </template>
+        </template>
+        <template v-if="params.target === 'account'">
+          <div class="vi-margin-bottom--large">
+            <template v-if="params.handler === 'toggle'">
+              <template v-if="params.checked === 0">
+                <div class="vi-font-weight--bold vi-font-size--large">
+                  开启账号
+                </div>
+              </template>
+              <template v-else>
+                <div class="vi-font-weight--bold vi-font-size--large">
+                  关闭账号
+                </div>
+              </template>
+            </template>
+            <template v-if="params.handler === 'del'">
+              <div class="vi-font-weight--bold vi-font-size--large">
+                删除账号
+              </div>
+            </template>
+          </div>
+          <div class="vi-margin-bottom vi-center">
+            <vui-image
+              height="24px"
+              width="40px"
+              fill-type="height"
+              align-type="center"
+              :src="getType(params.type)['icon']"
+            >
+            </vui-image>
+          </div>
+          <div>
+            <span class="vi-color--primary">{{ params.name }}</span>
+          </div>
+        </template>
       </div>
       <div class="vi-border is-border--bottom is-border--thiner">
-        <div class="  vi-input is-input--larger">
+        <div class=" vi-input is-input--larger is-inre">
           <div
             style="line-height: 44px;width:80px"
             class="vi-padding-right vi-padding-left vi-text-align--right"

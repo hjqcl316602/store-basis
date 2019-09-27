@@ -1,36 +1,22 @@
 <script>
 import { loginOut } from "../request/login";
-
-let iconHeadEmpty = require("../image/icon-head-normal.png");
+import { mapState } from "vuex";
+import { iconHeadNormal } from "../image";
 export default {
   name: "vv-user",
   data() {
     return {
       icon: {
-        headEmpty: iconHeadEmpty
+        headEmpty: iconHeadNormal
       }
     };
   },
   props: {},
-  computed: {},
-  methods: {
-    loginOut() {
-      loginOut()
-        .then(res => {
-          let data = res["data"];
-          if (data["code"] === 0) {
-            this.$store.commit("set/user/member", data["data"]);
-            this.$message.success("退出成功");
-            setTimeout(() => {
-              this.$router.replace("/login");
-            }, 1500);
-          } else {
-            this.$message.danger(data["message"]);
-          }
-        })
-        .catch(err => {});
-    }
-  },
+  computed: mapState({
+    member: state => state.member || {},
+    orderTradding: state => state.order.tradding
+  }),
+  methods: {},
   mounted() {}
 };
 </script>
@@ -45,29 +31,38 @@ export default {
               width="100%"
               height="100%"
               fill-type="min"
-              :src="icon.headEmpty"
+              :src="member.avatar"
             >
               <div slot="error">
-                <span>失败</span>
+                <img :src="icon.headEmpty" alt="" class="vi-cover" />
               </div>
             </vui-image>
           </div>
           <div class="vi-margin-left">
-            <span>huangjunquan</span>
+            <span class="vi-font-weight--bold vi-color--primary"
+              >{{ member.username }} | {{ member.realName }}</span
+            >
           </div>
         </div>
       </div>
       <div class="vv-panel vi-margin-bottom--large">
         <div
           class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center vi-border is-border--bottom is-border--thiner"
-          @click="$router.push('/order-withdraw')"
+          @click="$router.push('/order/withdraw')"
         >
           <div>
-            <vui-tag label="0">
+            <template v-if="orderTradding.sell > 0">
+              <vui-tag :label="orderTradding.sell">
+                <span class="">
+                  卖出订单
+                </span>
+              </vui-tag>
+            </template>
+            <template v-else>
               <span class="">
-                买入订单
+                卖出订单
               </span>
-            </vui-tag>
+            </template>
           </div>
           <div>
             <i class="iconfont icon-jiantou"></i>
@@ -75,12 +70,21 @@ export default {
         </div>
         <div
           class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center vi-border is-border--bottom is-border--thiner"
-          @click="$router.push('/order-recharge')"
+          @click="$router.push('/order/recharge')"
         >
           <div>
-            <span class="">
-              卖出订单
-            </span>
+            <template v-if="orderTradding.buy > 0">
+              <vui-tag :label="orderTradding.buy">
+                <span class="">
+                  买入订单
+                </span>
+              </vui-tag>
+            </template>
+            <template v-else>
+              <span class="">
+                买入订单
+              </span>
+            </template>
           </div>
           <div>
             <i class="iconfont icon-jiantou"></i>
@@ -88,12 +92,21 @@ export default {
         </div>
         <div
           class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center  "
-          @click="$router.push('/order-custom')"
+          @click="$router.push('/order/custom')"
         >
           <div>
-            <span class="">
-              申述订单
-            </span>
+            <template v-if="orderTradding.appeal > 0">
+              <vui-tag :label="orderTradding.appeal">
+                <span class="">
+                  申述订单
+                </span>
+              </vui-tag>
+            </template>
+            <template v-else>
+              <span class="">
+                申述订单
+              </span>
+            </template>
           </div>
           <div>
             <i class="iconfont icon-jiantou"></i>
@@ -170,7 +183,7 @@ export default {
       <div class="vv-panel">
         <div
           class="vi-padding--large vi-flex vi-justify-content--space-between vi-align-items--center "
-          @click="$router.push('/record')"
+          @click="$router.push('/set')"
         >
           <div>
             <span class=""> 设置 </span>

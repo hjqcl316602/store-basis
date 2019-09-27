@@ -49,7 +49,7 @@ export let offAdvertise = params =>
 
 /**
  * 时间：2019/9/22 ,
- * 描述：删除广告
+ * 描述：创建广告
  * params :{
       number: '',
       pay: [],
@@ -61,6 +61,22 @@ export let offAdvertise = params =>
  */
 export let createAdvertise = params =>
   axios.post(config.http + "/otc/advertise/createStable", params);
+
+/**
+ * 时间：2019/9/22 ,
+ * 描述：更新广告
+ * params :{
+ *    id:''
+      number: '',
+      pay: [],
+      jyPassword: '',
+      minLimit: '', // 可不填
+      maxLimit: '', // 可不填
+      advertiseType: ''
+ * }
+ */
+export let updateAdvertise = params =>
+  axios.post(config.http + "/otc/advertise/updateStable", params);
 
 /**
  * 时间：2019/9/22 ,

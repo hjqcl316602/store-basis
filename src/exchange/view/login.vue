@@ -27,16 +27,26 @@ export default {
             "app/login/message",
             JSON.stringify(this.params)
           );
-          this.$store.commit("set/user/member", data["data"]);
+          let message = data.data;
 
-          localStorage.setItem(
-            "app/service/token",
-            data["data"] ? data["data"]["token"] : ""
-          );
-          this.$message.success("恭喜您，登录成功");
-          setTimeout(() => {
-            this.$router.replace("/home");
-          }, 1500);
+          if (message != null) {
+            let token = message.token;
+            this.$store.commit("set/user/member", message);
+            localStorage.setItem("app/service/token", token);
+            this.$message.success("恭喜您，登录成功");
+            let redirect = localStorage.getItem("app/login/redirect");
+            localStorage.removeItem("app/login/redirect");
+            setTimeout(() => {
+              if (redirect) {
+                //window.location.href = redirect;
+                this.$router.replace(redirect.split("#")[1]);
+              } else {
+                this.$router.replace("/home");
+              }
+            }, 1500);
+          } else {
+            this.$message.danger("获取登录信息失败，请重试");
+          }
         } else {
           this.$message.danger(data["message"]);
         }
