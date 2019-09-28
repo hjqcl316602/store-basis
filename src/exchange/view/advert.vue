@@ -364,7 +364,11 @@ export default {
         </div>
       </div>
     </vui-popup>
-    <vui-loadmore @load="loadmore" :can-load="canLoad">
+    <vui-loadmore
+      @load="loadmore"
+      :can-load="canLoad"
+      v-if="params.list.length > 0"
+    >
       <div
         class="vv-panel vi-border is-border--bottom is-border--thiner vi-padding--large"
         v-for="(item, index) in params.list"
@@ -449,6 +453,30 @@ export default {
         <span class="vi-color--gray">总共{{ this.params.total }}条广告</span>
       </div>
     </vui-loadmore>
+    <div
+      class="vi-padding--large vi-center"
+      style="height: 100vh;padding-bottom: 50px"
+      v-else
+    >
+      <div class="vi-text-align--center">
+        <div class="vi-margin-bottom">
+          <i
+            class="iconfont icon-meiyoudingdan-01 vi-color--gray vi-font-size--large"
+          ></i>
+        </div>
+        <div>
+          <span class="vi-color--gray">
+            暂无广告，
+            <span
+              class="vi-color--primary"
+              @click="$router.push({ path: '/advert-edit/create' })"
+            >
+              去发布
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
 
     <div class="vv-footer">
       <div

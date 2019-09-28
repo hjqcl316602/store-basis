@@ -145,7 +145,7 @@ export default {
 </script>
 
 <template>
-  <div class="vv-order-withdraw">
+  <div class="">
     <div v-if="params.list.length > 0">
       <div
         class="vv-panel vi-padding--large vi-border is-border--bottom is-border--thiner"

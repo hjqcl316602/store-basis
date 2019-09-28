@@ -6,24 +6,9 @@ const user = r =>
   require.ensure([], () => r(require("../view/user.vue")), "user");
 const order = r =>
   require.ensure([], () => r(require("../view/order.vue")), "order");
-const orderWithdraw = r =>
-  require.ensure(
-    [],
-    () => r(require("../view/order-withdraw.vue")),
-    "orderWithdraw"
-  );
-const orderRecharge = r =>
-  require.ensure(
-    [],
-    () => r(require("../view/order-recharge.vue")),
-    "orderRecharge"
-  );
-const orderCustom = r =>
-  require.ensure(
-    [],
-    () => r(require("../view/order-custom.vue")),
-    "orderCustom"
-  );
+const orderList = r =>
+  require.ensure([], () => r(require("../view/order-list.vue")), "orderList");
+
 const orderDetail = r =>
   require.ensure(
     [],
@@ -55,6 +40,8 @@ const transfer = r =>
 const confirm = r =>
   require.ensure([], () => r(require("../view/confirm.vue")), "confirm");
 const set = r => require.ensure([], () => r(require("../view/set.vue")), "set");
+const password = r =>
+  require.ensure([], () => r(require("../view/password.vue")), "password");
 const routes = [
   { path: "*", redirect: "/home", meta: { hide: true } },
   { path: "/", redirect: "/home", meta: { hide: true } },
@@ -83,23 +70,12 @@ const routes = [
     meta: { title: "订单" }
   },
   {
-    path: "/order-withdraw",
-    name: "orderWithdraw",
-    component: orderWithdraw,
-    meta: { title: "买入订单" }
+    path: "/order-list",
+    name: "orderList",
+    component: orderList,
+    meta: { title: "订单" }
   },
-  {
-    path: "/order-recharge",
-    name: "orderRecharge",
-    component: orderRecharge,
-    meta: { title: "卖出订单" }
-  },
-  {
-    path: "/order-custom",
-    name: "orderCustom",
-    component: orderCustom,
-    meta: { title: "申述订单" }
-  },
+
   {
     path: "/order-detail",
     name: "orderDetail",
@@ -159,6 +135,12 @@ const routes = [
     name: "set",
     component: set,
     meta: { title: "设置" }
+  },
+  {
+    path: "/password",
+    name: "password",
+    component: password,
+    meta: { title: "资金密码" }
   }
 ];
 export default routes;

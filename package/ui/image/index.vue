@@ -110,7 +110,7 @@ export default {
         this.status.load = "loaded";
 
         setTimeout(() => {
-          console.log("lodad");
+          //console.log("lodad");
           this.status.result = "success";
           this.$el.style["background-image"] = `url(${this.src})`;
           this.loadingSuccess && this.loadingSuccess();
@@ -141,7 +141,7 @@ export default {
   },
   watch: {
     src(val) {
-      console.log(val);
+      //console.log(val);
       this.initialize();
     }
   }

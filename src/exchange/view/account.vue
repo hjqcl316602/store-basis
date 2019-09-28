@@ -325,11 +325,10 @@ export default {
       @click="selectAcount(item)"
     >
       <div class="vv-panel vi-padding--large">
-        <div class=" vi-margin-bottom">
+        <div class="">
           <div class="">
             <div
-              class="vi-flex vi-justify-content--space-between"
-              style="line-height: 36px"
+              class="vi-flex vi-justify-content--space-between vi-margin-bottom"
             >
               <div class="">
                 <vui-image
@@ -366,14 +365,14 @@ export default {
                 style="line-height: 28px"
               >
                 <span class="vi-color--gray">真实姓名</span>
-                <span class="">{{ item.realName }}</span>
+                <span class="vi-color--light">{{ item.realName }}</span>
               </div>
               <div
                 class=" vi-flex vi-justify-content--space-between"
                 style="line-height: 28px"
               >
                 <span class="vi-color--gray">开户行</span>
-                <span class="">
+                <span class="vi-color--light">
                   {{ item.name }}
                 </span>
               </div>
@@ -382,7 +381,7 @@ export default {
                 style="line-height: 28px"
               >
                 <span class="vi-color--gray">简称</span>
-                <span class="">
+                <span class="vi-color--light">
                   {{ item.alipayOrMask || "--" }}
                 </span>
               </div>
@@ -413,14 +412,14 @@ export default {
                 style="line-height: 28px"
               >
                 <span class="vi-color--gray">真实姓名</span>
-                <span class="">{{ item.realName }}</span>
+                <span class="vi-color--light">{{ item.realName }}</span>
               </div>
               <div
                 class=" vi-flex vi-justify-content--space-between"
                 style="line-height: 28px"
               >
                 <span class="vi-color--gray">ID号</span>
-                <span class="">
+                <span class="vi-color--light">
                   {{ item.alipayOrMask || "--" }}
                 </span>
               </div>
@@ -445,36 +444,6 @@ export default {
                 </span>
               </div>
             </template>
-          </div>
-        </div>
-        <div class="vi-text-align--right" v-if="false">
-          <div
-            class="vi-btn  is-btn--radius is-btn--smaller is-btn--hollow is-btn--thiner"
-            v-if="item.type !== 1"
-            @click="preview(item)"
-          >
-            预览
-          </div>
-          <div
-            class="vi-btn is-btn--primary is-btn--radius is-btn--smaller is-btn--hollow is-btn--thiner"
-            v-if="item.checked === 0"
-            @click="handler('toggle', item)"
-          >
-            开启
-          </div>
-          <div
-            class="vi-btn is-btn--warning is-btn--radius is-btn--smaller is-btn--hollow is-btn--thiner"
-            v-else
-            @click="handler('toggle', item)"
-          >
-            关闭
-          </div>
-          <div
-            class="vi-btn is-btn--danger is-btn--radius is-btn--smaller is-btn--hollow is-btn--thiner"
-            v-if="item.checked === 0"
-            @click="handler('del', item)"
-          >
-            删除
           </div>
         </div>
       </div>

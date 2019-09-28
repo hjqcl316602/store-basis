@@ -2,6 +2,8 @@
 import { loginOut } from "../request/login";
 import { mapState } from "vuex";
 import { iconHeadNormal } from "../image";
+import { getTraddingOrder } from "../request/order";
+
 export default {
   name: "vv-user",
   data() {
@@ -16,8 +18,25 @@ export default {
     member: state => state.member || {},
     orderTradding: state => state.order.tradding
   }),
-  methods: {},
-  mounted() {}
+  methods: {
+    init() {
+      this.getTraddingOrder();
+    },
+    getTraddingOrder() {
+      getTraddingOrder().then(res => {
+        let data = res.data;
+        if (data.code === 0) {
+          let message = data.data;
+          this.$store.commit("set/order/traddding", message);
+        } else {
+          this.$message.danger(data["message"]);
+        }
+      });
+    }
+  },
+  mounted() {
+    this.init();
+  }
 };
 </script>
 
@@ -154,6 +173,7 @@ export default {
         <div
           class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
           style="line-height: 48px"
+          @click="$router.push('/order-list')"
         >
           <div>
             <span class="vi-font-size--medium">
