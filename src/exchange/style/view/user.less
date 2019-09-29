@@ -13,3 +13,43 @@
   border-radius: 100%;
   overflow: hidden;
 }
+
+.vv-track {
+  position: relative;
+  overflow: hidden;
+}
+.vv-track:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 0;
+  padding-top: 140%;
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 10em;
+}
+
+.vv-track.is-track--active:before {
+  animation-name: fadeUpDown;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-duration: 1.5s;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fadeUpDown {
+  0% {
+    width: 0;
+    padding-top: 0;
+    background-color: transparent;
+  }
+  100% {
+    width: 140%;
+    padding-top: 140%;
+    background-color: @color-danger;
+  }
+}

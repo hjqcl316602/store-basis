@@ -73,3 +73,14 @@ export let deleteAccount = params =>
  */
 export let toggleAccount = params =>
   axios.post(config.http + "/uc/approve/toggle/payInfo", params);
+
+/**
+ * 时间：2019/9/22 ,
+ * 描述：收款金额
+ * params :{
+ * startTime : // 开始时间
+ * endTime:   // 结束时间
+ * }
+ */
+export let getWithdraw = params =>
+  axios.post(config.http + "/uc/asset/transaction/withdraw", params);

@@ -311,7 +311,7 @@ export default {
         </div>
         <div>
           <span class="vi-color--gray">
-            暂无{{
+            无{{
               params.type === "withdraw"
                 ? "卖出"
                 : params.type === "recharge"

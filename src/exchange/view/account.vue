@@ -356,7 +356,7 @@ export default {
                 style="line-height: 28px"
               >
                 <span class="vi-color--gray">卡号</span>
-                <span class="vi-font-weight--bold vi-color--primary">
+                <span class=" ">
                   {{ item.url }}
                 </span>
               </div>
@@ -392,7 +392,7 @@ export default {
                 style="line-height: 28px"
               >
                 <span class="vi-color--gray">账号</span>
-                <span class="vi-font-weight--bold vi-color--primary">
+                <span class=" ">
                   {{ item.name }}
                 </span>
               </div>
@@ -403,7 +403,7 @@ export default {
                 style="line-height: 28px"
               >
                 <span class="vi-color--gray">账号</span>
-                <span class="vi-font-weight--bold vi-color--primary">
+                <span class=" ">
                   {{ item.name }}
                 </span>
               </div>
@@ -430,7 +430,7 @@ export default {
                 style="line-height: 28px"
               >
                 <span class="vi-color--gray ">账号</span>
-                <span class="vi-font-weight--bold vi-color--primary">
+                <span class=" ">
                   {{ item.name }}
                 </span>
               </div>

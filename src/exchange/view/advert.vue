@@ -402,7 +402,7 @@ export default {
           style="line-height: 28px"
         >
           <span class="vi-color--gray">剩余数量</span>
-          <span class="vi-font-weight--bold vi-color--primary">
+          <span class="vi-font-weight--bold ">
             {{ item.remainAmount }}
           </span>
         </div>
@@ -466,7 +466,7 @@ export default {
         </div>
         <div>
           <span class="vi-color--gray">
-            暂无广告，
+            无广告，
             <span
               class="vi-color--primary"
               @click="$router.push({ path: '/advert-edit/create' })"

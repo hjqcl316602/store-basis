@@ -64,6 +64,7 @@ export default {
   name: "",
   data() {
     return {
+      query: {},
       params: {
         pageNo: 1,
         pageSize: 10,
@@ -80,12 +81,18 @@ export default {
     }
   },
   methods: {
+    init() {
+      this.query = Object.assign(this.query, this.$route.query);
+      this.getTransaction();
+    },
     getTransaction(more = false) {
       if (this.params.load) return false;
       this.params.load = true;
       getTransaction({
         pageNo: this.params.pageNo,
-        pageSize: this.params.pageSize
+        pageSize: this.params.pageSize,
+        startTime: this.query.startTime,
+        endTime: this.query.endTime
       })
         .then(res => {
           let data = res["data"];
@@ -125,93 +132,109 @@ export default {
   },
 
   mounted() {
-    this.getTransaction();
+    this.init();
   }
 };
 </script>
 
 <template>
   <div class="vv-record">
-    <vui-loadmore @load="loadmore" :can-load="canLoad">
-      <div
-        class="vv-panel vi-border is-border--bottom is-border--thiner"
-        v-for="(item, index) in params.list"
-        :key="index"
-      >
-        <div class="vi-padding--large">
-          <div
-            class="vi-flex vi-justify-content--space-between"
-            style="line-height: 28px"
-          >
-            <div>
-              <span class="vi-color--gray">
-                数量
-              </span>
+    <div v-if="params.list.length > 0">
+      <vui-loadmore @load="loadmore" :can-load="canLoad">
+        <div
+          class="vv-panel vi-border is-border--bottom is-border--thiner"
+          v-for="(item, index) in params.list"
+          :key="index"
+        >
+          <div class="vi-padding--large">
+            <div
+              class="vi-flex vi-justify-content--space-between"
+              style="line-height: 28px"
+            >
+              <div>
+                <span class="vi-color--gray">
+                  数量
+                </span>
+              </div>
+              <div class="">
+                <span
+                  class=" vi-font-weight--bold vi-font-size--large "
+                  :class="getRecordType(item.type).className"
+                >
+                  {{ item.amount }}
+                </span>
+              </div>
             </div>
-            <div class="">
-              <span
-                class=" vi-font-weight--bold vi-font-size--large "
-                :class="getRecordType(item.type).className"
-              >
-                {{ item.amount }}
-              </span>
+            <div
+              class="vi-flex vi-justify-content--space-between  "
+              style="line-height: 28px"
+            >
+              <div>
+                <span class="vi-color--gray">
+                  币种
+                </span>
+              </div>
+              <div class="">
+                <span class="vi-color--light">
+                  {{ item["symbol"] }}
+                </span>
+              </div>
             </div>
-          </div>
-          <div
-            class="vi-flex vi-justify-content--space-between  "
-            style="line-height: 28px"
-          >
-            <div>
-              <span class="vi-color--gray">
-                币种
-              </span>
+            <div
+              class="vi-flex vi-justify-content--space-between "
+              style="line-height: 28px"
+            >
+              <div>
+                <span class="vi-color--gray">
+                  类型
+                </span>
+              </div>
+              <div class="">
+                <span class="vi-color--light">
+                  {{ getRecordType(item["type"])["label"] }}
+                </span>
+              </div>
             </div>
-            <div class="">
-              <span class="vi-color--light">
-                {{ item["symbol"] }}
-              </span>
-            </div>
-          </div>
-          <div
-            class="vi-flex vi-justify-content--space-between "
-            style="line-height: 28px"
-          >
-            <div>
-              <span class="vi-color--gray">
-                类型
-              </span>
-            </div>
-            <div class="">
-              <span class="vi-color--light">
-                {{ getRecordType(item["type"])["label"] }}
-              </span>
-            </div>
-          </div>
 
-          <div
-            class="vi-flex vi-justify-content--space-between "
-            style="line-height: 28px"
-          >
-            <div>
-              <span class="vi-color--gray">
-                交易时间
-              </span>
-            </div>
-            <div class="">
-              <span class="vi-color--light">
-                {{ item.createTime }}
-              </span>
+            <div
+              class="vi-flex vi-justify-content--space-between "
+              style="line-height: 28px"
+            >
+              <div>
+                <span class="vi-color--gray">
+                  交易时间
+                </span>
+              </div>
+              <div class="">
+                <span class="vi-color--light">
+                  {{ item.createTime }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
+        <div
+          slot="footer"
+          v-if="params.total > 5 && params.total === params.list.length"
+          class="vi-padding--large vi-text-align--center"
+        >
+          <span class="vi-color--gray">总共{{ this.params.total }}条流水</span>
+        </div>
+      </vui-loadmore>
+    </div>
+    <div class="vi-padding--large vi-center" style="height: 100vh" v-else>
+      <div class="vi-text-align--center">
+        <div class="vi-margin-bottom">
+          <i
+            class="iconfont icon-meiyoudingdan-01 vi-color--gray vi-font-size--large"
+          ></i>
+        </div>
+        <div>
+          <span class="vi-color--gray">
+            无流水信息
+          </span>
+        </div>
       </div>
-      <div
-        slot="footer"
-        v-if="params.total > 5 && params.total === params.list.length"
-        class="vi-padding--large vi-text-align--center"
-      >
-        <span class="vi-color--gray">总共{{ this.params.total }}条流水</span>
-      </div>
-    </vui-loadmore>
+    </div>
   </div>
 </template>

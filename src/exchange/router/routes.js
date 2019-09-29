@@ -1,7 +1,8 @@
 const login = r =>
   require.ensure([], () => r(require("../view/login.vue")), "login");
-const home = r =>
-  require.ensure([], () => r(require("../view/home.vue")), "home");
+const sell = r =>
+  require.ensure([], () => r(require("../view/sell.vue")), "sell");
+const buy = r => require.ensure([], () => r(require("../view/buy.vue")), "buy");
 const user = r =>
   require.ensure([], () => r(require("../view/user.vue")), "user");
 const order = r =>
@@ -43,8 +44,8 @@ const set = r => require.ensure([], () => r(require("../view/set.vue")), "set");
 const password = r =>
   require.ensure([], () => r(require("../view/password.vue")), "password");
 const routes = [
-  { path: "*", redirect: "/home", meta: { hide: true } },
-  { path: "/", redirect: "/home", meta: { hide: true } },
+  { path: "*", redirect: "/user", meta: { hide: true } },
+  { path: "/", redirect: "/user", meta: { hide: true } },
   {
     path: "/login",
     name: "login",
@@ -52,16 +53,22 @@ const routes = [
     meta: { title: "登录" }
   },
   {
-    path: "/home",
-    name: "home",
-    component: home,
-    meta: { title: "首页" }
+    path: "/buy",
+    name: "buy",
+    component: buy,
+    meta: { title: "买入订单" }
+  },
+  {
+    path: "/sell",
+    name: "sell",
+    component: sell,
+    meta: { title: "卖出订单" }
   },
   {
     path: "/user",
     name: "user",
     component: user,
-    meta: { title: "个人中心" }
+    meta: { title: "我的" }
   },
   {
     path: "/order/:type",

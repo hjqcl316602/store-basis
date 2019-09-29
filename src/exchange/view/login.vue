@@ -46,7 +46,7 @@ export default {
                 //window.location.href = redirect;
                 this.$router.replace(redirect.split("#")[1]);
               } else {
-                this.$router.replace("/home");
+                this.$router.replace("/user");
               }
             }, 1500);
           } else {

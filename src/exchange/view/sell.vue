@@ -52,7 +52,7 @@ export default {
       params: {
         pageNo: 1,
         pageSize: 10,
-        advertiseType: 1,
+        advertiseType: 0,
         unit: "ttm",
         list: [],
         total: 0,
@@ -206,13 +206,17 @@ export default {
 
     <div class="vv-footer vi-border is-border--top is-border--thiner">
       <div class="vv-tabbar is-tabbar--white">
+        <div class="vv-tabbar-child " @click="$router.replace('/buy')">
+          <i class="iconfont icon-mairu vv-tabbar-icon"></i>
+          <span class="vv-tabbar-text">买入</span>
+        </div>
         <div class="vv-tabbar-child is-tabbar--active">
-          <i class="iconfont icon-shouye vv-tabbar-icon"></i>
-          <span class="vv-tabbar-text">首页</span>
+          <i class="iconfont icon-maichu vv-tabbar-icon"></i>
+          <span class="vv-tabbar-text">卖出</span>
         </div>
         <div class="vv-tabbar-child" @click="$router.replace('/user')">
-          <i class="iconfont icon-zhanghao vv-tabbar-icon"></i>
-          <span class="vv-tabbar-text">个人中心</span>
+          <i class="iconfont icon-wode1 vv-tabbar-icon"></i>
+          <span class="vv-tabbar-text">我的</span>
         </div>
       </div>
     </div>
