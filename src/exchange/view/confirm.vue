@@ -1,42 +1,7 @@
 <script>
 import { deleteAccount, toggleAccount } from "../request";
 import { release } from "../request/order";
-import {
-  iconHeadNormal,
-  iconAli,
-  iconWx,
-  iconUnion,
-  iconCard,
-  iconPolymer
-} from "../image";
 
-let types = [
-  {
-    text: "银联",
-    icon: iconCard,
-    value: 1
-  },
-  {
-    text: "微信",
-    icon: iconWx,
-    value: 2
-  },
-  {
-    text: "支付宝",
-    icon: iconAli,
-    value: 3
-  },
-  {
-    text: "云闪付",
-    icon: iconUnion,
-    value: 4
-  },
-  {
-    text: "聚合码",
-    icon: iconPolymer,
-    value: 5
-  }
-];
 export default {
   name: "",
   data() {
@@ -58,7 +23,22 @@ export default {
   methods: {
     init() {
       this.params = Object.assign(this.params, this.$route.query);
-      console.log(this.params);
+      this.setTitle();
+    },
+    setTitle() {
+      let title = "";
+      if (this.params.target === "order") {
+        if (this.params.handler === "confirm") {
+          title = "订单放行";
+        }
+      } else if (this.params.target === "account") {
+        if (this.params.handler === "toggle") {
+          title = this.params.checked === 0 ? "开启账号" : "关闭账号";
+        } else {
+          title = "删除账号";
+        }
+      }
+      document.title = title;
     },
     sure() {
       if (this.params.target === "account") {
@@ -106,7 +86,7 @@ export default {
         if (data.code === 0) {
           this.$message.success("账号删除成功");
           setTimeout(() => {
-            this.$router.go(-1);
+            this.$router.go(-2);
           }, 1500);
         } else {
           this.$message.danger(data.message);
@@ -128,19 +108,12 @@ export default {
         if (data.code === 0) {
           this.$message.success("账号切换成功");
           setTimeout(() => {
-            this.$router.go(-1);
+            this.$router.go(-2);
           }, 1500);
         } else {
           this.$message.danger(data.message);
         }
       });
-    },
-    getType(type) {
-      return (
-        types.find(ele => {
-          return ele["value"] === type;
-        }) || {}
-      );
     }
   },
   mounted() {
@@ -155,11 +128,6 @@ export default {
       <div class="vi-text-align--center vi-margin-bottom--large">
         <template v-if="params.target === 'order'">
           <template v-if="params.handler === 'confirm'">
-            <div
-              class="vi-font-weight--bold vi-font-size--large vi-margin-bottom--large"
-            >
-              订单放行
-            </div>
             <div class="vi-margin-bottom">
               <div class="vi-margin-bottom vi-center">
                 <vui-image
@@ -167,7 +135,7 @@ export default {
                   width="40px"
                   fill-type="height"
                   align-type="center"
-                  :src="getType(params.type)['icon']"
+                  :src="$getAdvertTypes(params.type).icon"
                 >
                 </vui-image>
               </div>
@@ -191,32 +159,13 @@ export default {
           </template>
         </template>
         <template v-if="params.target === 'account'">
-          <div class="vi-margin-bottom--large">
-            <template v-if="params.handler === 'toggle'">
-              <template v-if="params.checked === 0">
-                <div class="vi-font-weight--bold vi-font-size--large">
-                  开启账号
-                </div>
-              </template>
-              <template v-else>
-                <div class="vi-font-weight--bold vi-font-size--large">
-                  关闭账号
-                </div>
-              </template>
-            </template>
-            <template v-if="params.handler === 'del'">
-              <div class="vi-font-weight--bold vi-font-size--large">
-                删除账号
-              </div>
-            </template>
-          </div>
           <div class="vi-margin-bottom vi-center">
             <vui-image
               height="24px"
               width="40px"
               fill-type="height"
               align-type="center"
-              :src="getType(params.type)['icon']"
+              :src="$getAdvertTypes(params.type).icon"
             >
             </vui-image>
           </div>
@@ -251,7 +200,7 @@ export default {
       </div>
       <div class="vi-margin-top--large">
         <div
-          class="vi-btn is-btn--primary is-btn--pack is-btn--long"
+          class="vi-btn is-btn--primary is-btn--hollow is-btn--long is-btn--thiner is-btn--radius"
           @click="sure"
         >
           确定

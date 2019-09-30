@@ -105,11 +105,11 @@ export default {
 </script>
 
 <template>
-  <div class="vv-user vv-panel" style="min-height: 100vh;">
+  <div class="vv-user">
     <div>
-      <div class="vv-panel vi-border is-border--bottom is-border--thiner">
+      <div class="vi-margin-bottom--small">
         <div
-          class="vi-padding--large vi-padding-bottom--larger vi-padding-top--larger vi-border is-border--bottom is-border--thiner"
+          class="vv-panel vi-padding--large vi-padding-bottom--larger vi-padding-top--larger "
         >
           <div
             class="vi-flex vi-justify-content--space-between vi-align-items--center "
@@ -148,10 +148,13 @@ export default {
             </div>
           </div>
         </div>
-        <div class="vi-flex">
-          <div class="vi-span--12  " @click="check('today')">
+      </div>
+      <div class="vi-margin-bottom--small" style="overflow: hidden;">
+        <vui-grid gutter="4">
+          <vui-grid-child span="12">
             <div
-              class="vi-padding--large vi-border is-border--right is-border--thiner vi-center"
+              class="vv-panel vi-padding--large vi-padding-bottom--larger vi-padding-top--larger"
+              @click="check('today')"
             >
               <div class="vi-text-align--center">
                 <div style="line-height: 28px">
@@ -165,10 +168,11 @@ export default {
                 </div>
               </div>
             </div>
-          </div>
-          <div class="vi-span--12  " @click="check('total')">
+          </vui-grid-child>
+          <vui-grid-child span="12">
             <div
-              class="vi-padding--large vi-border is-border--right is-border--thiner vi-center"
+              class=" vv-panel vi-padding--large  vi-padding-bottom--larger vi-padding-top--larger "
+              @click="check('total')"
             >
               <div class="vi-text-align--center">
                 <div style="line-height: 28px">
@@ -182,340 +186,170 @@ export default {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </vui-grid-child>
+        </vui-grid>
       </div>
-      <div
-        class="vv-panel vi-flex vi-border is-border--bottom is-border--thiner"
-      >
-        <div class="vi-span--8" @click="$router.push('/order/withdraw')">
-          <div
-            class="vv-track"
-            :class="{ 'is-track--active': orderTradding.sell > 0 }"
-          >
-            <div
-              class="vi-padding--large vi-border is-border--right is-border--thiner"
-            >
-              <div class="vi-text-align--center">
-                <div style="line-height: 28px">
-                  <i
-                    class="iconfont icon-chuku vi-font-size--large vi-color--primary"
-                  ></i>
-                </div>
-                <div style="line-height: 28px">
-                  <span class="vi-color--light vi-font-size--smaller">
-                    卖出订单
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="vi-span--8" @click="$router.push('/order/recharge')">
-          <div
-            class="vv-track"
-            :class="{ 'is-track--active': orderTradding.buy > 0 }"
-          >
-            <div
-              class="vi-padding--large vi-border is-border--right is-border--thiner"
-            >
-              <div class="vi-text-align--center">
-                <div style="line-height: 28px">
-                  <i
-                    class="iconfont icon-ruku vi-font-size--large vi-color--primary"
-                  ></i>
-                </div>
-                <div style="line-height: 28px">
-                  <span class="vi-color--light vi-font-size--smaller">
-                    买入订单
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="vi-span--8" @click="$router.push('/order/custom')">
-          <div
-            class="vv-track"
-            :class="{ 'is-track--active': orderTradding.appeal > 0 }"
-          >
-            <div
-              class="vi-padding--large vi-border is-border--right is-border--thiner"
-            >
-              <div class="vi-text-align--center">
-                <div style="line-height: 28px">
-                  <i
-                    class="iconfont icon-jingyingyichang vi-font-size--large vi-color--primary"
-                  ></i>
-                </div>
-                <div style="line-height: 28px">
-                  <span class="vi-color--light vi-font-size--smaller">
-                    申诉订单
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="vv-panel vi-flex vi-border is-border--bottom is-border--thiner"
-      >
-        <div class="vi-flex--1" @click="$router.push('/advert')">
-          <div class="">
-            <div
-              class="vi-padding--large vi-border is-border--right is-border--thiner"
-            >
-              <div class="vi-text-align--center">
-                <div style="line-height: 18px">
-                  <i
-                    class="iconfont icon-guanggao vi-font-size--large vi-color--primary"
-                  ></i>
-                </div>
-                <div style="line-height: 18px">
-                  <span class="vi-color--light vi-font-size--smaller">
-                    广告
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="vi-flex--1" @click="$router.push('/order-list')">
-          <div class=" ">
-            <div
-              class="vi-padding--large vi-border is-border--right is-border--thiner"
-            >
-              <div class="vi-text-align--center">
-                <div style="line-height: 18px">
-                  <i
-                    class="iconfont icon-dingdan3 vi-font-size--large vi-color--primary"
-                  ></i>
-                </div>
-                <div style="line-height: 18px">
-                  <span class="vi-color--light vi-font-size--smaller">
-                    订单
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="vi-flex--1" @click="$router.push('/account')">
-          <div class=" ">
-            <div
-              class="vi-padding--large vi-border is-border--right is-border--thiner"
-            >
-              <div class="vi-text-align--center">
-                <div style="line-height: 18px">
-                  <i
-                    class="iconfont icon-jingyingyichang vi-font-size--large vi-color--primary"
-                  ></i>
-                </div>
-                <div style="line-height: 18px">
-                  <span class="vi-color--light vi-font-size--smaller">
-                    账号
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="vi-flex--1" @click="$router.push('/money')">
-          <div class="">
-            <div
-              class="vi-padding--large vi-border is-border--right is-border--thiner"
-            >
-              <div class="vi-text-align--center">
-                <div style="line-height: 18px">
-                  <i
-                    class="iconfont icon-qianbao vi-font-size--large vi-color--primary"
-                  ></i>
-                </div>
-                <div style="line-height: 18px">
-                  <span class="vi-color--light vi-font-size--smaller">
-                    钱包
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="vi-flex--1" @click="$router.push('/record')" v-if="false">
-          <div class="">
-            <div
-              class="vi-padding--large vi-border is-border--right is-border--thiner"
-            >
-              <div class="vi-text-align--center">
-                <div style="line-height: 18px">
-                  <i
-                    class="iconfont icon-dingdangdaizijinliushui vi-font-size--large vi-color--primary"
-                  ></i>
-                </div>
-                <div style="line-height: 18px">
-                  <span class="vi-color--light vi-font-size--smaller">
-                    流水
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="vv-panel vi-margin-bottom--large" v-if="false">
+      <div class=" ">
         <div
-          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
-          style="line-height: 48px"
-          @click="$router.push('/order/withdraw')"
+          class="vv-panel vi-flex vi-border is-border--bottom is-border--thiner "
         >
-          <div>
-            <template v-if="orderTradding.sell > 0">
-              <vui-tag
-                :label="orderTradding.sell"
-                direction="right-center"
-                class="vi-padding-right--large"
+          <div class="vi-span--8" @click="$router.push('/order/withdraw')">
+            <div
+              class="vv-track"
+              :class="{ 'is-track--active': orderTradding.sell > 0 }"
+            >
+              <div
+                class="vi-padding--large vi-border is-border--right is-border--thiner"
               >
-                <span class="vi-font-size--medium">
-                  卖出订单
-                </span>
-              </vui-tag>
-            </template>
-            <template v-else>
-              <span class="vi-font-size--medium">
-                卖出订单
-              </span>
-            </template>
+                <div class="vi-text-align--center">
+                  <div style="line-height: 28px">
+                    <i
+                      class="iconfont icon-chuku  vi-color--primary"
+                      style="font-size: 24px"
+                    ></i>
+                  </div>
+                  <div style="line-height: 28px">
+                    <span class="vi-color--light">
+                      卖出订单
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <i class="iconfont icon-jiantou"></i>
-          </div>
-        </div>
-        <div
-          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
-          @click="$router.push('/order/recharge')"
-          style="line-height: 48px"
-        >
-          <div>
-            <template v-if="orderTradding.buy > 0">
-              <vui-tag
-                :label="orderTradding.buy"
-                direction="right-center"
-                class="vi-padding-right--large"
+          <div class="vi-span--8" @click="$router.push('/order/recharge')">
+            <div
+              class="vv-track"
+              :class="{ 'is-track--active': orderTradding.buy > 0 }"
+            >
+              <div
+                class="vi-padding--large vi-border is-border--right is-border--thiner"
               >
-                <span class="vi-font-size--medium">
-                  买入订单
-                </span>
-              </vui-tag>
-            </template>
-            <template v-else>
-              <span class="vi-font-size--medium">
-                买入订单
-              </span>
-            </template>
+                <div class="vi-text-align--center">
+                  <div style="line-height: 28px">
+                    <i
+                      class="iconfont icon-ruku  vi-color--primary"
+                      style="font-size: 24px"
+                    ></i>
+                  </div>
+                  <div style="line-height: 28px">
+                    <span class="vi-color--light ">
+                      买入订单
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <i class="iconfont icon-jiantou"></i>
+          <div class="vi-span--8" @click="$router.push('/order/custom')">
+            <div
+              class="vv-track"
+              :class="{ 'is-track--active': orderTradding.appeal > 0 }"
+            >
+              <div class="vi-padding--large ">
+                <div class="vi-text-align--center">
+                  <div style="line-height: 28px">
+                    <i
+                      class="iconfont icon-jingyingyichang  vi-color--primary"
+                      style="font-size: 24px"
+                    ></i>
+                  </div>
+                  <div style="line-height: 28px">
+                    <span class="vi-color--light ">
+                      申诉订单
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div
-          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between   "
-          @click="$router.push('/order/custom')"
-          style="line-height: 48px"
+          class="vv-panel vi-flex vi-border is-border--bottom is-border--thiner"
         >
-          <div>
-            <template v-if="orderTradding.appeal > 0">
-              <vui-tag
-                :label="orderTradding.appeal"
-                direction="right-center"
-                class="vi-padding-right--large"
+          <div class="vi-flex--1" @click="$router.push('/advert')">
+            <div class="">
+              <div
+                class="vi-padding--large vi-border is-border--right is-border--thiner"
               >
-                <span class="vi-font-size--medium">
-                  申述订单
-                </span>
-              </vui-tag>
-            </template>
-            <template v-else>
-              <span class="vi-font-size--medium">
-                申述订单
-              </span>
-            </template>
+                <div class="vi-text-align--center">
+                  <div style="line-height: 18px">
+                    <i
+                      class="iconfont icon-guanggao  vi-color--primary"
+                      style="font-size: 24px"
+                    ></i>
+                  </div>
+                  <div style="line-height: 18px">
+                    <span class="vi-color--light ">
+                      广告
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <i class="iconfont icon-jiantou"></i>
+          <div class="vi-flex--1" @click="$router.push('/order-list')">
+            <div class=" ">
+              <div
+                class="vi-padding--large vi-border is-border--right is-border--thiner"
+              >
+                <div class="vi-text-align--center">
+                  <div style="line-height: 18px">
+                    <i
+                      class="iconfont icon-dingdan3  vi-color--primary"
+                      style="font-size: 24px"
+                    ></i>
+                  </div>
+                  <div style="line-height: 18px">
+                    <span class="vi-color--light ">
+                      订单
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="vv-panel vi-margin-bottom--large" v-if="false">
-        <div
-          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
-          @click="$router.push('/advert')"
-          style="line-height: 48px"
-        >
-          <div>
-            <span class="vi-font-size--medium">
-              我的广告
-            </span>
+          <div class="vi-flex--1" @click="$router.push('/account')">
+            <div class=" ">
+              <div
+                class="vi-padding--large vi-border is-border--right is-border--thiner"
+              >
+                <div class="vi-text-align--center">
+                  <div style="line-height: 18px">
+                    <i
+                      class="iconfont icon-zhanghaoguanli  vi-color--primary"
+                      style="font-size: 24px"
+                    ></i>
+                  </div>
+                  <div style="line-height: 18px">
+                    <span class="vi-color--light ">
+                      账号
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <i class="iconfont icon-jiantou"></i>
-          </div>
-        </div>
-        <div
-          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
-          style="line-height: 48px"
-          @click="$router.push('/order-list')"
-        >
-          <div>
-            <span class="vi-font-size--medium">
-              我的订单
-            </span>
-          </div>
-          <div>
-            <i class="iconfont icon-jiantou"></i>
-          </div>
-        </div>
-        <div
-          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
-          @click="$router.push('/account')"
-          style="line-height: 48px"
-        >
-          <div>
-            <span class="vi-font-size--medium">
-              我的账号
-            </span>
-          </div>
-          <div>
-            <i class="iconfont icon-jiantou"></i>
-          </div>
-        </div>
-        <div
-          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  vi-border is-border--bottom is-border--thiner"
-          @click="$router.push('/money')"
-          style="line-height: 48px"
-        >
-          <div>
-            <span class="vi-font-size--medium">
-              我的钱包
-            </span>
-          </div>
-          <div>
-            <i class="iconfont icon-jiantou"></i>
-          </div>
-        </div>
-        <div
-          class="vi-padding-right--large vi-padding-left--large vi-flex vi-justify-content--space-between  "
-          @click="$router.push('/record')"
-          style="line-height: 48px"
-          v-if="false"
-        >
-          <div>
-            <span class="vi-font-size--medium">
-              我的流水
-            </span>
-          </div>
-          <div>
-            <i class="iconfont icon-jiantou"></i>
+          <div class="vi-flex--1" @click="$router.push('/money')">
+            <div class="">
+              <div
+                class="vi-padding--large vi-border is-border--right is-border--thiner"
+              >
+                <div class="vi-text-align--center">
+                  <div style="line-height: 18px">
+                    <i
+                      class="iconfont icon-qianbao  vi-color--primary"
+                      style="font-size: 24px"
+                    ></i>
+                  </div>
+                  <div style="line-height: 18px">
+                    <span class="vi-color--light ">
+                      钱包
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

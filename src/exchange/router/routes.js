@@ -36,6 +36,12 @@ const advertEdit = r =>
   );
 const account = r =>
   require.ensure([], () => r(require("../view/account.vue")), "account");
+const accountDetail = r =>
+  require.ensure(
+    [],
+    () => r(require("../view/account-detail.vue")),
+    "accountDetail"
+  );
 const transfer = r =>
   require.ensure([], () => r(require("../view/transfer.vue")), "transfer");
 const confirm = r =>
@@ -112,6 +118,12 @@ const routes = [
     name: "account",
     component: account,
     meta: { title: "我的账号" }
+  },
+  {
+    path: "/account-detail",
+    name: "account-detail",
+    component: accountDetail,
+    meta: { title: "账号详情" }
   },
   {
     path: "/money",
