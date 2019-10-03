@@ -52,7 +52,7 @@ export default {
       params: {
         pageNo: 1,
         pageSize: 10,
-        advertiseType: 0,
+        advertiseType: 1,
         unit: "ttm",
         list: [],
         total: 0,
@@ -118,7 +118,7 @@ export default {
 
 <template>
   <div class="vv-home">
-    <div style="padding-bottom: 50px" v-if="params.list.length > 0">
+    <div v-if="params.list.length > 0" style="padding-bottom: 50px">
       <vui-loadmore @load="loadmore" :can-load="canLoad">
         <div
           class="vv-panel vi-padding--large vi-border is-border--bottom is-border--thiner"
@@ -205,6 +205,7 @@ export default {
         </div>
       </vui-loadmore>
     </div>
+
     <div
       class="vi-padding--large vi-center"
       style="height: 100vh;padding-bottom: 50px"
@@ -218,7 +219,7 @@ export default {
         </div>
         <div>
           <span class="vi-color--gray">
-            无卖出广告
+            无买入广告
           </span>
         </div>
       </div>
@@ -226,11 +227,11 @@ export default {
 
     <div class="vv-footer vi-border is-border--top is-border--thiner">
       <div class="vv-tabbar is-tabbar--white">
-        <div class="vv-tabbar-child " @click="$router.replace('/buy')">
+        <div class="vv-tabbar-child is-tabbar--active">
           <i class="iconfont icon-mairu vv-tabbar-icon"></i>
           <span class="vv-tabbar-text">买入</span>
         </div>
-        <div class="vv-tabbar-child is-tabbar--active">
+        <div class="vv-tabbar-child" @click="$router.replace('/sell')">
           <i class="iconfont icon-maichu vv-tabbar-icon"></i>
           <span class="vv-tabbar-text">卖出</span>
         </div>

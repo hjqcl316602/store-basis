@@ -77,8 +77,8 @@ export default instance;
       <div class="vui-confirm__footer">
         <slot name="footer">
           <div class="vui-confirm__footer-btn">
-            <div class="vui-btn" @click="cancelHandler">取消</div>
-            <div class="vui-btn vui-btn--primary" @click="okHandler">
+            <div class="vi-btn" @click="cancelHandler">取消</div>
+            <div class="vi-btn is-btn--primary" @click="okHandler">
               确认
             </div>
           </div>
@@ -88,5 +88,4 @@ export default instance;
   </div>
 </template>
 
-<style   scoped>
-</style>
+<style scoped></style>

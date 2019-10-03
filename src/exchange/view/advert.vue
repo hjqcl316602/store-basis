@@ -138,130 +138,128 @@ export default {
 </script>
 
 <template>
-  <div class="vv-advert" style="padding-bottom: 50px">
-    <vui-loadmore
-      @load="loadmore"
-      :can-load="canLoad"
-      v-if="params.list.length > 0"
-    >
-      <div
-        class="vv-panel vi-border is-border--bottom is-border--thiner vi-padding--large"
-        v-for="(item, index) in params.list"
-        :key="index"
-      >
-        <div>
-          <div
-            class="vi-flex vi-justify-content--space-between vi-margin-bottom"
-            style="line-height: 24px"
-          >
-            <vui-image
-              height="24px"
-              width="40px"
-              fill-type="height"
-              align-type="left"
-              :src="$getAdvertTypes(item.payMode, 'text').icon"
+  <div class="vv-advert">
+    <div class="" style="padding-bottom: 50px" v-if="params.list.length > 0">
+      <vui-loadmore @load="loadmore" :can-load="canLoad">
+        <div
+          class="vv-panel vi-border is-border--bottom is-border--thiner vi-padding--large"
+          v-for="(item, index) in params.list"
+          :key="index"
+        >
+          <div>
+            <div
+              class="vi-flex vi-justify-content--space-between vi-margin-bottom"
+              style="line-height: 24px"
             >
-            </vui-image>
-            <span
-              class=""
-              :class="{
-                'vi-color--danger': item.status === 0,
-                'vi-color--gray': item.status === 1
-              }"
-            >
-              {{ $getAdvertStatusTypes(item.status).text }}
-            </span>
-          </div>
-          <div
-            class="vi-flex vi-justify-content--space-between"
-            style="line-height: 28px"
-          >
-            <span class="vi-color--gray">剩余数量</span>
-            <span class=" vi-color--primary ">
-              {{ item.remainAmount }}
-            </span>
-          </div>
-          <div
-            class="vi-flex vi-justify-content--space-between"
-            style="line-height: 28px"
-          >
-            <span class="vi-color--gray">类型</span>
-            <span class="vi-color--light">
-              {{ $getTransactionTypes(item.advertiseType).text }}
-            </span>
-          </div>
-          <div
-            class="vi-flex vi-justify-content--space-between"
-            style="line-height: 28px"
-          >
-            <span class="vi-color--gray">数量</span>
-            <span class="vi-color--light"> {{ item.number }} </span>
-          </div>
-          <div
-            class="vi-flex vi-justify-content--space-between"
-            style="line-height: 28px"
-          >
-            <span class="vi-color--gray">单价</span>
-            <span class="vi-color--light"> {{ item.price }}CNY </span>
-          </div>
-          <div
-            class="vi-flex vi-justify-content--space-between"
-            style="line-height: 28px"
-          >
-            <span class="vi-color--gray">限额</span>
-            <span class="vi-color--light">
-              {{ item.minLimit }}~{{ item.maxLimit }}CNY
-            </span>
-          </div>
-          <div
-            class="vi-flex vi-justify-content--space-between"
-            style="line-height: 28px"
-          >
-            <span class="vi-color--gray">创建时间</span>
-            <span class="vi-color--light"> {{ item.createTime }} </span>
-          </div>
-        </div>
-        <div class="vi-margin-top--large vi-text-align--right">
-          <template v-if="item.status === 1">
-            <template v-if="item.remainAmount > 0">
-              <div
-                class="vi-btn is-btn--hollow is-btn--small is-btn--warning is-btn--thiner is-btn--radius "
-                @click="handler(item, 'on')"
+              <vui-image
+                height="24px"
+                width="40px"
+                fill-type="height"
+                align-type="left"
+                :src="$getAdvertTypes(item.payMode, 'text').icon"
               >
-                <span>上架</span>
+              </vui-image>
+              <span
+                class=""
+                :class="{
+                  'vi-color--danger': item.status === 0,
+                  'vi-color--gray': item.status === 1
+                }"
+              >
+                {{ $getAdvertStatusTypes(item.status).text }}
+              </span>
+            </div>
+            <div
+              class="vi-flex vi-justify-content--space-between"
+              style="line-height: 28px"
+            >
+              <span class="vi-color--gray">剩余数量</span>
+              <span class=" vi-color--primary ">
+                {{ item.remainAmount }}
+              </span>
+            </div>
+            <div
+              class="vi-flex vi-justify-content--space-between"
+              style="line-height: 28px"
+            >
+              <span class="vi-color--gray">类型</span>
+              <span class="vi-color--light">
+                {{ $getTransactionTypes(item.advertiseType).text }}
+              </span>
+            </div>
+            <div
+              class="vi-flex vi-justify-content--space-between"
+              style="line-height: 28px"
+            >
+              <span class="vi-color--gray">数量</span>
+              <span class="vi-color--light"> {{ item.number }} </span>
+            </div>
+            <div
+              class="vi-flex vi-justify-content--space-between"
+              style="line-height: 28px"
+            >
+              <span class="vi-color--gray">单价</span>
+              <span class="vi-color--light"> {{ item.price }}CNY </span>
+            </div>
+            <div
+              class="vi-flex vi-justify-content--space-between"
+              style="line-height: 28px"
+            >
+              <span class="vi-color--gray">限额</span>
+              <span class="vi-color--light">
+                {{ item.minLimit }}~{{ item.maxLimit }}CNY
+              </span>
+            </div>
+            <div
+              class="vi-flex vi-justify-content--space-between"
+              style="line-height: 28px"
+            >
+              <span class="vi-color--gray">创建时间</span>
+              <span class="vi-color--light"> {{ item.createTime }} </span>
+            </div>
+          </div>
+          <div class="vi-margin-top--large vi-text-align--right">
+            <template v-if="item.status === 1">
+              <template v-if="item.remainAmount > 0">
+                <div
+                  class="vi-btn is-btn--hollow is-btn--small is-btn--warning is-btn--thiner is-btn--radius "
+                  @click="handler(item, 'on')"
+                >
+                  <span>上架</span>
+                </div>
+              </template>
+              <div
+                class="vi-btn is-btn--hollow is-btn--small is-btn--primary is-btn--thiner is-btn--radius "
+                @click="handler(item, 'update')"
+              >
+                <span>修改</span>
+              </div>
+              <div
+                class="vi-btn is-btn--hollow is-btn--small is-btn--danger is-btn--thiner is-btn--radius "
+                @click="handler(item, 'del')"
+              >
+                <span>删除</span>
               </div>
             </template>
-            <div
-              class="vi-btn is-btn--hollow is-btn--small is-btn--primary is-btn--thiner is-btn--radius "
-              @click="handler(item, 'update')"
-            >
-              <span>修改</span>
-            </div>
-            <div
-              class="vi-btn is-btn--hollow is-btn--small is-btn--danger is-btn--thiner is-btn--radius "
-              @click="handler(item, 'del')"
-            >
-              <span>删除</span>
-            </div>
-          </template>
-          <template v-else>
-            <div
-              class="vi-btn is-btn--hollow is-btn--small is-btn--warning is-btn--thiner is-btn--radius "
-              @click="handler(item, 'off')"
-            >
-              <span>下架</span>
-            </div>
-          </template>
+            <template v-else>
+              <div
+                class="vi-btn is-btn--hollow is-btn--small is-btn--warning is-btn--thiner is-btn--radius "
+                @click="handler(item, 'off')"
+              >
+                <span>下架</span>
+              </div>
+            </template>
+          </div>
         </div>
-      </div>
-      <div
-        slot="footer"
-        v-if="params.total > 1 && params.total === params.list.length"
-        class="vi-padding--large vi-text-align--center"
-      >
-        <span class="vi-color--gray">总共{{ this.params.total }}条广告</span>
-      </div>
-    </vui-loadmore>
+        <div
+          slot="footer"
+          v-if="params.total > 1 && params.total === params.list.length"
+          class="vi-padding--large vi-text-align--center"
+        >
+          <span class="vi-color--gray">总共{{ this.params.total }}条广告</span>
+        </div>
+      </vui-loadmore>
+    </div>
     <div
       class="vi-padding--large vi-center"
       style="height: 100vh;padding-bottom: 50px"

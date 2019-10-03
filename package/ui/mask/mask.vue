@@ -10,7 +10,7 @@ const config = {
   value: false,
   closable: true,
   scrollable: false,
-  transitionName: "slide-bottom" // 动画名称
+  transitionName: "fade" // 动画名称
 };
 const instance = {};
 instance.name = "vui-mask";
