@@ -268,7 +268,7 @@ export default {
         </div>
         <div class="vi-margin-top--large">
           <div
-            class="vi-btn is-btn--primary is-btn--pack is-btn--long"
+            class="vi-btn is-btn--primary is-btn--hollow is-btn--long is-btn--radius is-btn--thiner"
             @click="sure"
           >
             确定

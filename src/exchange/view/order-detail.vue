@@ -69,7 +69,7 @@ export default {
           this.payInfo.type = this.message.payMode;
           this.payInfo = Object.assign(this.payInfo, this.message.payInfo);
           console.log(this.payInfo);
-          if (this.message.status === 1) {
+          if (this.message.status === 1 || this.message.status === 2) {
             this.setBackTimer();
           } else {
             this.clearBackTimer();

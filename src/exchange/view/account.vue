@@ -53,7 +53,7 @@ export default {
 </script>
 
 <template>
-  <div class="vv-account">
+  <div class="vv-account" style="padding-bottom: 50px">
     <div v-if="params.list.length > 0">
       <div
         class="vi-border is-border--bottom is-border--thiner"
@@ -205,6 +205,22 @@ export default {
           <span class="vi-color--gray">
             无账号
           </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vv-footer">
+      <div
+        class="vi-btn-group   vv-panel vi-border is-border--top is-border--thiner"
+      >
+        <div
+          class="vi-btn is-btn--long is-btn--primary "
+          style="line-height: 50px;height:50px"
+          @click="
+            $router.push({ path: '/account-edit', query: { type: 'create' } })
+          "
+        >
+          添加账号
         </div>
       </div>
     </div>

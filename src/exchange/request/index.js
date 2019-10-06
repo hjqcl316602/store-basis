@@ -84,3 +84,28 @@ export let toggleAccount = params =>
  */
 export let getWithdraw = params =>
   axios.post(config.http + "/uc/asset/transaction/withdraw", params);
+
+/**
+ * 时间：2019/9/22 ,
+ * 描述：获取开户行
+ * params :{
+ * cardNo：卡号
+ * }
+ */
+export let getCardDetail = params =>
+  axios.post(config.http + "/p/co/cardDetail.do", params);
+
+/**
+ * 时间：2019/9/22 ,
+ * 描述：获取开户行
+ * params :{
+    type:
+    name:  // 开户行
+    realName:  // 银行卡真实姓名
+    url:   // 卡号
+    alipayOrMask: // 银行简称
+    jyPassword:
+ * }
+ */
+export let createAccount = params =>
+  axios.post(config.http + "/uc/approve/bind/payInfo", params);

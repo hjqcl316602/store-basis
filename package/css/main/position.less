@@ -46,3 +46,16 @@
 .vi-cotian--hor {
   width: 100vw;
 }
+
+// 必填项
+.vi-require {
+  padding-left: 10px;
+}
+.vi-require:before {
+  content: "*";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: @color-danger;
+}

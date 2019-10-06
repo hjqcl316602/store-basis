@@ -78,14 +78,14 @@ export default {
       v-model="action.notice.show"
       @select="selectNotice"
     ></vui-action>
-    <div class="vv-panel vi-margin-bottom--large">
+    <div class="vv-panel ">
       <div
         class="vi-border is-border--bottom is-border--thiner vi-flex vi-justify-content--space-between vi-padding-left--large vi-padding-right--large"
         @click="action.login.show = true"
         style="line-height: 48px"
       >
         <div>
-          <span class="vi-font-size--medium">登录信息记住方式</span>
+          <span class="">登录信息记住方式</span>
         </div>
         <div>
           <span>{{ getLoginCacheText(loginCacheType) }}</span>
@@ -98,7 +98,7 @@ export default {
         style="line-height: 48px"
       >
         <div>
-          <span class="vi-font-size--medium">订单语音提醒</span>
+          <span class="">订单语音提醒</span>
         </div>
         <div>
           <span>{{ getOrderNoticeText(orderNoticeType) }}</span>
@@ -111,7 +111,7 @@ export default {
         @click="$router.push('/password')"
       >
         <div>
-          <span class="vi-font-size--medium">资金密码</span>
+          <span class="">资金密码</span>
         </div>
         <div>
           <i class="iconfont icon-jiantou"></i>
@@ -120,7 +120,7 @@ export default {
     </div>
 
     <div
-      class="vi-btn is-btn--pack is-btn--primary is-btn--long is-btn--larger"
+      class="vi-btn is-btn--pack is-btn--white is-btn--long is-btn--larger"
       @click="loginOut"
     >
       退出登录

@@ -36,6 +36,12 @@ const advertEdit = r =>
   );
 const account = r =>
   require.ensure([], () => r(require("../view/account.vue")), "account");
+const accountEdit = r =>
+  require.ensure(
+    [],
+    () => r(require("../view/account-edit.vue")),
+    "account-edit"
+  );
 const accountDetail = r =>
   require.ensure(
     [],
@@ -49,6 +55,24 @@ const confirm = r =>
 const set = r => require.ensure([], () => r(require("../view/set.vue")), "set");
 const password = r =>
   require.ensure([], () => r(require("../view/password.vue")), "password");
+const team = r =>
+  require.ensure([], () => r(require("../view/team.vue")), "team");
+const teamBind = r =>
+  require.ensure([], () => r(require("../view/team-bind.vue")), "team-bind");
+const teamList = r =>
+  require.ensure([], () => r(require("../view/team-list.vue")), "team-list");
+const teamDetail = r =>
+  require.ensure(
+    [],
+    () => r(require("../view/team-detail.vue")),
+    "team-detail"
+  );
+const teamUpdate = r =>
+  require.ensure(
+    [],
+    () => r(require("../view/team-update.vue")),
+    "team-update"
+  );
 const routes = [
   { path: "*", redirect: "/user", meta: { hide: true } },
   { path: "/", redirect: "/user", meta: { hide: true } },
@@ -120,6 +144,12 @@ const routes = [
     meta: { title: "我的账号" }
   },
   {
+    path: "/account-edit",
+    name: "account-edit",
+    component: accountEdit,
+    meta: { title: "账号编辑" }
+  },
+  {
     path: "/account-detail",
     name: "account-detail",
     component: accountDetail,
@@ -160,6 +190,36 @@ const routes = [
     name: "password",
     component: password,
     meta: { title: "资金密码" }
+  },
+  {
+    path: "/team",
+    name: "team",
+    component: team,
+    meta: { title: "推广" }
+  },
+  {
+    path: "/team-bind",
+    name: "team-bind",
+    component: teamBind,
+    meta: { title: "绑定推广人" }
+  },
+  {
+    path: "/team-list",
+    name: "team-list",
+    component: teamList,
+    meta: { title: "我的团队" }
+  },
+  {
+    path: "/team-detail",
+    name: "team-detail",
+    component: teamDetail,
+    meta: { title: "成员详情" }
+  },
+  {
+    path: "/team-update",
+    name: "team-update",
+    component: teamUpdate,
+    meta: { title: "更新成员分成比例" }
   }
 ];
 export default routes;

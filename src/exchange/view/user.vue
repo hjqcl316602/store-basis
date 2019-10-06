@@ -107,7 +107,7 @@ export default {
 <template>
   <div class="vv-user">
     <div>
-      <div class="vi-margin-bottom--small">
+      <div class="" style="margin-bottom: 1px">
         <div
           class="vv-panel vi-padding--large vi-padding-bottom--larger vi-padding-top--larger "
         >
@@ -149,8 +149,8 @@ export default {
           </div>
         </div>
       </div>
-      <div class="vi-margin-bottom--small" style="overflow: hidden;">
-        <vui-grid gutter="4">
+      <div style="overflow: hidden;margin-bottom: 1px">
+        <vui-grid gutter="1">
           <vui-grid-child span="12">
             <div
               class="vv-panel vi-padding--large vi-padding-bottom--larger vi-padding-top--larger"
@@ -189,17 +189,13 @@ export default {
           </vui-grid-child>
         </vui-grid>
       </div>
-      <div class=" ">
-        <div
-          class="vv-panel vi-flex vi-border is-border--bottom is-border--thiner "
-        >
-          <div class="vi-span--8" @click="$router.push('/order/withdraw')">
-            <div
-              class="vv-track"
-              :class="{ 'is-track--active': orderTradding.sell > 0 }"
-            >
+      <div class=" " style="overflow: hidden;margin-bottom: 1px">
+        <vui-grid gutter="1">
+          <vui-grid-child span="6">
+            <div @click="$router.push('/order/withdraw')">
               <div
-                class="vi-padding--large vi-border is-border--right is-border--thiner"
+                class="vi-padding--large vv-panel vv-track "
+                :class="{ 'is-track--active': orderTradding.sell > 0 }"
               >
                 <div class="vi-text-align--center">
                   <div style="line-height: 28px">
@@ -216,14 +212,12 @@ export default {
                 </div>
               </div>
             </div>
-          </div>
-          <div class="vi-span--8" @click="$router.push('/order/recharge')">
-            <div
-              class="vv-track"
-              :class="{ 'is-track--active': orderTradding.buy > 0 }"
-            >
+          </vui-grid-child>
+          <vui-grid-child span="6">
+            <div @click="$router.push('/order/recharge')">
               <div
-                class="vi-padding--large vi-border is-border--right is-border--thiner"
+                class="vi-padding--large  vv-panel vv-track"
+                :class="{ 'is-track--active': orderTradding.buy > 0 }"
               >
                 <div class="vi-text-align--center">
                   <div style="line-height: 28px">
@@ -240,13 +234,13 @@ export default {
                 </div>
               </div>
             </div>
-          </div>
-          <div class="vi-span--8" @click="$router.push('/order/custom')">
-            <div
-              class="vv-track"
-              :class="{ 'is-track--active': orderTradding.appeal > 0 }"
-            >
-              <div class="vi-padding--large ">
+          </vui-grid-child>
+          <vui-grid-child span="6">
+            <div @click="$router.push('/order/custom')">
+              <div
+                class="vi-padding--large  vv-panel vv-track"
+                :class="{ 'is-track--active': orderTradding.appeal > 0 }"
+              >
                 <div class="vi-text-align--center">
                   <div style="line-height: 28px">
                     <i
@@ -262,66 +256,60 @@ export default {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="vv-panel vi-flex vi-border is-border--bottom is-border--thiner"
-        >
-          <div class="vi-flex--1" @click="$router.push('/advert')">
-            <div class="">
-              <div
-                class="vi-padding--large vi-border is-border--right is-border--thiner"
-              >
+          </vui-grid-child>
+          <vui-grid-child span="6">
+            <div @click="$router.push('/order-list')">
+              <div class="vi-padding--large  vv-panel">
                 <div class="vi-text-align--center">
-                  <div style="line-height: 18px">
+                  <div style="line-height: 28px">
+                    <i
+                      class="iconfont icon-dingdan3  vi-color--primary"
+                      style="font-size: 24px"
+                    ></i>
+                  </div>
+                  <div style="line-height: 28px">
+                    <span class="vi-color--light ">
+                      全部订单
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </vui-grid-child>
+        </vui-grid>
+      </div>
+      <div class=" " style="overflow: hidden;margin-bottom: 1px">
+        <vui-grid gutter="1">
+          <vui-grid-child span="6">
+            <div @click="$router.push('/advert')">
+              <div class="vi-padding--large vv-panel ">
+                <div class="vi-text-align--center">
+                  <div style="line-height: 28px">
                     <i
                       class="iconfont icon-guanggao  vi-color--primary"
                       style="font-size: 24px"
                     ></i>
                   </div>
-                  <div style="line-height: 18px">
-                    <span class="vi-color--light ">
+                  <div style="line-height: 28px">
+                    <span class="vi-color--light">
                       广告
                     </span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="vi-flex--1" @click="$router.push('/order-list')">
-            <div class=" ">
-              <div
-                class="vi-padding--large vi-border is-border--right is-border--thiner"
-              >
+          </vui-grid-child>
+          <vui-grid-child span="6">
+            <div @click="$router.push('/account')">
+              <div class="vi-padding--large  vv-panel ">
                 <div class="vi-text-align--center">
-                  <div style="line-height: 18px">
-                    <i
-                      class="iconfont icon-dingdan3  vi-color--primary"
-                      style="font-size: 24px"
-                    ></i>
-                  </div>
-                  <div style="line-height: 18px">
-                    <span class="vi-color--light ">
-                      订单
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="vi-flex--1" @click="$router.push('/account')">
-            <div class=" ">
-              <div
-                class="vi-padding--large vi-border is-border--right is-border--thiner"
-              >
-                <div class="vi-text-align--center">
-                  <div style="line-height: 18px">
+                  <div style="line-height: 28px">
                     <i
                       class="iconfont icon-zhanghaoguanli  vi-color--primary"
                       style="font-size: 24px"
                     ></i>
                   </div>
-                  <div style="line-height: 18px">
+                  <div style="line-height: 28px">
                     <span class="vi-color--light ">
                       账号
                     </span>
@@ -329,20 +317,18 @@ export default {
                 </div>
               </div>
             </div>
-          </div>
-          <div class="vi-flex--1" @click="$router.push('/money')">
-            <div class="">
-              <div
-                class="vi-padding--large vi-border is-border--right is-border--thiner"
-              >
+          </vui-grid-child>
+          <vui-grid-child span="6">
+            <div @click="$router.push('/money')">
+              <div class="vi-padding--large  vv-panel">
                 <div class="vi-text-align--center">
-                  <div style="line-height: 18px">
+                  <div style="line-height: 28px">
                     <i
                       class="iconfont icon-qianbao  vi-color--primary"
                       style="font-size: 24px"
                     ></i>
                   </div>
-                  <div style="line-height: 18px">
+                  <div style="line-height: 28px">
                     <span class="vi-color--light ">
                       钱包
                     </span>
@@ -350,8 +336,27 @@ export default {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </vui-grid-child>
+          <vui-grid-child span="6">
+            <div @click="$router.push('/team')">
+              <div class="vi-padding--large  vv-panel">
+                <div class="vi-text-align--center">
+                  <div style="line-height: 28px">
+                    <i
+                      class="iconfont icon-tuandui  vi-color--primary"
+                      style="font-size: 24px"
+                    ></i>
+                  </div>
+                  <div style="line-height: 28px">
+                    <span class="vi-color--light ">
+                      推广
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </vui-grid-child>
+        </vui-grid>
       </div>
     </div>
     <div class="vv-footer vi-border is-border--top is-border--thiner">
