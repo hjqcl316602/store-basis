@@ -39,6 +39,11 @@ export default {
       withdraw: {
         today: 0,
         total: 0
+      },
+      money: {
+        total: {
+          show: localStorage.getItem("money/total/show")
+        }
       }
     };
   },
@@ -96,6 +101,10 @@ export default {
           this.$message.danger(data["message"]);
         }
       });
+    },
+    changeMoneyShow() {
+      this.money.total.show = !this.money.total.show;
+      localStorage.setItem("money/total/show", this.money.total.show);
     }
   },
   mounted() {
@@ -153,8 +162,51 @@ export default {
         <vui-grid gutter="1">
           <vui-grid-child span="12">
             <div
+              style="height: 100%"
+              class=" vv-panel  vi-padding--large  vi-padding-bottom--larger vi-padding-top--larger "
+            >
+              <div class="vi-text-align--center">
+                <div style="line-height: 28px">
+                  <span class="vi-color--light vi-margin-right--small">
+                    全部收款
+                  </span>
+                  <i
+                    class="iconfont  vi-color--light"
+                    :class="{
+                      'icon-tubiao-': !money.total.show,
+                      'icon-yincang': money.total.show
+                    }"
+                    @click="changeMoneyShow"
+                  ></i>
+                </div>
+                <div style="line-height: 28px">
+                  <template v-if="money.total.show">
+                    <span class="">￥ </span>
+                    <span class="vi-font-weight--bold " style="font-size: 24px">
+                      {{ withdraw.total || 0 }}
+                    </span>
+                  </template>
+                  <template v-else>
+                    <span class="vi-font-weight--bold" style="font-size: 24px"
+                      >* * * *</span
+                    >
+                  </template>
+                </div>
+                <div>
+                  <div
+                    class="vi-btn is-btn--smaller vi-color--gray"
+                    @click="check('total')"
+                  >
+                    查看明细
+                  </div>
+                </div>
+              </div>
+            </div>
+          </vui-grid-child>
+          <vui-grid-child span="12" class="">
+            <div
+              style="height: 100%"
               class="vv-panel vi-padding--large vi-padding-bottom--larger vi-padding-top--larger"
-              @click="check('today')"
             >
               <div class="vi-text-align--center">
                 <div style="line-height: 28px">
@@ -166,23 +218,13 @@ export default {
                     {{ withdraw.today || 0 }}
                   </span>
                 </div>
-              </div>
-            </div>
-          </vui-grid-child>
-          <vui-grid-child span="12">
-            <div
-              class=" vv-panel vi-padding--large  vi-padding-bottom--larger vi-padding-top--larger "
-              @click="check('total')"
-            >
-              <div class="vi-text-align--center">
-                <div style="line-height: 28px">
-                  <span class="vi-color--light">全部收款</span>
-                </div>
-                <div style="line-height: 28px">
-                  <span class="">￥ </span>
-                  <span class="vi-font-weight--bold " style="font-size: 24px">
-                    {{ withdraw.total || 0 }}
-                  </span>
+                <div>
+                  <div
+                    class="vi-btn is-btn--smaller vi-color--gray"
+                    @click="check('today')"
+                  >
+                    查看明细
+                  </div>
                 </div>
               </div>
             </div>
@@ -191,73 +233,7 @@ export default {
       </div>
       <div class=" " style="overflow: hidden;margin-bottom: 1px">
         <vui-grid gutter="1">
-          <vui-grid-child span="6">
-            <div @click="$router.push('/order/withdraw')">
-              <div
-                class="vi-padding--large vv-panel vv-track "
-                :class="{ 'is-track--active': orderTradding.sell > 0 }"
-              >
-                <div class="vi-text-align--center">
-                  <div style="line-height: 28px">
-                    <i
-                      class="iconfont icon-chuku  vi-color--primary"
-                      style="font-size: 24px"
-                    ></i>
-                  </div>
-                  <div style="line-height: 28px">
-                    <span class="vi-color--light">
-                      卖出订单
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </vui-grid-child>
-          <vui-grid-child span="6">
-            <div @click="$router.push('/order/recharge')">
-              <div
-                class="vi-padding--large  vv-panel vv-track"
-                :class="{ 'is-track--active': orderTradding.buy > 0 }"
-              >
-                <div class="vi-text-align--center">
-                  <div style="line-height: 28px">
-                    <i
-                      class="iconfont icon-ruku  vi-color--primary"
-                      style="font-size: 24px"
-                    ></i>
-                  </div>
-                  <div style="line-height: 28px">
-                    <span class="vi-color--light ">
-                      买入订单
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </vui-grid-child>
-          <vui-grid-child span="6">
-            <div @click="$router.push('/order/custom')">
-              <div
-                class="vi-padding--large  vv-panel vv-track"
-                :class="{ 'is-track--active': orderTradding.appeal > 0 }"
-              >
-                <div class="vi-text-align--center">
-                  <div style="line-height: 28px">
-                    <i
-                      class="iconfont icon-jingyingyichang  vi-color--primary"
-                      style="font-size: 24px"
-                    ></i>
-                  </div>
-                  <div style="line-height: 28px">
-                    <span class="vi-color--light ">
-                      申诉订单
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </vui-grid-child>
-          <vui-grid-child span="6">
+          <vui-grid-child span="12">
             <div @click="$router.push('/order-list')">
               <div class="vi-padding--large  vv-panel">
                 <div class="vi-text-align--center">
@@ -276,6 +252,81 @@ export default {
               </div>
             </div>
           </vui-grid-child>
+          <vui-grid-child span="12">
+            <div @click="$router.push('/order')">
+              <div
+                class="vi-padding--large vv-panel vv-track "
+                :class="{
+                  'is-track--active':
+                    Number(orderTradding.sell) +
+                      Number(orderTradding.buy) +
+                      Number(orderTradding.appeal) >
+                    0
+                }"
+              >
+                <div class="vi-text-align--center">
+                  <div style="line-height: 28px">
+                    <i
+                      class="iconfont icon-jinhangzhong  vi-color--primary"
+                      style="font-size: 24px"
+                    ></i>
+                  </div>
+                  <div style="line-height: 28px">
+                    <span class="vi-color--light">
+                      未完成订单
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </vui-grid-child>
+
+          <template v-if="false">
+            <vui-grid-child span="6">
+              <div @click="$router.push('/order/recharge')">
+                <div
+                  class="vi-padding--large  vv-panel vv-track"
+                  :class="{ 'is-track--active': orderTradding.buy > 0 }"
+                >
+                  <div class="vi-text-align--center">
+                    <div style="line-height: 28px">
+                      <i
+                        class="iconfont icon-ruku  vi-color--primary"
+                        style="font-size: 24px"
+                      ></i>
+                    </div>
+                    <div style="line-height: 28px">
+                      <span class="vi-color--light ">
+                        买入订单
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </vui-grid-child>
+            <vui-grid-child span="6">
+              <div @click="$router.push('/order/custom')">
+                <div
+                  class="vi-padding--large  vv-panel vv-track"
+                  :class="{ 'is-track--active': orderTradding.appeal > 0 }"
+                >
+                  <div class="vi-text-align--center">
+                    <div style="line-height: 28px">
+                      <i
+                        class="iconfont icon-jingyingyichang  vi-color--primary"
+                        style="font-size: 24px"
+                      ></i>
+                    </div>
+                    <div style="line-height: 28px">
+                      <span class="vi-color--light ">
+                        申诉订单
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </vui-grid-child>
+          </template>
         </vui-grid>
       </div>
       <div class=" " style="overflow: hidden;margin-bottom: 1px">

@@ -29,6 +29,12 @@ export let getRechargeOrder = params =>
   axios.post(config.http + "/otc/order/goToPay", params);
 /**
  * 时间：2019/9/22 ,
+ * 描述：未处理订单
+ */
+export let getPayConfirmOrder = params =>
+  axios.post(config.http + "/otc/order/goToPayOrConfirm", params);
+/**
+ * 时间：2019/9/22 ,
  * 描述：申诉订单
  */
 export let getAppealOrder = params =>

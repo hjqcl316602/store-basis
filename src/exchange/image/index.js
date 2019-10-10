@@ -16,6 +16,7 @@ let scenic8 = require("./scenic-8.jpg");
 let scenic9 = require("./scenic-9.jpg");
 let scenic10 = require("./scenic-10.jpg");
 
+let qrAlipay = require("./qr-alipay.jpg");
 export {
   iconHeadNormal,
   iconAli,
@@ -32,5 +33,6 @@ export {
   scenic7,
   scenic8,
   scenic9,
-  scenic10
+  scenic10,
+  qrAlipay
 };

@@ -14,7 +14,6 @@ export default {
     init() {
       let advertDetail = localStorage.getItem("account/detail");
       this.detail.message = advertDetail ? JSON.parse(advertDetail) : {};
-      console.log(this.$getAdvertTypes(this.detail.message.type).icon);
     },
     handler(type) {
       this.$router.push({

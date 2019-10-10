@@ -29,11 +29,16 @@ let instance = axios.create({
 
 instance.interceptors.request.use(
   res => {
+    let upload = res.headers.upload;
+    let closeLoading = res.headers.closeLoading;
     res["headers"]["x-auth-token"] =
       localStorage.getItem("service/token") || "";
-    res["data"] = qs.stringify(res["data"], { arrayFormat: "brackets" });
-    let closeLoading = res.headers.closeLoading;
-    !closeLoading && LoadingBar.start(80);
+    if (!upload) {
+      res["data"] = qs.stringify(res["data"], { arrayFormat: "brackets" });
+    }
+    if (!closeLoading) {
+      LoadingBar.start(80);
+    }
     return res;
   },
   err => {

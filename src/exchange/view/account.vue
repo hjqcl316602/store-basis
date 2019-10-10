@@ -53,8 +53,8 @@ export default {
 </script>
 
 <template>
-  <div class="vv-account" style="padding-bottom: 50px">
-    <div v-if="params.list.length > 0">
+  <div class="vv-account">
+    <div v-if="params.list.length > 0" style="padding-bottom: 50px">
       <div
         class="vi-border is-border--bottom is-border--thiner"
         v-for="(item, index) in params.list"

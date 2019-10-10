@@ -101,7 +101,7 @@ const routes = [
     meta: { title: "我的" }
   },
   {
-    path: "/order/:type",
+    path: "/order",
     name: "order",
     component: order,
     meta: { title: "订单" }

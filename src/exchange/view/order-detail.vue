@@ -231,7 +231,7 @@ export default {
 </script>
 
 <template>
-  <div class="vv-panel" style="min-height: 100vh">
+  <div class="vv-panel" style="min-height: 100vh;padding-bottom: 50px">
     <vui-confirm v-model="pay.show" title="确认信息" @ok="setOrderPay">
       <div class="vi-padding vi-text-align--center">
         <span>您是否确认已完成付款？</span>
@@ -632,7 +632,7 @@ export default {
           </div>
         </template>
       </div>
-      <div class="vi-margin-top--large vi-text-align--right">
+      <div class="vi-margin-top--large vi-text-align--right" v-if="false">
         <div
           class="vi-btn is-btn--warning is-btn--radius   is-btn--hollow is-btn--thiner"
           @click="handler('close-custom')"
@@ -661,6 +661,42 @@ export default {
         >
           直接转账
         </div>
+      </div>
+    </div>
+    <div
+      class="vv-tabbar vv-footer vv-panel vi-border is-border--top is-border--thiner"
+    >
+      <div
+        style="height: 100%;line-height: 50px"
+        class="vv-tabbar-child vi-btn is-btn--warning is-btn--long is-btn--pack"
+        @click="handler('close-custom')"
+        v-if="params.type === 'customer'"
+      >
+        关闭申诉
+      </div>
+      <div
+        style="height: 100%;line-height: 50px"
+        class="vv-tabbar-child vi-btn is-btn--primary is-btn--long is-btn--pack"
+        @click="handler('confirm')"
+        v-if="message.status === 2 && message.type === 1"
+      >
+        确认放币
+      </div>
+      <div
+        style="height: 100%;line-height: 50px"
+        class="vv-tabbar-child vi-btn is-btn--primary is-btn--long is-btn--pack"
+        @click="handler('confirm', 'pay')"
+        v-if="message.status === 1 && message.type === 0"
+      >
+        确认付款
+      </div>
+      <div
+        style="height: 100%;line-height: 50px"
+        class="vv-tabbar-child vi-btn is-btn--danger is-btn--long is-btn--pack"
+        @click="handler('transfer')"
+        v-if="!message.transferNumber"
+      >
+        直接转账
       </div>
     </div>
   </div>

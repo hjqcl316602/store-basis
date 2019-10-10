@@ -2,7 +2,8 @@
 import {
   getWidthdrawOrder,
   getRechargeOrder,
-  getAppealOrder
+  getAppealOrder,
+  getPayConfirmOrder
 } from "../request/order";
 import {
   iconHeadNormal,
@@ -40,14 +41,15 @@ let types = [
     value: 5
   }
 ];
-const DURATION = 10 * 1000;
+const DURATION = 20 * 1000;
 export default {
   name: "vv-order",
   data() {
     return {
       params: {
         type: "",
-        list: []
+        list: [],
+        loading: false
       }
     };
   },
@@ -55,14 +57,8 @@ export default {
   computed: {},
   methods: {
     init() {
-      this.params.type = this.$route.params.type;
-      if (this.params.type === "withdraw") {
-        this.getWidthdrawOrder();
-      } else if (this.params.type === "recharge") {
-        this.getRechargeOrder();
-      } else if (this.params.type === "custom") {
-        this.getAppealOrder();
-      }
+      //this.params.type = this.$route.params.type;
+      this.getPayConfirmOrder();
     },
     setTimer() {
       this._timer = setInterval(() => {
@@ -73,21 +69,18 @@ export default {
       clearInterval(this._timer);
       this._timer = null;
     },
-    getWidthdrawOrder() {
-      getWidthdrawOrder().then(res => {
+    getPayConfirmOrder() {
+      this.params.loading = true;
+      getPayConfirmOrder().then(res => {
         let data = res.data;
         if (data.code === 0) {
-          this.params.list = data.data;
-        } else {
-          this.$message.danger(data.message);
-        }
-      });
-    },
-    getRechargeOrder() {
-      getRechargeOrder().then(res => {
-        let data = res.data;
-        if (data.code === 0) {
-          this.params.list = data.data;
+          let resList = data.data;
+          let newRes = [];
+          resList.forEach(ele => {
+            newRes.push(Object.assign(ele, { orderType: "sellOrBuy" }));
+          });
+          this.params.list = newRes;
+          this.getAppealOrder();
         } else {
           this.$message.danger(data.message);
         }
@@ -97,7 +90,14 @@ export default {
       getAppealOrder().then(res => {
         let data = res.data;
         if (data.code === 0) {
-          this.params.list = data.data;
+          console.log("getAppealOrder");
+          let resList = data.data;
+          let newRes = [];
+          resList.forEach(ele => {
+            newRes.push(Object.assign(ele, { orderType: "customer" }));
+          });
+          this.params.list = this.params.list.concat(newRes);
+          this.params.loading = false;
         } else {
           this.$message.danger(data.message);
         }
@@ -108,7 +108,7 @@ export default {
         path: "/order-detail",
         query: {
           orderSn: item.orderSn,
-          type: this.params.type
+          type: item.orderType
         }
       });
     },
@@ -136,7 +136,7 @@ export default {
   },
   mounted() {
     this.init();
-    this.setTimer();
+    //this.setTimer();
   },
   beforeDestroy() {
     this.clearTimer();
@@ -170,6 +170,49 @@ export default {
           >
             {{ item.money }}
           </span>
+        </div>
+        <div
+          class="vi-flex  vi-justify-content--space-between"
+          style="line-height: 28px"
+        >
+          <div class="vi-padding-right--large vi-text-align--right ">
+            <span class="vi-color--gray">
+              状态
+            </span>
+          </div>
+          <div class=" ">
+            <template v-if="item.orderType === 'customer'">
+              <span class="vi-color--danger">
+                申诉
+              </span>
+            </template>
+            <template v-else>
+              <template v-if="item.status === 1">
+                <span class="vi-color--warning">等待付款</span>
+              </template>
+              <template v-else>
+                <span class="vi-color--warning">等待放行</span>
+              </template>
+            </template>
+          </div>
+        </div>
+        <div
+          class="vi-flex  vi-justify-content--space-between"
+          style="line-height: 28px"
+        >
+          <div class="vi-padding-right--large vi-text-align--right ">
+            <span class="vi-color--gray">
+              类型
+            </span>
+          </div>
+          <div class=" ">
+            <template v-if="item.type === 1 || item.advertiseType === 1">
+              <span>卖出</span>
+            </template>
+            <template v-else>
+              <span>买入</span>
+            </template>
+          </div>
         </div>
 
         <div
@@ -216,7 +259,7 @@ export default {
           </div>
           <div class=" ">
             <span class="">
-              {{ params.type !== "withdraw" ? item.customerName : item.name }}
+              {{ item.customerName || item.name }}
             </span>
           </div>
         </div>
@@ -300,6 +343,22 @@ export default {
             </span>
           </div>
         </div>
+        <div
+          class="vi-flex  vi-justify-content--space-between"
+          style="line-height: 28px"
+          v-if="item.remark"
+        >
+          <div class="vi-padding-right--large vi-text-align--right ">
+            <span class="vi-color--gray">
+              申诉信息
+            </span>
+          </div>
+          <div class=" ">
+            <span class="vi-color--danger">
+              {{ item.remark || "--" }}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="vi-padding--large vi-center" style="height: 100vh" v-else>
@@ -311,13 +370,7 @@ export default {
         </div>
         <div>
           <span class="vi-color--gray">
-            无{{
-              params.type === "withdraw"
-                ? "卖出"
-                : params.type === "recharge"
-                ? "买入"
-                : "申诉"
-            }}订单
+            无未完成的订单
           </span>
         </div>
       </div>
