@@ -33,6 +33,9 @@ export default {
   methods: {
     init() {
       this.params = Object.assign(this.params, this.$route.query);
+      if (this.params.type === "order") {
+        this.params.number = this.params.money;
+      }
       this.getAdvertiseInit();
       this.getTransferHis();
     },
@@ -147,6 +150,7 @@ export default {
       :options="action.options"
       v-model="action.show"
       @select="select"
+      :is-cancel="false"
     ></vui-action>
     <div class="vi-padding--large ">
       <div>

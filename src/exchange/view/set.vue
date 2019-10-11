@@ -1,12 +1,19 @@
 <script>
 import { loginOut } from "../request/login";
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 let loginCacheTypes = [
   { text: "账号", value: 1 },
   { text: "账号和密码", value: 2 },
   { text: "均不", value: 3 }
 ];
-let orderNoticeTypes = [{ text: "是", value: 1 }, { text: "否", value: 2 }];
+let orderNoticeDuration = [
+  { text: "5秒", value: 5 * 1000 },
+  { text: "10秒", value: 10 * 1000 },
+  { text: "20秒", value: 20 * 1000 },
+  { text: "30秒", value: 30 * 1000 },
+  { text: "1分", value: 60 * 1000 },
+  { text: "从不", value: "" }
+];
 export default {
   name: "",
   data() {
@@ -18,7 +25,7 @@ export default {
         },
         notice: {
           show: false,
-          options: orderNoticeTypes
+          options: orderNoticeDuration
         }
       }
     };
@@ -26,14 +33,19 @@ export default {
   props: {},
   computed: mapState({
     loginCacheType: state => state.login.cache.type,
-    orderNoticeType: state => state.order.notice.type
+    orderNoticeDuration: state => state.order.notice.duration
   }),
   methods: {
+    ...mapMutations({
+      setLoginCacheType: "set/login/cache/type",
+      setOrderNoticeDuration: "set/order/notice/duration",
+      setMember: "set/member"
+    }),
     loginOut() {
       loginOut().then(res => {
         let data = res["data"];
         if (data["code"] === 0) {
-          this.$store.commit("set/member", null);
+          this.setMember(null);
           this.$message.success("退出成功");
           setTimeout(() => {
             this.$router.replace("/login");
@@ -43,23 +55,17 @@ export default {
         }
       });
     },
-    selectLogin(item) {
-      this.$store.commit("set/login/cache/type", item.value);
-    },
     getLoginCacheText(value) {
       let find = loginCacheTypes.find(ele => {
         return ele.value === Number(value);
       });
-      return find.text;
-    },
-    selectNotice(item) {
-      this.$store.commit("set/order/notice/type", item.value);
+      return find && find.text;
     },
     getOrderNoticeText(value) {
-      let find = orderNoticeTypes.find(ele => {
+      let find = orderNoticeDuration.find(ele => {
         return ele.value === Number(value);
       });
-      return find.text;
+      return find ? find.text : "从不";
     }
   },
   mounted() {}
@@ -71,14 +77,16 @@ export default {
     <vui-action
       :options="action.login.options"
       v-model="action.login.show"
-      @select="selectLogin"
+      @select="item => setLoginCacheType(item.value)"
+      :is-cancel="false"
     ></vui-action>
     <vui-action
       :options="action.notice.options"
       v-model="action.notice.show"
-      @select="selectNotice"
+      @select="item => setOrderNoticeDuration(item.value)"
+      :is-cancel="false"
     ></vui-action>
-    <div class="vv-panel ">
+    <div class="vv-panel">
       <div
         class="vi-border is-border--bottom is-border--thiner vi-flex vi-justify-content--space-between vi-padding-left--large vi-padding-right--large"
         @click="action.login.show = true"
@@ -98,10 +106,10 @@ export default {
         style="line-height: 48px"
       >
         <div>
-          <span class="">订单语音提醒</span>
+          <span class="">订单语音提醒间隔</span>
         </div>
         <div>
-          <span>{{ getOrderNoticeText(orderNoticeType) }}</span>
+          <span>{{ getOrderNoticeText(orderNoticeDuration) }}</span>
           <i class="iconfont icon-jiantou"></i>
         </div>
       </div>

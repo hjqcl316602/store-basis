@@ -2,7 +2,7 @@
 import formater from "../../../package/es/dater/formater";
 import { loginOut } from "../request/login";
 import { getWithdraw } from "../request";
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import {
   iconHeadNormal,
   scenic1,
@@ -39,20 +39,19 @@ export default {
       withdraw: {
         today: 0,
         total: 0
-      },
-      money: {
-        total: {
-          show: localStorage.getItem("money/total/show")
-        }
       }
     };
   },
   props: {},
   computed: mapState({
     member: state => state.member || {},
-    orderTradding: state => state.order.tradding
+    orderTradding: state => state.order.tradding,
+    money: state => state.money
   }),
   methods: {
+    ...mapMutations({
+      setMoneyTotalShow: "set/money/total/show"
+    }),
     init() {
       this.getTraddingOrder();
       this.getWithdraw();
@@ -82,7 +81,7 @@ export default {
         );
       }
       getWithdraw(object).then(res => {
-        let data = res.data;
+        let data = res ? res.data : {};
         if (data.code === 0) {
           let message = data.data;
           this.withdraw[type] = Number(message.amount || 0).toFixed(2);
@@ -93,7 +92,7 @@ export default {
     },
     getTraddingOrder() {
       getTraddingOrder().then(res => {
-        let data = res.data;
+        let data = res ? res.data : {};
         if (data.code === 0) {
           let message = data.data;
           this.$store.commit("set/order/traddding", message);
@@ -103,12 +102,12 @@ export default {
       });
     },
     changeMoneyShow() {
-      this.money.total.show = !this.money.total.show;
-      localStorage.setItem("money/total/show", this.money.total.show);
+      this.setMoneyTotalShow(this.money.total.show === "no" ? "yes" : "no");
     }
   },
   mounted() {
     this.init();
+    console.log(this);
   }
 };
 </script>
@@ -173,23 +172,23 @@ export default {
                   <i
                     class="iconfont  vi-color--light"
                     :class="{
-                      'icon-tubiao-': !money.total.show,
-                      'icon-yincang': money.total.show
+                      'icon-tubiao-': money.total.show === 'yes',
+                      'icon-yincang': money.total.show !== 'yes'
                     }"
                     @click="changeMoneyShow"
                   ></i>
                 </div>
                 <div style="line-height: 28px">
-                  <template v-if="money.total.show">
+                  <template v-if="money.total.show === 'yes'">
                     <span class="">￥ </span>
                     <span class="vi-font-weight--bold " style="font-size: 24px">
                       {{ withdraw.total || 0 }}
                     </span>
                   </template>
                   <template v-else>
-                    <span class="vi-font-weight--bold" style="font-size: 24px"
-                      >* * * *</span
-                    >
+                    <span class="vi-font-weight--bold" style="font-size: 24px">
+                      ****
+                    </span>
                   </template>
                 </div>
                 <div>

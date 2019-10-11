@@ -143,7 +143,8 @@ export default {
           path: "/transfer",
           query: {
             type: "order",
-            orderSn: this.message.orderSn
+            orderSn: this.message.orderSn,
+            money: this.message.money
           }
         });
       } else if (type === "close-custom") {

@@ -231,12 +231,14 @@ export default {
       :options="actionType.options"
       v-model="actionType.show"
       @select="selectActionType"
+      :is-cancel="false"
     >
     </vui-action>
     <vui-action
       :options="actionMode.options"
       v-model="actionMode.show"
       @select="selectActionMode"
+      :is-cancel="false"
     >
     </vui-action>
     <div>

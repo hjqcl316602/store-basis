@@ -3,7 +3,6 @@ import { loginCheck } from "./request/login";
 import { getTraddingOrder } from "./request/order";
 import { mapState } from "vuex";
 import { orderTradding } from "./assets";
-const DURATION_ORDER = 15 * 1000;
 
 export default {
   name: "",
@@ -17,7 +16,7 @@ export default {
   },
   props: {},
   computed: mapState({
-    orderNoticeType: state => state.order.notice.type
+    orderNoticeDuration: state => state.order.notice.duration
   }),
   methods: {
     loginCheck() {
@@ -51,8 +50,7 @@ export default {
         if (data.code === 0) {
           let message = data.data;
           let total = message.sell + message.buy + message.appeal;
-          console.log(total);
-          if (total > 0 && this.orderNoticeType == 1) {
+          if (total > 0) {
             this.playAudio();
           }
           this.$store.commit("set/order/traddding", data["data"]);
@@ -63,10 +61,15 @@ export default {
     },
     setTimer() {
       this.clearTimer();
+      if (
+        Number.isNaN(this.orderNoticeDuration - 0) ||
+        this.orderNoticeDuration - 0 === 0
+      )
+        return false;
       this.getTraddingOrder();
       this._timer = setInterval(() => {
         this.getTraddingOrder();
-      }, DURATION_ORDER);
+      }, this.orderNoticeDuration - 0);
     },
     clearTimer() {
       clearInterval(this._timer);
@@ -84,7 +87,7 @@ export default {
     }
   },
   watch: {
-    orderNoticeType(val) {
+    orderNoticeDuration(val) {
       this.setTimer();
     }
   },
